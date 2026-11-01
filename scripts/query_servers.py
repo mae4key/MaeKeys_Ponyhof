@@ -33,6 +33,61 @@ PROTOCOLS = {
     "battlefield2": Battlefield2,
 }
 
+# Diese Namen meldet der Server selbst als "gamevariant" ueber den
+# +game-Parameter, mit dem er gestartet wurde. Werte aus eurer eigenen
+# mod_registry.json (BFV + BF1942) uebersetzt in lesbare Labels. Ein Mod,
+# der hier nicht auftaucht, wird einfach unuebersetzt angezeigt.
+MOD_LABELS = {
+    # Vanilla (jeweils wie vom Server selbst als gamevariant gemeldet)
+    "bf1942": "Vanilla",
+    "bfvietnam": "Vanilla",
+    "bf2": "Vanilla",
+    "bf2142": "Vanilla",
+    # Battlefield Vietnam
+    "bfv_ww2mod": "WW2Mod",
+    "eod_mod": "EoD",
+    "dicecity_v_mod": "DiceCity_V",
+    "poe_mod": "PoE",
+    "forcepack_mod": "Forcepack",
+    "onepointthree_mod": "OnePointThree",
+    "op_remembrance_mod": "Op_Remembrance",
+    "aiev_mod": "AIEV",
+    "bfbalkan_mod": "BfBalkan",
+    "battlegroup42_mod": "Battlegroup42",
+    "bfv_arsenal_mod": "BfvArsenal",
+    "bfv_ww2mod_x_mod": "BfvWw2modX",
+    # Battlefield 1942
+    "xpack1": "Xpack1",
+    "xpack2": "Xpack2",
+    "aie42": "AIE42",
+    "bf1918": "BF1918",
+    "bfheroes": "BfHeroes",
+    "bg42": "Battlegroup42Mod",
+    "dc_extended": "DC_Extended",
+    "dc_final": "DC_Final",
+    "dc_realism": "DC_Realism",
+    "desertcombat": "DesertCombat",
+    "eod": "EoD",
+    "eod_mw": "EoD_MW",
+    "fh": "ForgottenHope",
+    "fhr": "ForgottenHopeRemastered",
+    "fhsw": "FH_SecretWeapons",
+    "fhsweurope": "FH_SW_Europe",
+    "graphicsplus": "GraphicsPlus",
+    "pirates": "Pirates",
+    "pirates_sp": "Pirates_SP",
+    "roadtoromeextra": "RoadToRomeExtra",
+    "swextra": "SecretWeaponsExtra",
+    "bf1942_inklzusatzmaps": "Vanilla_PlusKarten",
+    "bf1942_weiterezusatzmaps": "Vanilla_WeitereKarten",
+}
+
+
+def _friendly_mod(raw: str) -> str:
+    if not raw:
+        return ""
+    return MOD_LABELS.get(raw.lower(), raw)
+
 
 def _first(info: dict, *keys: str, default: str = "") -> str:
     """Gibt den ersten vorhandenen Wert aus mehreren möglichen Schlüsselnamen
@@ -83,9 +138,8 @@ async def query_one(entry: dict) -> dict:
             # Der Mod wird vom Server selbst gemeldet (z. B. "bf1942" fuer
             # Vanilla, oder ein Mod-Kuerzel) - unabhaengig vom Port, da der
             # gleiche Port im Lauf der Zeit unterschiedliche Mods tragen kann.
-            result["mod"] = _first(
-                info, "gamevariant", "modname", "mod", "gamevariant_"
-            )
+            raw_mod = _first(info, "gamevariant", "modname", "mod", "gamevariant_")
+            result["mod"] = _friendly_mod(raw_mod)
             result["players"] = int(
                 _first(info, "numplayers", "playercount", "numplayers_", default="0")
                 or 0
@@ -96,10 +150,20 @@ async def query_one(entry: dict) -> dict:
             # Fallback: Spielerzahl notfalls aus der tatsaechlichen Player-Liste zaehlen
             if result["players"] == 0 and status.players:
                 result["players"] = len(status.players)
+
+            # TEMPORAER zur Fehlersuche (Mod-Erkennung bei BF1942/BFV,
+            # Bot- vs. Spieler-Unterscheidung bei BF2) - danach wieder raus:
+            result["_debug_info"] = info
+            result["_debug_first_player"] = status.players[0] if status.players else {}
+
             break  # Erfolgreich -> nicht mehr den naechsten Kandidaten versuchen
-        except Exception:
+        except Exception as exc:
             # Dieser Kandidat hat nicht geklappt -> naechsten probieren
             # (oder, falls keiner mehr uebrig ist, bleibt der Server "offline")
+            # TEMPORAER zur Fehlersuche bei BF2142:
+            result.setdefault("_debug_errors", []).append(
+                f"{protocol_cls.__name__}: {type(exc).__name__}: {exc}"
+            )
             continue
 
     return result
