@@ -1,27 +1,33 @@
 {
-  "generated_at": "2026-11-01T21:26:49+00:00",
+  "generated_at": "2026-11-01T21:28:49+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
       "game": "Battlefield 1942",
       "name": "MaeKeys Ponyhof",
-      "status": "online",
-      "map": "Berlin",
-      "mode": "ctf",
-      "mod": "Vanilla",
+      "status": "offline",
+      "map": "",
+      "mode": "",
+      "mod": "",
       "players": 0,
-      "max_players": 20
+      "max_players": 0,
+      "_debug_errors": [
+        "GameSpy1: TimeoutError: "
+      ]
     },
     {
       "id": "bf1942-ponyhof-2",
       "game": "Battlefield 1942",
       "name": "MaeKeys Ponyhof",
-      "status": "online",
-      "map": "gothic line",
-      "mode": "coop",
-      "mod": "Xpack2",
+      "status": "offline",
+      "map": "",
+      "mode": "",
+      "mod": "",
       "players": 0,
-      "max_players": 42
+      "max_players": 0,
+      "_debug_errors": [
+        "GameSpy1: TimeoutError: "
+      ]
     },
     {
       "id": "bfv-ponyhof-1",
@@ -72,16 +78,18 @@
       "id": "bf2-ponyhof-2",
       "game": "Battlefield 2",
       "name": "MaeKeys Ponyhof",
-      "status": "online",
+      "status": "offline",
       "map": "",
       "mode": "",
       "mod": "",
-      "players": 32,
+      "players": 0,
       "max_players": 0,
-      "_debug_info": {
-        "0": "0",
-        "pid_": ""
-      }
+      "_debug_errors": [
+        "Battlefield2: TimeoutError: ",
+        "Battlefield2: TimeoutError: ",
+        "GameSpy2: TimeoutError: ",
+        "GameSpy3: TimeoutError: "
+      ]
     },
     {
       "id": "bf2142-ponyhof-1",
