@@ -1,6 +1,6 @@
 [
   {
-    "id": "bf1942-ponyhof",
+    "id": "bf1942-ponyhof-1",
     "game": "Battlefield 1942",
     "name": "MaeKeys Ponyhof",
     "protocol": "gamespy1",
@@ -9,16 +9,16 @@
     "enabled": true
   },
   {
-    "id": "bf1942-ponyhof-mod",
+    "id": "bf1942-ponyhof-2",
     "game": "Battlefield 1942",
-    "name": "MaeKeys Ponyhof (Mod)",
+    "name": "MaeKeys Ponyhof (2)",
     "protocol": "gamespy1",
     "host": "870om3k8bee3muwz.myfritz.net",
     "port": 23001,
     "enabled": true
   },
   {
-    "id": "bfv-ponyhof",
+    "id": "bfv-ponyhof-1",
     "game": "Battlefield Vietnam",
     "name": "MaeKeys Ponyhof",
     "protocol": "gamespy2",
@@ -27,16 +27,16 @@
     "enabled": true
   },
   {
-    "id": "bfv-ponyhof-mod",
+    "id": "bfv-ponyhof-2",
     "game": "Battlefield Vietnam",
-    "name": "MaeKeys Ponyhof (Mod)",
+    "name": "MaeKeys Ponyhof (2)",
     "protocol": "gamespy2",
     "host": "870om3k8bee3muwz.myfritz.net",
     "port": 23011,
     "enabled": true
   },
   {
-    "id": "bf2-ponyhof",
+    "id": "bf2-ponyhof-1",
     "game": "Battlefield 2",
     "name": "MaeKeys Ponyhof",
     "protocol": "battlefield2",
@@ -45,16 +45,16 @@
     "enabled": true
   },
   {
-    "id": "bf2-ponyhof-mod",
+    "id": "bf2-ponyhof-2",
     "game": "Battlefield 2",
-    "name": "MaeKeys Ponyhof (Mod)",
+    "name": "MaeKeys Ponyhof (2)",
     "protocol": "battlefield2",
     "host": "870om3k8bee3muwz.myfritz.net",
     "port": 29901,
     "enabled": true
   },
   {
-    "id": "bf2142-ponyhof",
+    "id": "bf2142-ponyhof-1",
     "game": "Battlefield 2142",
     "name": "MaeKeys Ponyhof",
     "protocol": "battlefield2",
@@ -63,9 +63,9 @@
     "enabled": true
   },
   {
-    "id": "bf2142-ponyhof-mod",
+    "id": "bf2142-ponyhof-2",
     "game": "Battlefield 2142",
-    "name": "MaeKeys Ponyhof (Mod)",
+    "name": "MaeKeys Ponyhof (2)",
     "protocol": "battlefield2",
     "host": "870om3k8bee3muwz.myfritz.net",
     "port": 29911,

@@ -56,33 +56,46 @@ async def query_one(entry: dict) -> dict:
         "max_players": 0,
     }
 
-    protocol_cls = PROTOCOLS.get(entry.get("protocol", ""))
-    if protocol_cls is None:
+    primary_cls = PROTOCOLS.get(entry.get("protocol", ""))
+    if primary_cls is None:
         result["status"] = "fehlkonfiguriert"
         return result
 
-    try:
-        client = protocol_cls(
-            host=entry["host"], port=int(entry["port"]), timeout=TIMEOUT_SECONDS
-        )
-        status = await client.get_status()
-        info = {k.lower(): v for k, v in status.info.items()}
+    # Bei "battlefield2" zusaetzlich "gamespy2" als Fallback versuchen:
+    # BF2142 nutzt eine abgewandelte GameSpy2-Variante, bei der nicht
+    # sicher ist, ob die eigens fuer BF2 gebaute Klasse 1:1 passt.
+    candidates = [primary_cls]
+    if entry.get("protocol") == "battlefield2":
+        candidates.append(GameSpy2)
 
-        result["status"] = "online"
-        result["map"] = _first(info, "mapname", "map", "map_")
-        result["mode"] = _first(info, "gametype", "gamevariant", "mode", "gametype_")
-        result["players"] = int(
-            _first(info, "numplayers", "playercount", "numplayers_", default="0") or 0
-        )
-        result["max_players"] = int(
-            _first(info, "maxplayers", "maxplayers_", default="0") or 0
-        )
-        # Fallback: Spielerzahl notfalls aus der tatsaechlichen Player-Liste zaehlen
-        if result["players"] == 0 and status.players:
-            result["players"] = len(status.players)
-    except Exception:
-        # Nicht erreichbar/Timeout/Server aus -> bleibt "offline"
-        pass
+    for protocol_cls in candidates:
+        try:
+            client = protocol_cls(
+                host=entry["host"], port=int(entry["port"]), timeout=TIMEOUT_SECONDS
+            )
+            status = await client.get_status()
+            info = {k.lower(): v for k, v in status.info.items()}
+
+            result["status"] = "online"
+            result["map"] = _first(info, "mapname", "map", "map_")
+            result["mode"] = _first(
+                info, "gametype", "gamevariant", "mode", "gametype_"
+            )
+            result["players"] = int(
+                _first(info, "numplayers", "playercount", "numplayers_", default="0")
+                or 0
+            )
+            result["max_players"] = int(
+                _first(info, "maxplayers", "maxplayers_", default="0") or 0
+            )
+            # Fallback: Spielerzahl notfalls aus der tatsaechlichen Player-Liste zaehlen
+            if result["players"] == 0 and status.players:
+                result["players"] = len(status.players)
+            break  # Erfolgreich -> nicht mehr den naechsten Kandidaten versuchen
+        except Exception:
+            # Dieser Kandidat hat nicht geklappt -> naechsten probieren
+            # (oder, falls keiner mehr uebrig ist, bleibt der Server "offline")
+            continue
 
     return result
 
