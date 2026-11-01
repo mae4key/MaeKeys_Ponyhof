@@ -52,6 +52,7 @@ async def query_one(entry: dict) -> dict:
         "status": "offline",
         "map": "",
         "mode": "",
+        "mod": "",
         "players": 0,
         "max_players": 0,
     }
@@ -78,8 +79,12 @@ async def query_one(entry: dict) -> dict:
 
             result["status"] = "online"
             result["map"] = _first(info, "mapname", "map", "map_")
-            result["mode"] = _first(
-                info, "gametype", "gamevariant", "mode", "gametype_"
+            result["mode"] = _first(info, "gametype", "mode", "gametype_")
+            # Der Mod wird vom Server selbst gemeldet (z. B. "bf1942" fuer
+            # Vanilla, oder ein Mod-Kuerzel) - unabhaengig vom Port, da der
+            # gleiche Port im Lauf der Zeit unterschiedliche Mods tragen kann.
+            result["mod"] = _first(
+                info, "gamevariant", "modname", "mod", "gamevariant_"
             )
             result["players"] = int(
                 _first(info, "numplayers", "playercount", "numplayers_", default="0")

@@ -31,14 +31,14 @@
 
   body {
     font-family: "JetBrains Mono", ui-monospace, monospace;
-    padding: 2.5rem 1.25rem 4rem;
+    padding: 2.5rem 0.75rem 4rem;
     background-image:
       radial-gradient(circle at 15% 0%, rgba(111,132,88,0.12), transparent 45%),
       radial-gradient(circle at 85% 10%, rgba(201,168,76,0.08), transparent 40%);
   }
 
   .wrap {
-    max-width: 560px;
+    max-width: 680px;
     margin: 0 auto;
   }
 
@@ -79,14 +79,20 @@
     max-width: 360px;
   }
 
-  .servers { display: flex; flex-direction: column; gap: 0.9rem; }
+  .servers {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
+  }
+
+  .empty { grid-column: 1 / -1; }
 
   .card {
     position: relative;
     background: var(--panel);
     border: 1px solid var(--panel-line);
     border-left: 4px solid var(--field-green);
-    padding: 1rem 1.1rem;
+    padding: 0.7rem 0.75rem;
     clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%);
   }
 
@@ -94,17 +100,18 @@
 
   .card-top {
     display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 0.75rem;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.5rem;
     flex-wrap: wrap;
   }
 
   .game-name {
     font-family: "Staatliches", sans-serif;
     letter-spacing: 0.04em;
-    font-size: 1.2rem;
+    font-size: 0.92rem;
     color: var(--text);
+    line-height: 1.2;
   }
 
   .tag {
@@ -118,11 +125,11 @@
   .tag.offline { color: var(--offline); }
 
   dl.meta {
-    margin: 0.7rem 0 0;
+    margin: 0.55rem 0 0;
     display: grid;
     grid-template-columns: auto 1fr;
-    gap: 0.25rem 0.75rem;
-    font-size: 0.85rem;
+    gap: 0.2rem 0.5rem;
+    font-size: 0.74rem;
   }
 
   dl.meta dt { color: var(--text-dim); }
@@ -237,15 +244,6 @@
 </div>
 
 <script>
-const GAME_LABELS = {
-  "Battlefield 1942": "BF1942",
-  "Battlefield Vietnam": "BF Vietnam",
-  "Battlefield 2": "BF2",
-  "Battlefield 2142": "BF2142",
-  "Medal of Honor: Allied Assault": "MOHAA",
-  "Medal of Honor: Pacific Assault": "MOHPA"
-};
-
 function fmtTimestamp(iso) {
   if (!iso) return "Noch kein Durchlauf erfolgt.";
   const d = new Date(iso);
@@ -264,11 +262,11 @@ function renderServers(servers) {
   el.innerHTML = online.map(s => `
     <div class="card">
       <div class="card-top">
-        <span class="game-name">${GAME_LABELS[s.game] || s.game}</span>
+        <span class="game-name">${s.game}</span>
         <span class="tag online">ONLINE</span>
       </div>
       <dl class="meta">
-        <dt>Server</dt><dd>${s.name}</dd>
+        <dt>Server</dt><dd>${s.mod ? s.name + " – " + s.mod : s.name}</dd>
         <dt>Map</dt><dd>${s.map || "–"}</dd>
         <dt>Modus</dt><dd>${s.mode || "–"}</dd>
         <dt>Spieler</dt><dd>${s.players}${s.max_players ? " / " + s.max_players : ""}</dd>
