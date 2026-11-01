@@ -28,15 +28,19 @@ OUTPUT_PATH = ROOT / "docs" / "status.json"
 
 TIMEOUT_SECONDS = 4.0
 
+
 PROTOCOLS = {
     "gamespy1": GameSpy1,
     "gamespy2": GameSpy2,
     "battlefield2": Battlefield2,
 }
 
-# Werte, die der Server selbst im "gameId"-Feld meldet (der +game-Parameter,
-# mit dem er gestartet wurde) - uebersetzt in lesbare Labels anhand eurer
-# eigenen mod_registry.json (BFV + BF1942). Ein Mod, der hier nicht
+# Werte, die der Server selbst im "gameId"/"game_id"-Feld meldet (der
+# +game-Parameter, mit dem er gestartet wurde). Achtung: BF1942 (GameSpy1)
+# schickt den Schluessel als "gameId" (ohne Unterstrich), BFV (GameSpy2)
+# dagegen als "game_id" (mit Unterstrich) - nach dem Kleinschreiben also
+# zwei unterschiedliche Schluessel, beide noetig. Werte uebersetzt anhand
+# eurer eigenen mod_registry.json (BFV + BF1942). Ein Mod, der hier nicht
 # auftaucht, wird einfach unuebersetzt angezeigt statt zu fehlen.
 MOD_LABELS = {
     # Vanilla
@@ -49,6 +53,7 @@ MOD_LABELS = {
     "eod_mod": "EoD",
     "dicecity_v_mod": "DiceCity_V",
     "poe_mod": "PoE",
+    "poe": "PoE",
     "forcepack_mod": "Forcepack",
     "onepointthree_mod": "OnePointThree",
     "op_remembrance_mod": "Op_Remembrance",
@@ -92,8 +97,8 @@ def _friendly_mod(raw: str) -> str:
 
 def _first(info: dict, *keys: str, default: str = "") -> str:
     """Gibt den ersten vorhandenen Wert aus mehreren möglichen Schlüsselnamen
-    zurueck, da GameSpy-Server je nach Spiel/Mod leicht unterschiedliche
-    Feldnamen verwenden (z. B. 'mapname' vs. 'map')."""
+    zurueck, da GameSpy-Server je nach Protokollversion/Mod leicht
+    unterschiedliche Feldnamen verwenden (z. B. 'gameId' vs. 'game_id')."""
     for key in keys:
         if key in info and str(info[key]).strip() != "":
             return str(info[key]).strip()
@@ -102,11 +107,18 @@ def _first(info: dict, *keys: str, default: str = "") -> str:
 
 def _count_humans(info: dict, players: list) -> int:
     """Zaehlt echte Spieler statt Bots. Bei Coop-Servern (v. a. BF2) kann
-    das vom Server gemeldete 'numplayers' auch Bots enthalten, die nicht
-    gegen das Spieler-Limit zaehlen (Servereinstellung
-    aiSettings.maxBotsIncludeHumans). Bots melden dabei durchgehend
-    ping=0, echte Spieler nie - das ist ein seit Jahren in Server-Browsern
-    fuer diese Engine-Generation gebraeuchlicher Erkennungsweg."""
+    das vom Server gemeldete 'numplayers' auch Bots enthalten. Zwei Wege,
+    bevorzugt der erste:
+    1. Das Feld 'bf2_bots' (Anzahl Bots) wird direkt vom Abzug genutzt.
+    2. Sonst: Bots melden durchgehend ping=0, echte Spieler nie - ein seit
+       Jahren in Server-Browsern fuer diese Engine-Generation gebraeuchlicher
+       Erkennungsweg."""
+    numplayers = int(
+        _first(info, "numplayers", "playercount", "numplayers_", default="0") or 0
+    )
+    bots = _first(info, "bf2_bots", "numbots", "bots")
+    if bots:
+        return max(0, numplayers - int(bots))
     if players:
         humans = [
             p
@@ -114,9 +126,14 @@ def _count_humans(info: dict, players: list) -> int:
             if str(p.get("ping", p.get("ping_", "1"))).strip() not in ("0", "")
         ]
         return len(humans)
-    return int(
-        _first(info, "numplayers", "playercount", "numplayers_", default="0") or 0
-    )
+    return numplayers
+
+
+async def _try_protocol(protocol_cls, host, port, challenge_required=None):
+    client = protocol_cls(host=host, port=port, timeout=TIMEOUT_SECONDS)
+    if challenge_required is not None and hasattr(client, "challenge_required"):
+        client.challenge_required = challenge_required
+    return await client.get_status()
 
 
 async def query_one(entry: dict) -> dict:
@@ -132,35 +149,38 @@ async def query_one(entry: dict) -> dict:
         "max_players": 0,
     }
 
-    primary_cls = PROTOCOLS.get(entry.get("protocol", ""))
+    protocol_name = entry.get("protocol", "")
+    primary_cls = PROTOCOLS.get(protocol_name)
     if primary_cls is None:
         result["status"] = "fehlkonfiguriert"
         return result
 
-    # Bei "battlefield2" zusaetzlich zwei Fallbacks versuchen: BF2142 nutzt
-    # eine abgewandelte GameSpy-Variante, bei der nicht sicher ist, ob die
-    # eigens fuer BF2 gebaute Klasse 1:1 passt.
-    candidates = [primary_cls]
-    if entry.get("protocol") == "battlefield2":
-        candidates += [GameSpy2, GameSpy3]
+    # Bei "battlefield2" (BF2 + BF2142) mehrere Varianten durchprobieren:
+    # BF2142 braucht vermutlich (anders als BF2) den GameSpy3-Challenge-
+    # Handshake, ausserdem als Netz GameSpy2/GameSpy3 generisch.
+    candidates = [(primary_cls, None)]
+    if protocol_name == "battlefield2":
+        candidates += [
+            (Battlefield2, True),  # mit Challenge-Handshake (BF2142-Verdacht)
+            (GameSpy2, None),
+            (GameSpy3, None),
+        ]
 
-    for protocol_cls in candidates:
+    for protocol_cls, challenge_required in candidates:
         try:
-            client = protocol_cls(
-                host=entry["host"], port=int(entry["port"]), timeout=TIMEOUT_SECONDS
+            status = await _try_protocol(
+                protocol_cls, entry["host"], int(entry["port"]), challenge_required
             )
-            status = await client.get_status()
             info = {k.lower(): v for k, v in status.info.items()}
 
             result["status"] = "online"
             result["map"] = _first(info, "mapname", "map", "map_")
             result["mode"] = _first(info, "gametype", "mode", "gametype_")
-            # Der Mod wird vom Server selbst im "gameId"-Feld gemeldet
-            # (z. B. "bf1942" fuer Vanilla, oder ein Mod-Kuerzel) -
-            # unabhaengig vom Port, da derselbe Port im Lauf der Zeit
-            # unterschiedliche Mods tragen kann.
+            # Der Mod wird vom Server selbst im "gameId"/"game_id"-Feld
+            # gemeldet - unabhaengig vom Port, da derselbe Port im Lauf der
+            # Zeit unterschiedliche Mods tragen kann.
             raw_mod = _first(
-                info, "gameid", "gamevariant", "modname", "mod", "gameid_"
+                info, "game_id", "gameid", "gamevariant", "modname", "mod"
             )
             result["mod"] = _friendly_mod(raw_mod)
             result["players"] = _count_humans(info, status.players)
