@@ -16,6 +16,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 jobs:
   update-status:
@@ -46,3 +47,21 @@ jobs:
           else
             echo "Keine Aenderung am Status."
           fi
+
+      - name: Naechsten Lauf in 90 Sekunden selbst anstossen
+        # Umgeht GitHubs eigenen (bei neuen Repos teils unzuverlaessigen)
+        # "schedule"-Mechanismus komplett: dieser Lauf wartet 90 Sekunden und
+        # loest sich danach per API selbst erneut aus. Laeuft so lange
+        # weiter, wie jeder Lauf erfolgreich den naechsten anstoesst - "if:
+        # always()" sorgt dafuer, dass das auch nach einem Fehler in einem
+        # vorherigen Schritt noch passiert, damit die Kette nicht abreisst.
+        # Bei einem oeffentlichen Repo sind GitHub-Actions-Minuten
+        # unbegrenzt kostenlos, daher spricht nichts gegen diesen engen Takt.
+        if: always()
+        run: |
+          sleep 90
+          curl -s -X POST \
+            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/workflows/update-status.yml/dispatches" \
+            -d '{"ref":"main"}'

@@ -285,9 +285,9 @@ async function load() {
     const staleNotice = document.getElementById("stale-notice");
     if (data.generated_at) {
       const ageMinutes = (Date.now() - new Date(data.generated_at)) / 60000;
-      if (ageMinutes > 20) {
+      if (ageMinutes > 5) {
         staleNotice.hidden = false;
-        staleNotice.textContent = "Hinweis: Der letzte Abruf liegt über 20 Minuten zurück – Daten könnten veraltet sein.";
+        staleNotice.textContent = "Hinweis: Der letzte Abruf liegt über 5 Minuten zurück – Daten könnten veraltet sein.";
       }
     }
   } catch (e) {
