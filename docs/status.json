@@ -1,8 +1,28 @@
 {
-  "generated_at": "2026-11-01T18:30:24+00:00",
+  "generated_at": "2026-11-01T18:49:08+00:00",
   "servers": [
     {
-      "id": "bfv-ponyhof-1",
+      "id": "bf1942-ponyhof",
+      "game": "Battlefield 1942",
+      "name": "MaeKeys Ponyhof",
+      "status": "online",
+      "map": "Berlin",
+      "mode": "ctf",
+      "players": 0,
+      "max_players": 20
+    },
+    {
+      "id": "bf1942-ponyhof-mod",
+      "game": "Battlefield 1942",
+      "name": "MaeKeys Ponyhof (Mod)",
+      "status": "online",
+      "map": "kbely airfield",
+      "mode": "coop",
+      "players": 0,
+      "max_players": 42
+    },
+    {
+      "id": "bfv-ponyhof",
       "game": "Battlefield Vietnam",
       "name": "MaeKeys Ponyhof",
       "status": "online",
@@ -10,6 +30,56 @@
       "mode": "coop",
       "players": 0,
       "max_players": 44
+    },
+    {
+      "id": "bfv-ponyhof-mod",
+      "game": "Battlefield Vietnam",
+      "name": "MaeKeys Ponyhof (Mod)",
+      "status": "online",
+      "map": "Wake",
+      "mode": "coop",
+      "players": 0,
+      "max_players": 44
+    },
+    {
+      "id": "bf2-ponyhof",
+      "game": "Battlefield 2",
+      "name": "MaeKeys Ponyhof",
+      "status": "online",
+      "map": "Daqing Oilfields",
+      "mode": "gpm_coop",
+      "players": 40,
+      "max_players": 32
+    },
+    {
+      "id": "bf2-ponyhof-mod",
+      "game": "Battlefield 2",
+      "name": "MaeKeys Ponyhof (Mod)",
+      "status": "online",
+      "map": "Ghost Town",
+      "mode": "gpm_coop",
+      "players": 32,
+      "max_players": 32
+    },
+    {
+      "id": "bf2142-ponyhof",
+      "game": "Battlefield 2142",
+      "name": "MaeKeys Ponyhof",
+      "status": "offline",
+      "map": "",
+      "mode": "",
+      "players": 0,
+      "max_players": 0
+    },
+    {
+      "id": "bf2142-ponyhof-mod",
+      "game": "Battlefield 2142",
+      "name": "MaeKeys Ponyhof (Mod)",
+      "status": "offline",
+      "map": "",
+      "mode": "",
+      "players": 0,
+      "max_players": 0
     }
   ]
 }
