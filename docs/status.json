@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-01T19:41:07+00:00",
+  "generated_at": "2026-11-01T19:58:16+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -95,8 +95,8 @@
         "roundtimeremain": "-1",
         "status": "4",
         "sv_punkbuster": "1",
-        "tickets1": "554",
-        "tickets2": "453",
+        "tickets1": "447",
+        "tickets2": "263",
         "unpure_mods": "",
         "version": "v1.612",
         "active_mods": "xpack2",
@@ -360,7 +360,7 @@
         "bf2_pure": "1",
         "bf2_mapsize": "16",
         "bf2_globalunlocks": "1",
-        "bf2_fps": "35.000000",
+        "bf2_fps": "36.000000",
         "bf2_plasma": "0",
         "bf2_reservedslots": "0",
         "bf2_coopbotratio": "",
