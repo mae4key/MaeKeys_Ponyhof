@@ -2,9 +2,10 @@ name: Status aktualisieren
 
 on:
   schedule:
-    # Alle 5 Minuten. GitHub garantiert keine exakte Punktlandung -
-    # bei hoher Last auf GitHub kann es ein paar Minuten Verzug geben.
-    - cron: "*/5 * * * *"
+    # Alle 2 Minuten. GitHub garantiert keine exakte Punktlandung -
+    # bei hoher Last auf GitHub Actions kann es zu Verzug kommen, bei einem
+    # so engen Takt eher als bei 5 Minuten.
+    - cron: "*/2 * * * *"
   workflow_dispatch: {}
   push:
     branches: [main]

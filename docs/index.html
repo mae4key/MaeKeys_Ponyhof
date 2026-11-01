@@ -51,7 +51,7 @@
     margin-bottom: 2.5rem;
   }
 
-  .mascot { width: 128px; height: 128px; }
+  .mascot { width: 168px; height: auto; }
 
   h1 {
     font-family: "Staatliches", sans-serif;
@@ -157,38 +157,72 @@
 <body>
 <div class="wrap">
   <div class="hero">
-    <svg class="mascot" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pony-Maskottchen mit Stahlhelm und Gewehr">
-      <ellipse cx="100" cy="178" rx="70" ry="10" fill="#000" opacity="0.25"/>
-      <!-- Gewehr im Hintergrund, ueber die Schulter -->
-      <g stroke="#3a3a30" stroke-width="5" stroke-linecap="round">
-        <line x1="40" y1="150" x2="160" y2="70"/>
-      </g>
-      <rect x="132" y="78" width="22" height="7" rx="2" fill="#3a3a30" transform="rotate(-34 143 81)"/>
-      <!-- Pony-Koerper -->
-      <ellipse cx="100" cy="135" rx="48" ry="34" fill="#caa06a"/>
-      <!-- Beine -->
-      <rect x="68" y="150" width="12" height="28" rx="5" fill="#caa06a"/>
-      <rect x="120" y="150" width="12" height="28" rx="5" fill="#caa06a"/>
+    <svg class="mascot" viewBox="0 0 240 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pony-Maskottchen mit Stahlhelm und Gewehr">
+      <ellipse cx="120" cy="178" rx="78" ry="9" fill="#000" opacity="0.3"/>
       <!-- Schweif -->
-      <path d="M148 120 q 26 6 18 34 q -4 14 -20 10 q 14 -6 10 -20 q -2 -12 -8 -24 Z" fill="#6b4a33"/>
+      <path d="M 196 95
+               C 222 100, 228 125, 214 145
+               C 206 157, 190 158, 184 150
+               C 196 146, 204 130, 198 115
+               C 195 108, 190 102, 184 98 Z" fill="#6b4a33"/>
+      <!-- Hinterbeine -->
+      <rect x="178" y="118" width="13" height="48" rx="5" fill="#caa06a"/>
+      <rect x="200" y="118" width="13" height="48" rx="5" fill="#caa06a"/>
+      <rect x="176" y="160" width="17" height="10" rx="3" fill="#3a2e22"/>
+      <rect x="198" y="160" width="17" height="10" rx="3" fill="#3a2e22"/>
+      <!-- Vorderbeine -->
+      <rect x="62" y="118" width="13" height="48" rx="5" fill="#caa06a"/>
+      <rect x="84" y="118" width="13" height="48" rx="5" fill="#caa06a"/>
+      <rect x="60" y="160" width="17" height="10" rx="3" fill="#3a2e22"/>
+      <rect x="82" y="160" width="17" height="10" rx="3" fill="#3a2e22"/>
+      <!-- Koerper -->
+      <path d="M 60 120
+               C 55 95, 75 78, 105 76
+               L 185 80
+               C 205 82, 216 96, 214 112
+               C 213 128, 200 136, 182 136
+               L 76 136
+               C 66 136, 61 130, 60 120 Z" fill="#caa06a"/>
+      <!-- Hals -->
+      <path d="M 98 80
+               C 90 62, 80 48, 58 40
+               C 70 36, 86 38, 98 48
+               C 108 56, 112 70, 112 82 Z" fill="#caa06a"/>
       <!-- Kopf -->
-      <ellipse cx="88" cy="88" rx="30" ry="27" fill="#caa06a"/>
-      <!-- Schnauze -->
-      <ellipse cx="66" cy="96" rx="13" ry="10" fill="#caa06a"/>
-      <circle cx="58" cy="96" r="2.4" fill="#2a2016"/>
-      <!-- Auge -->
-      <circle cx="84" cy="86" r="4" fill="#2a2016"/>
-      <!-- Ohren unterm Helm -->
-      <path d="M72 66 l -4 -16 l 14 8 Z" fill="#caa06a"/>
-      <!-- Stahlhelm (WW2) -->
-      <path d="M52 78
-               a 40 34 0 0 1 78 -4
-               q 2 10 -4 14
-               q -36 -10 -70 2
-               q -6 -3 -4 -12 Z" fill="#5b6a44" stroke="#3f4a2f" stroke-width="2"/>
-      <path d="M48 90 q 40 -14 82 0 l 2 6 q -42 -13 -86 0 Z" fill="#48542f"/>
-      <!-- Riemen -->
-      <path d="M70 92 q 6 14 2 26" stroke="#3f4a2f" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <path d="M 58 40
+               C 44 36, 30 42, 22 56
+               C 16 66, 18 78, 26 86
+               C 32 92, 42 94, 50 90
+               C 62 85, 70 72, 70 58
+               C 70 50, 65 43, 58 40 Z" fill="#caa06a"/>
+      <ellipse cx="24" cy="78" rx="7" ry="5" fill="#b78d57"/>
+      <circle cx="20" cy="78" r="1.8" fill="#2a2016"/>
+      <circle cx="44" cy="60" r="3.6" fill="#2a2016"/>
+      <circle cx="45.3" cy="58.7" r="1" fill="#fff" opacity="0.8"/>
+      <!-- Maehne: fliessende Straehnen im Nacken -->
+      <path d="M 72 40
+               C 90 42, 104 52, 110 68
+               C 104 66, 96 62, 90 58
+               C 96 68, 100 80, 98 92
+               C 90 84, 84 74, 80 64
+               C 82 74, 82 84, 78 94
+               C 70 84, 66 72, 66 60
+               C 66 52, 68 45, 72 40 Z" fill="#6b4a33"/>
+      <!-- Stahlhelm (WW2): deckt den Kopf komplett, nur der Riemen ist sichtbar -->
+      <path d="M 18 50
+               C 20 27, 42 11, 66 14
+               C 84 17, 94 30, 92 42
+               C 92 46, 88 48, 84 46
+               C 64 36, 38 36, 22 52
+               C 18 54, 16 52, 18 50 Z" fill="#5b6a44" stroke="#394227" stroke-width="2"/>
+      <path d="M 16 51 C 38 37, 66 37, 88 48 L 90 54 C 66 43, 38 43, 18 57 Z" fill="#48542f"/>
+      <path d="M 30 48 C 34 60, 34 72, 28 82" stroke="#394227" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <!-- Gewehr -->
+      <g stroke="#3a3a30" stroke-width="6" stroke-linecap="round">
+        <line x1="52" y1="130" x2="192" y2="48"/>
+      </g>
+      <rect x="168" y="52" width="26" height="9" rx="2" fill="#3a3a30" transform="rotate(-30 181 56)"/>
+      <rect x="50" y="118" width="20" height="10" rx="2" fill="#6b4a33" transform="rotate(-30 60 123)"/>
     </svg>
     <h1>MaeKeys Ponyhof</h1>
     <p class="subtitle">Live-Status der Retrogame-Server</p>

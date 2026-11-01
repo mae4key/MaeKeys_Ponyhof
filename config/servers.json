@@ -1,24 +1,24 @@
 [
   {
-    "id": "bf1942-ponyhof-1",
+    "id": "bf1942-ponyhof",
     "game": "Battlefield 1942",
     "name": "MaeKeys Ponyhof",
     "protocol": "gamespy1",
     "host": "870om3k8bee3muwz.myfritz.net",
     "port": 23000,
-    "enabled": false
+    "enabled": true
   },
   {
-    "id": "bf1942-ponyhof-2",
+    "id": "bf1942-ponyhof-mod",
     "game": "Battlefield 1942",
     "name": "MaeKeys Ponyhof (Mod)",
     "protocol": "gamespy1",
     "host": "870om3k8bee3muwz.myfritz.net",
     "port": 23001,
-    "enabled": false
+    "enabled": true
   },
   {
-    "id": "bfv-ponyhof-1",
+    "id": "bfv-ponyhof",
     "game": "Battlefield Vietnam",
     "name": "MaeKeys Ponyhof",
     "protocol": "gamespy2",
@@ -27,49 +27,49 @@
     "enabled": true
   },
   {
-    "id": "bfv-ponyhof-2",
+    "id": "bfv-ponyhof-mod",
     "game": "Battlefield Vietnam",
     "name": "MaeKeys Ponyhof (Mod)",
     "protocol": "gamespy2",
     "host": "870om3k8bee3muwz.myfritz.net",
     "port": 23011,
-    "enabled": false
+    "enabled": true
   },
   {
-    "id": "bf2-ponyhof-1",
+    "id": "bf2-ponyhof",
     "game": "Battlefield 2",
     "name": "MaeKeys Ponyhof",
     "protocol": "battlefield2",
     "host": "870om3k8bee3muwz.myfritz.net",
     "port": 29900,
-    "enabled": false
+    "enabled": true
   },
   {
-    "id": "bf2-ponyhof-2",
+    "id": "bf2-ponyhof-mod",
     "game": "Battlefield 2",
     "name": "MaeKeys Ponyhof (Mod)",
     "protocol": "battlefield2",
     "host": "870om3k8bee3muwz.myfritz.net",
     "port": 29901,
-    "enabled": false
+    "enabled": true
   },
   {
-    "id": "bf2142-ponyhof-1",
+    "id": "bf2142-ponyhof",
     "game": "Battlefield 2142",
     "name": "MaeKeys Ponyhof",
     "protocol": "battlefield2",
     "host": "870om3k8bee3muwz.myfritz.net",
     "port": 29910,
-    "enabled": false
+    "enabled": true
   },
   {
-    "id": "bf2142-ponyhof-2",
+    "id": "bf2142-ponyhof-mod",
     "game": "Battlefield 2142",
     "name": "MaeKeys Ponyhof (Mod)",
     "protocol": "battlefield2",
     "host": "870om3k8bee3muwz.myfritz.net",
     "port": 29911,
-    "enabled": false
+    "enabled": true
   },
   {
     "id": "mohaa-ponyhof",
@@ -86,7 +86,7 @@
     "name": "MaeKeys Ponyhof",
     "protocol": "gamespy1",
     "host": "870om3k8bee3muwz.myfritz.net",
-    "port": 12300,
+    "port": 12301,
     "enabled": false
   }
 ]
