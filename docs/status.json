@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-01T18:49:08+00:00",
+  "generated_at": "2026-11-01T19:03:34+00:00",
   "servers": [
     {
-      "id": "bf1942-ponyhof",
+      "id": "bf1942-ponyhof-1",
       "game": "Battlefield 1942",
       "name": "MaeKeys Ponyhof",
       "status": "online",
@@ -12,9 +12,9 @@
       "max_players": 20
     },
     {
-      "id": "bf1942-ponyhof-mod",
+      "id": "bf1942-ponyhof-2",
       "game": "Battlefield 1942",
-      "name": "MaeKeys Ponyhof (Mod)",
+      "name": "MaeKeys Ponyhof (2)",
       "status": "online",
       "map": "kbely airfield",
       "mode": "coop",
@@ -22,7 +22,7 @@
       "max_players": 42
     },
     {
-      "id": "bfv-ponyhof",
+      "id": "bfv-ponyhof-1",
       "game": "Battlefield Vietnam",
       "name": "MaeKeys Ponyhof",
       "status": "online",
@@ -32,9 +32,9 @@
       "max_players": 44
     },
     {
-      "id": "bfv-ponyhof-mod",
+      "id": "bfv-ponyhof-2",
       "game": "Battlefield Vietnam",
-      "name": "MaeKeys Ponyhof (Mod)",
+      "name": "MaeKeys Ponyhof (2)",
       "status": "online",
       "map": "Wake",
       "mode": "coop",
@@ -42,7 +42,7 @@
       "max_players": 44
     },
     {
-      "id": "bf2-ponyhof",
+      "id": "bf2-ponyhof-1",
       "game": "Battlefield 2",
       "name": "MaeKeys Ponyhof",
       "status": "online",
@@ -52,9 +52,9 @@
       "max_players": 32
     },
     {
-      "id": "bf2-ponyhof-mod",
+      "id": "bf2-ponyhof-2",
       "game": "Battlefield 2",
-      "name": "MaeKeys Ponyhof (Mod)",
+      "name": "MaeKeys Ponyhof (2)",
       "status": "online",
       "map": "Ghost Town",
       "mode": "gpm_coop",
@@ -62,7 +62,7 @@
       "max_players": 32
     },
     {
-      "id": "bf2142-ponyhof",
+      "id": "bf2142-ponyhof-1",
       "game": "Battlefield 2142",
       "name": "MaeKeys Ponyhof",
       "status": "offline",
@@ -72,9 +72,9 @@
       "max_players": 0
     },
     {
-      "id": "bf2142-ponyhof-mod",
+      "id": "bf2142-ponyhof-2",
       "game": "Battlefield 2142",
-      "name": "MaeKeys Ponyhof (Mod)",
+      "name": "MaeKeys Ponyhof (2)",
       "status": "offline",
       "map": "",
       "mode": "",
