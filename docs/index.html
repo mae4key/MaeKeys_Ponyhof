@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MaeKeys Ponyhof – Server-Status</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Staatliches&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #1b1d15;
+    --panel: #242819;
+    --panel-line: #41452c;
+    --brass: #c9a84c;
+    --field-green: #6f8458;
+    --online: #8aab5e;
+    --offline: #9a5a46;
+    --text: #ece4cc;
+    --text-dim: #a9a186;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    min-height: 100%;
+    background: var(--bg);
+    color: var(--text);
+  }
+
+  body {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    padding: 2.5rem 1.25rem 4rem;
+    background-image:
+      radial-gradient(circle at 15% 0%, rgba(111,132,88,0.12), transparent 45%),
+      radial-gradient(circle at 85% 10%, rgba(201,168,76,0.08), transparent 40%);
+  }
+
+  .wrap {
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.75rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .mascot { width: 128px; height: 128px; }
+
+  h1 {
+    font-family: "Staatliches", sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    font-size: clamp(2rem, 7vw, 2.8rem);
+    margin: 0;
+    color: var(--brass);
+    text-shadow: 0 2px 0 rgba(0,0,0,0.4);
+  }
+
+  .subtitle {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    margin: 0;
+  }
+
+  .timestamp {
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    border-top: 1px dashed var(--panel-line);
+    padding-top: 0.5rem;
+    width: 100%;
+    max-width: 360px;
+  }
+
+  .servers { display: flex; flex-direction: column; gap: 0.9rem; }
+
+  .card {
+    position: relative;
+    background: var(--panel);
+    border: 1px solid var(--panel-line);
+    border-left: 4px solid var(--field-green);
+    padding: 1rem 1.1rem;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%);
+  }
+
+  .card.offline { border-left-color: var(--offline); opacity: 0.72; }
+
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .game-name {
+    font-family: "Staatliches", sans-serif;
+    letter-spacing: 0.04em;
+    font-size: 1.2rem;
+    color: var(--text);
+  }
+
+  .tag {
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    padding: 0.15rem 0.5rem;
+    border: 1px solid currentColor;
+  }
+
+  .tag.online { color: var(--online); }
+  .tag.offline { color: var(--offline); }
+
+  dl.meta {
+    margin: 0.7rem 0 0;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.25rem 0.75rem;
+    font-size: 0.85rem;
+  }
+
+  dl.meta dt { color: var(--text-dim); }
+  dl.meta dd { margin: 0; }
+
+  .empty {
+    text-align: center;
+    padding: 2.5rem 1rem;
+    border: 1px dashed var(--panel-line);
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .empty strong {
+    display: block;
+    font-family: "Staatliches", sans-serif;
+    font-size: 1.3rem;
+    letter-spacing: 0.04em;
+    color: var(--brass);
+    margin-bottom: 0.4rem;
+  }
+
+  .stale-notice {
+    margin-top: 1.5rem;
+    font-size: 0.75rem;
+    color: var(--offline);
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hero">
+    <svg class="mascot" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pony-Maskottchen mit Stahlhelm und Gewehr">
+      <ellipse cx="100" cy="178" rx="70" ry="10" fill="#000" opacity="0.25"/>
+      <!-- Gewehr im Hintergrund, ueber die Schulter -->
+      <g stroke="#3a3a30" stroke-width="5" stroke-linecap="round">
+        <line x1="40" y1="150" x2="160" y2="70"/>
+      </g>
+      <rect x="132" y="78" width="22" height="7" rx="2" fill="#3a3a30" transform="rotate(-34 143 81)"/>
+      <!-- Pony-Koerper -->
+      <ellipse cx="100" cy="135" rx="48" ry="34" fill="#caa06a"/>
+      <!-- Beine -->
+      <rect x="68" y="150" width="12" height="28" rx="5" fill="#caa06a"/>
+      <rect x="120" y="150" width="12" height="28" rx="5" fill="#caa06a"/>
+      <!-- Schweif -->
+      <path d="M148 120 q 26 6 18 34 q -4 14 -20 10 q 14 -6 10 -20 q -2 -12 -8 -24 Z" fill="#6b4a33"/>
+      <!-- Kopf -->
+      <ellipse cx="88" cy="88" rx="30" ry="27" fill="#caa06a"/>
+      <!-- Schnauze -->
+      <ellipse cx="66" cy="96" rx="13" ry="10" fill="#caa06a"/>
+      <circle cx="58" cy="96" r="2.4" fill="#2a2016"/>
+      <!-- Auge -->
+      <circle cx="84" cy="86" r="4" fill="#2a2016"/>
+      <!-- Ohren unterm Helm -->
+      <path d="M72 66 l -4 -16 l 14 8 Z" fill="#caa06a"/>
+      <!-- Stahlhelm (WW2) -->
+      <path d="M52 78
+               a 40 34 0 0 1 78 -4
+               q 2 10 -4 14
+               q -36 -10 -70 2
+               q -6 -3 -4 -12 Z" fill="#5b6a44" stroke="#3f4a2f" stroke-width="2"/>
+      <path d="M48 90 q 40 -14 82 0 l 2 6 q -42 -13 -86 0 Z" fill="#48542f"/>
+      <!-- Riemen -->
+      <path d="M70 92 q 6 14 2 26" stroke="#3f4a2f" stroke-width="3" fill="none" stroke-linecap="round"/>
+    </svg>
+    <h1>MaeKeys Ponyhof</h1>
+    <p class="subtitle">Live-Status der Retrogame-Server</p>
+  </div>
+
+  <div id="servers" class="servers">
+    <p class="empty"><strong>Lade Status …</strong></p>
+  </div>
+
+  <p class="timestamp" id="timestamp"></p>
+  <p class="stale-notice" id="stale-notice" hidden></p>
+</div>
+
+<script>
+const GAME_LABELS = {
+  "Battlefield 1942": "BF1942",
+  "Battlefield Vietnam": "BF Vietnam",
+  "Battlefield 2": "BF2",
+  "Battlefield 2142": "BF2142",
+  "Medal of Honor: Allied Assault": "MOHAA",
+  "Medal of Honor: Pacific Assault": "MOHPA"
+};
+
+function fmtTimestamp(iso) {
+  if (!iso) return "Noch kein Durchlauf erfolgt.";
+  const d = new Date(iso);
+  return "Stand: " + d.toLocaleString("de-CH", { dateStyle: "medium", timeStyle: "short" });
+}
+
+function renderServers(servers) {
+  const el = document.getElementById("servers");
+  const online = servers.filter(s => s.status === "online");
+
+  if (online.length === 0) {
+    el.innerHTML = `<p class="empty"><strong>Aktuell läuft kein Spiel</strong>Alle Server sind gerade ausgeschaltet oder nicht erreichbar.</p>`;
+    return;
+  }
+
+  el.innerHTML = online.map(s => `
+    <div class="card">
+      <div class="card-top">
+        <span class="game-name">${GAME_LABELS[s.game] || s.game}</span>
+        <span class="tag online">ONLINE</span>
+      </div>
+      <dl class="meta">
+        <dt>Server</dt><dd>${s.name}</dd>
+        <dt>Map</dt><dd>${s.map || "–"}</dd>
+        <dt>Modus</dt><dd>${s.mode || "–"}</dd>
+        <dt>Spieler</dt><dd>${s.players}${s.max_players ? " / " + s.max_players : ""}</dd>
+      </dl>
+    </div>
+  `).join("");
+}
+
+async function load() {
+  try {
+    const res = await fetch("status.json", { cache: "no-store" });
+    const data = await res.json();
+    renderServers(data.servers || []);
+    document.getElementById("timestamp").textContent = fmtTimestamp(data.generated_at);
+
+    const staleNotice = document.getElementById("stale-notice");
+    if (data.generated_at) {
+      const ageMinutes = (Date.now() - new Date(data.generated_at)) / 60000;
+      if (ageMinutes > 20) {
+        staleNotice.hidden = false;
+        staleNotice.textContent = "Hinweis: Der letzte Abruf liegt über 20 Minuten zurück – Daten könnten veraltet sein.";
+      }
+    }
+  } catch (e) {
+    document.getElementById("servers").innerHTML =
+      `<p class="empty"><strong>Status momentan nicht verfügbar</strong>Bitte später erneut versuchen.</p>`;
+  }
+}
+
+load();
+</script>
+</body>
+</html>

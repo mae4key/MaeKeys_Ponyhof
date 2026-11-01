@@ -1,0 +1,56 @@
+[
+  {
+    "id": "bfv-ponyhof",
+    "game": "Battlefield Vietnam",
+    "name": "MaeKeys Ponyhof",
+    "protocol": "gamespy2",
+    "host": "DEINE-MYFRITZ-ADRESSE.myfritz.net",
+    "port": 23000,
+    "enabled": true
+  },
+  {
+    "id": "bf1942-ponyhof",
+    "game": "Battlefield 1942",
+    "name": "MaeKeys Ponyhof",
+    "protocol": "gamespy1",
+    "host": "DEINE-MYFRITZ-ADRESSE.myfritz.net",
+    "port": 23000,
+    "enabled": false
+  },
+  {
+    "id": "bf2-ponyhof",
+    "game": "Battlefield 2",
+    "name": "MaeKeys Ponyhof",
+    "protocol": "battlefield2",
+    "host": "DEINE-MYFRITZ-ADRESSE.myfritz.net",
+    "port": 29900,
+    "enabled": false
+  },
+  {
+    "id": "bf2142-ponyhof",
+    "game": "Battlefield 2142",
+    "name": "MaeKeys Ponyhof",
+    "protocol": "battlefield2",
+    "host": "DEINE-MYFRITZ-ADRESSE.myfritz.net",
+    "port": 29900,
+    "enabled": false
+  },
+  {
+    "id": "mohaa-ponyhof",
+    "game": "Medal of Honor: Allied Assault",
+    "name": "MaeKeys Ponyhof",
+    "protocol": "gamespy1",
+    "host": "DEINE-MYFRITZ-ADRESSE.myfritz.net",
+    "port": 12203,
+    "enabled": false
+  },
+  {
+    "id": "mohpa-ponyhof",
+    "game": "Medal of Honor: Pacific Assault",
+    "name": "MaeKeys Ponyhof",
+    "protocol": "gamespy1",
+    "host": "DEINE-MYFRITZ-ADRESSE.myfritz.net",
+    "port": 12203,
+    "enabled": false
+  }
+]

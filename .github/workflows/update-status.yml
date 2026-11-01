@@ -1,0 +1,47 @@
+name: Status aktualisieren
+
+on:
+  schedule:
+    # Alle 5 Minuten. GitHub garantiert keine exakte Punktlandung -
+    # bei hoher Last auf GitHub kann es ein paar Minuten Verzug geben.
+    - cron: "*/5 * * * *"
+  workflow_dispatch: {}
+  push:
+    branches: [main]
+    paths:
+      - "config/servers.json"
+      - "scripts/query_servers.py"
+      - ".github/workflows/update-status.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  update-status:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Code auschecken
+        uses: actions/checkout@v4
+
+      - name: Python einrichten
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Abhaengigkeiten installieren
+        run: pip install opengsq
+
+      - name: Server abfragen
+        run: python scripts/query_servers.py
+
+      - name: status.json committen, falls geaendert
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if ! git diff --quiet -- docs/status.json; then
+            git add docs/status.json
+            git commit -m "Status aktualisiert: $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git push
+          else
+            echo "Keine Aenderung am Status."
+          fi
