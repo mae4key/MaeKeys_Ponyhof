@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-01T20:37:54+00:00",
+  "generated_at": "2026-11-01T21:07:55+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -17,7 +17,7 @@
       "game": "Battlefield 1942",
       "name": "MaeKeys Ponyhof",
       "status": "online",
-      "map": "telemark",
+      "map": "peenemunde",
       "mode": "coop",
       "mod": "Xpack2",
       "players": 0,
@@ -70,28 +70,26 @@
       "game": "Battlefield 2",
       "name": "MaeKeys Ponyhof",
       "status": "online",
-      "map": "Ghost Town",
-      "mode": "gpm_coop",
-      "mod": "xpack",
-      "players": 0,
-      "max_players": 32
+      "map": "",
+      "mode": "",
+      "mod": "",
+      "players": 32,
+      "max_players": 0,
+      "_debug_info": {
+        "0": "0",
+        "pid_": ""
+      }
     },
     {
       "id": "bf2142-ponyhof-1",
       "game": "Battlefield 2142",
       "name": "MaeKeys Ponyhof",
-      "status": "offline",
-      "map": "",
-      "mode": "",
-      "mod": "",
+      "status": "online",
+      "map": "Suez_Canal",
+      "mode": "gpm_ti",
+      "mod": "Vanilla",
       "players": 0,
-      "max_players": 0,
-      "_debug_errors": [
-        "Battlefield2: TimeoutError: ",
-        "Battlefield2: TimeoutError: ",
-        "GameSpy2: TimeoutError: ",
-        "GameSpy3: TimeoutError: "
-      ]
+      "max_players": 32
     },
     {
       "id": "bf2142-ponyhof-2",
