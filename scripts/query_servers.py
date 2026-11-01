@@ -19,6 +19,7 @@ from datetime import datetime, timezone
 
 from opengsq.protocols.gamespy1 import GameSpy1
 from opengsq.protocols.gamespy2 import GameSpy2
+from opengsq.protocols.gamespy3 import GameSpy3
 from opengsq.protocols.battlefield2 import Battlefield2
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -33,12 +34,12 @@ PROTOCOLS = {
     "battlefield2": Battlefield2,
 }
 
-# Diese Namen meldet der Server selbst als "gamevariant" ueber den
-# +game-Parameter, mit dem er gestartet wurde. Werte aus eurer eigenen
-# mod_registry.json (BFV + BF1942) uebersetzt in lesbare Labels. Ein Mod,
-# der hier nicht auftaucht, wird einfach unuebersetzt angezeigt.
+# Werte, die der Server selbst im "gameId"-Feld meldet (der +game-Parameter,
+# mit dem er gestartet wurde) - uebersetzt in lesbare Labels anhand eurer
+# eigenen mod_registry.json (BFV + BF1942). Ein Mod, der hier nicht
+# auftaucht, wird einfach unuebersetzt angezeigt statt zu fehlen.
 MOD_LABELS = {
-    # Vanilla (jeweils wie vom Server selbst als gamevariant gemeldet)
+    # Vanilla
     "bf1942": "Vanilla",
     "bfvietnam": "Vanilla",
     "bf2": "Vanilla",
@@ -99,6 +100,25 @@ def _first(info: dict, *keys: str, default: str = "") -> str:
     return default
 
 
+def _count_humans(info: dict, players: list) -> int:
+    """Zaehlt echte Spieler statt Bots. Bei Coop-Servern (v. a. BF2) kann
+    das vom Server gemeldete 'numplayers' auch Bots enthalten, die nicht
+    gegen das Spieler-Limit zaehlen (Servereinstellung
+    aiSettings.maxBotsIncludeHumans). Bots melden dabei durchgehend
+    ping=0, echte Spieler nie - das ist ein seit Jahren in Server-Browsern
+    fuer diese Engine-Generation gebraeuchlicher Erkennungsweg."""
+    if players:
+        humans = [
+            p
+            for p in players
+            if str(p.get("ping", p.get("ping_", "1"))).strip() not in ("0", "")
+        ]
+        return len(humans)
+    return int(
+        _first(info, "numplayers", "playercount", "numplayers_", default="0") or 0
+    )
+
+
 async def query_one(entry: dict) -> dict:
     result = {
         "id": entry["id"],
@@ -117,12 +137,12 @@ async def query_one(entry: dict) -> dict:
         result["status"] = "fehlkonfiguriert"
         return result
 
-    # Bei "battlefield2" zusaetzlich "gamespy2" als Fallback versuchen:
-    # BF2142 nutzt eine abgewandelte GameSpy2-Variante, bei der nicht
-    # sicher ist, ob die eigens fuer BF2 gebaute Klasse 1:1 passt.
+    # Bei "battlefield2" zusaetzlich zwei Fallbacks versuchen: BF2142 nutzt
+    # eine abgewandelte GameSpy-Variante, bei der nicht sicher ist, ob die
+    # eigens fuer BF2 gebaute Klasse 1:1 passt.
     candidates = [primary_cls]
     if entry.get("protocol") == "battlefield2":
-        candidates.append(GameSpy2)
+        candidates += [GameSpy2, GameSpy3]
 
     for protocol_cls in candidates:
         try:
@@ -135,35 +155,22 @@ async def query_one(entry: dict) -> dict:
             result["status"] = "online"
             result["map"] = _first(info, "mapname", "map", "map_")
             result["mode"] = _first(info, "gametype", "mode", "gametype_")
-            # Der Mod wird vom Server selbst gemeldet (z. B. "bf1942" fuer
-            # Vanilla, oder ein Mod-Kuerzel) - unabhaengig vom Port, da der
-            # gleiche Port im Lauf der Zeit unterschiedliche Mods tragen kann.
-            raw_mod = _first(info, "gamevariant", "modname", "mod", "gamevariant_")
-            result["mod"] = _friendly_mod(raw_mod)
-            result["players"] = int(
-                _first(info, "numplayers", "playercount", "numplayers_", default="0")
-                or 0
+            # Der Mod wird vom Server selbst im "gameId"-Feld gemeldet
+            # (z. B. "bf1942" fuer Vanilla, oder ein Mod-Kuerzel) -
+            # unabhaengig vom Port, da derselbe Port im Lauf der Zeit
+            # unterschiedliche Mods tragen kann.
+            raw_mod = _first(
+                info, "gameid", "gamevariant", "modname", "mod", "gameid_"
             )
+            result["mod"] = _friendly_mod(raw_mod)
+            result["players"] = _count_humans(info, status.players)
             result["max_players"] = int(
                 _first(info, "maxplayers", "maxplayers_", default="0") or 0
             )
-            # Fallback: Spielerzahl notfalls aus der tatsaechlichen Player-Liste zaehlen
-            if result["players"] == 0 and status.players:
-                result["players"] = len(status.players)
-
-            # TEMPORAER zur Fehlersuche (Mod-Erkennung bei BF1942/BFV,
-            # Bot- vs. Spieler-Unterscheidung bei BF2) - danach wieder raus:
-            result["_debug_info"] = info
-            result["_debug_first_player"] = status.players[0] if status.players else {}
-
             break  # Erfolgreich -> nicht mehr den naechsten Kandidaten versuchen
-        except Exception as exc:
+        except Exception:
             # Dieser Kandidat hat nicht geklappt -> naechsten probieren
             # (oder, falls keiner mehr uebrig ist, bleibt der Server "offline")
-            # TEMPORAER zur Fehlersuche bei BF2142:
-            result.setdefault("_debug_errors", []).append(
-                f"{protocol_cls.__name__}: {type(exc).__name__}: {exc}"
-            )
             continue
 
     return result

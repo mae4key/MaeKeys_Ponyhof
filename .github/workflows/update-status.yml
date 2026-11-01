@@ -5,7 +5,7 @@ on:
     # Alle 5 Minuten - das von GitHub empfohlene Minimum fuer verlaessliche
     # Ausloesung. Engere Takte (z. B. */2) werden von GitHub teils schlicht
     # ignoriert, ohne Fehlermeldung.
-    - cron: "2-59/5 * * * *"
+    - cron: "1,6,11,16,21,26,31,36,41,46,51,56 * * * *"
   workflow_dispatch: {}
   push:
     branches: [main]
