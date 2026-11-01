@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-11-01T18:01:34+00:00",
+  "generated_at": "2026-11-01T18:30:24+00:00",
   "servers": [
     {
-      "id": "bfv-ponyhof",
+      "id": "bfv-ponyhof-1",
       "game": "Battlefield Vietnam",
       "name": "MaeKeys Ponyhof",
-      "status": "offline",
-      "map": "",
-      "mode": "",
+      "status": "online",
+      "map": "HO CHI MINH TRAIL",
+      "mode": "coop",
       "players": 0,
-      "max_players": 0
+      "max_players": 44
     }
   ]
 }
