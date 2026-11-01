@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-01T21:10:19+00:00",
+  "generated_at": "2026-11-01T21:22:52+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -17,7 +17,7 @@
       "game": "Battlefield 1942",
       "name": "MaeKeys Ponyhof",
       "status": "online",
-      "map": "peenemunde",
+      "map": "gothic line",
       "mode": "coop",
       "mod": "Xpack2",
       "players": 0,
@@ -42,7 +42,7 @@
       "game": "Battlefield Vietnam",
       "name": "MaeKeys Ponyhof",
       "status": "online",
-      "map": "Invasion of the Philippines",
+      "map": "Iwo Jima",
       "mode": "coop",
       "mod": "WW2Mod",
       "players": 0,
