@@ -1,4 +1,15 @@
 {
-  "generated_at": null,
-  "servers": []
+  "generated_at": "2026-11-01T18:01:34+00:00",
+  "servers": [
+    {
+      "id": "bfv-ponyhof",
+      "game": "Battlefield Vietnam",
+      "name": "MaeKeys Ponyhof",
+      "status": "offline",
+      "map": "",
+      "mode": "",
+      "players": 0,
+      "max_players": 0
+    }
+  ]
 }
