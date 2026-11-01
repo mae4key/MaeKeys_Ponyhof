@@ -166,6 +166,7 @@ async def query_one(entry: dict) -> dict:
             (GameSpy3, None),
         ]
 
+    debug_errors = []
     for protocol_cls, challenge_required in candidates:
         try:
             status = await _try_protocol(
@@ -187,11 +188,22 @@ async def query_one(entry: dict) -> dict:
             result["max_players"] = int(
                 _first(info, "maxplayers", "maxplayers_", default="0") or 0
             )
+            if not result["mod"]:
+                # TEMPORAER zur Fehlersuche: Mod-Feld weiterhin leer trotz
+                # Fix - zeig die komplette Rohantwort, um den echten
+                # Schluesselnamen zu finden.
+                result["_debug_info"] = info
             break  # Erfolgreich -> nicht mehr den naechsten Kandidaten versuchen
-        except Exception:
+        except Exception as exc:
             # Dieser Kandidat hat nicht geklappt -> naechsten probieren
             # (oder, falls keiner mehr uebrig ist, bleibt der Server "offline")
+            debug_errors.append(f"{protocol_cls.__name__}: {type(exc).__name__}: {exc}")
             continue
+
+    if result["status"] == "offline":
+        # TEMPORAER zur Fehlersuche: zeigt, woran jeder einzelne Versuch
+        # gescheitert ist (z. B. Timeout vs. falsches Antwortformat).
+        result["_debug_errors"] = debug_errors
 
     return result
 
