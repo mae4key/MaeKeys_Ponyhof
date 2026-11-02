@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02T19:46:02+00:00",
+  "generated_at": "2026-11-02T19:47:50+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -58,13 +58,378 @@
       "game": "Battlefield 2",
       "name": "MaeKeys Ponyhof",
       "status": "online",
-      "map": "Daqing Oilfields",
-      "mode": "gpm_coop",
-      "mod": "Vanilla",
-      "players": 0,
-      "max_players": 32,
-      "bot_count": 1,
-      "scoreboard": []
+      "map": "",
+      "mode": "",
+      "mod": "",
+      "players": 40,
+      "max_players": 0,
+      "bot_count": 0,
+      "scoreboard": [
+        {
+          "name": "?",
+          "team": "",
+          "rank": "0",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1"
+        },
+        {
+          "name": "?",
+          "team": "",
+          "rank": "0",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1"
+        },
+        {
+          "name": "?",
+          "team": "",
+          "rank": "0",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1"
+        },
+        {
+          "name": "?",
+          "team": "",
+          "rank": "0",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1"
+        },
+        {
+          "name": "?",
+          "team": "",
+          "rank": "0",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1"
+        },
+        {
+          "name": "?",
+          "team": "",
+          "rank": "0",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1"
+        },
+        {
+          "name": "?",
+          "team": "",
+          "rank": "0",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1"
+        },
+        {
+          "name": "?",
+          "team": "",
+          "rank": "0",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1"
+        },
+        {
+          "name": "?",
+          "team": "",
+          "rank": "0",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1"
+        },
+        {
+          "name": "?",
+          "team": "",
+          "rank": "0",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1"
+        },
+        {
+          "name": "?",
+          "team": "",
+          "rank": "0",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1"
+        },
+        {
+          "name": "?",
+          "team": "",
+          "rank": "0",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1"
+        },
+        {
+          "name": "?",
+          "team": "",
+          "rank": "0",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1"
+        },
+        {
+          "name": "?",
+          "team": "",
+          "rank": "0",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1"
+        },
+        {
+          "name": "?",
+          "team": "",
+          "rank": "0",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1"
+        },
+        {
+          "name": "?",
+          "team": "",
+          "rank": "0",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1"
+        },
+        {
+          "name": "?",
+          "team": "",
+          "rank": "0",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1"
+        },
+        {
+          "name": "?",
+          "team": "",
+          "rank": "0",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1"
+        },
+        {
+          "name": "?",
+          "team": "",
+          "rank": "0",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1"
+        },
+        {
+          "name": "?",
+          "team": "",
+          "rank": "0",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1"
+        },
+        {
+          "name": "?",
+          "team": "",
+          "rank": "0",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1"
+        },
+        {
+          "name": "?",
+          "team": "",
+          "rank": "0",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1"
+        },
+        {
+          "name": "?",
+          "team": "",
+          "rank": "0",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1"
+        },
+        {
+          "name": "?",
+          "team": "",
+          "rank": "0",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1"
+        },
+        {
+          "name": "?",
+          "team": "",
+          "rank": "0",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1"
+        },
+        {
+          "name": "?",
+          "team": "",
+          "rank": "0",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1"
+        },
+        {
+          "name": "?",
+          "team": "",
+          "rank": "0",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1"
+        },
+        {
+          "name": "?",
+          "team": "",
+          "rank": "0",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1"
+        },
+        {
+          "name": "?",
+          "team": "",
+          "rank": "0",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1"
+        },
+        {
+          "name": "?",
+          "team": "",
+          "rank": "0",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1"
+        },
+        {
+          "name": "?",
+          "team": "",
+          "rank": "0",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1"
+        },
+        {
+          "name": "?",
+          "team": "",
+          "rank": "0",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1"
+        },
+        {
+          "name": "?",
+          "team": "",
+          "rank": "0",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1"
+        },
+        {
+          "name": "?",
+          "team": "",
+          "rank": "0",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1"
+        },
+        {
+          "name": "?",
+          "team": "",
+          "rank": "0",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1"
+        },
+        {
+          "name": "?",
+          "team": "",
+          "rank": "0",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1"
+        },
+        {
+          "name": "?",
+          "team": "",
+          "rank": "0",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1"
+        },
+        {
+          "name": "?",
+          "team": "",
+          "rank": "0",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1"
+        },
+        {
+          "name": "?",
+          "team": "",
+          "rank": "0",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1"
+        },
+        {
+          "name": "?",
+          "team": "",
+          "rank": "0",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1"
+        }
+      ],
+      "_debug_info": {
+        "1": "2",
+        "2": "2"
+      }
     },
     {
       "id": "bf2-ponyhof-2",
@@ -97,305 +462,13 @@
       "game": "Battlefield 2142",
       "name": "MaeKeys Ponyhof",
       "status": "online",
-      "map": "",
-      "mode": "",
-      "mod": "",
-      "players": 32,
-      "max_players": 0,
+      "map": "Belgrade",
+      "mode": "gpm_coop",
+      "mod": "Vanilla",
+      "players": 0,
+      "max_players": 32,
       "bot_count": 0,
-      "scoreboard": [
-        {
-          "name": "?",
-          "team": "2",
-          "rank": "0",
-          "score": "0",
-          "kills": "",
-          "deaths": "0",
-          "ping": "1"
-        },
-        {
-          "name": "?",
-          "team": "1",
-          "rank": "0",
-          "score": "0",
-          "kills": "",
-          "deaths": "0",
-          "ping": "1"
-        },
-        {
-          "name": "?",
-          "team": "2",
-          "rank": "0",
-          "score": "0",
-          "kills": "",
-          "deaths": "0",
-          "ping": "1"
-        },
-        {
-          "name": "?",
-          "team": "2",
-          "rank": "0",
-          "score": "0",
-          "kills": "",
-          "deaths": "0",
-          "ping": "1"
-        },
-        {
-          "name": "?",
-          "team": "2",
-          "rank": "0",
-          "score": "0",
-          "kills": "",
-          "deaths": "0",
-          "ping": "1"
-        },
-        {
-          "name": "?",
-          "team": "2",
-          "rank": "0",
-          "score": "0",
-          "kills": "",
-          "deaths": "0",
-          "ping": "1"
-        },
-        {
-          "name": "?",
-          "team": "2",
-          "rank": "0",
-          "score": "0",
-          "kills": "",
-          "deaths": "0",
-          "ping": "1"
-        },
-        {
-          "name": "?",
-          "team": "2",
-          "rank": "0",
-          "score": "0",
-          "kills": "",
-          "deaths": "0",
-          "ping": "1"
-        },
-        {
-          "name": "?",
-          "team": "2",
-          "rank": "0",
-          "score": "0",
-          "kills": "",
-          "deaths": "0",
-          "ping": "1"
-        },
-        {
-          "name": "?",
-          "team": "2",
-          "rank": "0",
-          "score": "0",
-          "kills": "",
-          "deaths": "0",
-          "ping": "1"
-        },
-        {
-          "name": "?",
-          "team": "2",
-          "rank": "0",
-          "score": "0",
-          "kills": "",
-          "deaths": "0",
-          "ping": "1"
-        },
-        {
-          "name": "?",
-          "team": "2",
-          "rank": "0",
-          "score": "0",
-          "kills": "",
-          "deaths": "0",
-          "ping": "1"
-        },
-        {
-          "name": "?",
-          "team": "2",
-          "rank": "0",
-          "score": "0",
-          "kills": "",
-          "deaths": "0",
-          "ping": "1"
-        },
-        {
-          "name": "?",
-          "team": "2",
-          "rank": "0",
-          "score": "0",
-          "kills": "",
-          "deaths": "0",
-          "ping": "1"
-        },
-        {
-          "name": "?",
-          "team": "2",
-          "rank": "0",
-          "score": "0",
-          "kills": "",
-          "deaths": "0",
-          "ping": "1"
-        },
-        {
-          "name": "?",
-          "team": "2",
-          "rank": "0",
-          "score": "0",
-          "kills": "",
-          "deaths": "0",
-          "ping": "1"
-        },
-        {
-          "name": "?",
-          "team": "2",
-          "rank": "0",
-          "score": "0",
-          "kills": "",
-          "deaths": "0",
-          "ping": "1"
-        },
-        {
-          "name": "?",
-          "team": "2",
-          "rank": "0",
-          "score": "0",
-          "kills": "",
-          "deaths": "0",
-          "ping": "1"
-        },
-        {
-          "name": "?",
-          "team": "2",
-          "rank": "0",
-          "score": "0",
-          "kills": "",
-          "deaths": "0",
-          "ping": "1"
-        },
-        {
-          "name": "?",
-          "team": "2",
-          "rank": "0",
-          "score": "0",
-          "kills": "",
-          "deaths": "0",
-          "ping": "1"
-        },
-        {
-          "name": "?",
-          "team": "2",
-          "rank": "0",
-          "score": "0",
-          "kills": "",
-          "deaths": "0",
-          "ping": "1"
-        },
-        {
-          "name": "?",
-          "team": "2",
-          "rank": "0",
-          "score": "0",
-          "kills": "",
-          "deaths": "0",
-          "ping": "1"
-        },
-        {
-          "name": "?",
-          "team": "2",
-          "rank": "0",
-          "score": "0",
-          "kills": "",
-          "deaths": "0",
-          "ping": "1"
-        },
-        {
-          "name": "?",
-          "team": "2",
-          "rank": "0",
-          "score": "0",
-          "kills": "",
-          "deaths": "0",
-          "ping": "1"
-        },
-        {
-          "name": "?",
-          "team": "2",
-          "rank": "0",
-          "score": "0",
-          "kills": "",
-          "deaths": "0",
-          "ping": "1"
-        },
-        {
-          "name": "?",
-          "team": "2",
-          "rank": "0",
-          "score": "0",
-          "kills": "",
-          "deaths": "0",
-          "ping": "1"
-        },
-        {
-          "name": "?",
-          "team": "2",
-          "rank": "0",
-          "score": "0",
-          "kills": "",
-          "deaths": "0",
-          "ping": "1"
-        },
-        {
-          "name": "?",
-          "team": "2",
-          "rank": "0",
-          "score": "0",
-          "kills": "",
-          "deaths": "0",
-          "ping": "1"
-        },
-        {
-          "name": "?",
-          "team": "2",
-          "rank": "0",
-          "score": "0",
-          "kills": "",
-          "deaths": "0",
-          "ping": "1"
-        },
-        {
-          "name": "?",
-          "team": "2",
-          "rank": "0",
-          "score": "0",
-          "kills": "",
-          "deaths": "0",
-          "ping": "1"
-        },
-        {
-          "name": "?",
-          "team": "2",
-          "rank": "0",
-          "score": "0",
-          "kills": "",
-          "deaths": "0",
-          "ping": "1"
-        },
-        {
-          "name": "?",
-          "team": "2",
-          "rank": "0",
-          "score": "0",
-          "kills": "",
-          "deaths": "0",
-          "ping": "1"
-        }
-      ],
-      "_debug_info": {
-        "0": "0"
-      }
+      "scoreboard": []
     }
   ]
 }
