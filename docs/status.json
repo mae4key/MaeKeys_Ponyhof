@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02T19:22:12+00:00",
+  "generated_at": "2026-11-02T19:23:57+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -78,20 +78,12 @@
       "game": "Battlefield 2142",
       "name": "MaeKeys Ponyhof",
       "status": "online",
-      "map": "Highway_Tampa",
+      "map": "Minsk",
       "mode": "gpm_ti",
       "mod": "Vanilla",
-      "players": 1,
+      "players": 0,
       "max_players": 32,
-      "scoreboard": [
-        {
-          "name": "JemHadar",
-          "score": "23",
-          "kills": "",
-          "deaths": "6",
-          "ping": "20"
-        }
-      ]
+      "scoreboard": []
     },
     {
       "id": "bf2142-ponyhof-2",
