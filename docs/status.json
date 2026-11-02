@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02T11:46:50+00:00",
+  "generated_at": "2026-11-02T11:48:01+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -53,26 +53,22 @@
       "game": "Battlefield 2",
       "name": "MaeKeys Ponyhof",
       "status": "online",
-      "map": "",
-      "mode": "",
-      "mod": "",
-      "players": 32,
-      "max_players": 0,
-      "_debug_info": {
-        "0": "0"
-      }
+      "map": "Night Flight",
+      "mode": "gpm_coop",
+      "mod": "xpack",
+      "players": 0,
+      "max_players": 32
     },
     {
       "id": "bf2-ponyhof-2",
       "game": "Battlefield 2",
       "name": "MaeKeys Ponyhof",
       "status": "online",
-      "map": "",
-      "mode": "",
-      "mod": "",
-      "players": 40,
-      "max_players": 0,
-      "_debug_info": {}
+      "map": "Daqing Oilfields",
+      "mode": "gpm_coop",
+      "mod": "Vanilla",
+      "players": 0,
+      "max_players": 16
     },
     {
       "id": "bf2142-ponyhof-1",
