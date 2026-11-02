@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02T09:59:02+00:00",
+  "generated_at": "2026-11-02T10:01:04+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -73,11 +73,15 @@
       "game": "Battlefield 2",
       "name": "MaeKeys Ponyhof",
       "status": "online",
-      "map": "Night Flight",
-      "mode": "gpm_coop",
-      "mod": "xpack",
-      "players": 0,
-      "max_players": 32
+      "map": "",
+      "mode": "",
+      "mod": "",
+      "players": 32,
+      "max_players": 0,
+      "_debug_info": {
+        "0": "0",
+        "pid_": ""
+      }
     },
     {
       "id": "bf2142-ponyhof-1",
