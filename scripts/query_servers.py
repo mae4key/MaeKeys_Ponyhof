@@ -143,6 +143,8 @@ def _extract_scoreboard(players: list) -> list:
         board.append(
             {
                 "name": _first(p, "player", "playername", "name", default="?"),
+                "team": _first(p, "team", "team_t", default=""),
+                "rank": _first(p, "rank", "skill", default=""),
                 "score": _first(p, "score", default="0"),
                 "kills": _first(p, "kills", "kill", default=""),
                 "deaths": _first(p, "deaths", "death", default=""),
@@ -214,6 +216,11 @@ async def query_one(entry: dict) -> dict:
                 _first(info, "maxplayers", "maxplayers_", default="0") or 0
             )
             result["scoreboard"] = _extract_scoreboard(status.players)
+            if result["players"] > 0 and not result["scoreboard"]:
+                # TEMPORAER zur Fehlersuche: Spielerzahl > 0, aber Scoreboard
+                # leer - zeigt die rohe Spielerliste, um das Feldformat zu
+                # finden.
+                result["_debug_raw_players"] = status.players
             if not result["mod"]:
                 # TEMPORAER zur Fehlersuche: Mod-Feld weiterhin leer trotz
                 # Fix - zeig die komplette Rohantwort, um den echten

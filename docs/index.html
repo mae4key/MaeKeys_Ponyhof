@@ -484,6 +484,8 @@ function showScoreboard(id) {
     const rows = s.scoreboard.map(p => `
       <tr>
         <td>${p.name}</td>
+        <td>${p.team || "–"}</td>
+        <td>${p.rank || "–"}</td>
         <td>${p.score}</td>
         <td>${p.kills}</td>
         <td>${p.deaths}</td>
@@ -492,7 +494,7 @@ function showScoreboard(id) {
     `).join("");
     body.innerHTML = `
       <table class="scoreboard">
-        <thead><tr><th>Name</th><th>Score</th><th>Kills</th><th>Deaths</th><th>Ping</th></tr></thead>
+        <thead><tr><th>Name</th><th>Team</th><th>Rank</th><th>Score</th><th>Kills</th><th>Deaths</th><th>Ping</th></tr></thead>
         <tbody>${rows}</tbody>
       </table>
     `;
