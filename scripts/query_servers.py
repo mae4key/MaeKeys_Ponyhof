@@ -130,36 +130,43 @@ def _count_humans(info: dict, players: list) -> int:
 
 
 def _extract_scoreboard(players: list) -> list:
-    """Baut aus der rohen Spielerliste ein einheitliches Scoreboard (Name,
-    Team, Rang, Score, Kills, Deaths, Ping) - echte Spieler UND Bots, Bots
-    ueber "is_bot" markiert (ping=0, seit Jahren gebraeuchlicher
-    Erkennungsweg fuer diese Engine-Generation). Feldnamen unterscheiden
-    sich leicht je nach Protokollversion, daher mehrere moegliche
-    Schluessel."""
+    """Baut aus der rohen Spielerliste ein Scoreboard (Name, Team, Rang,
+    Score, Kills, Deaths, Ping) - nur echte Spieler. KI-Bots werden vom
+    Server in Coop-Partien offenbar nicht als einzelne Eintraege gefuehrt
+    (nur als Summenfeld wie 'bf2_bots'), daher landen nur echte Spieler
+    (ping != 0) hier; die Bot-Gesamtzahl wird separat ermittelt (siehe
+    _count_humans/bot_count)."""
     board = []
     for p in players or []:
         p = {k.lower(): v for k, v in p.items()}
         ping = str(p.get("ping", "1")).strip()
+        if ping == "0":
+            continue
         board.append(
             {
                 "name": _first(p, "player", "playername", "name", default="?"),
                 "team": _first(p, "team", "team_t", default=""),
                 "rank": _first(p, "rank", "skill", default=""),
                 "score": _first(p, "score", default="0"),
-                "kills": _first(p, "kills", "kill", default=""),
+                "kills": _first(p, "kills", "kill", "frags", default=""),
                 "deaths": _first(p, "deaths", "death", default=""),
                 "ping": ping,
-                "is_bot": ping == "0",
             }
         )
-    # Echte Spieler zuerst, dann Bots; innerhalb davon nach Score sortiert
-    board.sort(
-        key=lambda row: (
-            row["is_bot"],
-            -(int(row["score"]) if str(row["score"]).lstrip("-").isdigit() else 0),
-        )
-    )
+    board.sort(key=lambda row: int(row["score"]) if str(row["score"]).lstrip("-").isdigit() else 0, reverse=True)
     return board
+
+
+def _count_bots(info: dict, players: list, human_count: int) -> int:
+    """Ermittelt die Bot-Gesamtzahl als Summenwert (nicht einzeln auflistbar,
+    siehe _extract_scoreboard)."""
+    bots = _first(info, "bf2_bots", "numbots", "bots")
+    if bots:
+        return int(bots)
+    numplayers = int(
+        _first(info, "numplayers", "playercount", "numplayers_", default="0") or 0
+    )
+    return max(0, numplayers - human_count)
 
 
 async def _try_protocol(protocol_cls, host, port, challenge_required=None):
@@ -180,6 +187,7 @@ async def query_one(entry: dict) -> dict:
         "mod": "",
         "players": 0,
         "max_players": 0,
+        "bot_count": 0,
         "scoreboard": [],
     }
 
@@ -223,11 +231,7 @@ async def query_one(entry: dict) -> dict:
                 _first(info, "maxplayers", "maxplayers_", default="0") or 0
             )
             result["scoreboard"] = _extract_scoreboard(status.players)
-            if result["players"] > 0 and not result["scoreboard"]:
-                # TEMPORAER zur Fehlersuche: Spielerzahl > 0, aber Scoreboard
-                # leer - zeigt die rohe Spielerliste, um das Feldformat zu
-                # finden.
-                result["_debug_raw_players"] = status.players
+            result["bot_count"] = _count_bots(info, status.players, result["players"])
             if not result["mod"]:
                 # TEMPORAER zur Fehlersuche: Mod-Feld weiterhin leer trotz
                 # Fix - zeig die komplette Rohantwort, um den echten
