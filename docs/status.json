@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02T22:23:44+00:00",
+  "generated_at": "2026-11-02T22:25:27+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -30,7 +30,7 @@
       "game": "Battlefield Vietnam",
       "name": "MaeKeys Ponyhof",
       "status": "online",
-      "map": "HUE 1968",
+      "map": "CAMBODIAN INCURSION",
       "mode": "coop",
       "mod": "Vanilla",
       "players": 0,
