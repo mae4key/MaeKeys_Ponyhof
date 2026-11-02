@@ -143,7 +143,95 @@
     font-size: 0.92rem;
     color: var(--text);
     line-height: 1.2;
+    text-decoration: none;
+    background: none;
+    border: none;
+    border-bottom: 1px dotted var(--brass);
+    padding: 0;
+    cursor: pointer;
+    font-weight: inherit;
   }
+
+  .game-name:hover,
+  .game-name:focus {
+    color: var(--brass);
+  }
+
+  .modal-backdrop {
+    position: fixed;
+    top: 0; right: 0; bottom: 0; left: 0;
+    z-index: 10;
+    background: rgba(10, 11, 7, 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }
+
+  .modal-backdrop[hidden] { display: none; }
+
+  .modal-box {
+    background: #1f2315;
+    border: 1px solid var(--panel-line);
+    border-left: 4px solid var(--brass);
+    max-width: 420px;
+    width: 100%;
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: 1.1rem 1.2rem;
+  }
+
+  .modal-box h2 {
+    font-family: "Staatliches", sans-serif;
+    letter-spacing: 0.04em;
+    color: var(--brass);
+    margin: 0 0 0.2rem;
+    font-size: 1.2rem;
+  }
+
+  .modal-box .modal-sub {
+    color: var(--text-dim);
+    font-size: 0.75rem;
+    margin: 0 0 0.9rem;
+  }
+
+  table.scoreboard {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.75rem;
+  }
+
+  table.scoreboard th {
+    text-align: left;
+    color: var(--text-dim);
+    font-weight: normal;
+    border-bottom: 1px solid var(--panel-line);
+    padding: 0.25rem 0.4rem;
+  }
+
+  table.scoreboard td {
+    padding: 0.25rem 0.4rem;
+    border-bottom: 1px dashed var(--panel-line);
+  }
+
+  .modal-empty {
+    color: var(--text-dim);
+    font-size: 0.85rem;
+  }
+
+  .modal-close {
+    display: block;
+    margin: 1rem auto 0;
+    background: none;
+    border: 1px solid var(--panel-line);
+    color: var(--text-dim);
+    font-family: inherit;
+    font-size: 0.75rem;
+    padding: 0.4rem 1rem;
+    cursor: pointer;
+  }
+
+  .modal-close:hover { color: var(--text); border-color: var(--brass); }
 
   .tag {
     font-size: 0.7rem;
@@ -310,6 +398,15 @@
   <p class="stale-notice" id="stale-notice" hidden></p>
 </div>
 
+<div class="modal-backdrop" id="modal-backdrop" hidden onclick="if(event.target===this) closeScoreboard()">
+  <div class="modal-box">
+    <h2 id="modal-title"></h2>
+    <p class="modal-sub" id="modal-sub"></p>
+    <div id="modal-body"></div>
+    <button type="button" class="modal-close" onclick="closeScoreboard()">Close</button>
+  </div>
+</div>
+
 <script>
 function fmtTimestamp(iso) {
   if (!iso) return "No update yet.";
@@ -317,9 +414,13 @@ function fmtTimestamp(iso) {
   return "Last updated: " + d.toLocaleString("en-GB", { dateStyle: "medium", timeStyle: "short" });
 }
 
+let currentServers = {};
+
 function renderServers(servers) {
   const el = document.getElementById("servers");
   const online = servers.filter(s => s.status === "online");
+  currentServers = {};
+  online.forEach(s => { currentServers[s.id] = s; });
 
   if (online.length === 0) {
     el.innerHTML = `<p class="empty"><strong>No game currently running</strong>All servers are currently offline or unreachable.</p>`;
@@ -329,7 +430,7 @@ function renderServers(servers) {
   el.innerHTML = online.map(s => `
     <div class="card">
       <div class="card-top">
-        <span class="game-name">${s.game}</span>
+        <button type="button" class="game-name" data-id="${s.id}" onclick="showScoreboard(this.dataset.id)">${s.game}</button>
         <span class="tag online">ONLINE</span>
       </div>
       <dl class="meta">
@@ -364,6 +465,49 @@ async function load() {
 }
 
 load();
+
+// Scoreboard-Detailfenster: zeigt nur unsere eigenen Abfragedaten, kein
+// externer Link.
+function showScoreboard(id) {
+  const s = currentServers[id];
+  if (!s) return;
+  document.getElementById("modal-title").textContent = s.game;
+  document.getElementById("modal-sub").textContent =
+    (s.mod ? s.name + " – " + s.mod : s.name) +
+    (s.map ? " · " + s.map : "") +
+    (s.mode ? " · " + s.mode : "");
+
+  const body = document.getElementById("modal-body");
+  if (!s.scoreboard || s.scoreboard.length === 0) {
+    body.innerHTML = `<p class="modal-empty">No players currently online.</p>`;
+  } else {
+    const rows = s.scoreboard.map(p => `
+      <tr>
+        <td>${p.name}</td>
+        <td>${p.score}</td>
+        <td>${p.kills}</td>
+        <td>${p.deaths}</td>
+        <td>${p.ping}</td>
+      </tr>
+    `).join("");
+    body.innerHTML = `
+      <table class="scoreboard">
+        <thead><tr><th>Name</th><th>Score</th><th>Kills</th><th>Deaths</th><th>Ping</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    `;
+  }
+
+  document.getElementById("modal-backdrop").hidden = false;
+}
+
+function closeScoreboard() {
+  document.getElementById("modal-backdrop").hidden = true;
+}
+
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") closeScoreboard();
+});
 
 // Hintergrundbild beim Scrollen gleichmaessig von links nach rechts
 // schwenken - nur auf schmalen (mobilen) Bildschirmen aktiv.

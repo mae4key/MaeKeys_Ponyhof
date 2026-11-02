@@ -129,6 +129,30 @@ def _count_humans(info: dict, players: list) -> int:
     return numplayers
 
 
+def _extract_scoreboard(players: list) -> list:
+    """Baut aus der rohen Spielerliste ein einheitliches Scoreboard (Name,
+    Score, Kills, Deaths, Ping) - nur echte Spieler, Bots (ping=0)
+    ausgeschlossen. Feldnamen unterscheiden sich leicht je nach
+    Protokollversion, daher auch hier mehrere moegliche Schluessel."""
+    board = []
+    for p in players or []:
+        p = {k.lower(): v for k, v in p.items()}
+        ping = str(p.get("ping", "1")).strip()
+        if ping == "0":
+            continue  # Bot, nicht ins Scoreboard aufnehmen
+        board.append(
+            {
+                "name": _first(p, "player", "playername", "name", default="?"),
+                "score": _first(p, "score", default="0"),
+                "kills": _first(p, "kills", "kill", default=""),
+                "deaths": _first(p, "deaths", "death", default=""),
+                "ping": ping,
+            }
+        )
+    board.sort(key=lambda row: int(row["score"]) if str(row["score"]).lstrip("-").isdigit() else 0, reverse=True)
+    return board
+
+
 async def _try_protocol(protocol_cls, host, port, challenge_required=None):
     client = protocol_cls(host=host, port=port, timeout=TIMEOUT_SECONDS)
     if challenge_required is not None and hasattr(client, "challenge_required"):
@@ -147,6 +171,7 @@ async def query_one(entry: dict) -> dict:
         "mod": "",
         "players": 0,
         "max_players": 0,
+        "scoreboard": [],
     }
 
     protocol_name = entry.get("protocol", "")
@@ -188,6 +213,7 @@ async def query_one(entry: dict) -> dict:
             result["max_players"] = int(
                 _first(info, "maxplayers", "maxplayers_", default="0") or 0
             )
+            result["scoreboard"] = _extract_scoreboard(status.players)
             if not result["mod"]:
                 # TEMPORAER zur Fehlersuche: Mod-Feld weiterhin leer trotz
                 # Fix - zeig die komplette Rohantwort, um den echten
