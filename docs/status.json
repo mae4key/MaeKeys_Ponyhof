@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02T06:49:47+00:00",
+  "generated_at": "2026-11-02T06:51:10+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -27,15 +27,12 @@
       "id": "bfv-ponyhof-1",
       "game": "Battlefield Vietnam",
       "name": "MaeKeys Ponyhof",
-      "status": "offline",
-      "map": "",
-      "mode": "",
-      "mod": "",
+      "status": "online",
+      "map": "HUE 1968",
+      "mode": "coop",
+      "mod": "Vanilla",
       "players": 0,
-      "max_players": 0,
-      "_debug_errors": [
-        "GameSpy2: TimeoutError: "
-      ]
+      "max_players": 44
     },
     {
       "id": "bfv-ponyhof-2",
