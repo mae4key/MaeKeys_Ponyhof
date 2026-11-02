@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02T15:22:26+00:00",
+  "generated_at": "2026-11-02T15:24:12+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -89,7 +89,7 @@
       "map": "Belgrade",
       "mode": "gpm_coop",
       "mod": "Vanilla",
-      "players": 33,
+      "players": 0,
       "max_players": 32
     }
   ]
