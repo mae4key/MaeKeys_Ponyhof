@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02T07:31:38+00:00",
+  "generated_at": "2026-11-02T07:33:40+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -94,18 +94,58 @@
       "id": "bf2142-ponyhof-2",
       "game": "Battlefield 2142",
       "name": "MaeKeys Ponyhof",
-      "status": "offline",
+      "status": "online",
       "map": "",
       "mode": "",
       "mod": "",
       "players": 0,
       "max_players": 0,
-      "_debug_errors": [
-        "Battlefield2: TimeoutError: ",
-        "Battlefield2: TimeoutError: ",
-        "GameSpy2: TimeoutError: ",
-        "GameSpy3: TimeoutError: "
-      ]
+      "_debug_info": {
+        "hostname": "",
+        "gamename": "stella",
+        "gamever": "1.10.112.0",
+        "mapname": "",
+        "gametype": "",
+        "gamevariant": "",
+        "numplayers": "",
+        "maxplayers": "",
+        "gamemode": "openplaying",
+        "password": "",
+        "timelimit": "",
+        "roundtime": "",
+        "hostport": "",
+        "bf2142_ranked": "",
+        "bf2142_anticheat": "",
+        "bf2142_autorec": "",
+        "bf2142_d_idx": "",
+        "bf2142_d_dl": "",
+        "bf2142_voip": "",
+        "bf2142_autobalanced": "",
+        "bf2142_friendlyfire": "",
+        "bf2142_tkmode": "",
+        "bf2142_startdelay": "",
+        "bf2142_spawntime": "",
+        "bf2142_sponsortext": "",
+        "bf2142_sponsorlogo_url": "",
+        "bf2142_communitylogo_url": "",
+        "bf2142_scorelimit": "",
+        "bf2142_ticketratio": "",
+        "bf2142_teamratio": "",
+        "bf2142_team1": "",
+        "bf2142_team2": "",
+        "bf2142_pure": "",
+        "bf2142_mapsize": "",
+        "bf2142_globalunlocks": "",
+        "bf2142_reservedslots": "",
+        "bf2142_maxrank": "",
+        "bf2142_provider": "",
+        "bf2142_region": "",
+        "bf2142_type": "",
+        "bf2142_averageping": "",
+        "bf2142_ranked_tournament": "",
+        "bf2142_allow_spectators": "",
+        "bf2142_custom_map_url": ""
+      }
     }
   ]
 }
