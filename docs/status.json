@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02T15:31:27+00:00",
+  "generated_at": "2026-11-02T15:33:14+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -53,11 +53,12 @@
       "game": "Battlefield 2",
       "name": "MaeKeys Ponyhof",
       "status": "online",
-      "map": "Daqing Oilfields",
-      "mode": "gpm_coop",
-      "mod": "Vanilla",
-      "players": 0,
-      "max_players": 16
+      "map": "",
+      "mode": "",
+      "mod": "",
+      "players": 40,
+      "max_players": 0,
+      "_debug_info": {}
     },
     {
       "id": "bf2-ponyhof-2",
