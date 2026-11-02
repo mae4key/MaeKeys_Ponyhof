@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02T14:56:22+00:00",
+  "generated_at": "2026-11-02T14:58:16+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -31,7 +31,7 @@
       "game": "Battlefield Vietnam",
       "name": "MaeKeys Ponyhof",
       "status": "online",
-      "map": "HO CHI MINH TRAIL",
+      "map": "CAMBODIAN INCURSION",
       "mode": "coop",
       "mod": "Vanilla",
       "players": 0,
@@ -42,7 +42,7 @@
       "game": "Battlefield Vietnam",
       "name": "MaeKeys Ponyhof",
       "status": "online",
-      "map": "ECHOES",
+      "map": "HO CHI MINH TRAIL",
       "mode": "coop",
       "mod": "WW2Mod",
       "players": 0,
