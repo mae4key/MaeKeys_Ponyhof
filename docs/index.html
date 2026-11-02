@@ -214,6 +214,9 @@
     border-bottom: 1px dashed var(--panel-line);
   }
 
+  .bot-row { opacity: 0.6; }
+  .bot-tag { color: var(--text-dim); font-size: 0.68rem; }
+
   .modal-empty {
     color: var(--text-dim);
     font-size: 0.85rem;
@@ -482,14 +485,14 @@ function showScoreboard(id) {
     body.innerHTML = `<p class="modal-empty">No players currently online.</p>`;
   } else {
     const rows = s.scoreboard.map(p => `
-      <tr>
-        <td>${p.name}</td>
+      <tr${p.is_bot ? ' class="bot-row"' : ''}>
+        <td>${p.name}${p.is_bot ? ' <span class="bot-tag">(bot)</span>' : ''}</td>
         <td>${p.team || "–"}</td>
         <td>${p.rank || "–"}</td>
         <td>${p.score}</td>
         <td>${p.kills}</td>
         <td>${p.deaths}</td>
-        <td>${p.ping}</td>
+        <td>${p.is_bot ? "–" : p.ping}</td>
       </tr>
     `).join("");
     body.innerHTML = `

@@ -131,15 +131,15 @@ def _count_humans(info: dict, players: list) -> int:
 
 def _extract_scoreboard(players: list) -> list:
     """Baut aus der rohen Spielerliste ein einheitliches Scoreboard (Name,
-    Score, Kills, Deaths, Ping) - nur echte Spieler, Bots (ping=0)
-    ausgeschlossen. Feldnamen unterscheiden sich leicht je nach
-    Protokollversion, daher auch hier mehrere moegliche Schluessel."""
+    Team, Rang, Score, Kills, Deaths, Ping) - echte Spieler UND Bots, Bots
+    ueber "is_bot" markiert (ping=0, seit Jahren gebraeuchlicher
+    Erkennungsweg fuer diese Engine-Generation). Feldnamen unterscheiden
+    sich leicht je nach Protokollversion, daher mehrere moegliche
+    Schluessel."""
     board = []
     for p in players or []:
         p = {k.lower(): v for k, v in p.items()}
         ping = str(p.get("ping", "1")).strip()
-        if ping == "0":
-            continue  # Bot, nicht ins Scoreboard aufnehmen
         board.append(
             {
                 "name": _first(p, "player", "playername", "name", default="?"),
@@ -149,9 +149,16 @@ def _extract_scoreboard(players: list) -> list:
                 "kills": _first(p, "kills", "kill", default=""),
                 "deaths": _first(p, "deaths", "death", default=""),
                 "ping": ping,
+                "is_bot": ping == "0",
             }
         )
-    board.sort(key=lambda row: int(row["score"]) if str(row["score"]).lstrip("-").isdigit() else 0, reverse=True)
+    # Echte Spieler zuerst, dann Bots; innerhalb davon nach Score sortiert
+    board.sort(
+        key=lambda row: (
+            row["is_bot"],
+            -(int(row["score"]) if str(row["score"]).lstrip("-").isdigit() else 0),
+        )
+    )
     return board
 
 
