@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02T19:13:02+00:00",
+  "generated_at": "2026-11-02T19:14:49+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -83,14 +83,11 @@
       "game": "Battlefield 2142",
       "name": "MaeKeys Ponyhof",
       "status": "online",
-      "map": "",
-      "mode": "",
-      "mod": "",
-      "players": 32,
-      "max_players": 0,
-      "_debug_info": {
-        "0": "0"
-      }
+      "map": "Belgrade",
+      "mode": "gpm_coop",
+      "mod": "Vanilla",
+      "players": 0,
+      "max_players": 32
     }
   ]
 }
