@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02T14:17:18+00:00",
+  "generated_at": "2026-11-02T14:17:55+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -42,7 +42,7 @@
       "game": "Battlefield Vietnam",
       "name": "MaeKeys Ponyhof",
       "status": "online",
-      "map": "DOGS OF WAR",
+      "map": "ECHOES",
       "mode": "coop",
       "mod": "WW2Mod",
       "players": 0,
