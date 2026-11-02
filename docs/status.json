@@ -1,93 +1,129 @@
 {
-  "generated_at": "2026-11-02T11:18:27+00:00",
+  "generated_at": "2026-11-02T11:19:34+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
       "game": "Battlefield 1942",
       "name": "MaeKeys Ponyhof",
-      "status": "online",
-      "map": "Berlin",
-      "mode": "ctf",
-      "mod": "Vanilla",
+      "status": "offline",
+      "map": "",
+      "mode": "",
+      "mod": "",
       "players": 0,
-      "max_players": 20
+      "max_players": 0,
+      "_debug_errors": [
+        "GameSpy1: TimeoutError: "
+      ]
     },
     {
       "id": "bf1942-ponyhof-2",
       "game": "Battlefield 1942",
       "name": "MaeKeys Ponyhof",
-      "status": "online",
-      "map": "eagles nest",
-      "mode": "coop",
-      "mod": "Xpack2",
+      "status": "offline",
+      "map": "",
+      "mode": "",
+      "mod": "",
       "players": 0,
-      "max_players": 48
+      "max_players": 0,
+      "_debug_errors": [
+        "GameSpy1: TimeoutError: "
+      ]
     },
     {
       "id": "bfv-ponyhof-1",
       "game": "Battlefield Vietnam",
       "name": "MaeKeys Ponyhof",
-      "status": "online",
-      "map": "HUE 1968",
-      "mode": "coop",
-      "mod": "Vanilla",
+      "status": "offline",
+      "map": "",
+      "mode": "",
+      "mod": "",
       "players": 0,
-      "max_players": 44
+      "max_players": 0,
+      "_debug_errors": [
+        "GameSpy2: TimeoutError: "
+      ]
     },
     {
       "id": "bfv-ponyhof-2",
       "game": "Battlefield Vietnam",
       "name": "MaeKeys Ponyhof",
-      "status": "online",
-      "map": "Wake",
-      "mode": "coop",
-      "mod": "WW2Mod",
+      "status": "offline",
+      "map": "",
+      "mode": "",
+      "mod": "",
       "players": 0,
-      "max_players": 44
+      "max_players": 0,
+      "_debug_errors": [
+        "GameSpy2: TimeoutError: "
+      ]
     },
     {
       "id": "bf2-ponyhof-1",
       "game": "Battlefield 2",
       "name": "MaeKeys Ponyhof",
-      "status": "online",
-      "map": "Daqing Oilfields",
-      "mode": "gpm_coop",
-      "mod": "Vanilla",
+      "status": "offline",
+      "map": "",
+      "mode": "",
+      "mod": "",
       "players": 0,
-      "max_players": 32
+      "max_players": 0,
+      "_debug_errors": [
+        "Battlefield2: TimeoutError: ",
+        "Battlefield2: TimeoutError: ",
+        "GameSpy2: TimeoutError: ",
+        "GameSpy3: TimeoutError: "
+      ]
     },
     {
       "id": "bf2-ponyhof-2",
       "game": "Battlefield 2",
       "name": "MaeKeys Ponyhof",
-      "status": "online",
-      "map": "Night Flight",
-      "mode": "gpm_coop",
-      "mod": "xpack",
+      "status": "offline",
+      "map": "",
+      "mode": "",
+      "mod": "",
       "players": 0,
-      "max_players": 32
+      "max_players": 0,
+      "_debug_errors": [
+        "Battlefield2: TimeoutError: ",
+        "Battlefield2: TimeoutError: ",
+        "GameSpy2: TimeoutError: ",
+        "GameSpy3: TimeoutError: "
+      ]
     },
     {
       "id": "bf2142-ponyhof-1",
       "game": "Battlefield 2142",
       "name": "MaeKeys Ponyhof",
-      "status": "online",
-      "map": "Suez_Canal",
-      "mode": "gpm_ti",
-      "mod": "Vanilla",
+      "status": "offline",
+      "map": "",
+      "mode": "",
+      "mod": "",
       "players": 0,
-      "max_players": 32
+      "max_players": 0,
+      "_debug_errors": [
+        "Battlefield2: TimeoutError: ",
+        "Battlefield2: TimeoutError: ",
+        "GameSpy2: TimeoutError: ",
+        "GameSpy3: TimeoutError: "
+      ]
     },
     {
       "id": "bf2142-ponyhof-2",
       "game": "Battlefield 2142",
       "name": "MaeKeys Ponyhof",
-      "status": "online",
-      "map": "Belgrade",
-      "mode": "gpm_coop",
-      "mod": "Vanilla",
+      "status": "offline",
+      "map": "",
+      "mode": "",
+      "mod": "",
       "players": 0,
-      "max_players": 32
+      "max_players": 0,
+      "_debug_errors": [
+        "Battlefield2: TimeoutError: ",
+        "Battlefield2: TimeoutError: ",
+        "GameSpy2: TimeoutError: ",
+        "GameSpy3: TimeoutError: "
+      ]
     }
   ]
 }
