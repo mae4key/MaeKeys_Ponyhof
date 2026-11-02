@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02T10:49:26+00:00",
+  "generated_at": "2026-11-02T10:51:26+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -47,12 +47,15 @@
       "id": "bfv-ponyhof-2",
       "game": "Battlefield Vietnam",
       "name": "MaeKeys Ponyhof",
-      "status": "online",
-      "map": "Invasion of the Philippines",
-      "mode": "coop",
-      "mod": "WW2Mod",
+      "status": "offline",
+      "map": "",
+      "mode": "",
+      "mod": "",
       "players": 0,
-      "max_players": 44
+      "max_players": 0,
+      "_debug_errors": [
+        "GameSpy2: TimeoutError: "
+      ]
     },
     {
       "id": "bf2-ponyhof-1",
@@ -75,34 +78,52 @@
       "id": "bf2-ponyhof-2",
       "game": "Battlefield 2",
       "name": "MaeKeys Ponyhof",
-      "status": "online",
-      "map": "Night Flight",
-      "mode": "gpm_coop",
-      "mod": "xpack",
+      "status": "offline",
+      "map": "",
+      "mode": "",
+      "mod": "",
       "players": 0,
-      "max_players": 32
+      "max_players": 0,
+      "_debug_errors": [
+        "Battlefield2: TimeoutError: ",
+        "Battlefield2: TimeoutError: ",
+        "GameSpy2: TimeoutError: ",
+        "GameSpy3: TimeoutError: "
+      ]
     },
     {
       "id": "bf2142-ponyhof-1",
       "game": "Battlefield 2142",
       "name": "MaeKeys Ponyhof",
-      "status": "online",
-      "map": "Suez_Canal",
-      "mode": "gpm_ti",
-      "mod": "Vanilla",
+      "status": "offline",
+      "map": "",
+      "mode": "",
+      "mod": "",
       "players": 0,
-      "max_players": 32
+      "max_players": 0,
+      "_debug_errors": [
+        "Battlefield2: TimeoutError: ",
+        "Battlefield2: TimeoutError: ",
+        "GameSpy2: TimeoutError: ",
+        "GameSpy3: TimeoutError: "
+      ]
     },
     {
       "id": "bf2142-ponyhof-2",
       "game": "Battlefield 2142",
       "name": "MaeKeys Ponyhof",
-      "status": "online",
-      "map": "Belgrade",
-      "mode": "gpm_cq",
-      "mod": "Vanilla",
+      "status": "offline",
+      "map": "",
+      "mode": "",
+      "mod": "",
       "players": 0,
-      "max_players": 32
+      "max_players": 0,
+      "_debug_errors": [
+        "Battlefield2: TimeoutError: ",
+        "Battlefield2: TimeoutError: ",
+        "GameSpy2: TimeoutError: ",
+        "GameSpy3: TimeoutError: "
+      ]
     }
   ]
 }
