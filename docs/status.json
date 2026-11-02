@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02T17:50:59+00:00",
+  "generated_at": "2026-11-02T18:36:15+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -17,7 +17,7 @@
       "game": "Battlefield 1942",
       "name": "MaeKeys Ponyhof",
       "status": "online",
-      "map": "gothic line",
+      "map": "essen",
       "mode": "coop",
       "mod": "Xpack2",
       "players": 0,
@@ -28,7 +28,7 @@
       "game": "Battlefield Vietnam",
       "name": "MaeKeys Ponyhof",
       "status": "online",
-      "map": "HUE 1968",
+      "map": "CAMBODIAN INCURSION",
       "mode": "coop",
       "mod": "Vanilla",
       "players": 0,
@@ -39,7 +39,7 @@
       "game": "Battlefield Vietnam",
       "name": "MaeKeys Ponyhof",
       "status": "online",
-      "map": "Wake",
+      "map": "Invasion of the Philippines",
       "mode": "coop",
       "mod": "WW2Mod",
       "players": 0,
@@ -72,7 +72,7 @@
       "game": "Battlefield 2142",
       "name": "MaeKeys Ponyhof",
       "status": "online",
-      "map": "Suez_Canal",
+      "map": "Highway_Tampa",
       "mode": "gpm_ti",
       "mod": "Vanilla",
       "players": 1,
