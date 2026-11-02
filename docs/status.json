@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02T07:49:56+00:00",
+  "generated_at": "2026-11-02T07:51:54+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -19,12 +19,15 @@
       "id": "bf1942-ponyhof-2",
       "game": "Battlefield 1942",
       "name": "MaeKeys Ponyhof",
-      "status": "online",
-      "map": "baytown",
-      "mode": "coop",
-      "mod": "Xpack1",
+      "status": "offline",
+      "map": "",
+      "mode": "",
+      "mod": "",
       "players": 0,
-      "max_players": 32
+      "max_players": 0,
+      "_debug_errors": [
+        "GameSpy1: TimeoutError: "
+      ]
     },
     {
       "id": "bfv-ponyhof-1",
