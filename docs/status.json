@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02T17:32:00+00:00",
+  "generated_at": "2026-11-02T17:33:41+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -75,7 +75,7 @@
       "map": "Suez_Canal",
       "mode": "gpm_ti",
       "mod": "Vanilla",
-      "players": 0,
+      "players": 1,
       "max_players": 32
     },
     {
