@@ -35,7 +35,9 @@
     "protocol": "gamespy2",
     "host": "870om3k8bee3muwz.myfritz.net",
     "port": 23011,
-    "enabled": true
+    "enabled": true,
+    "configured_bots": 0,
+    "bot_team_ratio": "1:1"
   },
   {
     "id": "bf2-ponyhof-1",
