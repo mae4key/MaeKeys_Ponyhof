@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-03T20:38:02+00:00",
+  "generated_at": "2026-11-03T20:40:01+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -49,8 +49,8 @@
       "max_players": 44,
       "scoreboard": [],
       "tickets": [
-        "404",
-        "444"
+        "381",
+        "422"
       ],
       "configured_bots": {
         "team1": 16,
@@ -70,8 +70,8 @@
       "max_players": 44,
       "scoreboard": [],
       "tickets": [
-        "827",
-        "955"
+        "822",
+        "948"
       ],
       "configured_bots": {
         "team1": 16,
