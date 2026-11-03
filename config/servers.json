@@ -84,8 +84,8 @@
     "host": "870om3k8bee3muwz.myfritz.net",
     "port": 29911,
     "enabled": true,
-    "configured_bots": 0,
-    "bot_team_ratio": "1:1"
+    "configured_bots": 32,
+    "bot_team_ratio": "16:16"
   },
   {
     "id": "mohaa-ponyhof",
