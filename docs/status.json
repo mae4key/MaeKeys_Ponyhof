@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-03T19:15:46+00:00",
+  "generated_at": "2026-11-03T19:17:47+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -18,7 +18,7 @@
       "game": "Battlefield 1942",
       "name": "MaeKeys Ponyhof",
       "status": "online",
-      "map": "essen",
+      "map": "gothic line",
       "mode": "coop",
       "mod": "Xpack2",
       "players": 0,
