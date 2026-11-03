@@ -15,7 +15,9 @@
     "protocol": "gamespy1",
     "host": "870om3k8bee3muwz.myfritz.net",
     "port": 23001,
-    "enabled": true
+    "enabled": true,
+    "configured_bots": 32,
+    "bot_team_ratio": "16:16"
   },
   {
     "id": "bfv-ponyhof-1",
