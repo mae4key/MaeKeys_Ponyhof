@@ -105,6 +105,20 @@ def _first(info: dict, *keys: str, default: str = "") -> str:
     return default
 
 
+def _extract_teams(teams: list) -> list:
+    """Best-effort: Ticket-/Punktestand pro Team aus status.teams. Der
+    exakte Feldname ist fuer dieses Protokoll nicht zuverlaessig
+    dokumentiert, daher mehrere Kandidaten; liefert nichts Nutzbares
+    zurueck, wenn kein Wert gefunden wird (lieber leer als falsch)."""
+    result = []
+    for t in teams or []:
+        t = {k.lower(): v for k, v in t.items()}
+        tickets = _first(t, "tickets", "score", "teamscore", "team_t")
+        if tickets:
+            result.append(tickets)
+    return result
+
+
 def _count_humans(info: dict, players: list) -> int:
     """Zaehlt echte Spieler statt Bots. Bei Coop-Servern (v. a. BF2) kann
     das vom Server gemeldete 'numplayers' auch Bots enthalten. Zwei Wege,
@@ -129,12 +143,16 @@ def _count_humans(info: dict, players: list) -> int:
     return numplayers
 
 
-def _extract_scoreboard(players: list) -> list:
+def _extract_scoreboard(players: list, trust_team: bool = True) -> list:
     """Baut aus der rohen Spielerliste ein Scoreboard (Name, Team, Rang,
     Score, Kills, Deaths, Ping) - echte Spieler UND Bots, Bots ueber
-    "is_bot" markiert (ping=0). Bei BF2/BF2142 liefert der Server Bots als
-    eigene Eintraege, deshalb werden hier grundsaetzlich alle Eintraege
-    aufgenommen statt gefiltert."""
+    "is_bot" markiert (ping=0).
+
+    trust_team=False (fuer "battlefield2"/BF2/BF2142): Nur das Team-Feld
+    ist bei dieser Protokollfamilie dokumentiert unzuverlaessig (liefert
+    kaputte Platzhalterwerte statt echter Team-Nummern - ein Fehler auf
+    Server-/Protokollebene, nicht in unserer Abfrage). Name, Score, Kills,
+    Deaths und Ping sind davon nicht betroffen und bleiben zuverlaessig."""
     board = []
     for p in players or []:
         p = {k.lower(): v for k, v in p.items()}
@@ -142,7 +160,7 @@ def _extract_scoreboard(players: list) -> list:
         board.append(
             {
                 "name": _first(p, "player", "playername", "name", default="?"),
-                "team": _first(p, "team", "team_t", default=""),
+                "team": _first(p, "team", "team_t", default="") if trust_team else "",
                 "rank": _first(p, "rank", "skill", default=""),
                 "score": _first(p, "score", default="0"),
                 "kills": _first(p, "kills", "kill", "frags", default=""),
@@ -167,6 +185,26 @@ async def _try_protocol(protocol_cls, host, port, challenge_required=None):
     return await client.get_status()
 
 
+def _configured_bot_split(entry: dict) -> dict:
+    """Bot-Anzahl kommt NICHT von der Live-Abfrage (das Spiel meldet sie ja
+    nicht), sondern aus der Konfiguration selbst - dort traegt das
+    Start-Skript beim Serverstart ein, wie viele Bots mit welchem
+    Team-Verhaeltnis gestartet wurden."""
+    total = int(entry.get("configured_bots", 0) or 0)
+    if total <= 0:
+        return {"team1": 0, "team2": 0, "total": 0}
+
+    ratio = str(entry.get("bot_team_ratio", "1:1"))
+    try:
+        r1, r2 = (int(x) for x in ratio.split(":"))
+    except (ValueError, TypeError):
+        r1, r2 = 1, 1
+
+    team1 = round(total * r1 / (r1 + r2)) if (r1 + r2) else total // 2
+    team2 = total - team1
+    return {"team1": team1, "team2": team2, "total": total}
+
+
 async def query_one(entry: dict) -> dict:
     result = {
         "id": entry["id"],
@@ -179,6 +217,8 @@ async def query_one(entry: dict) -> dict:
         "players": 0,
         "max_players": 0,
         "scoreboard": [],
+        "tickets": [],
+        "configured_bots": _configured_bot_split(entry),
     }
 
     protocol_name = entry.get("protocol", "")
@@ -220,7 +260,18 @@ async def query_one(entry: dict) -> dict:
             result["max_players"] = int(
                 _first(info, "maxplayers", "maxplayers_", default="0") or 0
             )
-            result["scoreboard"] = _extract_scoreboard(status.players)
+            result["scoreboard"] = _extract_scoreboard(
+                status.players, trust_team=(protocol_name != "battlefield2")
+            )
+            result["tickets"] = _extract_teams(getattr(status, "teams", []))
+            # Spielerzahl bevorzugt direkt aus dem Scoreboard ableiten
+            # (dieselbe Quelle wie die Detailansicht), damit Kachel und
+            # Scoreboard nie auseinanderlaufen koennen. Nur wenn gar keine
+            # Einzeldaten vorliegen, auf das Summenfeld zurueckfallen.
+            if result["scoreboard"]:
+                result["players"] = sum(
+                    1 for row in result["scoreboard"] if not row["is_bot"]
+                )
             if not result["mod"]:
                 # TEMPORAER zur Fehlersuche: Mod-Feld weiterhin leer trotz
                 # Fix - zeig die komplette Rohantwort, um den echten

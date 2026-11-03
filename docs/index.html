@@ -71,6 +71,70 @@
     z-index: 2;
   }
 
+  @media (min-width: 900px) {
+    .wrap { max-width: 1200px; }
+  }
+
+  .menu-btn {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 5;
+    background: rgba(36, 40, 25, 0.75);
+    border: 1px solid var(--panel-line);
+    color: var(--text);
+    width: 2.4rem;
+    height: 2.4rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    font-family: inherit;
+  }
+
+  .menu-btn:hover { border-color: var(--brass); color: var(--brass); }
+
+  .menu-panel {
+    position: fixed;
+    top: 3.6rem;
+    right: 1rem;
+    z-index: 5;
+    background: #1f2315;
+    border: 1px solid var(--panel-line);
+    border-right: 4px solid var(--brass);
+    padding: 1rem 1.1rem;
+    min-width: 220px;
+    max-width: calc(100vw - 2rem);
+  }
+
+  .menu-panel[hidden] { display: none; }
+
+  .menu-panel h3 {
+    font-family: "Staatliches", sans-serif;
+    letter-spacing: 0.04em;
+    color: var(--brass);
+    font-size: 0.9rem;
+    margin: 0.9rem 0 0.4rem;
+  }
+
+  .menu-panel h3:first-child { margin-top: 0; }
+
+  .menu-panel p {
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    margin: 0 0 0.4rem;
+    line-height: 1.5;
+  }
+
+  .menu-panel a {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--panel-line);
+    padding: 0.3rem 0;
+  }
+
+  .menu-panel a:hover { color: var(--brass); border-color: var(--brass); }
+
   .hero {
     display: flex;
     flex-direction: column;
@@ -110,8 +174,12 @@
 
   .servers {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 0.6rem;
+  }
+
+  @media (max-width: 480px) {
+    .servers { grid-template-columns: 1fr; }
   }
 
   .empty { grid-column: 1 / -1; }
@@ -174,12 +242,29 @@
     background: #1f2315;
     border: 1px solid var(--panel-line);
     border-left: 4px solid var(--brass);
-    max-width: 420px;
+    max-width: 640px;
     width: 100%;
-    max-height: 80vh;
+    max-height: 60vh;
     overflow-y: auto;
     padding: 1.1rem 1.2rem;
+    position: relative;
   }
+
+  .modal-x {
+    position: sticky;
+    float: right;
+    top: 0;
+    margin: -0.3rem -0.3rem 0 0.5rem;
+    background: none;
+    border: none;
+    color: var(--text-dim);
+    font-size: 1.3rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0.2rem 0.4rem;
+  }
+
+  .modal-x:hover { color: var(--brass); }
 
   .modal-box h2 {
     font-family: "Staatliches", sans-serif;
@@ -187,6 +272,32 @@
     color: var(--brass);
     margin: 0 0 0.2rem;
     font-size: 1.2rem;
+  }
+
+  .tickets-line {
+    font-size: 0.85rem;
+    color: var(--text);
+    margin: 0 0 0.8rem;
+  }
+
+  .teams-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+  }
+
+  @media (max-width: 480px) {
+    .teams-split { grid-template-columns: 1fr; }
+  }
+
+  .team-col h4 {
+    font-family: "Staatliches", sans-serif;
+    letter-spacing: 0.03em;
+    color: var(--text-dim);
+    font-size: 0.8rem;
+    margin: 0 0 0.3rem;
+    border-bottom: 1px solid var(--panel-line);
+    padding-bottom: 0.2rem;
   }
 
   .modal-box .modal-sub {
@@ -286,6 +397,18 @@
 <body>
 <div class="bg-photo" id="bg-photo"></div>
 <div class="bg-overlay"></div>
+
+<button type="button" class="menu-btn" onclick="toggleMenu()" aria-label="Menu">☰</button>
+<div class="menu-panel" id="menu-panel" hidden>
+  <h3>About</h3>
+  <p>MaeKeys Ponyhof is a small, free community project hosting classic Battlefield retro servers. This page shows live status, queried directly from the servers — no third-party listing service.</p>
+  <h3>Server lists</h3>
+  <a href="http://master.bf1942.org/" target="_blank" rel="noopener">master.bf1942.org (BF1942)</a>
+  <a href="https://openspy.net/server-list/bfvietnam" target="_blank" rel="noopener">OpenSpy (BF Vietnam)</a>
+  <a href="https://www.bf2hub.com/servers/unranked/" target="_blank" rel="noopener">BF2Hub (BF2)</a>
+  <a href="https://openspy.net/server-list/stella" target="_blank" rel="noopener">OpenSpy (BF2142)</a>
+</div>
+
 <div class="wrap">
   <div class="hero">
     <svg class="mascot" viewBox="0 0 240 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pony mascot in camo with steel helmet and rifle">
@@ -403,10 +526,10 @@
 
 <div class="modal-backdrop" id="modal-backdrop" hidden onclick="if(event.target===this) closeScoreboard()">
   <div class="modal-box">
+    <button type="button" class="modal-x" onclick="closeScoreboard()" aria-label="Close">×</button>
     <h2 id="modal-title"></h2>
     <p class="modal-sub" id="modal-sub"></p>
     <div id="modal-body"></div>
-    <button type="button" class="modal-close" onclick="closeScoreboard()">Close</button>
   </div>
 </div>
 
@@ -433,7 +556,7 @@ function renderServers(servers) {
   el.innerHTML = online.map(s => `
     <div class="card">
       <div class="card-top">
-        <button type="button" class="game-name" data-id="${s.id}" onclick="showScoreboard(this.dataset.id)">${s.game}</button>
+        <button type="button" class="game-name" data-id="${s.id}" onclick="showScoreboard(this.dataset.id)">${s.game} ▸</button>
         <span class="tag online">ONLINE</span>
       </div>
       <dl class="meta">
@@ -481,30 +604,93 @@ function showScoreboard(id) {
     (s.mode ? " · " + s.mode : "");
 
   const body = document.getElementById("modal-body");
+  let html = "";
+
+  if (s.tickets && s.tickets.length >= 2) {
+    html += `<p class="tickets-line">Tickets: ${s.tickets[0]} – ${s.tickets[1]}</p>`;
+  }
+
+  const cbEarly = s.configured_bots || { team1: 0, team2: 0, total: 0 };
+
   if (!s.scoreboard || s.scoreboard.length === 0) {
-    body.innerHTML = `<p class="modal-empty">No players currently online.</p>`;
+    if (s.players && s.players > 0) {
+      html += `<p class="modal-empty">${s.players} player(s) online, but this game doesn't reliably expose an individual player list.</p>`;
+    } else {
+      html += `<p class="modal-empty">No players currently online.</p>`;
+    }
+    if (cbEarly.total > 0) {
+      html += `<div class="teams-split">
+        <div class="team-col"><h4>Team 1</h4><p class="bot-summary">+ ${cbEarly.team1} bots (configured)</p></div>
+        <div class="team-col"><h4>Team 2</h4><p class="bot-summary">+ ${cbEarly.team2} bots (configured)</p></div>
+      </div>`;
+    }
   } else {
-    const rows = s.scoreboard.map(p => `
+    const teamValues = [...new Set(s.scoreboard.map(p => p.team).filter(t => t))];
+    const rowHtml = p => `
       <tr${p.is_bot ? ' class="bot-row"' : ''}>
         <td>${p.name}${p.is_bot ? ' <span class="bot-tag">(bot)</span>' : ''}</td>
-        <td>${p.team || "–"}</td>
         <td>${p.rank || "–"}</td>
         <td>${p.score}</td>
         <td>${p.kills}</td>
         <td>${p.deaths}</td>
         <td>${p.is_bot ? "–" : p.ping}</td>
-      </tr>
-    `).join("");
-    body.innerHTML = `
+      </tr>`;
+    const table = rows => `
       <table class="scoreboard">
-        <thead><tr><th>Name</th><th>Team</th><th>Rank</th><th>Score</th><th>Kills</th><th>Deaths</th><th>Ping</th></tr></thead>
-        <tbody>${rows}</tbody>
-      </table>
-    `;
+        <thead><tr><th>Name</th><th>Rank</th><th>Score</th><th>Kills</th><th>Deaths</th><th>Ping</th></tr></thead>
+        <tbody>${rows.map(rowHtml).join("")}</tbody>
+      </table>`;
+
+    const cb = s.configured_bots || { team1: 0, team2: 0, total: 0 };
+    const botLine = n => n > 0 ? `<p class="bot-summary">+ ${n} bot${n === 1 ? "" : "s"} (configured)</p>` : "";
+
+    if (teamValues.length >= 2) {
+      const sortRow = (a, b) => (a.is_bot - b.is_bot) || (parseInt(b.score) || 0) - (parseInt(a.score) || 0);
+      const team1 = s.scoreboard.filter(p => p.team === teamValues[0]).sort(sortRow);
+      const team2 = s.scoreboard.filter(p => p.team === teamValues[1]).sort(sortRow);
+      const unassigned = s.scoreboard.filter(p => !teamValues.slice(0, 2).includes(p.team));
+      html += `
+        <div class="teams-split">
+          <div class="team-col"><h4>Team 1</h4>${table(team1)}${botLine(cb.team1)}</div>
+          <div class="team-col"><h4>Team 2</h4>${table(team2)}${botLine(cb.team2)}</div>
+        </div>
+      `;
+      if (unassigned.length) {
+        html += `<h4 style="margin-top:0.8rem;">Unassigned</h4>${table(unassigned)}`;
+      }
+    } else {
+      html += table(s.scoreboard);
+      if (cb.total > 0) {
+        html += `<div class="teams-split" style="margin-top:0.5rem;">
+          <div class="team-col"><h4>Team 1</h4>${botLine(cb.team1) || '<p class="modal-empty">–</p>'}</div>
+          <div class="team-col"><h4>Team 2</h4>${botLine(cb.team2) || '<p class="modal-empty">–</p>'}</div>
+        </div>`;
+      }
+    }
   }
 
+  // Hinweis nur, wenn wir WEDER eine Live-Bot-Zahl noch einen konfigurierten
+  // Wert haben.
+  const cbTotal = (s.configured_bots && s.configured_bots.total) || 0;
+  if ((s.game === "Battlefield 1942" || s.game === "Battlefield Vietnam") && cbTotal === 0) {
+    html += `<p class="modal-empty" style="margin-top:0.8rem;">Note: this game's engine does not report AI bots to server queries at all (not even as a count) — only human players above are ever visible here.</p>`;
+  }
+
+  body.innerHTML = html;
   document.getElementById("modal-backdrop").hidden = false;
 }
+
+function toggleMenu() {
+  const panel = document.getElementById("menu-panel");
+  panel.hidden = !panel.hidden;
+}
+
+document.addEventListener("click", e => {
+  const panel = document.getElementById("menu-panel");
+  if (!panel.hidden && !panel.contains(e.target) && !e.target.closest(".menu-btn")) {
+    panel.hidden = true;
+  }
+});
 
 function closeScoreboard() {
   document.getElementById("modal-backdrop").hidden = true;
