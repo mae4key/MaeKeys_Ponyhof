@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-04T19:35:00+00:00",
+  "generated_at": "2026-11-04T19:36:59+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -35,9 +35,9 @@
       "scoreboard": [],
       "tickets": [],
       "configured_bots": {
-        "team1": 16,
-        "team2": 16,
-        "total": 32
+        "team1": 0,
+        "team2": 0,
+        "total": 0
       },
       "_debug_errors": [
         "GameSpy1: TimeoutError: "
