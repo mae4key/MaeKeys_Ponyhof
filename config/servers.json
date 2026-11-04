@@ -76,8 +76,9 @@
     "host": "870om3k8bee3muwz.myfritz.net",
     "port": 29910,
     "enabled": true,
-    "configured_bots": 0,
-    "bot_team_ratio": "1:1"
+    "configured_bots": 64,
+    "bot_team_ratio": "30:34",
+    "max_human_players": 64
   },
   {
     "id": "bf2142-ponyhof-2",
