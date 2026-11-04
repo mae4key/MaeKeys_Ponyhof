@@ -19,8 +19,9 @@
     "host": "870om3k8bee3muwz.myfritz.net",
     "port": 23001,
     "enabled": true,
-    "configured_bots": 32,
-    "bot_team_ratio": "16:16"
+    "configured_bots": 0,
+    "bot_team_ratio": "1:1",
+    "max_human_players": 20
   },
   {
     "id": "bfv-ponyhof-1",
