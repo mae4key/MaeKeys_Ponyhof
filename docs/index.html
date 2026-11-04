@@ -288,6 +288,8 @@
   .modal-scroll {
     overflow-y: auto;
     margin-top: 0.6rem;
+    flex: 1 1 auto;
+    min-height: 0;
   }
 
   .modal-box h2 {
@@ -305,13 +307,9 @@
   }
 
   .teams-split {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.8rem;
-  }
-
-  @media (max-width: 480px) {
-    .teams-split { grid-template-columns: 1fr; }
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
 
   .team-col h4 {
@@ -349,8 +347,6 @@
     border-bottom: 1px dashed var(--panel-line);
   }
 
-  .bot-row { opacity: 0.6; }
-  .bot-tag { color: var(--text-dim); font-size: 0.68rem; }
 
   .modal-empty {
     color: var(--text-dim);
@@ -646,61 +642,44 @@ function showScoreboard(id) {
     html += `<p class="tickets-line">Tickets: ${s.tickets[0]} \u2013 ${s.tickets[1]}</p>`;
   }
 
-  const cb = s.configured_bots || { team1: 0, team2: 0, total: 0 };
-  const hasScoreboard = s.scoreboard && s.scoreboard.length > 0;
+  // Nur echte Spieler, nie Bots.
+  const humans = (s.scoreboard || []).filter(p => !p.is_bot);
 
-  if (!hasScoreboard && cb.total === 0) {
+  if (humans.length === 0) {
     html += `<p class="modal-empty">No players currently online.</p>`;
   } else {
     const rowHtml = p => `
-      <tr${p.is_bot ? ' class="bot-row"' : ''}>
+      <tr>
         <td>${p.rank || "\u2013"}</td>
-        <td>${p.name}${p.is_bot ? ' <span class="bot-tag">(bot)</span>' : ''}</td>
+        <td>${p.name}</td>
         <td>${p.score}</td>
         <td>${p.kills}</td>
         <td>${p.deaths}</td>
-        <td>${p.is_bot ? "\u2013" : p.ping}</td>
+        <td>${p.ping}</td>
       </tr>`;
-    const table = rows => rows.length ? `
+    const table = rows => `
       <table class="scoreboard">
         <thead><tr><th>Rank</th><th>Name</th><th>Score</th><th>Kills</th><th>Deaths</th><th>Ping</th></tr></thead>
         <tbody>${rows.map(rowHtml).join("")}</tbody>
-      </table>` : `<p class="modal-empty" style="margin:0.3rem 0;">No players.</p>`;
-    const botLine = n => n > 0 ? `<p class="bot-summary">${n} bot${n === 1 ? "" : "s"}</p>` : "";
+      </table>`;
+    const sortRow = (a, b) => (parseInt(b.score) || 0) - (parseInt(a.score) || 0);
 
-    const teamValues = hasScoreboard
-      ? [...new Set(s.scoreboard.map(p => p.team).filter(t => t))]
-      : [];
-    const sortRow = (a, b) => (a.is_bot - b.is_bot) || (parseInt(b.score) || 0) - (parseInt(a.score) || 0);
+    const teamValues = [...new Set(humans.map(p => p.team).filter(t => t))];
 
-    let team1Rows = [], team2Rows = [], unassignedRows = [];
     if (teamValues.length >= 2) {
-      team1Rows = s.scoreboard.filter(p => p.team === teamValues[0]).sort(sortRow);
-      team2Rows = s.scoreboard.filter(p => p.team === teamValues[1]).sort(sortRow);
-      unassignedRows = s.scoreboard.filter(p => !teamValues.slice(0, 2).includes(p.team));
-    } else if (hasScoreboard) {
-      unassignedRows = [...s.scoreboard].sort(sortRow);
-    }
+      const team1 = humans.filter(p => p.team === teamValues[0]).sort(sortRow);
+      const team2 = humans.filter(p => p.team === teamValues[1]).sort(sortRow);
+      const unassigned = humans.filter(p => !teamValues.slice(0, 2).includes(p.team));
+      const team1Label = isNaN(teamValues[0]) ? teamValues[0] : "Team 1";
+      const team2Label = isNaN(teamValues[1]) ? teamValues[1] : "Team 2";
 
-    const team1Label = teamValues[0] && isNaN(teamValues[0]) ? teamValues[0] : "Team 1";
-    const team2Label = teamValues[1] && isNaN(teamValues[1]) ? teamValues[1] : "Team 2";
-
-    html += `
-      <div class="teams-split">
-        <div class="team-col">
-          <h4>${team1Label}</h4>
-          ${botLine(cb.team1)}
-          ${table(team1Rows)}
-        </div>
-        <div class="team-col">
-          <h4>${team2Label}</h4>
-          ${botLine(cb.team2)}
-          ${table(team2Rows)}
-        </div>
-      </div>
-    `;
-    if (unassignedRows.length) {
-      html += `<h4 style="margin-top:0.8rem;">${teamValues.length >= 2 ? "Unassigned" : "Players"}</h4>${table(unassignedRows)}`;
+      html += `<div class="teams-split">`;
+      if (team1.length) html += `<div class="team-col"><h4>${team1Label}</h4>${table(team1)}</div>`;
+      if (team2.length) html += `<div class="team-col"><h4>${team2Label}</h4>${table(team2)}</div>`;
+      if (unassigned.length) html += `<div class="team-col"><h4>Unassigned</h4>${table(unassigned)}</div>`;
+      html += `</div>`;
+    } else {
+      html += table(humans.sort(sortRow));
     }
   }
 
