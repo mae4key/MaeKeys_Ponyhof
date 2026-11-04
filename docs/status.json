@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-04T22:22:15+00:00",
+  "generated_at": "2026-11-04T22:26:19+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -13,11 +13,6 @@
       "max_players": 0,
       "scoreboard": [],
       "tickets": [],
-      "configured_bots": {
-        "team1": 0,
-        "team2": 0,
-        "total": 0
-      },
       "_debug_errors": [
         "GameSpy1: TimeoutError: "
       ]
@@ -34,11 +29,6 @@
       "max_players": 0,
       "scoreboard": [],
       "tickets": [],
-      "configured_bots": {
-        "team1": 0,
-        "team2": 0,
-        "total": 0
-      },
       "_debug_errors": [
         "GameSpy1: TimeoutError: "
       ]
@@ -55,11 +45,6 @@
       "max_players": 0,
       "scoreboard": [],
       "tickets": [],
-      "configured_bots": {
-        "team1": 0,
-        "team2": 0,
-        "total": 0
-      },
       "_debug_errors": [
         "GameSpy2: TimeoutError: "
       ]
@@ -76,11 +61,6 @@
       "max_players": 0,
       "scoreboard": [],
       "tickets": [],
-      "configured_bots": {
-        "team1": 16,
-        "team2": 16,
-        "total": 32
-      },
       "_debug_errors": [
         "GameSpy2: TimeoutError: "
       ]
@@ -101,7 +81,7 @@
           "team": "",
           "rank": "0",
           "score": "0",
-          "kills": "",
+          "kills": "0",
           "deaths": "0",
           "ping": "0",
           "is_bot": true
@@ -111,7 +91,7 @@
           "team": "",
           "rank": "0",
           "score": "0",
-          "kills": "",
+          "kills": "0",
           "deaths": "0",
           "ping": "0",
           "is_bot": true
@@ -121,7 +101,7 @@
           "team": "",
           "rank": "0",
           "score": "0",
-          "kills": "",
+          "kills": "0",
           "deaths": "0",
           "ping": "0",
           "is_bot": true
@@ -131,7 +111,7 @@
           "team": "",
           "rank": "0",
           "score": "0",
-          "kills": "",
+          "kills": "0",
           "deaths": "0",
           "ping": "0",
           "is_bot": true
@@ -141,7 +121,7 @@
           "team": "",
           "rank": "0",
           "score": "0",
-          "kills": "",
+          "kills": "0",
           "deaths": "0",
           "ping": "0",
           "is_bot": true
@@ -151,7 +131,7 @@
           "team": "",
           "rank": "0",
           "score": "0",
-          "kills": "",
+          "kills": "0",
           "deaths": "0",
           "ping": "0",
           "is_bot": true
@@ -161,7 +141,7 @@
           "team": "",
           "rank": "0",
           "score": "0",
-          "kills": "",
+          "kills": "0",
           "deaths": "0",
           "ping": "0",
           "is_bot": true
@@ -171,7 +151,7 @@
           "team": "",
           "rank": "0",
           "score": "0",
-          "kills": "",
+          "kills": "0",
           "deaths": "0",
           "ping": "0",
           "is_bot": true
@@ -181,7 +161,7 @@
           "team": "",
           "rank": "0",
           "score": "0",
-          "kills": "",
+          "kills": "0",
           "deaths": "0",
           "ping": "0",
           "is_bot": true
@@ -191,7 +171,7 @@
           "team": "",
           "rank": "0",
           "score": "0",
-          "kills": "",
+          "kills": "0",
           "deaths": "0",
           "ping": "0",
           "is_bot": true
@@ -201,7 +181,7 @@
           "team": "",
           "rank": "0",
           "score": "0",
-          "kills": "",
+          "kills": "0",
           "deaths": "0",
           "ping": "0",
           "is_bot": true
@@ -211,7 +191,7 @@
           "team": "",
           "rank": "0",
           "score": "0",
-          "kills": "",
+          "kills": "0",
           "deaths": "0",
           "ping": "0",
           "is_bot": true
@@ -221,7 +201,7 @@
           "team": "",
           "rank": "0",
           "score": "0",
-          "kills": "",
+          "kills": "0",
           "deaths": "0",
           "ping": "0",
           "is_bot": true
@@ -231,7 +211,7 @@
           "team": "",
           "rank": "0",
           "score": "0",
-          "kills": "",
+          "kills": "0",
           "deaths": "0",
           "ping": "0",
           "is_bot": true
@@ -241,7 +221,7 @@
           "team": "",
           "rank": "0",
           "score": "0",
-          "kills": "",
+          "kills": "0",
           "deaths": "0",
           "ping": "0",
           "is_bot": true
@@ -251,7 +231,7 @@
           "team": "",
           "rank": "0",
           "score": "0",
-          "kills": "",
+          "kills": "0",
           "deaths": "0",
           "ping": "0",
           "is_bot": true
@@ -261,7 +241,7 @@
           "team": "",
           "rank": "0",
           "score": "0",
-          "kills": "",
+          "kills": "0",
           "deaths": "0",
           "ping": "0",
           "is_bot": true
@@ -271,7 +251,7 @@
           "team": "",
           "rank": "0",
           "score": "0",
-          "kills": "",
+          "kills": "0",
           "deaths": "0",
           "ping": "0",
           "is_bot": true
@@ -281,7 +261,7 @@
           "team": "",
           "rank": "0",
           "score": "0",
-          "kills": "",
+          "kills": "0",
           "deaths": "0",
           "ping": "0",
           "is_bot": true
@@ -291,7 +271,7 @@
           "team": "",
           "rank": "0",
           "score": "0",
-          "kills": "",
+          "kills": "0",
           "deaths": "0",
           "ping": "0",
           "is_bot": true
@@ -301,7 +281,7 @@
           "team": "",
           "rank": "0",
           "score": "0",
-          "kills": "",
+          "kills": "0",
           "deaths": "0",
           "ping": "0",
           "is_bot": true
@@ -311,7 +291,7 @@
           "team": "",
           "rank": "0",
           "score": "0",
-          "kills": "",
+          "kills": "0",
           "deaths": "0",
           "ping": "0",
           "is_bot": true
@@ -321,7 +301,7 @@
           "team": "",
           "rank": "0",
           "score": "0",
-          "kills": "",
+          "kills": "0",
           "deaths": "0",
           "ping": "0",
           "is_bot": true
@@ -331,7 +311,7 @@
           "team": "",
           "rank": "0",
           "score": "0",
-          "kills": "",
+          "kills": "0",
           "deaths": "0",
           "ping": "0",
           "is_bot": true
@@ -341,7 +321,7 @@
           "team": "",
           "rank": "0",
           "score": "0",
-          "kills": "",
+          "kills": "0",
           "deaths": "0",
           "ping": "0",
           "is_bot": true
@@ -351,7 +331,7 @@
           "team": "",
           "rank": "0",
           "score": "0",
-          "kills": "",
+          "kills": "0",
           "deaths": "0",
           "ping": "0",
           "is_bot": true
@@ -361,7 +341,7 @@
           "team": "",
           "rank": "0",
           "score": "0",
-          "kills": "",
+          "kills": "0",
           "deaths": "0",
           "ping": "0",
           "is_bot": true
@@ -371,7 +351,7 @@
           "team": "",
           "rank": "0",
           "score": "0",
-          "kills": "",
+          "kills": "0",
           "deaths": "0",
           "ping": "0",
           "is_bot": true
@@ -381,7 +361,7 @@
           "team": "",
           "rank": "0",
           "score": "0",
-          "kills": "",
+          "kills": "0",
           "deaths": "0",
           "ping": "0",
           "is_bot": true
@@ -391,7 +371,7 @@
           "team": "",
           "rank": "0",
           "score": "0",
-          "kills": "",
+          "kills": "0",
           "deaths": "0",
           "ping": "0",
           "is_bot": true
@@ -401,7 +381,7 @@
           "team": "",
           "rank": "0",
           "score": "0",
-          "kills": "",
+          "kills": "0",
           "deaths": "0",
           "ping": "0",
           "is_bot": true
@@ -411,7 +391,7 @@
           "team": "",
           "rank": "0",
           "score": "0",
-          "kills": "",
+          "kills": "0",
           "deaths": "0",
           "ping": "0",
           "is_bot": true
@@ -421,7 +401,7 @@
           "team": "",
           "rank": "0",
           "score": "0",
-          "kills": "",
+          "kills": "0",
           "deaths": "0",
           "ping": "0",
           "is_bot": true
@@ -431,7 +411,7 @@
           "team": "",
           "rank": "0",
           "score": "0",
-          "kills": "",
+          "kills": "0",
           "deaths": "0",
           "ping": "0",
           "is_bot": true
@@ -441,7 +421,7 @@
           "team": "",
           "rank": "0",
           "score": "0",
-          "kills": "",
+          "kills": "0",
           "deaths": "0",
           "ping": "0",
           "is_bot": true
@@ -451,7 +431,7 @@
           "team": "",
           "rank": "0",
           "score": "0",
-          "kills": "",
+          "kills": "0",
           "deaths": "0",
           "ping": "0",
           "is_bot": true
@@ -461,7 +441,7 @@
           "team": "",
           "rank": "0",
           "score": "0",
-          "kills": "",
+          "kills": "0",
           "deaths": "0",
           "ping": "0",
           "is_bot": true
@@ -471,7 +451,7 @@
           "team": "",
           "rank": "0",
           "score": "0",
-          "kills": "",
+          "kills": "0",
           "deaths": "0",
           "ping": "0",
           "is_bot": true
@@ -481,7 +461,7 @@
           "team": "",
           "rank": "0",
           "score": "0",
-          "kills": "",
+          "kills": "0",
           "deaths": "0",
           "ping": "0",
           "is_bot": true
@@ -491,7 +471,7 @@
           "team": "",
           "rank": "0",
           "score": "0",
-          "kills": "",
+          "kills": "0",
           "deaths": "0",
           "ping": "0",
           "is_bot": true
@@ -501,7 +481,7 @@
           "team": "",
           "rank": "0",
           "score": "0",
-          "kills": "",
+          "kills": "0",
           "deaths": "0",
           "ping": "0",
           "is_bot": true
@@ -511,21 +491,22 @@
           "team": "",
           "rank": "0",
           "score": "0",
-          "kills": "",
+          "kills": "0",
           "deaths": "0",
           "ping": "0",
           "is_bot": true
         }
       ],
       "tickets": [
-        "0",
-        "0"
-      ],
-      "configured_bots": {
-        "team1": 30,
-        "team2": 34,
-        "total": 64
-      }
+        {
+          "name": "CH",
+          "score": "0"
+        },
+        {
+          "name": "US",
+          "score": "0"
+        }
+      ]
     },
     {
       "id": "bf2-ponyhof-2",
@@ -539,11 +520,6 @@
       "max_players": 0,
       "scoreboard": [],
       "tickets": [],
-      "configured_bots": {
-        "team1": 16,
-        "team2": 16,
-        "total": 32
-      },
       "_debug_errors": [
         "Battlefield2: TimeoutError: ",
         "Battlefield2: TimeoutError: ",
@@ -563,11 +539,6 @@
       "max_players": 0,
       "scoreboard": [],
       "tickets": [],
-      "configured_bots": {
-        "team1": 30,
-        "team2": 34,
-        "total": 64
-      },
       "_debug_errors": [
         "Battlefield2: TimeoutError: ",
         "Battlefield2: TimeoutError: ",
@@ -587,11 +558,6 @@
       "max_players": 0,
       "scoreboard": [],
       "tickets": [],
-      "configured_bots": {
-        "team1": 16,
-        "team2": 16,
-        "total": 32
-      },
       "_debug_errors": [
         "Battlefield2: TimeoutError: ",
         "Battlefield2: TimeoutError: ",
