@@ -8,7 +8,8 @@
     "port": 23000,
     "enabled": true,
     "configured_bots": 0,
-    "bot_team_ratio": "1:1"
+    "bot_team_ratio": "1:1",
+    "max_human_players": 20
   },
   {
     "id": "bf1942-ponyhof-2",
