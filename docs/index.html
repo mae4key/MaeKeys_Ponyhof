@@ -135,32 +135,47 @@
 
   .menu-panel a:hover { color: var(--brass); border-color: var(--brass); }
 
-  .hero {
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 4;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    text-align: center;
-    gap: 0.75rem;
-    margin-bottom: 2.5rem;
+    gap: 0.6rem;
+    background: rgba(27, 29, 21, 0.92);
+    border-bottom: 1px solid var(--panel-line);
+    padding: 0.5rem 0.75rem;
+    margin: -2.5rem -0.75rem 1.5rem;
   }
 
-  .mascot { width: 168px; height: auto; }
+  .mascot { width: 40px; height: auto; flex-shrink: 0; }
+
+  .site-header .title-block { line-height: 1.15; }
 
   h1 {
     font-family: "Staatliches", sans-serif;
     font-weight: 400;
-    letter-spacing: 0.06em;
-    font-size: clamp(2rem, 7vw, 2.8rem);
+    letter-spacing: 0.05em;
+    font-size: 1.3rem;
     margin: 0;
     color: var(--brass);
-    text-shadow: 0 2px 0 rgba(0,0,0,0.4);
   }
 
   .subtitle {
     color: var(--text-dim);
-    font-size: 0.9rem;
+    font-size: 0.68rem;
     margin: 0;
   }
+
+  .online-count {
+    margin-left: auto;
+    margin-right: 3rem;
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    white-space: nowrap;
+  }
+
+  .online-count strong { color: var(--online); }
 
   .timestamp {
     margin-top: 0.5rem;
@@ -242,29 +257,38 @@
     background: #1f2315;
     border: 1px solid var(--panel-line);
     border-left: 4px solid var(--brass);
-    max-width: 640px;
+    max-width: 680px;
     width: 100%;
     max-height: 60vh;
-    overflow-y: auto;
     padding: 1.1rem 1.2rem;
-    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.8rem;
   }
 
   .modal-x {
-    position: sticky;
-    float: right;
-    top: 0;
-    margin: -0.3rem -0.3rem 0 0.5rem;
+    flex: none;
     background: none;
-    border: none;
+    border: 1px solid var(--panel-line);
     color: var(--text-dim);
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     line-height: 1;
     cursor: pointer;
-    padding: 0.2rem 0.4rem;
+    padding: 0.2rem 0.55rem;
   }
 
-  .modal-x:hover { color: var(--brass); }
+  .modal-x:hover { color: var(--brass); border-color: var(--brass); }
+
+  .modal-scroll {
+    overflow-y: auto;
+    margin-top: 0.6rem;
+  }
 
   .modal-box h2 {
     font-family: "Staatliches", sans-serif;
@@ -401,7 +425,9 @@
 <button type="button" class="menu-btn" onclick="toggleMenu()" aria-label="Menu">☰</button>
 <div class="menu-panel" id="menu-panel" hidden>
   <h3>About</h3>
-  <p>MaeKeys Ponyhof is a small, free community project hosting classic Battlefield retro servers. This page shows live status, queried directly from the servers — no third-party listing service.</p>
+  <p>MaeKeys Ponyhof is a small, free, self-hosted community project keeping classic early-2000s Battlefield multiplayer alive — because the official matchmaking services for these games have long been shut down. Everything here runs on a home server, queried directly and shown live, with no third-party listing service in between.</p>
+  <p>Currently hosting Battlefield 1942, Battlefield Vietnam, Battlefield 2 and Battlefield 2142, including a couple of classic mods alongside vanilla. On the roadmap: Medal of Honor: Allied Assault (via the open-source OpenMoHAA project) and Medal of Honor: Pacific Assault — and, as a longer-term, more ambitious goal, Battlefield: Bad Company 2.</p>
+  <p>This page itself is entirely free and open infrastructure: it runs on GitHub Actions and GitHub Pages, with no hosting cost and no ads.</p>
   <h3>Server lists</h3>
   <a href="http://master.bf1942.org/" target="_blank" rel="noopener">master.bf1942.org (BF1942)</a>
   <a href="https://openspy.net/server-list/bfvietnam" target="_blank" rel="noopener">OpenSpy (BF Vietnam)</a>
@@ -410,7 +436,7 @@
 </div>
 
 <div class="wrap">
-  <div class="hero">
+  <header class="site-header">
     <svg class="mascot" viewBox="0 0 240 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pony mascot in camo with steel helmet and rifle">
       <defs>
         <clipPath id="bodyClip">
@@ -429,7 +455,6 @@
                    C 108 56, 112 70, 112 82 Z"/>
         </clipPath>
       </defs>
-      <ellipse cx="120" cy="178" rx="78" ry="9" fill="#000" opacity="0.3"/>
       <!-- Schweif -->
       <path d="M 196 95
                C 222 100, 228 125, 214 145
@@ -512,9 +537,12 @@
         <path d="M 40 19 q 4 8 -2 10" stroke="#3a3a30" stroke-width="2" fill="none" stroke-linecap="round"/>
       </g>
     </svg>
-    <h1>MaeKeys Ponyhof</h1>
-    <p class="subtitle">Live status of the retro game servers</p>
-  </div>
+    <div class="title-block">
+      <h1>MaeKeys Ponyhof</h1>
+      <p class="subtitle">Live status of the retro game servers</p>
+    </div>
+    <span class="online-count" id="online-count"></span>
+  </header>
 
   <div id="servers" class="servers">
     <p class="empty"><strong>Loading status …</strong></p>
@@ -526,10 +554,14 @@
 
 <div class="modal-backdrop" id="modal-backdrop" hidden onclick="if(event.target===this) closeScoreboard()">
   <div class="modal-box">
-    <button type="button" class="modal-x" onclick="closeScoreboard()" aria-label="Close">×</button>
-    <h2 id="modal-title"></h2>
-    <p class="modal-sub" id="modal-sub"></p>
-    <div id="modal-body"></div>
+    <div class="modal-header">
+      <div>
+        <h2 id="modal-title"></h2>
+        <p class="modal-sub" id="modal-sub"></p>
+      </div>
+      <button type="button" class="modal-x" onclick="closeScoreboard()" aria-label="Close">×</button>
+    </div>
+    <div class="modal-scroll"><div id="modal-body"></div></div>
   </div>
 </div>
 
@@ -574,6 +606,10 @@ async function load() {
     const res = await fetch("status.json", { cache: "no-store" });
     const data = await res.json();
     renderServers(data.servers || []);
+    const totalOnline = (data.servers || [])
+      .filter(s => s.status === "online")
+      .reduce((sum, s) => sum + (s.players || 0), 0);
+    document.getElementById("online-count").innerHTML = `<strong>${totalOnline}</strong> online`;
     document.getElementById("timestamp").textContent = fmtTimestamp(data.generated_at);
 
     const staleNotice = document.getElementById("stale-notice");
@@ -599,81 +635,73 @@ function showScoreboard(id) {
   if (!s) return;
   document.getElementById("modal-title").textContent = s.game;
   document.getElementById("modal-sub").textContent =
-    (s.mod ? s.name + " – " + s.mod : s.name) +
-    (s.map ? " · " + s.map : "") +
-    (s.mode ? " · " + s.mode : "");
+    (s.mod ? s.name + " \u2013 " + s.mod : s.name) +
+    (s.map ? " \u00b7 " + s.map : "") +
+    (s.mode ? " \u00b7 " + s.mode : "");
 
   const body = document.getElementById("modal-body");
   let html = "";
 
   if (s.tickets && s.tickets.length >= 2) {
-    html += `<p class="tickets-line">Tickets: ${s.tickets[0]} – ${s.tickets[1]}</p>`;
+    html += `<p class="tickets-line">Tickets: ${s.tickets[0]} \u2013 ${s.tickets[1]}</p>`;
   }
 
-  const cbEarly = s.configured_bots || { team1: 0, team2: 0, total: 0 };
+  const cb = s.configured_bots || { team1: 0, team2: 0, total: 0 };
+  const hasScoreboard = s.scoreboard && s.scoreboard.length > 0;
 
-  if (!s.scoreboard || s.scoreboard.length === 0) {
-    if (s.players && s.players > 0) {
-      html += `<p class="modal-empty">${s.players} player(s) online, but this game doesn't reliably expose an individual player list.</p>`;
-    } else {
-      html += `<p class="modal-empty">No players currently online.</p>`;
-    }
-    if (cbEarly.total > 0) {
-      html += `<div class="teams-split">
-        <div class="team-col"><h4>Team 1</h4><p class="bot-summary">+ ${cbEarly.team1} bots (configured)</p></div>
-        <div class="team-col"><h4>Team 2</h4><p class="bot-summary">+ ${cbEarly.team2} bots (configured)</p></div>
-      </div>`;
-    }
+  if (!hasScoreboard && cb.total === 0) {
+    html += `<p class="modal-empty">No players currently online.</p>`;
   } else {
-    const teamValues = [...new Set(s.scoreboard.map(p => p.team).filter(t => t))];
     const rowHtml = p => `
       <tr${p.is_bot ? ' class="bot-row"' : ''}>
+        <td>${p.rank || "\u2013"}</td>
         <td>${p.name}${p.is_bot ? ' <span class="bot-tag">(bot)</span>' : ''}</td>
-        <td>${p.rank || "–"}</td>
         <td>${p.score}</td>
         <td>${p.kills}</td>
         <td>${p.deaths}</td>
-        <td>${p.is_bot ? "–" : p.ping}</td>
+        <td>${p.is_bot ? "\u2013" : p.ping}</td>
       </tr>`;
-    const table = rows => `
+    const table = rows => rows.length ? `
       <table class="scoreboard">
-        <thead><tr><th>Name</th><th>Rank</th><th>Score</th><th>Kills</th><th>Deaths</th><th>Ping</th></tr></thead>
+        <thead><tr><th>Rank</th><th>Name</th><th>Score</th><th>Kills</th><th>Deaths</th><th>Ping</th></tr></thead>
         <tbody>${rows.map(rowHtml).join("")}</tbody>
-      </table>`;
+      </table>` : `<p class="modal-empty" style="margin:0.3rem 0;">No players.</p>`;
+    const botLine = n => n > 0 ? `<p class="bot-summary">${n} bot${n === 1 ? "" : "s"}</p>` : "";
 
-    const cb = s.configured_bots || { team1: 0, team2: 0, total: 0 };
-    const botLine = n => n > 0 ? `<p class="bot-summary">+ ${n} bot${n === 1 ? "" : "s"} (configured)</p>` : "";
+    const teamValues = hasScoreboard
+      ? [...new Set(s.scoreboard.map(p => p.team).filter(t => t))]
+      : [];
+    const sortRow = (a, b) => (a.is_bot - b.is_bot) || (parseInt(b.score) || 0) - (parseInt(a.score) || 0);
 
+    let team1Rows = [], team2Rows = [], unassignedRows = [];
     if (teamValues.length >= 2) {
-      const sortRow = (a, b) => (a.is_bot - b.is_bot) || (parseInt(b.score) || 0) - (parseInt(a.score) || 0);
-      const team1 = s.scoreboard.filter(p => p.team === teamValues[0]).sort(sortRow);
-      const team2 = s.scoreboard.filter(p => p.team === teamValues[1]).sort(sortRow);
-      const unassigned = s.scoreboard.filter(p => !teamValues.slice(0, 2).includes(p.team));
-      html += `
-        <div class="teams-split">
-          <div class="team-col"><h4>Team 1</h4>${table(team1)}${botLine(cb.team1)}</div>
-          <div class="team-col"><h4>Team 2</h4>${table(team2)}${botLine(cb.team2)}</div>
-        </div>
-      `;
-      if (unassigned.length) {
-        html += `<h4 style="margin-top:0.8rem;">Unassigned</h4>${table(unassigned)}`;
-      }
-    } else {
-      html += table(s.scoreboard);
-      if (cb.total > 0) {
-        html += `<div class="teams-split" style="margin-top:0.5rem;">
-          <div class="team-col"><h4>Team 1</h4>${botLine(cb.team1) || '<p class="modal-empty">–</p>'}</div>
-          <div class="team-col"><h4>Team 2</h4>${botLine(cb.team2) || '<p class="modal-empty">–</p>'}</div>
-        </div>`;
-      }
+      team1Rows = s.scoreboard.filter(p => p.team === teamValues[0]).sort(sortRow);
+      team2Rows = s.scoreboard.filter(p => p.team === teamValues[1]).sort(sortRow);
+      unassignedRows = s.scoreboard.filter(p => !teamValues.slice(0, 2).includes(p.team));
+    } else if (hasScoreboard) {
+      unassignedRows = [...s.scoreboard].sort(sortRow);
     }
-  }
 
-  // Hinweis nur, wenn wir WEDER eine Live-Bot-Zahl noch einen konfigurierten
-  // Wert haben.
-  const cbTotal = (s.configured_bots && s.configured_bots.total) || 0;
-  if ((s.game === "Battlefield 1942" || s.game === "Battlefield Vietnam") && cbTotal === 0) {
-    html += `<p class="modal-empty" style="margin-top:0.8rem;">Note: this game's engine does not report AI bots to server queries at all (not even as a count) — only human players above are ever visible here.</p>`;
+    const team1Label = teamValues[0] && isNaN(teamValues[0]) ? teamValues[0] : "Team 1";
+    const team2Label = teamValues[1] && isNaN(teamValues[1]) ? teamValues[1] : "Team 2";
+
+    html += `
+      <div class="teams-split">
+        <div class="team-col">
+          <h4>${team1Label}</h4>
+          ${botLine(cb.team1)}
+          ${table(team1Rows)}
+        </div>
+        <div class="team-col">
+          <h4>${team2Label}</h4>
+          ${botLine(cb.team2)}
+          ${table(team2Rows)}
+        </div>
+      </div>
+    `;
+    if (unassignedRows.length) {
+      html += `<h4 style="margin-top:0.8rem;">${teamValues.length >= 2 ? "Unassigned" : "Players"}</h4>${table(unassignedRows)}`;
+    }
   }
 
   body.innerHTML = html;
