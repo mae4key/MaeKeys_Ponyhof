@@ -8,7 +8,8 @@
     "port": 23000,
     "enabled": true,
     "configured_bots": 0,
-    "bot_team_ratio": "1:1"
+    "bot_team_ratio": "1:1",
+    "max_human_players": 20
   },
   {
     "id": "bf1942-ponyhof-2",
@@ -19,7 +20,8 @@
     "port": 23001,
     "enabled": true,
     "configured_bots": 0,
-    "bot_team_ratio": "1:1"
+    "bot_team_ratio": "1:1",
+    "max_human_players": 20
   },
   {
     "id": "bfv-ponyhof-1",
@@ -30,7 +32,8 @@
     "port": 23010,
     "enabled": true,
     "configured_bots": 0,
-    "bot_team_ratio": "1:1"
+    "bot_team_ratio": "1:1",
+    "max_human_players": 32
   },
   {
     "id": "bfv-ponyhof-2",
@@ -40,8 +43,8 @@
     "host": "870om3k8bee3muwz.myfritz.net",
     "port": 23011,
     "enabled": true,
-    "configured_bots": 0,
-    "bot_team_ratio": "1:1"
+    "configured_bots": 32,
+    "bot_team_ratio": "16:16"
   },
   {
     "id": "bf2-ponyhof-1",
@@ -51,8 +54,9 @@
     "host": "870om3k8bee3muwz.myfritz.net",
     "port": 29900,
     "enabled": true,
-    "configured_bots": 0,
-    "bot_team_ratio": "1:1"
+    "configured_bots": 64,
+    "bot_team_ratio": "30:34",
+    "max_human_players": 40
   },
   {
     "id": "bf2-ponyhof-2",
@@ -62,8 +66,8 @@
     "host": "870om3k8bee3muwz.myfritz.net",
     "port": 29901,
     "enabled": true,
-    "configured_bots": 0,
-    "bot_team_ratio": "1:1"
+    "configured_bots": 32,
+    "bot_team_ratio": "16:16"
   },
   {
     "id": "bf2142-ponyhof-1",
@@ -73,8 +77,9 @@
     "host": "870om3k8bee3muwz.myfritz.net",
     "port": 29910,
     "enabled": true,
-    "configured_bots": 0,
-    "bot_team_ratio": "1:1"
+    "configured_bots": 64,
+    "bot_team_ratio": "30:34",
+    "max_human_players": 64
   },
   {
     "id": "bf2142-ponyhof-2",
@@ -84,8 +89,8 @@
     "host": "870om3k8bee3muwz.myfritz.net",
     "port": 29911,
     "enabled": true,
-    "configured_bots": 0,
-    "bot_team_ratio": "1:1"
+    "configured_bots": 32,
+    "bot_team_ratio": "16:16"
   },
   {
     "id": "mohaa-ponyhof",
