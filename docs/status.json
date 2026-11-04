@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-04T21:29:32+00:00",
+  "generated_at": "2026-11-04T21:31:35+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -508,6 +508,16 @@
         },
         {
           "name": "M. Rudberg",
+          "team": "",
+          "rank": "0",
+          "score": "0",
+          "kills": "",
+          "deaths": "0",
+          "ping": "0",
+          "is_bot": true
+        },
+        {
+          "name": "MaeKey",
           "team": "",
           "rank": "0",
           "score": "0",
