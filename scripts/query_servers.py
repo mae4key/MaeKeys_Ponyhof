@@ -105,17 +105,22 @@ def _first(info: dict, *keys: str, default: str = "") -> str:
     return default
 
 
-def _extract_teams(teams: list) -> list:
-    """Best-effort: Ticket-/Punktestand pro Team aus status.teams. Der
-    exakte Feldname ist fuer dieses Protokoll nicht zuverlaessig
-    dokumentiert, daher mehrere Kandidaten; liefert nichts Nutzbares
-    zurueck, wenn kein Wert gefunden wird (lieber leer als falsch)."""
+def _extract_teams(teams: list, info: dict) -> list:
+    """Team-Name + Ticket-/Punktestand aus status.teams. Bestaetigt durch
+    die offiziellen Testdaten der opengsq-Bibliothek: das Ticket-Feld heisst
+    schlicht "score" (nicht "tickets"), der Teamname liegt im "name"-Feld
+    der Teams-Liste. Zusaetzlich info["bf2_team1"/"bf2_team2"] als
+    Rueckfall fuer den Namen (liegt im einfacher aufgebauten Info-Block,
+    unabhaengig von der positionsbasierten Teams-Liste)."""
+    info_names = [info.get("bf2_team1", ""), info.get("bf2_team2", "")]
     result = []
-    for t in teams or []:
+    for i, t in enumerate(teams or []):
         t = {k.lower(): v for k, v in t.items()}
-        tickets = _first(t, "tickets", "score", "teamscore", "team_t")
-        if tickets:
-            result.append(tickets)
+        name = _first(t, "name", "team", default="")
+        if not name and i < len(info_names):
+            name = info_names[i]
+        score = _first(t, "score", "tickets", "teamscore", default="")
+        result.append({"name": name, "score": score})
     return result
 
 
@@ -163,7 +168,7 @@ def _extract_scoreboard(players: list, trust_team: bool = True) -> list:
                 "team": _first(p, "team", "team_t", default="") if trust_team else "",
                 "rank": _first(p, "rank", "skill", default=""),
                 "score": _first(p, "score", default="0"),
-                "kills": _first(p, "kills", "kill", "frags", default=""),
+                "kills": _first(p, "kills", "kill", "frags", "skill", default=""),
                 "deaths": _first(p, "deaths", "death", default=""),
                 "ping": ping,
                 "is_bot": ping == "0",
@@ -185,26 +190,6 @@ async def _try_protocol(protocol_cls, host, port, challenge_required=None):
     return await client.get_status()
 
 
-def _configured_bot_split(entry: dict) -> dict:
-    """Bot-Anzahl kommt NICHT von der Live-Abfrage (das Spiel meldet sie ja
-    nicht), sondern aus der Konfiguration selbst - dort traegt das
-    Start-Skript beim Serverstart ein, wie viele Bots mit welchem
-    Team-Verhaeltnis gestartet wurden."""
-    total = int(entry.get("configured_bots", 0) or 0)
-    if total <= 0:
-        return {"team1": 0, "team2": 0, "total": 0}
-
-    ratio = str(entry.get("bot_team_ratio", "1:1"))
-    try:
-        r1, r2 = (int(x) for x in ratio.split(":"))
-    except (ValueError, TypeError):
-        r1, r2 = 1, 1
-
-    team1 = round(total * r1 / (r1 + r2)) if (r1 + r2) else total // 2
-    team2 = total - team1
-    return {"team1": team1, "team2": team2, "total": total}
-
-
 async def query_one(entry: dict) -> dict:
     result = {
         "id": entry["id"],
@@ -218,7 +203,6 @@ async def query_one(entry: dict) -> dict:
         "max_players": 0,
         "scoreboard": [],
         "tickets": [],
-        "configured_bots": _configured_bot_split(entry),
     }
 
     protocol_name = entry.get("protocol", "")
@@ -263,7 +247,7 @@ async def query_one(entry: dict) -> dict:
             result["scoreboard"] = _extract_scoreboard(
                 status.players, trust_team=(protocol_name != "battlefield2")
             )
-            result["tickets"] = _extract_teams(getattr(status, "teams", []))
+            result["tickets"] = _extract_teams(getattr(status, "teams", []), info)
             # Spielerzahl bevorzugt direkt aus dem Scoreboard ableiten
             # (dieselbe Quelle wie die Detailansicht), damit Kachel und
             # Scoreboard nie auseinanderlaufen koennen. Nur wenn gar keine
@@ -294,7 +278,14 @@ async def query_one(entry: dict) -> dict:
 
 async def main_async() -> None:
     entries = json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
-    active = [e for e in entries if e.get("enabled", False)]
+    # "internet": true = oeffentlich gestartet (Standard, falls Feld fehlt),
+    # false = bewusst nur lokal/LAN gestartet (Testbetrieb) - wird trotz
+    # technischer Erreichbarkeit nie angezeigt.
+    active = [
+        e
+        for e in entries
+        if e.get("enabled", False) and e.get("internet", True)
+    ]
 
     results = await asyncio.gather(*(query_one(e) for e in active))
 

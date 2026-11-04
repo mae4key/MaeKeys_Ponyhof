@@ -103,6 +103,8 @@
     padding: 1rem 1.1rem;
     min-width: 220px;
     max-width: calc(100vw - 2rem);
+    max-height: calc(100vh - 4.6rem);
+    overflow-y: auto;
   }
 
   .menu-panel[hidden] { display: none; }
@@ -195,6 +197,21 @@
 
   @media (max-width: 480px) {
     .servers { grid-template-columns: 1fr; }
+  }
+
+  /* Desktop: auto-fit statt auto-fill laesst leere Spalten kollabieren,
+     dadurch werden Karten automatisch groesser und die Reihe zentriert
+     sich, wenn nur wenige Server laufen - wirkt dann nicht mehr leer. */
+  @media (min-width: 900px) {
+    .servers {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 360px));
+      justify-content: center;
+      gap: 1.1rem;
+      margin-top: 1.5rem;
+    }
+    .card { padding: 1rem 1.1rem; }
+    .game-name { font-size: 1.05rem; }
+    dl.meta { font-size: 0.85rem; }
   }
 
   .empty { grid-column: 1 / -1; }
@@ -423,7 +440,6 @@
   <h3>About</h3>
   <p>MaeKeys Ponyhof is a small, free, self-hosted community project keeping classic early-2000s Battlefield multiplayer alive — because the official matchmaking services for these games have long been shut down. Everything here runs on a home server, queried directly and shown live, with no third-party listing service in between.</p>
   <p>Currently hosting Battlefield 1942, Battlefield Vietnam, Battlefield 2 and Battlefield 2142, including a couple of classic mods alongside vanilla. On the roadmap: Medal of Honor: Allied Assault (via the open-source OpenMoHAA project) and Medal of Honor: Pacific Assault — and, as a longer-term, more ambitious goal, Battlefield: Bad Company 2.</p>
-  <p>This page itself is entirely free and open infrastructure: it runs on GitHub Actions and GitHub Pages, with no hosting cost and no ads.</p>
   <h3>Server lists</h3>
   <a href="http://master.bf1942.org/" target="_blank" rel="noopener">master.bf1942.org (BF1942)</a>
   <a href="https://openspy.net/server-list/bfvietnam" target="_blank" rel="noopener">OpenSpy (BF Vietnam)</a>
@@ -605,7 +621,7 @@ async function load() {
     const totalOnline = (data.servers || [])
       .filter(s => s.status === "online")
       .reduce((sum, s) => sum + (s.players || 0), 0);
-    document.getElementById("online-count").innerHTML = `<strong>${totalOnline}</strong> online`;
+    document.getElementById("online-count").innerHTML = `<strong>${totalOnline}</strong> players online`;
     document.getElementById("timestamp").textContent = fmtTimestamp(data.generated_at);
 
     const staleNotice = document.getElementById("stale-notice");
@@ -623,6 +639,7 @@ async function load() {
 }
 
 load();
+setInterval(load, 30000);
 
 // Scoreboard-Detailfenster: zeigt nur unsere eigenen Abfragedaten, kein
 // externer Link.
@@ -638,8 +655,9 @@ function showScoreboard(id) {
   const body = document.getElementById("modal-body");
   let html = "";
 
-  if (s.tickets && s.tickets.length >= 2) {
-    html += `<p class="tickets-line">Tickets: ${s.tickets[0]} \u2013 ${s.tickets[1]}</p>`;
+  const teamInfo = s.tickets || [];
+  if (teamInfo.length >= 2 && (teamInfo[0].score || teamInfo[1].score)) {
+    html += `<p class="tickets-line">Tickets: ${teamInfo[0].score || "\u2013"} \u2013 ${teamInfo[1].score || "\u2013"}</p>`;
   }
 
   // Nur echte Spieler, nie Bots.
@@ -653,8 +671,8 @@ function showScoreboard(id) {
         <td>${p.rank || "\u2013"}</td>
         <td>${p.name}</td>
         <td>${p.score}</td>
-        <td>${p.kills}</td>
-        <td>${p.deaths}</td>
+        <td>${p.kills || "\u2013"}</td>
+        <td>${p.deaths || "\u2013"}</td>
         <td>${p.ping}</td>
       </tr>`;
     const table = rows => `
@@ -670,8 +688,8 @@ function showScoreboard(id) {
       const team1 = humans.filter(p => p.team === teamValues[0]).sort(sortRow);
       const team2 = humans.filter(p => p.team === teamValues[1]).sort(sortRow);
       const unassigned = humans.filter(p => !teamValues.slice(0, 2).includes(p.team));
-      const team1Label = isNaN(teamValues[0]) ? teamValues[0] : "Team 1";
-      const team2Label = isNaN(teamValues[1]) ? teamValues[1] : "Team 2";
+      const team1Label = (teamInfo[0] && teamInfo[0].name) || (isNaN(teamValues[0]) ? teamValues[0] : "Team 1");
+      const team2Label = (teamInfo[1] && teamInfo[1].name) || (isNaN(teamValues[1]) ? teamValues[1] : "Team 2");
 
       html += `<div class="teams-split">`;
       if (team1.length) html += `<div class="team-col"><h4>${team1Label}</h4>${table(team1)}</div>`;
