@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-04T20:39:50+00:00",
+  "generated_at": "2026-11-04T20:41:53+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -773,14 +773,14 @@
       "game": "Battlefield 2142",
       "name": "MaeKeys Ponyhof",
       "status": "online",
-      "map": "Suez_Canal",
-      "mode": "gpm_coop",
-      "mod": "Vanilla",
+      "map": "",
+      "mode": "",
+      "mod": "",
       "players": 0,
-      "max_players": 64,
+      "max_players": 0,
       "scoreboard": [
         {
-          "name": "R. Eden",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -790,7 +790,7 @@
           "is_bot": true
         },
         {
-          "name": "A. Brattberg",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -800,7 +800,7 @@
           "is_bot": true
         },
         {
-          "name": "N. Grover",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -810,7 +810,7 @@
           "is_bot": true
         },
         {
-          "name": "B. Humbe",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -820,7 +820,7 @@
           "is_bot": true
         },
         {
-          "name": "A. Peters",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -830,7 +830,7 @@
           "is_bot": true
         },
         {
-          "name": "M. Eriksson",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -840,7 +840,7 @@
           "is_bot": true
         },
         {
-          "name": "H. Andersson",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -850,7 +850,7 @@
           "is_bot": true
         },
         {
-          "name": "G. Brunmar",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -860,7 +860,7 @@
           "is_bot": true
         },
         {
-          "name": "S. Vukanovic",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -870,7 +870,7 @@
           "is_bot": true
         },
         {
-          "name": "A. Gyllenberg",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -880,7 +880,7 @@
           "is_bot": true
         },
         {
-          "name": "M. Kalms",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -890,7 +890,7 @@
           "is_bot": true
         },
         {
-          "name": "M. Nilsson",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -900,7 +900,7 @@
           "is_bot": true
         },
         {
-          "name": "K. Bergqvist",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -910,7 +910,7 @@
           "is_bot": true
         },
         {
-          "name": "D. Holliday",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -920,7 +920,7 @@
           "is_bot": true
         },
         {
-          "name": "T. Karlsson",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -930,7 +930,7 @@
           "is_bot": true
         },
         {
-          "name": "P. Skude",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -940,7 +940,7 @@
           "is_bot": true
         },
         {
-          "name": "M. Fritze",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -950,7 +950,7 @@
           "is_bot": true
         },
         {
-          "name": "D. Mod",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -960,7 +960,7 @@
           "is_bot": true
         },
         {
-          "name": "T. Kingston",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -970,7 +970,7 @@
           "is_bot": true
         },
         {
-          "name": "K. Chirewa",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -980,7 +980,7 @@
           "is_bot": true
         },
         {
-          "name": "B. Wallis",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -990,7 +990,7 @@
           "is_bot": true
         },
         {
-          "name": "R. Gustafsson",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -1000,7 +1000,7 @@
           "is_bot": true
         },
         {
-          "name": "S. Juhlin",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -1010,7 +1010,7 @@
           "is_bot": true
         },
         {
-          "name": "F. Lindblom",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -1020,7 +1020,7 @@
           "is_bot": true
         },
         {
-          "name": "P. Osterblom",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -1030,7 +1030,7 @@
           "is_bot": true
         },
         {
-          "name": "J. Bull",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -1040,7 +1040,7 @@
           "is_bot": true
         },
         {
-          "name": "K. Nilsson",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -1050,7 +1050,7 @@
           "is_bot": true
         },
         {
-          "name": "J. Sanick",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -1060,7 +1060,7 @@
           "is_bot": true
         },
         {
-          "name": "D. Gothberg",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -1070,7 +1070,7 @@
           "is_bot": true
         },
         {
-          "name": "N. Astrand",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -1080,7 +1080,7 @@
           "is_bot": true
         },
         {
-          "name": "S. Wallberg",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -1090,7 +1090,7 @@
           "is_bot": true
         },
         {
-          "name": "J. Yveborg",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -1100,7 +1100,7 @@
           "is_bot": true
         },
         {
-          "name": "A. Kertz",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -1110,7 +1110,7 @@
           "is_bot": true
         },
         {
-          "name": "C. Bennison",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -1120,7 +1120,7 @@
           "is_bot": true
         },
         {
-          "name": "J. Lutze",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -1130,7 +1130,7 @@
           "is_bot": true
         },
         {
-          "name": "J. Dawsari",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -1140,7 +1140,7 @@
           "is_bot": true
         },
         {
-          "name": "J. Evans",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -1150,7 +1150,7 @@
           "is_bot": true
         },
         {
-          "name": "A. Dale",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -1160,7 +1160,7 @@
           "is_bot": true
         },
         {
-          "name": "L. Gustavsson",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -1170,7 +1170,7 @@
           "is_bot": true
         },
         {
-          "name": "D. Barron",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -1180,7 +1180,7 @@
           "is_bot": true
         },
         {
-          "name": "L. Josephson",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -1190,7 +1190,7 @@
           "is_bot": true
         },
         {
-          "name": "M. Bagge",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -1200,7 +1200,7 @@
           "is_bot": true
         },
         {
-          "name": "C. Carter",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -1210,7 +1210,7 @@
           "is_bot": true
         },
         {
-          "name": "S. Woollard",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -1220,7 +1220,7 @@
           "is_bot": true
         },
         {
-          "name": "J. Levin",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -1230,7 +1230,7 @@
           "is_bot": true
         },
         {
-          "name": "B. Sundell",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -1240,7 +1240,7 @@
           "is_bot": true
         },
         {
-          "name": "D. Thiger",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -1250,7 +1250,7 @@
           "is_bot": true
         },
         {
-          "name": "W. Young",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -1260,7 +1260,7 @@
           "is_bot": true
         },
         {
-          "name": "J. Soderqvist",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -1270,7 +1270,7 @@
           "is_bot": true
         },
         {
-          "name": "G. VanDyke",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -1280,7 +1280,7 @@
           "is_bot": true
         },
         {
-          "name": "A. Tjernblom",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -1290,7 +1290,7 @@
           "is_bot": true
         },
         {
-          "name": "J. Lingmark",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -1300,7 +1300,7 @@
           "is_bot": true
         },
         {
-          "name": "R. Smedberg",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -1310,7 +1310,7 @@
           "is_bot": true
         },
         {
-          "name": "P. Sandberg",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -1320,7 +1320,7 @@
           "is_bot": true
         },
         {
-          "name": "F. Karlsson",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -1330,7 +1330,7 @@
           "is_bot": true
         },
         {
-          "name": "C. Wahlfors",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -1340,7 +1340,7 @@
           "is_bot": true
         },
         {
-          "name": "D. Sundberg",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -1350,7 +1350,7 @@
           "is_bot": true
         },
         {
-          "name": "A. Hansevi",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -1360,7 +1360,7 @@
           "is_bot": true
         },
         {
-          "name": "J. Ross",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -1370,7 +1370,7 @@
           "is_bot": true
         },
         {
-          "name": "A. Wiegert",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -1380,7 +1380,7 @@
           "is_bot": true
         },
         {
-          "name": "T. Sjogren",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -1390,7 +1390,7 @@
           "is_bot": true
         },
         {
-          "name": "A. Carlsson",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -1400,7 +1400,7 @@
           "is_bot": true
         },
         {
-          "name": "P. Soderlund",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -1410,7 +1410,7 @@
           "is_bot": true
         },
         {
-          "name": "A. Zoghob",
+          "name": "?",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -1428,6 +1428,20 @@
         "team1": 30,
         "team2": 34,
         "total": 64
+      },
+      "_debug_info": {
+        "l. josephson": "M. Bagge",
+        "c. carter": "S. Woollard",
+        "j. levin": "B. Sundell",
+        "d. thiger": "W. Young",
+        "j. soderqvist": "G. VanDyke",
+        "a. tjernblom": "J. Lingmark",
+        "r. smedberg": "P. Sandberg",
+        "f. karlsson": "C. Wahlfors",
+        "d. sundberg": "A. Hansevi",
+        "j. ross": "A. Wiegert",
+        "t. sjogren": "A. Carlsson",
+        "p. soderlund": "A. Zoghob"
       }
     },
     {
