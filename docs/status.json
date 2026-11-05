@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-05T09:46:01+00:00",
+  "generated_at": "2026-11-05T09:47:44+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -28,7 +28,7 @@
       "game": "Battlefield 1942",
       "name": "MaeKeys Ponyhof",
       "status": "online",
-      "map": "battle of britain",
+      "map": "battle of the bulge",
       "mode": "coop",
       "mod": "Vanilla",
       "players": 0,
@@ -59,11 +59,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "995"
+          "score": "992"
         },
         {
           "name": "blue",
-          "score": "1060"
+          "score": "1059"
         }
       ]
     },
