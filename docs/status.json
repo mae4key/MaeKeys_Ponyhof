@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-05T20:34:17+00:00",
+  "generated_at": "2026-11-05T20:36:03+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -55,15 +55,26 @@
       "mod": "WW2Mod",
       "players": 0,
       "max_players": 44,
-      "scoreboard": [],
+      "scoreboard": [
+        {
+          "name": "-[HELLO]-agathyus",
+          "team": "1",
+          "rank": "",
+          "score": "0",
+          "kills": "0",
+          "deaths": "0",
+          "ping": "0",
+          "is_bot": true
+        }
+      ],
       "tickets": [
         {
           "name": "red",
-          "score": "872"
+          "score": "857"
         },
         {
           "name": "blue",
-          "score": "1016"
+          "score": "1002"
         }
       ]
     },
