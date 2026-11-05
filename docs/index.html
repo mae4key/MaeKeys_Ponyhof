@@ -100,14 +100,50 @@
     background: #1f2315;
     border: 1px solid var(--panel-line);
     border-right: 4px solid var(--brass);
-    padding: 1rem 1.1rem;
     min-width: 220px;
     max-width: calc(100vw - 2rem);
     max-height: calc(100vh - 4.6rem);
-    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
   }
 
   .menu-panel[hidden] { display: none; }
+
+  .menu-panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.7rem 1.1rem;
+    border-bottom: 1px solid var(--panel-line);
+    flex: none;
+  }
+
+  .menu-panel-header strong {
+    font-family: "Staatliches", sans-serif;
+    letter-spacing: 0.04em;
+    color: var(--brass);
+    font-size: 0.9rem;
+    font-weight: normal;
+  }
+
+  .menu-x {
+    background: none;
+    border: 1px solid var(--panel-line);
+    color: var(--text-dim);
+    font-size: 1rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0.15rem 0.5rem;
+  }
+
+  .menu-x:hover { color: var(--brass); border-color: var(--brass); }
+
+  .menu-panel-content {
+    overflow-y: auto;
+    padding: 1rem 1.1rem;
+    flex: 1 1 auto;
+    min-height: 0;
+  }
 
   .menu-panel h3 {
     font-family: "Staatliches", sans-serif;
@@ -152,13 +188,13 @@
 
   .mascot { width: 40px; height: auto; flex-shrink: 0; }
 
-  .site-header .title-block { line-height: 1.15; }
+  .site-header .title-block { line-height: 1.3; }
 
   h1 {
     font-family: "Staatliches", sans-serif;
     font-weight: 400;
     letter-spacing: 0.05em;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     margin: 0;
     color: var(--brass);
   }
@@ -166,13 +202,13 @@
   .subtitle {
     color: var(--text-dim);
     font-size: 0.68rem;
-    margin: 0;
+    margin: 0.15rem 0 0;
   }
 
   .online-count {
     margin-left: auto;
-    margin-right: 3rem;
-    font-size: 0.75rem;
+    margin-right: 2.9rem;
+    font-size: 0.72rem;
     color: var(--text-dim);
     white-space: nowrap;
   }
@@ -437,6 +473,11 @@
 
 <button type="button" class="menu-btn" onclick="toggleMenu()" aria-label="Menu">☰</button>
 <div class="menu-panel" id="menu-panel" hidden>
+  <div class="menu-panel-header">
+    <strong>Menu</strong>
+    <button type="button" class="menu-x" onclick="toggleMenu()" aria-label="Close">×</button>
+  </div>
+  <div class="menu-panel-content">
   <h3>About</h3>
   <p>MaeKeys Ponyhof is a small, free, self-hosted community project keeping classic early-2000s Battlefield multiplayer alive — because the official matchmaking services for these games have long been shut down. Everything here runs on a home server, queried directly and shown live, with no third-party listing service in between.</p>
   <p>Currently hosting Battlefield 1942, Battlefield Vietnam, Battlefield 2 and Battlefield 2142, including a couple of classic mods alongside vanilla. On the roadmap: Medal of Honor: Allied Assault (via the open-source OpenMoHAA project) and Medal of Honor: Pacific Assault — and, as a longer-term, more ambitious goal, Battlefield: Bad Company 2.</p>
@@ -445,6 +486,7 @@
   <a href="https://openspy.net/server-list/bfvietnam" target="_blank" rel="noopener">OpenSpy (BF Vietnam)</a>
   <a href="https://www.bf2hub.com/servers/unranked/" target="_blank" rel="noopener">BF2Hub (BF2)</a>
   <a href="https://openspy.net/server-list/stella" target="_blank" rel="noopener">OpenSpy (BF2142)</a>
+  </div>
 </div>
 
 <div class="wrap">
@@ -621,7 +663,7 @@ async function load() {
     const totalOnline = (data.servers || [])
       .filter(s => s.status === "online")
       .reduce((sum, s) => sum + (s.players || 0), 0);
-    document.getElementById("online-count").innerHTML = `<strong>${totalOnline}</strong> players online`;
+    document.getElementById("online-count").innerHTML = `<strong>${totalOnline}</strong> online`;
     document.getElementById("timestamp").textContent = fmtTimestamp(data.generated_at);
 
     const staleNotice = document.getElementById("stale-notice");
