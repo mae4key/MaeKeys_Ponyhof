@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-05T12:51:35+00:00",
+  "generated_at": "2026-11-05T12:53:23+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -11,7 +11,18 @@
       "mod": "Vanilla",
       "players": 0,
       "max_players": 20,
-      "scoreboard": [],
+      "scoreboard": [
+        {
+          "name": "MaeKey",
+          "team": "1",
+          "rank": "",
+          "score": "0",
+          "kills": "0",
+          "deaths": "0",
+          "ping": "0",
+          "is_bot": true
+        }
+      ],
       "tickets": [
         {
           "name": "axis",
