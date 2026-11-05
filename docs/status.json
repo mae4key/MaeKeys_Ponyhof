@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-05T08:28:01+00:00",
+  "generated_at": "2026-11-05T08:30:00+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -76,505 +76,374 @@
       "game": "Battlefield 2",
       "name": "MaeKeys Ponyhof",
       "status": "online",
-      "map": "Great Wall",
-      "mode": "gpm_coop",
-      "mod": "Vanilla",
-      "players": 0,
-      "max_players": 32,
+      "map": "",
+      "mode": "",
+      "mod": "",
+      "players": 35,
+      "max_players": 0,
       "scoreboard": [
         {
-          "name": "J. Jonsson",
+          "name": "?",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
-          "kills": "",
-          "deaths": "",
-          "ping": "0",
-          "is_bot": true
+          "kills": "0",
+          "deaths": "0",
+          "ping": "1",
+          "is_bot": false
         },
         {
-          "name": "S. Wallberg",
+          "name": "?",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
-          "kills": "",
-          "deaths": "",
-          "ping": "0",
-          "is_bot": true
+          "kills": "0",
+          "deaths": "0",
+          "ping": "1",
+          "is_bot": false
         },
         {
-          "name": "M. Hornlund",
+          "name": "?",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
-          "kills": "",
-          "deaths": "",
-          "ping": "0",
-          "is_bot": true
+          "kills": "0",
+          "deaths": "0",
+          "ping": "1",
+          "is_bot": false
         },
         {
-          "name": "T. Karlsson",
+          "name": "?",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
-          "kills": "",
-          "deaths": "",
-          "ping": "0",
-          "is_bot": true
+          "kills": "0",
+          "deaths": "0",
+          "ping": "1",
+          "is_bot": false
         },
         {
-          "name": "C. Elliott",
+          "name": "?",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
-          "kills": "",
-          "deaths": "",
-          "ping": "0",
-          "is_bot": true
+          "kills": "0",
+          "deaths": "0",
+          "ping": "1",
+          "is_bot": false
         },
         {
-          "name": "D. Rickard",
+          "name": "?",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
-          "kills": "",
-          "deaths": "",
-          "ping": "0",
-          "is_bot": true
+          "kills": "0",
+          "deaths": "0",
+          "ping": "1",
+          "is_bot": false
         },
         {
-          "name": "M. Kopparhed",
+          "name": "?",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
-          "kills": "",
-          "deaths": "",
-          "ping": "0",
-          "is_bot": true
+          "kills": "0",
+          "deaths": "0",
+          "ping": "1",
+          "is_bot": false
         },
         {
-          "name": "L. Fujita",
+          "name": "?",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
-          "kills": "",
-          "deaths": "",
-          "ping": "0",
-          "is_bot": true
+          "kills": "0",
+          "deaths": "0",
+          "ping": "1",
+          "is_bot": false
         },
         {
-          "name": "K. Hegethorn",
+          "name": "?",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
-          "kills": "",
-          "deaths": "",
-          "ping": "0",
-          "is_bot": true
+          "kills": "0",
+          "deaths": "0",
+          "ping": "1",
+          "is_bot": false
         },
         {
-          "name": "S. Evans",
+          "name": "?",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
-          "kills": "",
-          "deaths": "",
-          "ping": "0",
-          "is_bot": true
+          "kills": "0",
+          "deaths": "0",
+          "ping": "1",
+          "is_bot": false
         },
         {
-          "name": "J. Ostman",
+          "name": "?",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
-          "kills": "",
-          "deaths": "",
-          "ping": "0",
-          "is_bot": true
+          "kills": "0",
+          "deaths": "0",
+          "ping": "1",
+          "is_bot": false
         },
         {
-          "name": "K. Yip",
+          "name": "?",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
-          "kills": "",
-          "deaths": "",
-          "ping": "0",
-          "is_bot": true
+          "kills": "0",
+          "deaths": "0",
+          "ping": "1",
+          "is_bot": false
         },
         {
-          "name": "T. Laedre",
+          "name": "?",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
-          "kills": "",
-          "deaths": "",
-          "ping": "0",
-          "is_bot": true
+          "kills": "0",
+          "deaths": "0",
+          "ping": "1",
+          "is_bot": false
         },
         {
-          "name": "D. Yee",
+          "name": "?",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
-          "kills": "",
-          "deaths": "",
-          "ping": "0",
-          "is_bot": true
+          "kills": "0",
+          "deaths": "0",
+          "ping": "1",
+          "is_bot": false
         },
         {
-          "name": "M. Eriksson",
+          "name": "?",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
-          "kills": "",
-          "deaths": "",
-          "ping": "0",
-          "is_bot": true
+          "kills": "0",
+          "deaths": "0",
+          "ping": "1",
+          "is_bot": false
         },
         {
-          "name": "S. Abdey",
+          "name": "?",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
-          "kills": "",
-          "deaths": "",
-          "ping": "0",
-          "is_bot": true
+          "kills": "0",
+          "deaths": "0",
+          "ping": "1",
+          "is_bot": false
         },
         {
-          "name": "J. Sanick",
+          "name": "?",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
-          "kills": "",
-          "deaths": "",
-          "ping": "0",
-          "is_bot": true
+          "kills": "0",
+          "deaths": "0",
+          "ping": "1",
+          "is_bot": false
         },
         {
-          "name": "E. Smith",
+          "name": "?",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
-          "kills": "",
-          "deaths": "",
-          "ping": "0",
-          "is_bot": true
+          "kills": "0",
+          "deaths": "0",
+          "ping": "1",
+          "is_bot": false
         },
         {
-          "name": "R. Linde",
+          "name": "?",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
-          "kills": "",
-          "deaths": "",
-          "ping": "0",
-          "is_bot": true
+          "kills": "0",
+          "deaths": "0",
+          "ping": "1",
+          "is_bot": false
         },
         {
-          "name": "S. Strandberg",
+          "name": "?",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
-          "kills": "",
-          "deaths": "",
-          "ping": "0",
-          "is_bot": true
+          "kills": "0",
+          "deaths": "0",
+          "ping": "1",
+          "is_bot": false
         },
         {
-          "name": "J. Andersson",
+          "name": "?",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
-          "kills": "",
-          "deaths": "",
-          "ping": "0",
-          "is_bot": true
+          "kills": "0",
+          "deaths": "0",
+          "ping": "1",
+          "is_bot": false
         },
         {
-          "name": "F. Lindblom",
+          "name": "?",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
-          "kills": "",
-          "deaths": "",
-          "ping": "0",
-          "is_bot": true
+          "kills": "0",
+          "deaths": "0",
+          "ping": "1",
+          "is_bot": false
         },
         {
-          "name": "C. Tou",
+          "name": "?",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
-          "kills": "",
-          "deaths": "",
-          "ping": "0",
-          "is_bot": true
+          "kills": "0",
+          "deaths": "0",
+          "ping": "1",
+          "is_bot": false
         },
         {
-          "name": "N. Stromquist",
+          "name": "?",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
-          "kills": "",
-          "deaths": "",
-          "ping": "0",
-          "is_bot": true
+          "kills": "0",
+          "deaths": "0",
+          "ping": "1",
+          "is_bot": false
         },
         {
-          "name": "B. Smith",
+          "name": "?",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
-          "kills": "",
-          "deaths": "",
-          "ping": "0",
-          "is_bot": true
+          "kills": "0",
+          "deaths": "0",
+          "ping": "1",
+          "is_bot": false
         },
         {
-          "name": "J. Lord",
+          "name": "?",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
-          "kills": "",
-          "deaths": "",
-          "ping": "0",
-          "is_bot": true
+          "kills": "0",
+          "deaths": "0",
+          "ping": "1",
+          "is_bot": false
         },
         {
-          "name": "A. Andersson",
+          "name": "?",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
-          "kills": "",
-          "deaths": "",
-          "ping": "0",
-          "is_bot": true
+          "kills": "0",
+          "deaths": "0",
+          "ping": "1",
+          "is_bot": false
         },
         {
-          "name": "K. Hoang",
+          "name": "?",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
-          "kills": "",
-          "deaths": "",
-          "ping": "0",
-          "is_bot": true
+          "kills": "0",
+          "deaths": "0",
+          "ping": "1",
+          "is_bot": false
         },
         {
-          "name": "H. Andersson",
+          "name": "?",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
-          "kills": "",
-          "deaths": "",
-          "ping": "0",
-          "is_bot": true
+          "kills": "0",
+          "deaths": "0",
+          "ping": "1",
+          "is_bot": false
         },
         {
-          "name": "M. Belanger",
+          "name": "?",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
-          "kills": "",
-          "deaths": "",
-          "ping": "0",
-          "is_bot": true
+          "kills": "0",
+          "deaths": "0",
+          "ping": "1",
+          "is_bot": false
         },
         {
-          "name": "T. Kingston",
+          "name": "?",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
-          "kills": "",
-          "deaths": "",
-          "ping": "0",
-          "is_bot": true
+          "kills": "0",
+          "deaths": "0",
+          "ping": "1",
+          "is_bot": false
         },
         {
-          "name": "J. Newton",
+          "name": "?",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
-          "kills": "",
-          "deaths": "",
-          "ping": "0",
-          "is_bot": true
+          "kills": "0",
+          "deaths": "0",
+          "ping": "1",
+          "is_bot": false
         },
         {
-          "name": "J. Dawsari",
+          "name": "?",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
-          "kills": "",
-          "deaths": "",
-          "ping": "0",
-          "is_bot": true
+          "kills": "0",
+          "deaths": "0",
+          "ping": "1",
+          "is_bot": false
         },
         {
-          "name": "L. Brown",
+          "name": "?",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
-          "kills": "",
-          "deaths": "",
-          "ping": "0",
-          "is_bot": true
+          "kills": "0",
+          "deaths": "0",
+          "ping": "1",
+          "is_bot": false
         },
         {
-          "name": "P.K. Johansson",
+          "name": "?",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
-          "kills": "",
-          "deaths": "",
-          "ping": "0",
-          "is_bot": true
+          "kills": "0",
+          "deaths": "0",
+          "ping": "1",
+          "is_bot": false
         }
       ],
       "tickets": [
         {
           "name": "CH",
-          "score": ""
+          "score": "0"
         },
         {
           "name": "EU",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
+          "score": "0"
         }
-      ]
+      ],
+      "_debug_info": {}
     },
     {
       "id": "bf2-ponyhof-2",
