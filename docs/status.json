@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-05T22:04:28+00:00",
+  "generated_at": "2026-11-05T22:06:23+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -50,7 +50,7 @@
       "game": "Battlefield Vietnam",
       "name": "MaeKeys Ponyhof",
       "status": "online",
-      "map": "Wake",
+      "map": "Invasion of the Philippines",
       "mode": "coop",
       "mod": "WW2Mod",
       "players": 0,
@@ -59,11 +59,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "541"
+          "score": "1072"
         },
         {
           "name": "blue",
-          "score": "777"
+          "score": "1100"
         }
       ]
     },
