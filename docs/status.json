@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-06T14:42:23+00:00",
+  "generated_at": "2026-11-06T14:44:24+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -35,7 +35,7 @@
         },
         {
           "name": "allied",
-          "score": "500"
+          "score": "496"
         }
       ]
     },
