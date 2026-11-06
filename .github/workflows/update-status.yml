@@ -5,7 +5,7 @@ on:
     # Alle 5 Minuten - das von GitHub empfohlene Minimum fuer verlaessliche
     # Ausloesung. Engere Takte (z. B. */2) werden von GitHub teils schlicht
     # ignoriert, ohne Fehlermeldung.
-    - cron: "1,6,11,16,21,26,31,36,41,46,51,56 * * * *"
+    - cron: "0 0 1 1 *"
   workflow_dispatch: {}
   push:
     branches: [main]
@@ -79,7 +79,7 @@ jobs:
         # vorherigen Schritt noch passiert, damit die Kette nicht abreisst.
         # Bei einem oeffentlichen Repo sind GitHub-Actions-Minuten
         # unbegrenzt kostenlos, daher spricht nichts gegen diesen engen Takt.
-        if: always()
+        if: false
         run: |
           sleep 90
           curl -s -X POST \
