@@ -712,7 +712,7 @@ function showScoreboard(id) {
 
   const teamInfo = s.tickets || [];
   if (teamInfo.length >= 2 && (teamInfo[0].score || teamInfo[1].score)) {
-    html += `<p class="tickets-line">Tickets: ${teamInfo[0].score || "\u2013"} \u2013 ${teamInfo[1].score || "\u2013"}</p>`;
+    html += `<p class="tickets-line">Tickets: ${teamInfo[0].name ? teamInfo[0].name + " " : ""}${teamInfo[0].score || "\u2013"} \u2013 ${teamInfo[1].name ? teamInfo[1].name + " " : ""}${teamInfo[1].score || "\u2013"}</p>`;
   }
 
   // Nur echte Spieler, nie Bots.
@@ -728,11 +728,10 @@ function showScoreboard(id) {
         <td>${p.score}</td>
         <td>${p.kills || "\u2013"}</td>
         <td>${p.deaths || "\u2013"}</td>
-        <td>${p.ping}</td>
       </tr>`;
     const table = rows => `
       <table class="scoreboard">
-        <thead><tr><th>Rank</th><th>Name</th><th>Score</th><th>Kills</th><th>Deaths</th><th>Ping</th></tr></thead>
+        <thead><tr><th>Rank</th><th>Name</th><th>Score</th><th>Kills</th><th>Deaths</th></tr></thead>
         <tbody>${rows.map(rowHtml).join("")}</tbody>
       </table>`;
     const sortRow = (a, b) => (parseInt(b.score) || 0) - (parseInt(a.score) || 0);

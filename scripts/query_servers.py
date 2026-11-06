@@ -362,8 +362,19 @@ def _extract_teams(teams: list, info: dict) -> list:
             name = info_names[i]
         score = _first(t, "score", "tickets", "teamscore", default="")
         result.append({"name": name, "score": score})
+    # BF1942 (GameSpy1) meldet die Tickets als tickets1/tickets2 im
+    # Info-Block und die Teamnamen als teamname_0/teamname_1.
+    for i, key in enumerate(("tickets1", "tickets2")):
+        val = str(info.get(key, "")).strip()
+        if not val:
+            continue
+        while len(result) <= i:
+            result.append({"name": "", "score": ""})
+        if not result[i]["score"]:
+            result[i]["score"] = val
+        if not result[i]["name"]:
+            result[i]["name"] = str(info.get("teamname_" + str(i), "")).strip()
     return result
-
 
 def _count_humans(info: dict, players: list) -> int:
     """Zaehlt echte Spieler statt Bots. Bei Coop-Servern (v. a. BF2) kann
