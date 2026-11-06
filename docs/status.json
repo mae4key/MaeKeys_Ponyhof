@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-06T19:50:18+00:00",
+  "generated_at": "2026-11-06T19:52:05+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -15,11 +15,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "439"
+          "score": "437"
         },
         {
           "name": "allied",
-          "score": "460"
+          "score": "455"
         }
       ]
     },
@@ -37,11 +37,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "1996"
+          "score": "1978"
         },
         {
           "name": "allied",
-          "score": "2000"
+          "score": "1997"
         }
       ]
     },
@@ -71,16 +71,22 @@
       "id": "bfv-ponyhof-2",
       "game": "Battlefield Vietnam",
       "name": "MaeKeys Ponyhof",
-      "status": "offline",
-      "map": "",
-      "mode": "",
-      "mod": "",
+      "status": "online",
+      "map": "CAMBODIAN INCURSION",
+      "mode": "coop",
+      "mod": "Vanilla",
       "players": 0,
-      "max_players": 0,
+      "max_players": 32,
       "scoreboard": [],
-      "tickets": [],
-      "_debug_errors": [
-        "GameSpy2: TimeoutError: "
+      "tickets": [
+        {
+          "name": "red",
+          "score": "1996"
+        },
+        {
+          "name": "blue",
+          "score": "1999"
+        }
       ]
     },
     {
