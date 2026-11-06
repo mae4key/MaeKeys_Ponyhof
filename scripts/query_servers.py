@@ -15,6 +15,8 @@ from __future__ import annotations
 import asyncio
 import json
 import pathlib
+import re
+import socket
 from datetime import datetime, timezone
 
 from opengsq.protocols.gamespy1 import GameSpy1
@@ -445,6 +447,33 @@ def _extract_scoreboard(
     return board
 
 
+def _bf2_raw_teams(host, port):
+    """BF2 verschickt grosse Antworten (viele Bots) in mehreren UDP-Paketen,
+    die opengsq falsch zusammensetzt. Der Team-Block (team_t / score_t) steht
+    im letzten Paket und wird hier direkt aus den Rohdaten gelesen."""
+    try:
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        s.settimeout(TIMEOUT_SECONDS)
+        s.sendto(b"\xfe\xfd\x00\x10\x20\x30\x40\xff\xff\xff\x01", (host, port))
+        data = b""
+        try:
+            data += s.recv(65535)
+            s.settimeout(0.7)
+            while True:
+                data += s.recv(65535)
+        except Exception:
+            pass
+        s.close()
+        m = re.search(rb"team_t\x00\x00(.*?)\x00\x00score_t\x00\x00(.*?)\x00\x00", data, re.S)
+        if not m:
+            return []
+        names = [x.decode("latin1") for x in m.group(1).split(b"\x00")]
+        scores = [x.decode("latin1") for x in m.group(2).split(b"\x00")]
+        return [{"name": n, "score": scores[i] if i < len(scores) else ""} for i, n in enumerate(names)]
+    except Exception:
+        return []
+
+
 async def _try_protocol(protocol_cls, host, port, challenge_required=None):
     client = protocol_cls(host=host, port=port, timeout=TIMEOUT_SECONDS)
     if challenge_required is not None and hasattr(client, "challenge_required"):
@@ -512,6 +541,10 @@ async def query_one(entry: dict) -> dict:
                 bot_names=BOT_NAMES_BY_GAME.get(entry.get("game", "")),
             )
             result["tickets"] = _extract_teams(getattr(status, "teams", []), info)
+            if protocol_name == "battlefield2":
+                raw_teams = await asyncio.to_thread(_bf2_raw_teams, entry["host"], int(entry["port"]))
+                if raw_teams:
+                    result["tickets"] = raw_teams
             # Spielerzahl bevorzugt direkt aus dem Scoreboard ableiten
             # (dieselbe Quelle wie die Detailansicht), damit Kachel und
             # Scoreboard nie auseinanderlaufen koennen. Nur wenn gar keine
