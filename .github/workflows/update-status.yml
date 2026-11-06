@@ -59,7 +59,7 @@ jobs:
               print("yes")
               raise SystemExit
           age = (datetime.fromisoformat(ng) - datetime.fromisoformat(og)).total_seconds() / 60
-          print("yes" if age >= 15 else "no")
+          print("yes" if age >= 5 else "no")
           PY
           )
           if [ "$CHANGED" = "yes" ]; then
