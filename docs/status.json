@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-11-06T15:52:59+00:00",
+  "generated_at": "2026-11-06T15:55:05+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
       "game": "Battlefield 1942",
       "name": "MaeKeys Ponyhof",
       "status": "online",
-      "map": "midway",
+      "map": "battleaxe",
       "mode": "coop",
       "mod": "Vanilla",
       "players": 0,
@@ -15,11 +15,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "466"
+          "score": "496"
         },
         {
           "name": "allied",
-          "score": "15"
+          "score": "494"
         }
       ]
     },
@@ -37,11 +37,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "498"
+          "score": "470"
         },
         {
           "name": "allied",
-          "score": "1000"
+          "score": "998"
         }
       ]
     },
@@ -71,22 +71,16 @@
       "id": "bfv-ponyhof-2",
       "game": "Battlefield Vietnam",
       "name": "MaeKeys Ponyhof",
-      "status": "online",
-      "map": "HUE 1968",
-      "mode": "coop",
-      "mod": "Vanilla",
+      "status": "offline",
+      "map": "",
+      "mode": "",
+      "mod": "",
       "players": 0,
-      "max_players": 32,
+      "max_players": 0,
       "scoreboard": [],
-      "tickets": [
-        {
-          "name": "red",
-          "score": "146"
-        },
-        {
-          "name": "blue",
-          "score": "46"
-        }
+      "tickets": [],
+      "_debug_errors": [
+        "GameSpy2: TimeoutError: "
       ]
     },
     {
