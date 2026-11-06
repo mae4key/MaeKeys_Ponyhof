@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-06T20:48:39+00:00",
+  "generated_at": "2026-11-06T20:50:25+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -15,11 +15,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "454"
+          "score": "448"
         },
         {
           "name": "allied",
-          "score": "980"
+          "score": "971"
         }
       ]
     },
@@ -37,11 +37,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "1855"
+          "score": "1830"
         },
         {
           "name": "allied",
-          "score": "1614"
+          "score": "0"
         }
       ]
     },
@@ -59,11 +59,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "307"
+          "score": "270"
         },
         {
           "name": "blue",
-          "score": "393"
+          "score": "391"
         }
       ]
     },
@@ -454,143 +454,11 @@
       "tickets": [
         {
           "name": "CH",
-          "score": ""
+          "score": "0"
         },
         {
           "name": "EU",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
-        },
-        {
-          "name": "",
-          "score": ""
+          "score": "0"
         }
       ]
     },
