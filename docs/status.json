@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-06T10:28:21+00:00",
+  "generated_at": "2026-11-06T10:30:23+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -9,20 +9,9 @@
       "map": "coral sea",
       "mode": "coop",
       "mod": "Vanilla",
-      "players": 1,
+      "players": 0,
       "max_players": 20,
-      "scoreboard": [
-        {
-          "name": "MaeKey",
-          "team": "1",
-          "rank": "",
-          "score": "0",
-          "kills": "0",
-          "deaths": "0",
-          "ping": "91",
-          "is_bot": false
-        }
-      ],
+      "scoreboard": [],
       "tickets": [
         {
           "name": "axis",
