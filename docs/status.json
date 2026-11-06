@@ -1,51 +1,37 @@
 {
-  "generated_at": "2026-11-06T12:15:31+00:00",
+  "generated_at": "2026-11-06T12:17:31+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
       "game": "Battlefield 1942",
       "name": "MaeKeys Ponyhof",
-      "status": "online",
-      "map": "liberation of caen",
-      "mode": "coop",
-      "mod": "Vanilla",
-      "players": 1,
-      "max_players": 20,
-      "scoreboard": [
-        {
-          "name": "MaeKey",
-          "team": "1",
-          "rank": "",
-          "score": "0",
-          "kills": "0",
-          "deaths": "0",
-          "ping": "1",
-          "is_bot": false
-        }
-      ],
-      "tickets": [
-        {
-          "name": "axis",
-          "score": "324"
-        },
-        {
-          "name": "allied",
-          "score": "498"
-        }
+      "status": "offline",
+      "map": "",
+      "mode": "",
+      "mod": "",
+      "players": 0,
+      "max_players": 0,
+      "scoreboard": [],
+      "tickets": [],
+      "_debug_errors": [
+        "GameSpy1: TimeoutError: "
       ]
     },
     {
       "id": "bf1942-ponyhof-2",
       "game": "Battlefield 1942",
       "name": "MaeKeys Ponyhof",
-      "status": "online",
-      "map": "CAMBODIAN INCURSION",
-      "mode": "coop",
-      "mod": "Vanilla",
+      "status": "offline",
+      "map": "",
+      "mode": "",
+      "mod": "",
       "players": 0,
-      "max_players": 32,
+      "max_players": 0,
       "scoreboard": [],
-      "tickets": []
+      "tickets": [],
+      "_debug_errors": [
+        "GameSpy1: TimeoutError: "
+      ]
     },
     {
       "id": "bfv-ponyhof-2",
