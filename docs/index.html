@@ -682,9 +682,9 @@ async function load() {
     const staleNotice = document.getElementById("stale-notice");
     if (data.generated_at) {
       const ageMinutes = (Date.now() - new Date(data.generated_at)) / 60000;
-      if (ageMinutes > 5) {
+      if (ageMinutes > 20) {
         staleNotice.hidden = false;
-        staleNotice.textContent = "Note: the last update was over 5 minutes ago – data may be outdated.";
+        staleNotice.textContent = "Note: the last update was over 20 minutes ago – data may be outdated.";
       }
     }
   } catch (e) {

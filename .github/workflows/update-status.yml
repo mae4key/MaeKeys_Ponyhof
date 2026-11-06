@@ -44,7 +44,25 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          if ! git diff --quiet -- docs/status.json; then
+          CHANGED=$(python3 - <<'PY'
+          import json, subprocess
+          from datetime import datetime
+          new = json.load(open("docs/status.json"))
+          try:
+              old = json.loads(subprocess.check_output(["git", "show", "HEAD:docs/status.json"]))
+          except Exception:
+              print("yes")
+              raise SystemExit
+          ng = new.pop("generated_at", None)
+          og = old.pop("generated_at", None)
+          if new != old:
+              print("yes")
+              raise SystemExit
+          age = (datetime.fromisoformat(ng) - datetime.fromisoformat(og)).total_seconds() / 60
+          print("yes" if age >= 15 else "no")
+          PY
+          )
+          if [ "$CHANGED" = "yes" ]; then
             git add docs/status.json
             git commit -m "Status aktualisiert: $(date -u +'%Y-%m-%d %H:%M UTC')"
             git push
