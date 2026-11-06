@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-06T19:44:57+00:00",
+  "generated_at": "2026-11-06T19:46:45+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -15,7 +15,7 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "459"
+          "score": "458"
         },
         {
           "name": "allied",
@@ -27,22 +27,16 @@
       "id": "bf1942-ponyhof-2",
       "game": "Battlefield 1942",
       "name": "MaeKeys Ponyhof",
-      "status": "online",
-      "map": "berlin",
-      "mode": "coop",
-      "mod": "Vanilla",
+      "status": "offline",
+      "map": "",
+      "mode": "",
+      "mod": "",
       "players": 0,
-      "max_players": 20,
+      "max_players": 0,
       "scoreboard": [],
-      "tickets": [
-        {
-          "name": "axis",
-          "score": "82"
-        },
-        {
-          "name": "allied",
-          "score": "331"
-        }
+      "tickets": [],
+      "_debug_errors": [
+        "GameSpy1: TimeoutError: "
       ]
     },
     {
@@ -71,22 +65,16 @@
       "id": "bfv-ponyhof-2",
       "game": "Battlefield Vietnam",
       "name": "MaeKeys Ponyhof",
-      "status": "online",
-      "map": "HO CHI MINH TRAIL",
-      "mode": "coop",
-      "mod": "Vanilla",
+      "status": "offline",
+      "map": "",
+      "mode": "",
+      "mod": "",
       "players": 0,
-      "max_players": 32,
+      "max_players": 0,
       "scoreboard": [],
-      "tickets": [
-        {
-          "name": "red",
-          "score": "395"
-        },
-        {
-          "name": "blue",
-          "score": "389"
-        }
+      "tickets": [],
+      "_debug_errors": [
+        "GameSpy2: TimeoutError: "
       ]
     },
     {
