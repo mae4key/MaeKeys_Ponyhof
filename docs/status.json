@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-06T15:08:31+00:00",
+  "generated_at": "2026-11-06T15:10:42+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -22,7 +22,7 @@
       "game": "Battlefield 1942",
       "name": "MaeKeys Ponyhof",
       "status": "online",
-      "map": "midway",
+      "map": "battle of britain",
       "mode": "coop",
       "mod": "Vanilla",
       "players": 0,
@@ -31,11 +31,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "458"
+          "score": "491"
         },
         {
           "name": "allied",
-          "score": "4"
+          "score": "500"
         }
       ]
     },
@@ -53,11 +53,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "383"
+          "score": "369"
         },
         {
           "name": "blue",
-          "score": "389"
+          "score": "368"
         }
       ]
     },
