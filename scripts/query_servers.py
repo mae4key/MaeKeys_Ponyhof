@@ -557,6 +557,10 @@ async def query_one(entry: dict) -> dict:
                 # Ohne Spielerliste (z. B. waehrend des Kartenladens) meldet
                 # numplayers auch Bots -> lieber 0 als eine falsche Zahl.
                 result["players"] = 0
+            if not result["map"]:
+                # Server laedt gerade eine Karte: Zahlen sind unzuverlaessig
+                result["players"] = 0
+                result["scoreboard"] = []
             if not result["mod"]:
                 # TEMPORAER zur Fehlersuche: Mod-Feld weiterhin leer trotz
                 # Fix - zeig die komplette Rohantwort, um den echten
