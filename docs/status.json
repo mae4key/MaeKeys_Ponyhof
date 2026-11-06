@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-06T11:51:13+00:00",
+  "generated_at": "2026-11-06T11:53:12+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -28,7 +28,7 @@
       "game": "Battlefield 1942",
       "name": "MaeKeys Ponyhof",
       "status": "online",
-      "map": "OPERATION IRVING",
+      "map": "CAMBODIAN INCURSION",
       "mode": "coop",
       "mod": "Vanilla",
       "players": 0,
