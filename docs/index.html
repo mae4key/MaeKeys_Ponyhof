@@ -670,7 +670,7 @@ function renderServers(servers) {
 
 async function load() {
   try {
-    const res = await fetch("https://raw.githubusercontent.com/mae4key/MaeKeys_Ponyhof/main/docs/status.json", { cache: "no-store" })
+    const res = await fetch("https://raw.githubusercontent.com/mae4key/MaeKeys_Ponyhof/main/docs/status.json?t=" + Math.floor(Date.now() / 20000), { cache: "no-store" })
       .catch(() => fetch("status.json", { cache: "no-store" }));
     const data = await res.json();
     renderServers(data.servers || []);

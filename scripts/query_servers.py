@@ -553,6 +553,10 @@ async def query_one(entry: dict) -> dict:
                 result["players"] = sum(
                     1 for row in result["scoreboard"] if not row["is_bot"]
                 )
+            else:
+                # Ohne Spielerliste (z. B. waehrend des Kartenladens) meldet
+                # numplayers auch Bots -> lieber 0 als eine falsche Zahl.
+                result["players"] = 0
             if not result["mod"]:
                 # TEMPORAER zur Fehlersuche: Mod-Feld weiterhin leer trotz
                 # Fix - zeig die komplette Rohantwort, um den echten
