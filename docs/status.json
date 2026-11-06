@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-06T15:50:59+00:00",
+  "generated_at": "2026-11-06T15:52:59+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -15,11 +15,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "475"
+          "score": "466"
         },
         {
           "name": "allied",
-          "score": "54"
+          "score": "15"
         }
       ]
     },
@@ -28,7 +28,7 @@
       "game": "Battlefield 1942",
       "name": "MaeKeys Ponyhof",
       "status": "online",
-      "map": "battle of britain",
+      "map": "battle of the bulge",
       "mode": "coop",
       "mod": "Vanilla",
       "players": 0,
@@ -37,11 +37,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "425"
+          "score": "498"
         },
         {
           "name": "allied",
-          "score": "472"
+          "score": "1000"
         }
       ]
     },
@@ -50,7 +50,7 @@
       "game": "Battlefield Vietnam",
       "name": "MaeKeys Ponyhof",
       "status": "online",
-      "map": "RECLAIMING HUE",
+      "map": "CAMBODIAN INCURSION",
       "mode": "coop",
       "mod": "Vanilla",
       "players": 0,
@@ -59,11 +59,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "187"
+          "score": "396"
         },
         {
           "name": "blue",
-          "score": "2"
+          "score": "400"
         }
       ]
     },
@@ -81,11 +81,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "149"
+          "score": "146"
         },
         {
           "name": "blue",
-          "score": "73"
+          "score": "46"
         }
       ]
     },
