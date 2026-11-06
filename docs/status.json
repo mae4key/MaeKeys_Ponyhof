@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-06T10:46:22+00:00",
+  "generated_at": "2026-11-06T10:48:21+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -38,14 +38,17 @@
       "id": "bf1942-ponyhof-2",
       "game": "Battlefield 1942",
       "name": "MaeKeys Ponyhof",
-      "status": "online",
-      "map": "HUE 1968",
-      "mode": "coop",
-      "mod": "Vanilla",
+      "status": "offline",
+      "map": "",
+      "mode": "",
+      "mod": "",
       "players": 0,
-      "max_players": 32,
+      "max_players": 0,
       "scoreboard": [],
-      "tickets": []
+      "tickets": [],
+      "_debug_errors": [
+        "GameSpy1: AttributeError: 'NoneType' object has no attribute 'group'"
+      ]
     },
     {
       "id": "bfv-ponyhof-2",
