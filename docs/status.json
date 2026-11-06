@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-06T16:13:27+00:00",
+  "generated_at": "2026-11-06T16:15:28+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -15,11 +15,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "473"
+          "score": "467"
         },
         {
           "name": "allied",
-          "score": "171"
+          "score": "124"
         }
       ]
     },
@@ -37,11 +37,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "231"
+          "score": "225"
         },
         {
           "name": "allied",
-          "score": "368"
+          "score": "337"
         }
       ]
     },
@@ -72,7 +72,7 @@
       "game": "Battlefield Vietnam",
       "name": "MaeKeys Ponyhof",
       "status": "online",
-      "map": "FALL OF LANG VEI",
+      "map": "HO CHI MINH TRAIL",
       "mode": "coop",
       "mod": "Vanilla",
       "players": 0,
@@ -81,11 +81,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "213"
+          "score": "397"
         },
         {
           "name": "blue",
-          "score": "7"
+          "score": "378"
         }
       ]
     },
