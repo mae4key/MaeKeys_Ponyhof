@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-06T09:48:24+00:00",
+  "generated_at": "2026-11-06T09:50:25+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -19,7 +19,7 @@
           "score": "0",
           "kills": "0",
           "deaths": "0",
-          "ping": "21",
+          "ping": "4",
           "is_bot": false
         }
       ],
