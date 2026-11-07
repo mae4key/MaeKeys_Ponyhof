@@ -1,22 +1,6 @@
 {
-  "generated_at": "2026-11-07T18:28:16+00:00",
+  "generated_at": "2026-11-07T18:30:15+00:00",
   "servers": [
-    {
-      "id": "bf1942-ponyhof-2",
-      "game": "Battlefield 1942",
-      "name": "MaeKeys Ponyhof",
-      "status": "offline",
-      "map": "",
-      "mode": "",
-      "mod": "",
-      "players": 0,
-      "max_players": 0,
-      "scoreboard": [],
-      "tickets": [],
-      "_debug_errors": [
-        "GameSpy1: TimeoutError: "
-      ]
-    },
     {
       "id": "bfv-ponyhof-1",
       "game": "Battlefield Vietnam",
