@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-07T20:49:23+00:00",
+  "generated_at": "2026-11-07T20:51:22+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -16,21 +16,21 @@
           "name": "MaeKey",
           "team": "1",
           "rank": "",
-          "score": "11",
-          "kills": "11",
+          "score": "12",
+          "kills": "12",
           "deaths": "2",
-          "ping": "4",
+          "ping": "5",
           "is_bot": false
         }
       ],
       "tickets": [
         {
           "name": "axis",
-          "score": "396"
+          "score": "392"
         },
         {
           "name": "allied",
-          "score": "866"
+          "score": "855"
         }
       ]
     },
@@ -52,7 +52,7 @@
         },
         {
           "name": "blue",
-          "score": "21"
+          "score": "1"
         }
       ]
     },
