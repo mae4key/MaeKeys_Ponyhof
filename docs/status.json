@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-07T20:51:22+00:00",
+  "generated_at": "2026-11-07T20:53:23+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -26,11 +26,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "392"
+          "score": "383"
         },
         {
           "name": "allied",
-          "score": "855"
+          "score": "851"
         }
       ]
     },
@@ -39,7 +39,7 @@
       "game": "Battlefield Vietnam",
       "name": "MaeKeys Ponyhof",
       "status": "online",
-      "map": "QUANG TRI 1972",
+      "map": "CAMBODIAN INCURSION",
       "mode": "coop",
       "mod": "Vanilla",
       "players": 0,
@@ -48,11 +48,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "381"
+          "score": "397"
         },
         {
           "name": "blue",
-          "score": "1"
+          "score": "400"
         }
       ]
     },
@@ -428,6 +428,16 @@
         },
         {
           "name": "C. Elliott",
+          "team": "",
+          "rank": "0",
+          "score": "0",
+          "kills": "0",
+          "deaths": "0",
+          "ping": "0",
+          "is_bot": true
+        },
+        {
+          "name": "MaeKey",
           "team": "",
           "rank": "0",
           "score": "0",
