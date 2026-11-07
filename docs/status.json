@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-07T21:23:28+00:00",
+  "generated_at": "2026-11-07T21:25:29+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -26,11 +26,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "310"
+          "score": "304"
         },
         {
           "name": "allied",
-          "score": "758"
+          "score": "751"
         }
       ]
     },
@@ -83,19 +83,9 @@
       "map": "Daqing Oilfields",
       "mode": "gpm_coop",
       "mod": "Vanilla",
-      "players": 1,
+      "players": 0,
       "max_players": 32,
       "scoreboard": [
-        {
-          "name": "MaeKey",
-          "team": "",
-          "rank": "0",
-          "score": "0",
-          "kills": "0",
-          "deaths": "0",
-          "ping": "7",
-          "is_bot": false
-        },
         {
           "name": "J. Dawsari",
           "team": "",
