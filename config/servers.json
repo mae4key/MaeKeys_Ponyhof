@@ -7,7 +7,7 @@
     "host": "870om3k8bee3muwz.myfritz.net",
     "port": 23000,
     "enabled": true,
-    "internet": false
+    "internet": true
   },
   {
     "id": "bf1942-ponyhof-2",
