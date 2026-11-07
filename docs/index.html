@@ -719,7 +719,7 @@ function showScoreboard(id) {
   let html = "";
 
   const teamInfo = s.tickets || [];
-  if (teamInfo.length >= 2 && (teamInfo[0].score || teamInfo[1].score)) {
+  if (teamInfo.length >= 2 && (parseInt(teamInfo[0].score) || parseInt(teamInfo[1].score))) {
     html += `<p class="tickets-line">Tickets: ${teamInfo[0].name ? teamInfo[0].name + " " : ""}${teamInfo[0].score || "\u2013"} \u2013 ${teamInfo[1].name ? teamInfo[1].name + " " : ""}${teamInfo[1].score || "\u2013"}</p>`;
   }
 
@@ -731,7 +731,7 @@ function showScoreboard(id) {
   } else {
     const rowHtml = (p, i) => `
       <tr>
-        <td>${p.rank || (i + 1)}</td>
+        
         <td>${p.name}</td>
         <td>${p.score}</td>
         <td>${p.kills || "\u2013"}</td>
@@ -739,7 +739,7 @@ function showScoreboard(id) {
       </tr>`;
     const table = rows => `
       <table class="scoreboard">
-        <thead><tr><th>Rank</th><th>Name</th><th>Score</th><th>Kills</th><th>Deaths</th></tr></thead>
+        <thead><tr><th>Name</th><th>Score</th><th>Kills</th><th>Deaths</th></tr></thead>
         <tbody>${rows.map(rowHtml).join("")}</tbody>
       </table>`;
     const sortRow = (a, b) => (parseInt(b.score) || 0) - (parseInt(a.score) || 0);
@@ -749,7 +749,7 @@ function showScoreboard(id) {
     if (teamValues.length >= 2) {
       const team1 = humans.filter(p => p.team === teamValues[0]).sort(sortRow);
       const team2 = humans.filter(p => p.team === teamValues[1]).sort(sortRow);
-      const unassigned = humans.filter(p => !teamValues.slice(0, 2).includes(p.team));
+      const unassigned = humans.filter(p => !teamValues.slice(0, 2).includes(p.team)).sort(sortRow);
       const team1Label = (teamInfo[0] && teamInfo[0].name) || (isNaN(teamValues[0]) ? teamValues[0] : "Team 1");
       const team2Label = (teamInfo[1] && teamInfo[1].name) || (isNaN(teamValues[1]) ? teamValues[1] : "Team 2");
 
