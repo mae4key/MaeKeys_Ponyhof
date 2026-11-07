@@ -729,9 +729,9 @@ function showScoreboard(id) {
   if (humans.length === 0) {
     html += `<p class="modal-empty">No players currently online.</p>`;
   } else {
-    const rowHtml = p => `
+    const rowHtml = (p, i) => `
       <tr>
-        <td>${p.rank || "\u2013"}</td>
+        <td>${p.rank || (i + 1)}</td>
         <td>${p.name}</td>
         <td>${p.score}</td>
         <td>${p.kills || "\u2013"}</td>
