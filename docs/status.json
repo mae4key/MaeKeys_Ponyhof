@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-08T16:53:05+00:00",
+  "generated_at": "2026-11-08T16:55:04+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -15,7 +15,7 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "500"
+          "score": "490"
         },
         {
           "name": "allied",
@@ -41,7 +41,7 @@
         },
         {
           "name": "blue",
-          "score": "187"
+          "score": "167"
         }
       ]
     },
@@ -59,11 +59,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "1955"
+          "score": "1947"
         },
         {
           "name": "blue",
-          "score": "1933"
+          "score": "1929"
         }
       ]
     },
