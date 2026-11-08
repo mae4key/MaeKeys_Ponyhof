@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-08T18:19:11+00:00",
+  "generated_at": "2026-11-08T18:21:10+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -15,11 +15,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "276"
+          "score": "255"
         },
         {
           "name": "allied",
-          "score": "471"
+          "score": "461"
         }
       ]
     },
@@ -37,11 +37,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "394"
+          "score": "392"
         },
         {
           "name": "blue",
-          "score": "387"
+          "score": "384"
         }
       ]
     },
@@ -59,11 +59,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "1602"
+          "score": "1596"
         },
         {
           "name": "blue",
-          "score": "1290"
+          "score": "1286"
         }
       ]
     },
@@ -437,9 +437,19 @@
       "map": "Suez_Canal",
       "mode": "gpm_coop",
       "mod": "Vanilla",
-      "players": 0,
+      "players": 1,
       "max_players": 36,
       "scoreboard": [
+        {
+          "name": "oblomov",
+          "team": "",
+          "rank": "0",
+          "score": "0",
+          "kills": "0",
+          "deaths": "0",
+          "ping": "22",
+          "is_bot": false
+        },
         {
           "name": "L. Gustavsson",
           "team": "",
@@ -1062,16 +1072,6 @@
         },
         {
           "name": "G. VanDyke",
-          "team": "",
-          "rank": "0",
-          "score": "0",
-          "kills": "0",
-          "deaths": "0",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "D. Barron",
           "team": "",
           "rank": "0",
           "score": "0",
