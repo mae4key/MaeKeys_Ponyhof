@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-08T16:43:11+00:00",
+  "generated_at": "2026-11-08T16:45:09+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -15,11 +15,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "214"
+          "score": "175"
         },
         {
           "name": "allied",
-          "score": "339"
+          "score": "313"
         }
       ]
     },
@@ -37,11 +37,33 @@
       "tickets": [
         {
           "name": "red",
-          "score": "344"
+          "score": "335"
         },
         {
           "name": "blue",
-          "score": "287"
+          "score": "267"
+        }
+      ]
+    },
+    {
+      "id": "bfv-ponyhof-2",
+      "game": "Battlefield Vietnam",
+      "name": "MaeKeys Ponyhof",
+      "status": "online",
+      "map": "HUE 1968",
+      "mode": "coop",
+      "mod": "Vanilla",
+      "players": 0,
+      "max_players": 32,
+      "scoreboard": [],
+      "tickets": [
+        {
+          "name": "red",
+          "score": "2000"
+        },
+        {
+          "name": "blue",
+          "score": "2000"
         }
       ]
     },
