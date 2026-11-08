@@ -704,6 +704,21 @@ async function load() {
 load();
 setInterval(load, 30000);
 
+// Sofort neu laden, wenn die Seite wieder sichtbar wird (Tab-Wechsel,
+// Handy entsperrt, Seite aus dem Cache zurueck) - zusaetzlich zum 30-s-Takt.
+let lastRefresh = Date.now();
+function refreshIfStale() {
+  if (Date.now() - lastRefresh > 5000) {
+    lastRefresh = Date.now();
+    load();
+  }
+}
+document.addEventListener("visibilitychange", () => {
+  if (!document.hidden) refreshIfStale();
+});
+window.addEventListener("focus", refreshIfStale);
+window.addEventListener("pageshow", refreshIfStale);
+
 // Scoreboard-Detailfenster: zeigt nur unsere eigenen Abfragedaten, kein
 // externer Link.
 function showScoreboard(id) {
