@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-08T18:03:18+00:00",
+  "generated_at": "2026-11-08T18:05:18+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -15,11 +15,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "276"
+          "score": "228"
         },
         {
           "name": "allied",
-          "score": "383"
+          "score": "381"
         }
       ]
     },
@@ -28,7 +28,7 @@
       "game": "Battlefield Vietnam",
       "name": "MaeKeys Ponyhof",
       "status": "online",
-      "map": "CAMBODIAN INCURSION",
+      "map": "FALL OF LANG VEI",
       "mode": "coop",
       "mod": "Vanilla",
       "players": 0,
@@ -37,11 +37,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "8"
+          "score": "398"
         },
         {
           "name": "blue",
-          "score": "78"
+          "score": "400"
         }
       ]
     },
@@ -59,11 +59,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "1677"
+          "score": "1663"
         },
         {
           "name": "blue",
-          "score": "1395"
+          "score": "1375"
         }
       ]
     },
