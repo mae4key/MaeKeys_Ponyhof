@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-11-08T19:25:26+00:00",
+  "generated_at": "2026-11-08T19:27:26+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
       "game": "Battlefield 1942",
       "name": "MaeKeys Ponyhof",
       "status": "online",
-      "map": "coral sea",
+      "map": "el alamein",
       "mode": "coop",
       "mod": "Vanilla",
       "players": 0,
@@ -15,11 +15,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "461"
+          "score": "500"
         },
         {
           "name": "allied",
-          "score": "402"
+          "score": "500"
         }
       ]
     },
@@ -59,11 +59,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "1848"
+          "score": "1833"
         },
         {
           "name": "blue",
-          "score": "1748"
+          "score": "1740"
         }
       ]
     },
