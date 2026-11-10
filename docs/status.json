@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-10T19:58:40+00:00",
+  "generated_at": "2026-11-10T20:00:43+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -15,11 +15,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "875"
+          "score": "776"
         },
         {
           "name": "allied",
-          "score": "906"
+          "score": "889"
         }
       ]
     },
@@ -35,34 +35,34 @@
       "max_players": 32,
       "scoreboard": [
         {
+          "name": "COO LE SAU",
+          "team": "2",
+          "rank": "",
+          "score": "30",
+          "kills": "27",
+          "deaths": "3",
+          "ping": "48",
+          "is_bot": false
+        },
+        {
           "name": "Bindelado",
           "team": "2",
           "rank": "",
           "score": "29",
           "kills": "22",
           "deaths": "3",
-          "ping": "58",
-          "is_bot": false
-        },
-        {
-          "name": "COO LE SAU",
-          "team": "2",
-          "rank": "",
-          "score": "25",
-          "kills": "22",
-          "deaths": "3",
-          "ping": "59",
+          "ping": "57",
           "is_bot": false
         }
       ],
       "tickets": [
         {
           "name": "red",
-          "score": "596"
+          "score": "547"
         },
         {
           "name": "blue",
-          "score": "959"
+          "score": "954"
         }
       ]
     },
@@ -405,6 +405,16 @@
         },
         {
           "name": "M. Livesey",
+          "team": "",
+          "rank": "0",
+          "score": "0",
+          "kills": "0",
+          "deaths": "0",
+          "ping": "0",
+          "is_bot": true
+        },
+        {
+          "name": "MaeKey",
           "team": "",
           "rank": "0",
           "score": "0",
