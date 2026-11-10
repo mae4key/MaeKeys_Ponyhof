@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-10T20:37:32+00:00",
+  "generated_at": "2026-11-10T20:39:30+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -26,11 +26,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "996"
+          "score": "994"
         },
         {
           "name": "allied",
-          "score": "956"
+          "score": "890"
         }
       ]
     },
@@ -48,7 +48,7 @@
       "tickets": [
         {
           "name": "red",
-          "score": "966"
+          "score": "964"
         },
         {
           "name": "blue",
@@ -80,35 +80,35 @@
       "map": "Great Wall",
       "mode": "gpm_coop",
       "mod": "Vanilla",
-      "players": 0,
+      "players": 1,
       "max_players": 32,
       "scoreboard": [
         {
+          "name": "MaeKey",
+          "team": "",
+          "rank": "0",
+          "score": "0",
+          "kills": "0",
+          "deaths": "1",
+          "ping": "3",
+          "is_bot": false
+        },
+        {
           "name": "N. Stromquist",
           "team": "",
-          "rank": "32",
-          "score": "90",
-          "kills": "32",
-          "deaths": "19",
+          "rank": "34",
+          "score": "98",
+          "kills": "34",
+          "deaths": "20",
           "ping": "0",
           "is_bot": true
         },
         {
           "name": "J. Jonsson",
           "team": "",
-          "rank": "35",
-          "score": "87",
-          "kills": "35",
-          "deaths": "19",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "C. Grass",
-          "team": "",
-          "rank": "30",
-          "score": "80",
-          "kills": "30",
+          "rank": "37",
+          "score": "91",
+          "kills": "37",
           "deaths": "22",
           "ping": "0",
           "is_bot": true
@@ -116,50 +116,50 @@
         {
           "name": "J. Dawsari",
           "team": "",
-          "rank": "34",
-          "score": "74",
-          "kills": "34",
-          "deaths": "22",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "M. Le",
-          "team": "",
-          "rank": "34",
-          "score": "73",
-          "kills": "34",
-          "deaths": "20",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "D. Votypka",
-          "team": "",
-          "rank": "33",
-          "score": "70",
-          "kills": "33",
+          "rank": "39",
+          "score": "85",
+          "kills": "39",
           "deaths": "26",
+          "ping": "0",
+          "is_bot": true
+        },
+        {
+          "name": "C. Grass",
+          "team": "",
+          "rank": "30",
+          "score": "81",
+          "kills": "30",
+          "deaths": "22",
           "ping": "0",
           "is_bot": true
         },
         {
           "name": "R. Pace",
           "team": "",
-          "rank": "32",
-          "score": "67",
-          "kills": "32",
-          "deaths": "24",
+          "rank": "37",
+          "score": "78",
+          "kills": "37",
+          "deaths": "26",
           "ping": "0",
           "is_bot": true
         },
         {
-          "name": "T. Holmsten",
+          "name": "D. Votypka",
           "team": "",
-          "rank": "28",
-          "score": "67",
-          "kills": "28",
-          "deaths": "21",
+          "rank": "37",
+          "score": "78",
+          "kills": "37",
+          "deaths": "27",
+          "ping": "0",
+          "is_bot": true
+        },
+        {
+          "name": "M. Le",
+          "team": "",
+          "rank": "36",
+          "score": "77",
+          "kills": "36",
+          "deaths": "22",
           "ping": "0",
           "is_bot": true
         },
@@ -169,37 +169,47 @@
           "rank": "28",
           "score": "66",
           "kills": "28",
-          "deaths": "22",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "J. Gonzales",
-          "team": "",
-          "rank": "19",
-          "score": "57",
-          "kills": "19",
-          "deaths": "25",
+          "deaths": "24",
           "ping": "0",
           "is_bot": true
         },
         {
           "name": "H. Karlsson",
           "team": "",
-          "rank": "26",
-          "score": "53",
-          "kills": "26",
-          "deaths": "20",
+          "rank": "31",
+          "score": "64",
+          "kills": "31",
+          "deaths": "23",
+          "ping": "0",
+          "is_bot": true
+        },
+        {
+          "name": "J. Gonzales",
+          "team": "",
+          "rank": "20",
+          "score": "59",
+          "kills": "20",
+          "deaths": "26",
+          "ping": "0",
+          "is_bot": true
+        },
+        {
+          "name": "M. Hornlund",
+          "team": "",
+          "rank": "23",
+          "score": "58",
+          "kills": "23",
+          "deaths": "26",
           "ping": "0",
           "is_bot": true
         },
         {
           "name": "F. Morales",
           "team": "",
-          "rank": "20",
-          "score": "52",
-          "kills": "20",
-          "deaths": "23",
+          "rank": "22",
+          "score": "57",
+          "kills": "22",
+          "deaths": "25",
           "ping": "0",
           "is_bot": true
         },
@@ -207,29 +217,19 @@
           "name": "K. Hoang",
           "team": "",
           "rank": "20",
-          "score": "49",
+          "score": "53",
           "kills": "20",
-          "deaths": "14",
+          "deaths": "15",
           "ping": "0",
           "is_bot": true
         },
         {
           "name": "K. Yip",
           "team": "",
-          "rank": "17",
-          "score": "49",
-          "kills": "17",
-          "deaths": "21",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "M. Hornlund",
-          "team": "",
-          "rank": "19",
-          "score": "48",
-          "kills": "19",
-          "deaths": "23",
+          "rank": "18",
+          "score": "53",
+          "kills": "18",
+          "deaths": "22",
           "ping": "0",
           "is_bot": true
         },
@@ -237,19 +237,49 @@
           "name": "D. Sundberg",
           "team": "",
           "rank": "20",
-          "score": "46",
+          "score": "50",
           "kills": "20",
-          "deaths": "17",
+          "deaths": "18",
+          "ping": "0",
+          "is_bot": true
+        },
+        {
+          "name": "T. Holmsten",
+          "team": "",
+          "rank": "29",
+          "score": "48",
+          "kills": "29",
+          "deaths": "21",
           "ping": "0",
           "is_bot": true
         },
         {
           "name": "B. Pajor",
           "team": "",
-          "rank": "17",
-          "score": "41",
-          "kills": "17",
-          "deaths": "18",
+          "rank": "19",
+          "score": "47",
+          "kills": "19",
+          "deaths": "21",
+          "ping": "0",
+          "is_bot": true
+        },
+        {
+          "name": "R. Linde",
+          "team": "",
+          "rank": "18",
+          "score": "44",
+          "kills": "18",
+          "deaths": "16",
+          "ping": "0",
+          "is_bot": true
+        },
+        {
+          "name": "J. Hargelid",
+          "team": "",
+          "rank": "19",
+          "score": "42",
+          "kills": "19",
+          "deaths": "22",
           "ping": "0",
           "is_bot": true
         },
@@ -259,16 +289,6 @@
           "rank": "20",
           "score": "40",
           "kills": "20",
-          "deaths": "24",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "C. Barnett",
-          "team": "",
-          "rank": "13",
-          "score": "39",
-          "kills": "13",
           "deaths": "25",
           "ping": "0",
           "is_bot": true
@@ -276,60 +296,50 @@
         {
           "name": "M. Choy",
           "team": "",
-          "rank": "18",
-          "score": "38",
-          "kills": "18",
-          "deaths": "20",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "R. Linde",
-          "team": "",
-          "rank": "16",
-          "score": "36",
-          "kills": "16",
-          "deaths": "15",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "J. Hargelid",
-          "team": "",
-          "rank": "16",
-          "score": "35",
-          "kills": "16",
-          "deaths": "20",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "B. Hedberg",
-          "team": "",
-          "rank": "14",
-          "score": "35",
-          "kills": "14",
-          "deaths": "19",
+          "rank": "19",
+          "score": "40",
+          "kills": "19",
+          "deaths": "21",
           "ping": "0",
           "is_bot": true
         },
         {
           "name": "J. Evans",
           "team": "",
+          "rank": "17",
+          "score": "40",
+          "kills": "17",
+          "deaths": "21",
+          "ping": "0",
+          "is_bot": true
+        },
+        {
+          "name": "C. Barnett",
+          "team": "",
           "rank": "13",
-          "score": "32",
+          "score": "40",
           "kills": "13",
-          "deaths": "19",
+          "deaths": "27",
+          "ping": "0",
+          "is_bot": true
+        },
+        {
+          "name": "B. Hedberg",
+          "team": "",
+          "rank": "15",
+          "score": "37",
+          "kills": "15",
+          "deaths": "21",
           "ping": "0",
           "is_bot": true
         },
         {
           "name": "P.K. Johansson",
           "team": "",
-          "rank": "15",
-          "score": "28",
-          "kills": "15",
-          "deaths": "21",
+          "rank": "16",
+          "score": "30",
+          "kills": "16",
+          "deaths": "23",
           "ping": "0",
           "is_bot": true
         },
@@ -347,29 +357,29 @@
           "name": "J. Dohl",
           "team": "",
           "rank": "10",
-          "score": "24",
+          "score": "25",
           "kills": "10",
-          "deaths": "19",
+          "deaths": "20",
           "ping": "0",
           "is_bot": true
         },
         {
           "name": "A. Marini",
           "team": "",
-          "rank": "10",
-          "score": "21",
-          "kills": "10",
-          "deaths": "11",
+          "rank": "11",
+          "score": "23",
+          "kills": "11",
+          "deaths": "13",
           "ping": "0",
           "is_bot": true
         },
         {
           "name": "R. Gimbel",
           "team": "",
-          "rank": "9",
-          "score": "19",
-          "kills": "9",
-          "deaths": "17",
+          "rank": "10",
+          "score": "21",
+          "kills": "10",
+          "deaths": "18",
           "ping": "0",
           "is_bot": true
         },
@@ -448,10 +458,30 @@
         {
           "name": "K. Nilsson",
           "team": "",
-          "rank": "6",
+          "rank": "8",
+          "score": "8",
+          "kills": "8",
+          "deaths": "15",
+          "ping": "0",
+          "is_bot": true
+        },
+        {
+          "name": "A. Hansevi",
+          "team": "",
+          "rank": "2",
           "score": "6",
-          "kills": "6",
-          "deaths": "11",
+          "kills": "2",
+          "deaths": "0",
+          "ping": "0",
+          "is_bot": true
+        },
+        {
+          "name": "D. Mod",
+          "team": "",
+          "rank": "2",
+          "score": "6",
+          "kills": "2",
+          "deaths": "1",
           "ping": "0",
           "is_bot": true
         },
@@ -461,27 +491,7 @@
           "rank": "1",
           "score": "6",
           "kills": "1",
-          "deaths": "0",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "A. Hansevi",
-          "team": "",
-          "rank": "1",
-          "score": "5",
-          "kills": "1",
-          "deaths": "0",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "D. Mod",
-          "team": "",
-          "rank": "1",
-          "score": "5",
-          "kills": "1",
-          "deaths": "0",
+          "deaths": "1",
           "ping": "0",
           "is_bot": true
         },
@@ -531,6 +541,16 @@
           "rank": "1",
           "score": "2",
           "kills": "1",
+          "deaths": "0",
+          "ping": "0",
+          "is_bot": true
+        },
+        {
+          "name": "D. Gothberg",
+          "team": "",
+          "rank": "0",
+          "score": "2",
+          "kills": "0",
           "deaths": "0",
           "ping": "0",
           "is_bot": true
@@ -586,11 +606,11 @@
           "is_bot": true
         },
         {
-          "name": "D. Gothberg",
+          "name": "S. Dugan",
           "team": "",
-          "rank": "0",
+          "rank": "1",
           "score": "1",
-          "kills": "0",
+          "kills": "1",
           "deaths": "0",
           "ping": "0",
           "is_bot": true
@@ -676,16 +696,6 @@
           "is_bot": true
         },
         {
-          "name": "S. Dugan",
-          "team": "",
-          "rank": "0",
-          "score": "0",
-          "kills": "0",
-          "deaths": "0",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
           "name": "G. Tilleby",
           "team": "",
           "rank": "0",
@@ -707,16 +717,6 @@
         },
         {
           "name": "B. Johnson",
-          "team": "",
-          "rank": "0",
-          "score": "0",
-          "kills": "0",
-          "deaths": "0",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "S. Wallberg",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -750,6 +750,16 @@
           "team": "",
           "rank": "0",
           "score": "-2",
+          "kills": "0",
+          "deaths": "0",
+          "ping": "0",
+          "is_bot": true
+        },
+        {
+          "name": "S. Wallberg",
+          "team": "",
+          "rank": "0",
+          "score": "-5",
           "kills": "0",
           "deaths": "0",
           "ping": "0",
