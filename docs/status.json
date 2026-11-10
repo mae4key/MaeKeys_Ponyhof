@@ -1,26 +1,20 @@
 {
-  "generated_at": "2026-11-10T19:28:22+00:00",
+  "generated_at": "2026-11-10T19:30:21+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
       "game": "Battlefield 1942",
       "name": "MaeKeys Ponyhof",
-      "status": "online",
-      "map": "guadalcanal",
-      "mode": "coop",
-      "mod": "Vanilla",
+      "status": "offline",
+      "map": "",
+      "mode": "",
+      "mod": "",
       "players": 0,
-      "max_players": 32,
+      "max_players": 0,
       "scoreboard": [],
-      "tickets": [
-        {
-          "name": "axis",
-          "score": "956"
-        },
-        {
-          "name": "allied",
-          "score": "957"
-        }
+      "tickets": [],
+      "_debug_errors": [
+        "GameSpy1: TimeoutError: "
       ]
     },
     {
@@ -38,21 +32,21 @@
           "name": "COO LE SAU",
           "team": "2",
           "rank": "",
-          "score": "19",
-          "kills": "31",
+          "score": "23",
+          "kills": "32",
           "deaths": "10",
-          "ping": "48",
+          "ping": "47",
           "is_bot": false
         }
       ],
       "tickets": [
         {
           "name": "red",
-          "score": "759"
+          "score": "747"
         },
         {
           "name": "blue",
-          "score": "673"
+          "score": "668"
         }
       ]
     },
