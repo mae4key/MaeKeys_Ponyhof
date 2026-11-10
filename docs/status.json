@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-10T19:22:21+00:00",
+  "generated_at": "2026-11-10T19:24:22+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -15,11 +15,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "998"
+          "score": "988"
         },
         {
           "name": "allied",
-          "score": "999"
+          "score": "995"
         }
       ]
     },
@@ -38,21 +38,21 @@
           "name": "COO LE SAU",
           "team": "1",
           "rank": "",
-          "score": "14",
-          "kills": "16",
+          "score": "17",
+          "kills": "21",
           "deaths": "4",
-          "ping": "40",
+          "ping": "43",
           "is_bot": false
         }
       ],
       "tickets": [
         {
           "name": "red",
-          "score": "790"
+          "score": "781"
         },
         {
           "name": "blue",
-          "score": "725"
+          "score": "707"
         }
       ]
     },
