@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-10T19:14:01+00:00",
+  "generated_at": "2026-11-10T19:16:00+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -15,11 +15,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "993"
+          "score": "983"
         },
         {
           "name": "allied",
-          "score": "993"
+          "score": "981"
         }
       ]
     },
@@ -31,17 +31,28 @@
       "map": "HO CHI MINH TRAIL",
       "mode": "coop",
       "mod": "Vanilla",
-      "players": 0,
+      "players": 1,
       "max_players": 32,
-      "scoreboard": [],
+      "scoreboard": [
+        {
+          "name": "COO LE SAU",
+          "team": "1",
+          "rank": "",
+          "score": "0",
+          "kills": "0",
+          "deaths": "0",
+          "ping": "44",
+          "is_bot": false
+        }
+      ],
       "tickets": [
         {
           "name": "red",
-          "score": "825"
+          "score": "821"
         },
         {
           "name": "blue",
-          "score": "783"
+          "score": "766"
         }
       ]
     },
