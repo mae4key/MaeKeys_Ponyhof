@@ -466,6 +466,27 @@
     font-weight: normal;
   }
   .offline-note { color: var(--offline); font-size: 0.8rem; margin: 0 0 0.6rem; }
+  .hours {
+    background: rgba(36, 40, 25, 0.62);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    border: 1px solid var(--panel-line);
+    border-left: 4px solid var(--brass);
+    padding: 0.6rem 0.8rem;
+    margin: 0 auto 1rem;
+    max-width: 760px;
+    font-size: 0.74rem;
+    line-height: 1.6;
+  }
+  .hours strong {
+    font-family: "Staatliches", sans-serif;
+    letter-spacing: 0.04em;
+    color: var(--brass);
+    font-size: 0.9rem;
+    font-weight: normal;
+  }
+  .hours .dim { color: var(--text-dim); }
+  .hours .live { display: block; margin-top: 0.3rem; color: var(--text); }
 
   dl.meta {
     margin: 0.55rem 0 0;
@@ -635,6 +656,14 @@
     <span class="online-count" id="online-count"></span>
   </header>
 
+  <div class="hours" id="hours">
+    <strong>Operating hours</strong> <span class="dim">(Swiss time, CET/CEST)</span><br>
+    Start: Mon&ndash;Fri from 18:30 &middot; Sat&ndash;Sun from 16:30<br>
+    Closing: Sun&ndash;Wed 22:00 &middot; Thu&ndash;Sat midnight<br>
+    <span class="dim">After closing time, empty servers are shut down; servers with players keep running until the last player has left.</span>
+    <span class="live" id="hours-live"></span>
+  </div>
+
   <div id="servers" class="servers">
     <p class="empty"><strong>Loading status …</strong>Live status of the MaeKeys Ponyhof servers for Battlefield 1942, Battlefield Vietnam, Battlefield 2 and Battlefield 2142.</p>
   </div>
@@ -699,7 +728,7 @@ function renderServers(servers) {
   el.innerHTML = ordered.map(s => {
     const meta = STATUS_META[s.status] || STATUS_META.offline;
     const d = s.status === "offline" ? (s.last || {}) : s;
-    const title = s.status === "not_available"
+    const title = s.status !== "online"
       ? `<span class="game-name plain">${esc(s.game)}</span>`
       : `<button type="button" class="game-name" data-id="${esc(s.id)}" onclick="showScoreboard(this.dataset.id)">${esc(s.game)} \u25b8</button>`;
     const serverLine = esc(d.mod ? s.name + " \u2013 " + d.mod : s.name);
@@ -724,6 +753,60 @@ function renderServers(servers) {
       <dl class="meta">${rows}</dl>
     </div>`;
   }).join("");
+}
+
+const ZH_DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+// "Wanduhrzeit" in Zuerich als Pseudo-UTC-Zeitstempel (sommerzeitsicher).
+function zhWallNow() {
+  const parts = new Intl.DateTimeFormat("en-GB", {
+    timeZone: "Europe/Zurich", year: "numeric", month: "2-digit", day: "2-digit",
+    hour: "2-digit", minute: "2-digit", hourCycle: "h23",
+  }).formatToParts(new Date());
+  const g = t => parseInt(parts.find(p => p.type === t).value, 10);
+  return Date.UTC(g("year"), g("month") - 1, g("day"), g("hour"), g("minute"));
+}
+
+// Start: Mo-Fr 18:30, Sa/So 16:30. Ende: So-Mi 22:00, Do-Sa 24:00.
+function zhStart(dayMs) {
+  const dow = new Date(dayMs).getUTCDay();
+  return dayMs + ((dow === 0 || dow === 6) ? 16 * 60 + 30 : 18 * 60 + 30) * 60000;
+}
+function zhEnd(dayMs) {
+  const dow = new Date(dayMs).getUTCDay();
+  return dow <= 3 ? dayMs + 22 * 3600000 : dayMs + 24 * 3600000;
+}
+function fmtHM(ms) {
+  const d = new Date(ms);
+  return String(d.getUTCHours()).padStart(2, "0") + ":" + String(d.getUTCMinutes()).padStart(2, "0");
+}
+
+function updateHours() {
+  const el = document.getElementById("hours-live");
+  if (!el) return;
+  const now = zhWallNow();
+  const today = Math.floor(now / 86400000) * 86400000;
+  let text = "";
+  for (const off of [0, -1]) {
+    const day = today + off * 86400000;
+    if (zhStart(day) <= now && now < zhEnd(day)) {
+      const end = zhEnd(day);
+      text = "Open now \u2013 closing at " + ((end - day) >= 86400000 ? "midnight" : fmtHM(end));
+      break;
+    }
+  }
+  if (!text) {
+    for (let i = 0; i < 8; i++) {
+      const day = today + i * 86400000;
+      const s = zhStart(day);
+      if (s > now) {
+        const when = i === 0 ? "today" : (i === 1 ? "tomorrow" : ZH_DAYS[new Date(day).getUTCDay()]);
+        text = "Outside operating hours \u2013 next start " + when + " at " + fmtHM(s);
+        break;
+      }
+    }
+  }
+  el.textContent = text;
 }
 
 async function load() {
@@ -754,6 +837,8 @@ async function load() {
 
 load();
 setInterval(load, 30000);
+updateHours();
+setInterval(updateHours, 60000);
 
 // Sofort neu laden, wenn die Seite wieder sichtbar wird (Tab-Wechsel,
 // Handy entsperrt, Seite aus dem Cache zurueck) - zusaetzlich zum 30-s-Takt.
@@ -780,7 +865,7 @@ function settingsHtml(rows) {
 
 function showScoreboard(id) {
   const s = currentServers[id];
-  if (!s || s.status === "not_available") return;
+  if (!s || s.status !== "online") return;
   const isOffline = s.status !== "online";
   const d = isOffline ? (s.last || {}) : s;
   document.getElementById("modal-title").textContent = s.game;
