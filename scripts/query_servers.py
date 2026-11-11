@@ -635,6 +635,15 @@ async def query_one(entry: dict) -> dict:
             )
             result["tickets"] = _extract_teams(getattr(status, "teams", []), info)
             result["settings"] = _extract_settings(protocol_name, info)
+            # Coop-Bots (Team 1 : Team 2) kennt nur der Wizard, nicht die Abfrage
+            _bt = str(entry.get("bot_teams", "")).strip()
+            if _bt and protocol_name == "battlefield2":
+                _pos = len(result["settings"])
+                for _i, _row in enumerate(result["settings"]):
+                    if _row[0] == "Friendly fire":
+                        _pos = _i
+                        break
+                result["settings"].insert(_pos, ["Team ratio", _bt])
             if protocol_name == "battlefield2":
                 raw_teams = await asyncio.to_thread(_bf2_raw_teams, entry["host"], int(entry["port"]))
                 if raw_teams:
