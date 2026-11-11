@@ -553,6 +553,17 @@ async def query_one(entry: dict) -> dict:
                 result["players"] = sum(
                     1 for row in result["scoreboard"] if not row["is_bot"]
                 )
+            if protocol_name in ("gamespy1", "gamespy2"):
+                # BF1942/BFV: Die Spielerliste kann haengende Eintraege (Zombie-Spieler)
+                # enthalten. numplayers gilt als Wahrheit.
+                np_raw = _first(info, "numplayers", default="")
+                if np_raw.isdigit():
+                    np_val = int(np_raw)
+                    if np_val == 0:
+                        result["scoreboard"] = []
+                        result["players"] = 0
+                    elif result["players"] > np_val:
+                        result["players"] = np_val
             else:
                 # Ohne Spielerliste (z. B. waehrend des Kartenladens) meldet
                 # numplayers auch Bots -> lieber 0 als eine falsche Zahl.
