@@ -559,6 +559,32 @@ def _extract_settings(protocol_name: str, info: dict) -> list:
     return rows
 
 
+def _simplify_ratio(text: str) -> str:
+    """"13 : 13" -> "1 : 1", "15 : 5" -> "3 : 1". Ist das Verhaeltnis mit
+    einstelligen Zahlen nicht exakt darstellbar, wird auf die kleinste
+    Abweichung gerundet und mit "~" markiert ("19 : 13" -> "~3 : 2")."""
+    parts = [p.strip() for p in text.split(":")]
+    if len(parts) != 2 or not (parts[0].isdigit() and parts[1].isdigit()):
+        return text
+    a, b = int(parts[0]), int(parts[1])
+    if a == 0 and b == 0:
+        return text
+    if a == 0:
+        return "0 : 1"
+    if b == 0:
+        return "1 : 0"
+    target = a / b
+    best = None
+    for n in range(1, 10):
+        for d in range(1, 10):
+            key = (abs(n / d - target), n + d)
+            if best is None or key < best[0]:
+                best = (key, n, d)
+    _, n, d = best
+    exact = (n * b == d * a)
+    return ("" if exact else "~") + str(n) + " : " + str(d)
+
+
 async def _try_protocol(protocol_cls, host, port, challenge_required=None):
     client = protocol_cls(host=host, port=port, timeout=TIMEOUT_SECONDS)
     if challenge_required is not None and hasattr(client, "challenge_required"):
@@ -636,7 +662,7 @@ async def query_one(entry: dict) -> dict:
             result["tickets"] = _extract_teams(getattr(status, "teams", []), info)
             result["settings"] = _extract_settings(protocol_name, info)
             # Coop-Bots (Team 1 : Team 2) kennt nur der Wizard, nicht die Abfrage
-            _bt = str(entry.get("bot_teams", "")).strip()
+            _bt = _simplify_ratio(str(entry.get("bot_teams", "")).strip())
             if _bt and protocol_name == "battlefield2":
                 _pos = len(result["settings"])
                 for _i, _row in enumerate(result["settings"]):
