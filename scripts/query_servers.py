@@ -534,7 +534,8 @@ def _extract_settings(protocol_name: str, info: dict) -> list:
     # Team-Ratio: nur BF1942/BFV (zwei Werte). BF2/BF2142 melden einen einzelnen
     # Prozentwert (100 = gleich grosse Teams), der mit dem Wizard-Wert "2 : 3"
     # nicht uebereinstimmt - deshalb dort bewusst nicht angezeigt.
-    allied, axis = g("allied_team_ratio"), g("axis_team_ratio")
+    allied = g("allied_team_ratio", "us_team_ratio")
+    axis = g("axis_team_ratio", "nva_team_ratio")
     if allied and axis:
         add("Team ratio", _num(allied) + " : " + _num(axis))
 
