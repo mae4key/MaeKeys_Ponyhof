@@ -611,9 +611,17 @@ async def query_one(entry: dict) -> dict:
     debug_errors = []
     for protocol_cls, challenge_required in candidates:
         try:
-            status = await _try_protocol(
-                protocol_cls, entry["host"], int(entry["port"]), challenge_required
-            )
+            try:
+                status = await _try_protocol(
+                    protocol_cls, entry["host"], int(entry["port"]), challenge_required
+                )
+            except Exception:
+                if protocol_name not in ("gamespy1", "gamespy2"):
+                    raise
+                # zweiter Versuch (einzelne UDP-Antworten gehen manchmal verloren)
+                status = await _try_protocol(
+                    protocol_cls, entry["host"], int(entry["port"]), challenge_required
+                )
             info = {k.lower(): v for k, v in status.info.items()}
 
             result["status"] = "online"

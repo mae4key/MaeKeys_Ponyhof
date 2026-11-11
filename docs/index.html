@@ -693,7 +693,10 @@ function renderServers(servers) {
     return;
   }
 
-  el.innerHTML = servers.map(s => {
+  // Sortierung: online zuerst, danach die restlichen; innerhalb beider Gruppen
+  // bleibt die Reihenfolge der Konfiguration (1942, Vietnam, 2, 2142).
+  const ordered = [...servers.filter(s => s.status === "online"), ...servers.filter(s => s.status !== "online")];
+  el.innerHTML = ordered.map(s => {
     const meta = STATUS_META[s.status] || STATUS_META.offline;
     const d = s.status === "offline" ? (s.last || {}) : s;
     const title = s.status === "not_available"
