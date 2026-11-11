@@ -489,9 +489,10 @@ def _num(v) -> str:
 
 
 def _extract_settings(protocol_name: str, info: dict) -> list:
-    """Laufende Server-Einstellungen als Liste [Beschriftung, Wert] fuer das
-    Detailfenster der Webseite. Es werden nur Felder uebernommen, die der
-    Server wirklich meldet. Keine Passwoerter, keine Pfade."""
+    """Einheitliche Liste der laufenden Server-Einstellungen [Beschriftung, Wert]
+    fuer das Detailfenster: Rundenzeit, Ticket-Ratio, Runden pro Karte,
+    Team-Ratio, Friendly Fire, PunkBuster, Kartengroesse - jeweils nur, wenn
+    das Spiel den Wert meldet. Keine Passwoerter, keine Pfade."""
     norm = {}
     for k, v in info.items():
         kk = k
@@ -512,43 +513,39 @@ def _extract_settings(protocol_name: str, info: dict) -> list:
         if value != "":
             rows.append([label, value])
 
+    is_bf2 = protocol_name == "battlefield2"
+
     # Rundenzeit: BF1942/BFV in Minuten, BF2/BF2142 in Sekunden
     tl = g("time_limit", "timelimit")
     if tl.isdigit():
-        minutes = int(tl) // 60 if protocol_name == "battlefield2" else int(tl)
+        minutes = int(tl) // 60 if is_bf2 else int(tl)
         add("Time limit", "no limit" if minutes == 0 else str(minutes) + " min")
 
+    # Ticket-Ratio ohne Prozentzeichen
     tr = g("ticket_ratio", "ticketratio")
     if tr:
-        add("Ticket ratio", _num(tr) + " %")
+        add("Ticket ratio", _num(tr))
 
+    # Runden pro Karte (BF2/BF2142 melden sie im Feld "roundtime")
+    rounds = g("roundtime") if is_bf2 else g("number_of_rounds")
+    if rounds:
+        add("Rounds per map", _num(rounds))
+
+    # Team-Ratio: nur BF1942/BFV (zwei Werte). BF2/BF2142 melden einen einzelnen
+    # Prozentwert (100 = gleich grosse Teams), der mit dem Wizard-Wert "2 : 3"
+    # nicht uebereinstimmt - deshalb dort bewusst nicht angezeigt.
     allied, axis = g("allied_team_ratio"), g("axis_team_ratio")
     if allied and axis:
-        add("Team ratio (Allied : Axis)", _num(allied) + " : " + _num(axis))
-    elif g("teamratio"):
-        add("Team ratio", _num(g("teamratio")))
+        add("Team ratio", _num(allied) + " : " + _num(axis))
 
-    sd = g("game_start_delay", "startdelay")
-    if sd:
-        add("Start delay", _num(sd) + " s")
-
-    add("Spawn delay", (_num(g("spawn_delay")) + " s") if g("spawn_delay") else "")
-    sp = g("spawn_wave_time", "spawntime")
-    if sp:
-        add("Spawn time", _num(sp) + " s")
-
-    add("Rounds per map", _num(g("number_of_rounds")) if g("number_of_rounds") else "")
-
+    # Friendly Fire einheitlich als on/off
     ff = g("soldier_friendly_fire", "friendlyfire")
     if ff:
-        add("Friendly fire", _onoff(ff) if ff in ("0", "1") else _num(ff) + " %")
-
-    ab = g("auto_balance_teams", "autobalanced")
-    if ab:
-        add("Auto balance", _onoff(ab))
-
-    tk = g("tk_mode", "tkmode")
-    add("Team kill mode", tk)
+        if ff in ("0", "1"):
+            add("Friendly fire", _onoff(ff))
+        else:
+            n = _num(ff)
+            add("Friendly fire", "off" if n == "0" else ("on" if n == "100" else "on (" + n + " %)"))
 
     pb = g("sv_punkbuster", "anticheat")
     if pb:
@@ -557,14 +554,6 @@ def _extract_settings(protocol_name: str, info: dict) -> list:
     ms = g("mapsize")
     if ms:
         add("Map layout", ms + " players")
-
-    cc = g("content_check")
-    if cc:
-        add("Content check", cc)
-
-    pw = g("password")
-    if pw:
-        add("Password protected", "yes" if _onoff(pw) == "on" else "no")
 
     return rows
 
