@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-11T19:00:20+00:00",
+  "generated_at": "2026-11-11T19:02:22+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -15,11 +15,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "255"
+          "score": "252"
         },
         {
           "name": "allied",
-          "score": "453"
+          "score": "409"
         }
       ]
     },
@@ -27,22 +27,16 @@
       "id": "bfv-ponyhof-1",
       "game": "Battlefield Vietnam",
       "name": "MaeKeys Ponyhof",
-      "status": "online",
-      "map": "FALL OF LANG VEI",
-      "mode": "coop",
-      "mod": "Vanilla",
+      "status": "offline",
+      "map": "",
+      "mode": "",
+      "mod": "",
       "players": 0,
-      "max_players": 32,
+      "max_players": 0,
       "scoreboard": [],
-      "tickets": [
-        {
-          "name": "red",
-          "score": "977"
-        },
-        {
-          "name": "blue",
-          "score": "976"
-        }
+      "tickets": [],
+      "_debug_errors": [
+        "GameSpy2: TimeoutError: "
       ]
     },
     {
