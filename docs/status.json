@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-11T19:02:22+00:00",
+  "generated_at": "2026-11-11T19:06:05+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -15,29 +15,146 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "252"
+          "score": "225"
         },
         {
           "name": "allied",
-          "score": "409"
+          "score": "311"
         }
-      ]
+      ],
+      "settings": [
+        [
+          "Time limit",
+          "45 min"
+        ],
+        [
+          "Ticket ratio",
+          "500 %"
+        ],
+        [
+          "Team ratio (Allied : Axis)",
+          "2 : 3"
+        ],
+        [
+          "Start delay",
+          "7 s"
+        ],
+        [
+          "Spawn delay",
+          "3 s"
+        ],
+        [
+          "Spawn time",
+          "3 s"
+        ],
+        [
+          "Rounds per map",
+          "1"
+        ],
+        [
+          "Friendly fire",
+          "100 %"
+        ],
+        [
+          "Auto balance",
+          "off"
+        ],
+        [
+          "Team kill mode",
+          "forgive"
+        ],
+        [
+          "PunkBuster",
+          "off"
+        ],
+        [
+          "Content check",
+          "0"
+        ],
+        [
+          "Password protected",
+          "no"
+        ]
+      ],
+      "last_seen": "2026-11-11T19:06:05+00:00"
     },
     {
-      "id": "bfv-ponyhof-1",
-      "game": "Battlefield Vietnam",
+      "id": "bf1942-ponyhof-2",
+      "game": "Battlefield 1942",
       "name": "MaeKeys Ponyhof",
-      "status": "offline",
+      "status": "not_available",
       "map": "",
       "mode": "",
       "mod": "",
       "players": 0,
       "max_players": 0,
       "scoreboard": [],
-      "tickets": [],
-      "_debug_errors": [
-        "GameSpy2: TimeoutError: "
-      ]
+      "tickets": []
+    },
+    {
+      "id": "bfv-ponyhof-1",
+      "game": "Battlefield Vietnam",
+      "name": "MaeKeys Ponyhof",
+      "status": "online",
+      "map": "HO CHI MINH TRAIL",
+      "mode": "coop",
+      "mod": "Vanilla",
+      "players": 0,
+      "max_players": 32,
+      "scoreboard": [],
+      "tickets": [
+        {
+          "name": "red",
+          "score": "993"
+        },
+        {
+          "name": "blue",
+          "score": "990"
+        }
+      ],
+      "settings": [
+        [
+          "Time limit",
+          "45 min"
+        ],
+        [
+          "Ticket ratio",
+          "500 %"
+        ],
+        [
+          "Start delay",
+          "7 s"
+        ],
+        [
+          "Spawn delay",
+          "3 s"
+        ],
+        [
+          "Spawn time",
+          "3 s"
+        ],
+        [
+          "Rounds per map",
+          "1"
+        ],
+        [
+          "Friendly fire",
+          "100 %"
+        ],
+        [
+          "Auto balance",
+          "off"
+        ],
+        [
+          "PunkBuster",
+          "off"
+        ],
+        [
+          "Password protected",
+          "no"
+        ]
+      ],
+      "last_seen": "2026-11-11T19:06:05+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
@@ -396,7 +513,54 @@
           "name": "EU",
           "score": "0"
         }
-      ]
+      ],
+      "settings": [
+        [
+          "Time limit",
+          "45 min"
+        ],
+        [
+          "Ticket ratio",
+          "500 %"
+        ],
+        [
+          "Team ratio",
+          "2"
+        ],
+        [
+          "Start delay",
+          "7 s"
+        ],
+        [
+          "Spawn time",
+          "3 s"
+        ],
+        [
+          "Friendly fire",
+          "on"
+        ],
+        [
+          "Auto balance",
+          "off"
+        ],
+        [
+          "Team kill mode",
+          "No Punish"
+        ],
+        [
+          "PunkBuster",
+          "off"
+        ],
+        [
+          "Map layout",
+          "16 players"
+        ],
+        [
+          "Password protected",
+          "no"
+        ]
+      ],
+      "last_seen": "2026-11-11T19:06:05+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -758,7 +922,54 @@
           "name": "EU",
           "score": "0"
         }
-      ]
+      ],
+      "settings": [
+        [
+          "Time limit",
+          "45 min"
+        ],
+        [
+          "Ticket ratio",
+          "100 %"
+        ],
+        [
+          "Team ratio",
+          "2"
+        ],
+        [
+          "Start delay",
+          "7 s"
+        ],
+        [
+          "Spawn time",
+          "3 s"
+        ],
+        [
+          "Friendly fire",
+          "on"
+        ],
+        [
+          "Auto balance",
+          "off"
+        ],
+        [
+          "Team kill mode",
+          "Punish"
+        ],
+        [
+          "PunkBuster",
+          "off"
+        ],
+        [
+          "Map layout",
+          "16 players"
+        ],
+        [
+          "Password protected",
+          "no"
+        ]
+      ],
+      "last_seen": "2026-11-11T19:06:05+00:00"
     },
     {
       "id": "bf2142-ponyhof-2",
