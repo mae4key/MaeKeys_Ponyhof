@@ -36,7 +36,7 @@ jobs:
           python-version: "3.12"
 
       - name: Abhaengigkeiten installieren
-        run: pip install opengsq
+        run: pip install -r requirements.txt
 
       - name: Server abfragen
         run: python scripts/query_servers.py

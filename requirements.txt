@@ -1,1 +1,1 @@
-opengsq
+opengsq==3.7.0

@@ -705,7 +705,7 @@ async def query_one(entry: dict) -> dict:
                 # TEMPORAER zur Fehlersuche: Mod-Feld weiterhin leer trotz
                 # Fix - zeig die komplette Rohantwort, um den echten
                 # Schluesselnamen zu finden.
-                result["_debug_info"] = info
+                print("[debug] " + str(entry.get("id")) + ": Mod-Feld leer, Schluessel: " + ", ".join(sorted(info.keys())))
             break  # Erfolgreich -> nicht mehr den naechsten Kandidaten versuchen
         except Exception as exc:
             # Dieser Kandidat hat nicht geklappt -> naechsten probieren
@@ -716,7 +716,7 @@ async def query_one(entry: dict) -> dict:
     if result["status"] == "offline":
         # TEMPORAER zur Fehlersuche: zeigt, woran jeder einzelne Versuch
         # gescheitert ist (z. B. Timeout vs. falsches Antwortformat).
-        result["_debug_errors"] = debug_errors
+        print("[debug] " + str(entry.get("id")) + ": " + " | ".join(debug_errors))
 
     return result
 
