@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-11T17:56:56+00:00",
+  "generated_at": "2026-11-11T17:58:56+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -15,11 +15,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "841"
+          "score": "840"
         },
         {
           "name": "allied",
-          "score": "1887"
+          "score": "650"
         }
       ]
     },
@@ -31,17 +31,28 @@
       "map": "CAMBODIAN INCURSION",
       "mode": "coop",
       "mod": "Vanilla",
-      "players": 0,
+      "players": 1,
       "max_players": 32,
-      "scoreboard": [],
+      "scoreboard": [
+        {
+          "name": "COO LE SAU",
+          "team": "1",
+          "rank": "",
+          "score": "0",
+          "kills": "0",
+          "deaths": "0",
+          "ping": "28",
+          "is_bot": false
+        }
+      ],
       "tickets": [
         {
           "name": "red",
-          "score": "874"
+          "score": "851"
         },
         {
           "name": "blue",
-          "score": "868"
+          "score": "855"
         }
       ]
     },
