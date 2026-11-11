@@ -700,6 +700,10 @@ const STATUS_META = {
   offline: { cls: "offline", label: "OFFLINE" },
 };
 
+function gameLabel(s) {
+  return s.game + (/-2$/.test(s.id) ? " (2)" : "");
+}
+
 function esc(v) {
   return String(v == null ? "" : v).replace(/[&<>"']/g, c => (
     { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]
@@ -729,8 +733,8 @@ function renderServers(servers) {
     const meta = STATUS_META[s.status] || STATUS_META.offline;
     const d = s.status === "offline" ? (s.last || {}) : s;
     const title = s.status !== "online"
-      ? `<span class="game-name plain">${esc(s.game)}</span>`
-      : `<button type="button" class="game-name" data-id="${esc(s.id)}" onclick="showScoreboard(this.dataset.id)">${esc(s.game)} \u25b8</button>`;
+      ? `<span class="game-name plain">${esc(gameLabel(s))}</span>`
+      : `<button type="button" class="game-name" data-id="${esc(s.id)}" onclick="showScoreboard(this.dataset.id)">${esc(gameLabel(s))} \u25b8</button>`;
     const serverLine = esc(d.mod ? s.name + " \u2013 " + d.mod : s.name);
     let rows = `<dt>Server</dt><dd>${serverLine}</dd>`;
     if (s.status === "online") {
@@ -868,7 +872,7 @@ function showScoreboard(id) {
   if (!s || s.status !== "online") return;
   const isOffline = s.status !== "online";
   const d = isOffline ? (s.last || {}) : s;
-  document.getElementById("modal-title").textContent = s.game;
+  document.getElementById("modal-title").textContent = gameLabel(s);
   document.getElementById("modal-sub").textContent =
     (d.mod ? s.name + " \u2013 " + d.mod : s.name) +
     (d.map ? " \u00b7 " + d.map : "") +
