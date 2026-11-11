@@ -1,36 +1,25 @@
 {
-  "generated_at": "2026-11-11T18:21:22+00:00",
+  "generated_at": "2026-11-11T18:23:22+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
       "game": "Battlefield 1942",
       "name": "MaeKeys Ponyhof",
       "status": "online",
-      "map": "battleaxe",
+      "map": "berlin",
       "mode": "coop",
       "mod": "Vanilla",
-      "players": 1,
+      "players": 0,
       "max_players": 32,
-      "scoreboard": [
-        {
-          "name": "MaeKey",
-          "team": "1",
-          "rank": "",
-          "score": "0",
-          "kills": "0",
-          "deaths": "0",
-          "ping": "3",
-          "is_bot": false
-        }
-      ],
+      "scoreboard": [],
       "tickets": [
         {
           "name": "axis",
-          "score": "944"
+          "score": "597"
         },
         {
           "name": "allied",
-          "score": "77"
+          "score": "994"
         }
       ]
     },
@@ -48,11 +37,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "980"
+          "score": "977"
         },
         {
           "name": "blue",
-          "score": "977"
+          "score": "976"
         }
       ]
     },
