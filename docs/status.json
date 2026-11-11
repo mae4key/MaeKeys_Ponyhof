@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-11T21:52:45+00:00",
+  "generated_at": "2026-11-11T21:56:55+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -51,14 +51,46 @@
       "id": "bf1942-ponyhof-2",
       "game": "Battlefield 1942",
       "name": "MaeKeys Ponyhof",
-      "status": "offline",
-      "map": "",
-      "mode": "",
-      "mod": "",
+      "status": "online",
+      "map": "cassino",
+      "mode": "coop",
+      "mod": "Xpack1",
       "players": 0,
-      "max_players": 0,
+      "max_players": 32,
       "scoreboard": [],
-      "tickets": []
+      "tickets": [
+        {
+          "name": "axis",
+          "score": "396"
+        },
+        {
+          "name": "allied",
+          "score": "766"
+        }
+      ],
+      "settings": [
+        [
+          "Ticket ratio",
+          "400"
+        ],
+        [
+          "Rounds per map",
+          "1"
+        ],
+        [
+          "Team ratio",
+          "3 : 4"
+        ],
+        [
+          "Friendly fire",
+          "on"
+        ],
+        [
+          "PunkBuster",
+          "off"
+        ]
+      ],
+      "last_seen": "2026-11-11T21:56:55+00:00"
     },
     {
       "id": "bfv-ponyhof-1",
