@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-11T19:34:34+00:00",
+  "generated_at": "2026-11-11T19:36:35+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -15,11 +15,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "580"
+          "score": "571"
         },
         {
           "name": "allied",
-          "score": "663"
+          "score": "587"
         }
       ],
       "settings": [
@@ -29,54 +29,26 @@
         ],
         [
           "Ticket ratio",
-          "500 %"
-        ],
-        [
-          "Team ratio (Allied : Axis)",
-          "2 : 3"
-        ],
-        [
-          "Start delay",
-          "7 s"
-        ],
-        [
-          "Spawn delay",
-          "3 s"
-        ],
-        [
-          "Spawn time",
-          "3 s"
+          "500"
         ],
         [
           "Rounds per map",
           "1"
         ],
         [
+          "Team ratio",
+          "2 : 3"
+        ],
+        [
           "Friendly fire",
-          "100 %"
-        ],
-        [
-          "Auto balance",
-          "off"
-        ],
-        [
-          "Team kill mode",
-          "forgive"
+          "on"
         ],
         [
           "PunkBuster",
           "off"
-        ],
-        [
-          "Content check",
-          "0"
-        ],
-        [
-          "Password protected",
-          "no"
         ]
       ],
-      "last_seen": "2026-11-11T19:34:34+00:00"
+      "last_seen": "2026-11-11T19:36:35+00:00"
     },
     {
       "id": "bf1942-ponyhof-2",
@@ -119,19 +91,7 @@
         ],
         [
           "Ticket ratio",
-          "500 %"
-        ],
-        [
-          "Start delay",
-          "7 s"
-        ],
-        [
-          "Spawn delay",
-          "3 s"
-        ],
-        [
-          "Spawn time",
-          "3 s"
+          "500"
         ],
         [
           "Rounds per map",
@@ -139,22 +99,14 @@
         ],
         [
           "Friendly fire",
-          "100 %"
-        ],
-        [
-          "Auto balance",
-          "off"
+          "on"
         ],
         [
           "PunkBuster",
           "off"
-        ],
-        [
-          "Password protected",
-          "no"
         ]
       ],
-      "last_seen": "2026-11-11T19:34:34+00:00"
+      "last_seen": "2026-11-11T19:36:35+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
@@ -521,31 +473,15 @@
         ],
         [
           "Ticket ratio",
-          "500 %"
+          "500"
         ],
         [
-          "Team ratio",
-          "2"
-        ],
-        [
-          "Start delay",
-          "7 s"
-        ],
-        [
-          "Spawn time",
-          "3 s"
+          "Rounds per map",
+          "1"
         ],
         [
           "Friendly fire",
           "on"
-        ],
-        [
-          "Auto balance",
-          "off"
-        ],
-        [
-          "Team kill mode",
-          "No Punish"
         ],
         [
           "PunkBuster",
@@ -554,13 +490,9 @@
         [
           "Map layout",
           "16 players"
-        ],
-        [
-          "Password protected",
-          "no"
         ]
       ],
-      "last_seen": "2026-11-11T19:34:34+00:00"
+      "last_seen": "2026-11-11T19:36:35+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -930,31 +862,15 @@
         ],
         [
           "Ticket ratio",
-          "100 %"
+          "100"
         ],
         [
-          "Team ratio",
-          "2"
-        ],
-        [
-          "Start delay",
-          "7 s"
-        ],
-        [
-          "Spawn time",
-          "3 s"
+          "Rounds per map",
+          "1"
         ],
         [
           "Friendly fire",
           "on"
-        ],
-        [
-          "Auto balance",
-          "off"
-        ],
-        [
-          "Team kill mode",
-          "Punish"
         ],
         [
           "PunkBuster",
@@ -963,13 +879,9 @@
         [
           "Map layout",
           "16 players"
-        ],
-        [
-          "Password protected",
-          "no"
         ]
       ],
-      "last_seen": "2026-11-11T19:34:34+00:00"
+      "last_seen": "2026-11-11T19:36:35+00:00"
     },
     {
       "id": "bf2142-ponyhof-2",
