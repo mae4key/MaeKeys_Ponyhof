@@ -15,7 +15,7 @@ on:
       - ".github/workflows/update-status.yml"
 
 concurrency:
-  group: update-status
+  group: update-status-b
   cancel-in-progress: true
 
 permissions:
@@ -25,6 +25,7 @@ permissions:
 jobs:
   update-status:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Code auschecken
         uses: actions/checkout@v4
