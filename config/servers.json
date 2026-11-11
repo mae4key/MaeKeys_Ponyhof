@@ -69,7 +69,8 @@
     "host": "870om3k8bee3muwz.myfritz.net",
     "port": 29910,
     "enabled": true,
-    "internet": true
+    "internet": true,
+    "bot_teams": "13 : 19"
   },
   {
     "id": "bf2142-ponyhof-2",
