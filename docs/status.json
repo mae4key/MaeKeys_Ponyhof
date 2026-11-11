@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-11T20:07:44+00:00",
+  "generated_at": "2026-11-11T20:09:44+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -15,11 +15,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "948"
+          "score": "939"
         },
         {
           "name": "allied",
-          "score": "674"
+          "score": "599"
         }
       ],
       "settings": [
@@ -48,7 +48,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-11T20:07:44+00:00"
+      "last_seen": "2026-11-11T20:09:44+00:00"
     },
     {
       "id": "bf1942-ponyhof-2",
@@ -80,11 +80,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "914"
+          "score": "899"
         },
         {
           "name": "blue",
-          "score": "797"
+          "score": "773"
         }
       ],
       "settings": [
@@ -113,7 +113,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-11T20:07:44+00:00"
+      "last_seen": "2026-11-11T20:09:44+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
@@ -503,7 +503,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-11T20:07:44+00:00"
+      "last_seen": "2026-11-11T20:09:44+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -892,7 +892,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-11T20:07:44+00:00"
+      "last_seen": "2026-11-11T20:09:44+00:00"
     },
     {
       "id": "bf2142-ponyhof-2",
