@@ -22,7 +22,8 @@
     --brass: #c9a84c;
     --field-green: #6f8458;
     --online: #8aab5e;
-    --offline: #9a5a46;
+    --offline: #c4564a;
+    --notavail: #e0a03c;
     --text: #ece4cc;
     --text-dim: #a9a186;
   }
@@ -283,7 +284,8 @@
     clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%);
   }
 
-  .card.offline { border-left-color: var(--offline); opacity: 0.72; }
+  .card.offline { border-left-color: var(--offline); opacity: 0.8; }
+  .card.notavail { border-left-color: var(--notavail); opacity: 0.9; }
 
   .card-top {
     display: flex;
@@ -447,8 +449,23 @@
     border: 1px solid currentColor;
   }
 
+  .tag { margin-left: auto; white-space: nowrap; }
   .tag.online { color: var(--online); }
   .tag.offline { color: var(--offline); }
+  .tag.notavail { color: var(--notavail); }
+  .game-name.plain { border-bottom: none; cursor: default; }
+  .game-name.plain:hover { color: var(--text); }
+  .settings-h {
+    font-family: "Staatliches", sans-serif;
+    letter-spacing: 0.03em;
+    color: var(--text-dim);
+    font-size: 0.8rem;
+    margin: 1rem 0 0.3rem;
+    border-bottom: 1px solid var(--panel-line);
+    padding-bottom: 0.2rem;
+    font-weight: normal;
+  }
+  .offline-note { color: var(--offline); font-size: 0.8rem; margin: 0 0 0.6rem; }
 
   dl.meta {
     margin: 0.55rem 0 0;
@@ -648,31 +665,62 @@ function fmtTimestamp(iso) {
 
 let currentServers = {};
 
+const STATUS_META = {
+  online: { cls: "online", label: "ONLINE" },
+  not_available: { cls: "notavail", label: "NOT AVAILABLE" },
+  offline: { cls: "offline", label: "OFFLINE" },
+};
+
+function esc(v) {
+  return String(v == null ? "" : v).replace(/[&<>"']/g, c => (
+    { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]
+  ));
+}
+
+function fmtDate(iso) {
+  if (!iso) return "";
+  const d = new Date(iso);
+  return isNaN(d) ? "" : d.toLocaleString("en-GB", { dateStyle: "medium", timeStyle: "short" });
+}
+
 function renderServers(servers) {
   const el = document.getElementById("servers");
-  const online = servers.filter(s => s.status === "online");
   currentServers = {};
-  online.forEach(s => { currentServers[s.id] = s; });
+  servers.forEach(s => { currentServers[s.id] = s; });
 
-  if (online.length === 0) {
-    el.innerHTML = `<p class="empty"><strong>No game currently running</strong>All servers are currently offline or unreachable.</p>`;
+  if (servers.length === 0) {
+    el.innerHTML = `<p class="empty"><strong>No servers configured</strong>Please check back later.</p>`;
     return;
   }
 
-  el.innerHTML = online.map(s => `
-    <div class="card">
+  el.innerHTML = servers.map(s => {
+    const meta = STATUS_META[s.status] || STATUS_META.offline;
+    const d = s.status === "offline" ? (s.last || {}) : s;
+    const title = s.status === "not_available"
+      ? `<span class="game-name plain">${esc(s.game)}</span>`
+      : `<button type="button" class="game-name" data-id="${esc(s.id)}" onclick="showScoreboard(this.dataset.id)">${esc(s.game)} \u25b8</button>`;
+    const serverLine = esc(d.mod ? s.name + " \u2013 " + d.mod : s.name);
+    let rows = `<dt>Server</dt><dd>${serverLine}</dd>`;
+    if (s.status === "online") {
+      rows += `<dt>Map</dt><dd>${esc(s.map || "\u2013")}</dd>`;
+      rows += `<dt>Mode</dt><dd>${esc(s.mode || "\u2013")}</dd>`;
+      rows += `<dt>Players</dt><dd>${s.map ? esc(s.players + (s.max_players ? " / " + s.max_players : "")) : "\u2013"}</dd>`;
+    } else if (s.status === "not_available") {
+      rows += `<dt>Map</dt><dd>${esc(s.map || "\u2013")}</dd>`;
+    } else {
+      rows += `<dt>Map</dt><dd>${esc(d.map || "\u2013")}</dd>`;
+      rows += `<dt>Mode</dt><dd>${esc(d.mode || "\u2013")}</dd>`;
+      rows += `<dt>Last seen</dt><dd>${esc(fmtDate(s.last_seen) || "\u2013")}</dd>`;
+    }
+    return `
+    <div class="card ${meta.cls}">
       <div class="card-top">
-        <button type="button" class="game-name" data-id="${s.id}" onclick="showScoreboard(this.dataset.id)">${s.game} ▸</button>
-        <span class="tag online">ONLINE</span>
+        ${title}
+        <span class="tag ${meta.cls}">${meta.label}</span>
       </div>
-      <dl class="meta">
-        <dt>Server</dt><dd>${s.mod ? s.name + " – " + s.mod : s.name}</dd>
-        <dt>Map</dt><dd>${s.map || "–"}</dd>
-        <dt>Mode</dt><dd>${s.mode || "–"}</dd>
-        <dt>Players</dt><dd>${s.map ? s.players + (s.max_players ? " / " + s.max_players : "") : "–"}</dd>
-      </dl>
-    </div>
-  `).join("");
+      <dl class="meta">${rows}</dl>
+    </div>`;
+  }).join("");
 }
 
 async function load() {
@@ -721,21 +769,38 @@ window.addEventListener("pageshow", refreshIfStale);
 
 // Scoreboard-Detailfenster: zeigt nur unsere eigenen Abfragedaten, kein
 // externer Link.
+function settingsHtml(rows) {
+  if (!rows || !rows.length) return "";
+  return `<h3 class="settings-h">Server settings</h3><dl class="meta">` +
+    rows.map(r => `<dt>${esc(r[0])}</dt><dd>${esc(r[1])}</dd>`).join("") + `</dl>`;
+}
+
 function showScoreboard(id) {
   const s = currentServers[id];
-  if (!s) return;
+  if (!s || s.status === "not_available") return;
+  const isOffline = s.status !== "online";
+  const d = isOffline ? (s.last || {}) : s;
   document.getElementById("modal-title").textContent = s.game;
   document.getElementById("modal-sub").textContent =
-    (s.mod ? s.name + " \u2013 " + s.mod : s.name) +
-    (s.map ? " \u00b7 " + s.map : "") +
-    (s.mode ? " \u00b7 " + s.mode : "");
+    (d.mod ? s.name + " \u2013 " + d.mod : s.name) +
+    (d.map ? " \u00b7 " + d.map : "") +
+    (d.mode ? " \u00b7 " + d.mode : "");
 
   const body = document.getElementById("modal-body");
   let html = "";
 
+  if (isOffline) {
+    html += `<p class="offline-note">Server offline` +
+      (s.last_seen ? " \u2013 last seen " + esc(fmtDate(s.last_seen)) : "") + `. Showing the last known settings.</p>`;
+    html += settingsHtml(d.settings) || `<p class="modal-empty">No data yet.</p>`;
+    body.innerHTML = html;
+    document.getElementById("modal-backdrop").hidden = false;
+    return;
+  }
+
   const teamInfo = s.tickets || [];
   if (teamInfo.length >= 2 && (parseInt(teamInfo[0].score) || parseInt(teamInfo[1].score))) {
-    html += `<p class="tickets-line">Tickets: ${teamInfo[0].name ? teamInfo[0].name + " " : ""}${teamInfo[0].score || "\u2013"} \u2013 ${teamInfo[1].name ? teamInfo[1].name + " " : ""}${teamInfo[1].score || "\u2013"}</p>`;
+    html += `<p class="tickets-line">Tickets: ${teamInfo[0].name ? esc(teamInfo[0].name) + " " : ""}${esc(teamInfo[0].score || "\u2013")} \u2013 ${teamInfo[1].name ? esc(teamInfo[1].name) + " " : ""}${esc(teamInfo[1].score || "\u2013")}</p>`;
   }
 
   // Nur echte Spieler, nie Bots.
@@ -746,11 +811,10 @@ function showScoreboard(id) {
   } else {
     const rowHtml = (p, i) => `
       <tr>
-        
-        <td>${p.name}</td>
-        <td>${p.score}</td>
-        <td>${p.kills || "\u2013"}</td>
-        <td>${p.deaths || "\u2013"}</td>
+        <td>${esc(p.name)}</td>
+        <td>${esc(p.score)}</td>
+        <td>${esc(p.kills || "\u2013")}</td>
+        <td>${esc(p.deaths || "\u2013")}</td>
       </tr>`;
     const table = rows => `
       <table class="scoreboard">
@@ -769,14 +833,16 @@ function showScoreboard(id) {
       const team2Label = (teamInfo[1] && teamInfo[1].name) || (isNaN(teamValues[1]) ? teamValues[1] : "Team 2");
 
       html += `<div class="teams-split">`;
-      if (team1.length) html += `<div class="team-col"><h4>${team1Label}</h4>${table(team1)}</div>`;
-      if (team2.length) html += `<div class="team-col"><h4>${team2Label}</h4>${table(team2)}</div>`;
+      if (team1.length) html += `<div class="team-col"><h4>${esc(team1Label)}</h4>${table(team1)}</div>`;
+      if (team2.length) html += `<div class="team-col"><h4>${esc(team2Label)}</h4>${table(team2)}</div>`;
       if (unassigned.length) html += `<div class="team-col"><h4>Unassigned</h4>${table(unassigned)}</div>`;
       html += `</div>`;
     } else {
       html += table(humans.sort(sortRow));
     }
   }
+
+  html += settingsHtml(s.settings);
 
   body.innerHTML = html;
   document.getElementById("modal-backdrop").hidden = false;

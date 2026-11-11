@@ -474,6 +474,101 @@ def _bf2_raw_teams(host, port):
         return []
 
 
+def _onoff(v) -> str:
+    return "on" if str(v).strip().lower() in ("1", "on", "yes", "true") else "off"
+
+
+def _num(v) -> str:
+    """'2.000000' -> '2', '7s' -> '7', '500%' -> '500'."""
+    t = str(v).strip().rstrip("s%").strip()
+    try:
+        f = float(t)
+        return str(int(f)) if f == int(f) else str(f)
+    except ValueError:
+        return str(v).strip()
+
+
+def _extract_settings(protocol_name: str, info: dict) -> list:
+    """Laufende Server-Einstellungen als Liste [Beschriftung, Wert] fuer das
+    Detailfenster der Webseite. Es werden nur Felder uebernommen, die der
+    Server wirklich meldet. Keine Passwoerter, keine Pfade."""
+    norm = {}
+    for k, v in info.items():
+        kk = k
+        for pre in ("bf2142_", "bf2_"):
+            if kk.startswith(pre):
+                kk = kk[len(pre):]
+        norm.setdefault(kk, v)
+
+    def g(*keys):
+        for key in keys:
+            if key in norm and str(norm[key]).strip() != "":
+                return str(norm[key]).strip()
+        return ""
+
+    rows = []
+
+    def add(label, value):
+        if value != "":
+            rows.append([label, value])
+
+    # Rundenzeit: BF1942/BFV in Minuten, BF2/BF2142 in Sekunden
+    tl = g("time_limit", "timelimit")
+    if tl.isdigit():
+        minutes = int(tl) // 60 if protocol_name == "battlefield2" else int(tl)
+        add("Time limit", "no limit" if minutes == 0 else str(minutes) + " min")
+
+    tr = g("ticket_ratio", "ticketratio")
+    if tr:
+        add("Ticket ratio", _num(tr) + " %")
+
+    allied, axis = g("allied_team_ratio"), g("axis_team_ratio")
+    if allied and axis:
+        add("Team ratio (Allied : Axis)", _num(allied) + " : " + _num(axis))
+    elif g("teamratio"):
+        add("Team ratio", _num(g("teamratio")))
+
+    sd = g("game_start_delay", "startdelay")
+    if sd:
+        add("Start delay", _num(sd) + " s")
+
+    add("Spawn delay", (_num(g("spawn_delay")) + " s") if g("spawn_delay") else "")
+    sp = g("spawn_wave_time", "spawntime")
+    if sp:
+        add("Spawn time", _num(sp) + " s")
+
+    add("Rounds per map", _num(g("number_of_rounds")) if g("number_of_rounds") else "")
+
+    ff = g("soldier_friendly_fire", "friendlyfire")
+    if ff:
+        add("Friendly fire", _onoff(ff) if ff in ("0", "1") else _num(ff) + " %")
+
+    ab = g("auto_balance_teams", "autobalanced")
+    if ab:
+        add("Auto balance", _onoff(ab))
+
+    tk = g("tk_mode", "tkmode")
+    add("Team kill mode", tk)
+
+    pb = g("sv_punkbuster", "anticheat")
+    if pb:
+        add("PunkBuster", _onoff(pb))
+
+    ms = g("mapsize")
+    if ms:
+        add("Map layout", ms + " players")
+
+    cc = g("content_check")
+    if cc:
+        add("Content check", cc)
+
+    pw = g("password")
+    if pw:
+        add("Password protected", "yes" if _onoff(pw) == "on" else "no")
+
+    return rows
+
+
 async def _try_protocol(protocol_cls, host, port, challenge_required=None):
     client = protocol_cls(host=host, port=port, timeout=TIMEOUT_SECONDS)
     if challenge_required is not None and hasattr(client, "challenge_required"):
@@ -541,6 +636,7 @@ async def query_one(entry: dict) -> dict:
                 bot_names=BOT_NAMES_BY_GAME.get(entry.get("game", "")),
             )
             result["tickets"] = _extract_teams(getattr(status, "teams", []), info)
+            result["settings"] = _extract_settings(protocol_name, info)
             if protocol_name == "battlefield2":
                 raw_teams = await asyncio.to_thread(_bf2_raw_teams, entry["host"], int(entry["port"]))
                 if raw_teams:
@@ -592,29 +688,75 @@ async def query_one(entry: dict) -> dict:
     return result
 
 
+def _load_previous() -> tuple:
+    """Letzte status.json einlesen (Gedaechtnis fuer 'zuletzt bekannte Werte')."""
+    try:
+        old = json.loads(OUTPUT_PATH.read_text(encoding="utf-8"))
+        return {s.get("id"): s for s in old.get("servers", [])}, old.get("generated_at", "")
+    except Exception:
+        return {}, ""
+
+
+def _snapshot(s: dict) -> dict:
+    return {
+        "map": s.get("map", ""),
+        "mode": s.get("mode", ""),
+        "mod": s.get("mod", ""),
+        "max_players": s.get("max_players", 0),
+        "settings": s.get("settings", []),
+    }
+
+
 async def main_async() -> None:
     entries = json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
-    # "internet": true = oeffentlich gestartet (Standard, falls Feld fehlt),
-    # false = bewusst nur lokal/LAN gestartet (Testbetrieb) - wird trotz
-    # technischer Erreichbarkeit nie angezeigt.
-    active = [
-        e
-        for e in entries
-        if e.get("enabled", False) and e.get("internet", True)
-    ]
+    # Alle aktivierten Server werden angezeigt. "internet": false = Testbetrieb
+    # (Status "not_available", nur Spiel/Mod/Karte, keine Details); sonst
+    # "online" bzw. "offline" (mit den zuletzt bekannten Werten).
+    active = [e for e in entries if e.get("enabled", False)]
 
     results = await asyncio.gather(*(query_one(e) for e in active))
 
+    prev, prev_generated = _load_previous()
+    now_iso = datetime.now(timezone.utc).isoformat(timespec="seconds")
+
+    final = []
+    for entry, r in zip(active, results):
+        if not entry.get("internet", True):
+            r = {
+                "id": r["id"],
+                "game": r["game"],
+                "name": r["name"],
+                "status": "not_available",
+                "map": r.get("map", "") if r["status"] == "online" else "",
+                "mode": "",
+                "mod": r.get("mod", "") if r["status"] == "online" else "",
+                "players": 0,
+                "max_players": 0,
+                "scoreboard": [],
+                "tickets": [],
+            }
+        elif r["status"] == "online":
+            r["last_seen"] = now_iso
+        else:
+            p = prev.get(r["id"], {})
+            if p.get("status") == "online":
+                r["last"] = _snapshot(p)
+                r["last_seen"] = p.get("last_seen") or prev_generated or now_iso
+            elif p.get("last"):
+                r["last"] = p["last"]
+                r["last_seen"] = p.get("last_seen", "")
+        final.append(r)
+
     payload = {
-        "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-        "servers": results,
+        "generated_at": now_iso,
+        "servers": final,
     }
 
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT_PATH.write_text(
         json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8"
     )
-    print(f"Geschrieben: {OUTPUT_PATH} ({len(results)} Server abgefragt)")
+    print(f"Geschrieben: {OUTPUT_PATH} ({len(final)} Server abgefragt)")
 
 
 if __name__ == "__main__":
