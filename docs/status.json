@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-11T18:40:06+00:00",
+  "generated_at": "2026-11-11T18:42:09+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -9,28 +9,28 @@
       "map": "berlin",
       "mode": "coop",
       "mod": "Vanilla",
-      "players": 0,
+      "players": 1,
       "max_players": 32,
       "scoreboard": [
         {
           "name": "MaeKey",
-          "team": "1",
+          "team": "2",
           "rank": "",
-          "score": "0",
-          "kills": "0",
+          "score": "11",
+          "kills": "15",
           "deaths": "0",
-          "ping": "0",
-          "is_bot": true
+          "ping": "3",
+          "is_bot": false
         }
       ],
       "tickets": [
         {
           "name": "axis",
-          "score": "431"
+          "score": "399"
         },
         {
           "name": "allied",
-          "score": "784"
+          "score": "763"
         }
       ]
     },
