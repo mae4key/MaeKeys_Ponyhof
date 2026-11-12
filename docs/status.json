@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-12T21:00:26+00:00",
+  "generated_at": "2026-11-12T21:02:31+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -15,11 +15,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "916"
+          "score": "901"
         },
         {
           "name": "allied",
-          "score": "882"
+          "score": "877"
         }
       ],
       "settings": [
@@ -48,7 +48,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-12T21:00:26+00:00"
+      "last_seen": "2026-11-12T21:02:31+00:00"
     },
     {
       "id": "bf1942-ponyhof-2",
@@ -100,38 +100,17 @@
       "map": "OPERATION FLAMING DART",
       "mode": "coop",
       "mod": "Vanilla",
-      "players": 2,
+      "players": 0,
       "max_players": 32,
-      "scoreboard": [
-        {
-          "name": "5chzme5",
-          "team": "2",
-          "rank": "",
-          "score": "20",
-          "kills": "21",
-          "deaths": "8",
-          "ping": "13",
-          "is_bot": false
-        },
-        {
-          "name": "nick",
-          "team": "2",
-          "rank": "",
-          "score": "2",
-          "kills": "2",
-          "deaths": "1",
-          "ping": "15",
-          "is_bot": false
-        }
-      ],
+      "scoreboard": [],
       "tickets": [
         {
           "name": "red",
-          "score": "392"
+          "score": "382"
         },
         {
           "name": "blue",
-          "score": "857"
+          "score": "848"
         }
       ],
       "settings": [
@@ -160,7 +139,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-12T21:00:26+00:00"
+      "last_seen": "2026-11-12T21:02:31+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
@@ -572,7 +551,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-12T21:00:26+00:00"
+      "last_seen": "2026-11-12T21:02:31+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -992,7 +971,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-12T21:00:26+00:00"
+      "last_seen": "2026-11-12T21:02:31+00:00"
     },
     {
       "id": "bf2142-ponyhof-2",
