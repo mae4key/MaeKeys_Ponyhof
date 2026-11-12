@@ -79,7 +79,7 @@
     "port": 29911,
     "enabled": true,
     "internet": false,
-    "bot_teams": "16 : 0"
+    "bot_teams": "0 : 16"
   },
   {
     "id": "mohaa-ponyhof",
