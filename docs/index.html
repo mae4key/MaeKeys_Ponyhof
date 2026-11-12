@@ -1370,18 +1370,19 @@ function initBackgroundFx() {
       // Baeume im Wind: Stamm biegt sich als Ganzes, oben staerker (Hebel),
       // dazu leichtes Laub-Flattern. Toter Baum im Vordergrund nur minimal.
       float ygate = sm(0.03, 0.08, uv.y) * (1.0 - sm(0.38, 0.48, uv.y));
-      float bgT = sm(0.52, 0.58, uv.x) * (1.0 - sm(0.66, 0.70, uv.x)) + sm(0.93, 0.96, uv.x);
+      float bgT = sm(0.52, 0.58, uv.x) * (1.0 - sm(0.66, 0.70, uv.x)) + sm(0.93, 0.96, uv.x)
+                + sm(0.25, 0.275, uv.x) * (1.0 - sm(0.295, 0.315, uv.x));
       float deadT = sm(0.68, 0.72, uv.x) * (1.0 - sm(0.94, 0.97, uv.x));
       float hT = clamp((0.55 - uv.y) / 0.45, 0.0, 1.0);
       float bendT = hT * hT;
-      float windT = (sin(uT * 0.9 + uv.x * 6.0) + 0.3 * sin(uT * 1.7 + uv.x * 11.0)) * gust;
-      float flutT = 0.25 * sin(uT * 3.3 + uv.x * 60.0 + uv.y * 45.0);
-      float trAmp = (bgT * 0.0042 + deadT * 0.0005) * ygate;
-      uv.x += wGrass * max(gR, gM) * 0.0011 + (windT * bendT + flutT * hT * 0.5) * trAmp;
+      float windT = (0.35 + 0.65 * sin(uT * 0.9 + uv.x * 3.0)) * gust;
+      float trAmp = (bgT * 0.0050 + deadT * 0.0005) * ygate;
+      uv.x += wGrass * max(gR, gM) * 0.0011 + windT * bendT * trAmp;
       vec3 col = texture2D(uTex, uv).rgb;
       float asp = uImg.x / uImg.y;
       float amb = 0.0;
       vec3 add = vec3(0.0);
+      float lumMask = smoothstep(0.16, 0.5, dot(col, vec3(0.299, 0.587, 0.114)));
       for (int i = 0; i < 6; i++) {
         vec4 f = uF[i];
         if (f.w > 0.002) {
@@ -1394,7 +1395,7 @@ function initBackgroundFx() {
         }
       }
       col = col * (1.0 + amb + uGlow) + vec3(1.0, 0.78, 0.5) * uGlow * 0.12;
-      gl_FragColor = vec4(col + add, 1.0);
+      gl_FragColor = vec4(col + add * lumMask, 1.0);
     }`;
   function sh(type, src) {
     const o = gl.createShader(type); gl.shaderSource(o, src); gl.compileShader(o);
@@ -1426,8 +1427,8 @@ function initBackgroundFx() {
     const big = R() < 0.4;
     const z = R();
     let x, y;
-    if (z < 0.25)      { x = 0.05 + R() * 0.95; y = 0.05 + R() * 0.20; }   // Himmel / Horizont
-    else               { x = 0.28 + R() * 0.72; y = 0.20 + R() * 0.30; }   // Wald hinten
+    if (z < 0.20)      { x = 0.40 + R() * 0.55; y = 0.04 + R() * 0.18; }   // Himmel am Horizont
+    else               { x = 0.45 + R() * 0.55; y = 0.20 + R() * 0.20; }   // Horizont hinter dem Wald
     const f = { x, y, r: big ? 0.08 + R() * 0.08 : 0.03 + R() * 0.045,
                 a: big ? 0.8 + R() * 0.7 : 0.25 + R() * 0.4,
                 decay: big ? 0.35 + R() * 0.25 : 0.15 + R() * 0.15, pulses: [0],
