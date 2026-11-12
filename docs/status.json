@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-12T23:32:35+00:00",
+  "generated_at": "2026-11-12T23:36:35+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -228,7 +228,7 @@
       "game": "Battlefield 2",
       "name": "MaeKeys Ponyhof",
       "status": "not_available",
-      "map": "Midnight Sun",
+      "map": "Dalian Plant",
       "mode": "",
       "mod": "Vanilla",
       "players": 0,
