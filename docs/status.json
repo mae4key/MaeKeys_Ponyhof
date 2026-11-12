@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-12T19:37:13+00:00",
+  "generated_at": "2026-11-12T19:39:13+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -15,11 +15,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "860"
+          "score": "804"
         },
         {
           "name": "allied",
-          "score": "835"
+          "score": "833"
         }
       ],
       "settings": [
@@ -48,7 +48,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-12T19:37:13+00:00"
+      "last_seen": "2026-11-12T19:39:13+00:00"
     },
     {
       "id": "bf1942-ponyhof-2",
@@ -100,27 +100,27 @@
       "map": "HO CHI MINH TRAIL",
       "mode": "coop",
       "mod": "Vanilla",
-      "players": 3,
+      "players": 4,
       "max_players": 32,
       "scoreboard": [
         {
           "name": "***BillyBobJoe***",
           "team": "2",
           "rank": "",
-          "score": "34",
-          "kills": "32",
-          "deaths": "16",
-          "ping": "62",
+          "score": "39",
+          "kills": "37",
+          "deaths": "19",
+          "ping": "64",
           "is_bot": false
         },
         {
           "name": "*** LINUS ***",
           "team": "2",
           "rank": "",
-          "score": "15",
-          "kills": "9",
+          "score": "16",
+          "kills": "10",
           "deaths": "9",
-          "ping": "79",
+          "ping": "82",
           "is_bot": false
         },
         {
@@ -130,28 +130,28 @@
           "score": "1",
           "kills": "3",
           "deaths": "3",
-          "ping": "40",
+          "ping": "39",
           "is_bot": false
         },
         {
           "name": "COO LE SAU",
-          "team": "1",
+          "team": "2",
           "rank": "",
-          "score": "0",
-          "kills": "0",
-          "deaths": "0",
-          "ping": "0",
-          "is_bot": true
+          "score": "1",
+          "kills": "1",
+          "deaths": "1",
+          "ping": "47",
+          "is_bot": false
         }
       ],
       "tickets": [
         {
           "name": "red",
-          "score": "802"
+          "score": "731"
         },
         {
           "name": "blue",
-          "score": "875"
+          "score": "855"
         }
       ],
       "settings": [
@@ -180,7 +180,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-12T19:37:13+00:00"
+      "last_seen": "2026-11-12T19:39:13+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
@@ -592,7 +592,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-12T19:37:13+00:00"
+      "last_seen": "2026-11-12T19:39:13+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -1012,7 +1012,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-12T19:37:13+00:00"
+      "last_seen": "2026-11-12T19:39:13+00:00"
     },
     {
       "id": "bf2142-ponyhof-2",
