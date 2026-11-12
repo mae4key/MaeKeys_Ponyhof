@@ -1354,7 +1354,7 @@ function initBackgroundFx() {
   const FS = `
     precision mediump float;
     uniform sampler2D uTex; uniform vec2 uRes; uniform vec2 uImg; uniform vec3 uMap;
-    uniform float uT; uniform vec4 uF[6];
+    uniform float uT; uniform float uGlow; uniform vec4 uF[6];
     float sm(float a, float b, float x) { return smoothstep(a, b, x); }
     void main() {
       vec2 p = vec2(gl_FragCoord.x, uRes.y - gl_FragCoord.y);
@@ -1363,13 +1363,14 @@ function initBackgroundFx() {
         gl_FragColor = vec4(0.106, 0.114, 0.082, 1.0); return;
       }
       vec2 base = uv;
-      float gust = 0.7 + 0.3 * sin(uT * 0.35) + 0.2 * sin(uT * 0.9 + 1.3);
-      float wave = (sin(uT * 1.5 + uv.y * 40.0 + uv.x * 14.0)
-                  + 0.5 * sin(uT * 2.9 + uv.y * 85.0 - uv.x * 9.0)) * gust;
-      float gR = sm(0.78, 0.86, uv.x) * sm(0.60, 0.70, uv.y);
+      float gust = 0.75 + 0.25 * sin(uT * 0.35) + 0.15 * sin(uT * 0.9 + 1.3);
+      float wGrass = sin(uT * 1.1 + uv.x * 5.0 + uv.y * 4.0) * gust;
+      float wTree = (sin(uT * 1.2 + uv.x * 9.0 + uv.y * 18.0)
+                   + 0.6 * sin(uT * 2.3 + uv.y * 42.0 - uv.x * 7.0)) * gust;
+      float gR = sm(0.78, 0.86, uv.x) * sm(0.62, 0.76, uv.y) * 0.45;
       float gM = sm(0.24, 0.30, uv.x) * (1.0 - sm(0.44, 0.50, uv.x)) * sm(0.50, 0.56, uv.y) * (1.0 - sm(0.66, 0.72, uv.y));
       float tr = sm(0.52, 0.58, uv.x) * sm(0.04, 0.10, uv.y) * (1.0 - sm(0.40, 0.48, uv.y)) * (1.0 - uv.y * 1.6);
-      uv.x += wave * (max(gR, gM) * 0.0020 + tr * 0.0012);
+      uv.x += wGrass * max(gR, gM) * 0.0011 + wTree * tr * 0.0036;
       vec3 col = texture2D(uTex, uv).rgb;
       float asp = uImg.x / uImg.y;
       float amb = 0.0;
@@ -1385,7 +1386,8 @@ function initBackgroundFx() {
           amb += f.w * 0.12;
         }
       }
-      gl_FragColor = vec4(col * (1.0 + amb) + add, 1.0);
+      col = col * (1.0 + amb + uGlow) + vec3(1.0, 0.78, 0.5) * uGlow * 0.12;
+      gl_FragColor = vec4(col + add, 1.0);
     }`;
   function sh(type, src) {
     const o = gl.createShader(type); gl.shaderSource(o, src); gl.compileShader(o);
@@ -1408,7 +1410,7 @@ function initBackgroundFx() {
   gl.enableVertexAttribArray(loc);
   gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
   const U = {};
-  ["uTex", "uRes", "uImg", "uMap", "uT", "uF"].forEach(n => { U[n] = gl.getUniformLocation(prog, n); });
+  ["uTex", "uRes", "uImg", "uMap", "uT", "uGlow", "uF"].forEach(n => { U[n] = gl.getUniformLocation(prog, n); });
 
   const flashes = [];
   let nextAt = 1.0;
@@ -1417,13 +1419,15 @@ function initBackgroundFx() {
     const big = R() < 0.4;
     const z = R();
     let x, y;
-    if (z < 0.30)      { x = 0.05 + R() * 0.95; y = 0.04 + R() * 0.26; }
-    else if (z < 0.75) { x = 0.28 + R() * 0.72; y = 0.28 + R() * 0.27; }
-    else               { x = 0.20 + R() * 0.70; y = 0.50 + R() * 0.25; }
-    const f = { x, y, r: big ? 0.09 + R() * 0.09 : 0.035 + R() * 0.05,
+    if (z < 0.25)      { x = 0.05 + R() * 0.95; y = 0.05 + R() * 0.20; }   // Himmel / Horizont
+    else               { x = 0.28 + R() * 0.72; y = 0.20 + R() * 0.30; }   // Wald hinten
+    const f = { x, y, r: big ? 0.08 + R() * 0.08 : 0.03 + R() * 0.045,
                 a: big ? 0.8 + R() * 0.7 : 0.25 + R() * 0.4,
-                decay: big ? 0.35 + R() * 0.25 : 0.15 + R() * 0.15, pulses: [0] };
-    if (R() < 0.3) f.pulses.push(0.09 + R() * 0.09);
+                decay: big ? 0.35 + R() * 0.25 : 0.15 + R() * 0.15, pulses: [0],
+                glob: big && R() < 0.5 };
+    const m = R();
+    if (m >= 0.35) f.pulses.push(0.09 + R() * 0.09);                       // Doppelschlag
+    if (m >= 0.70) f.pulses.push(0.24 + R() * 0.18);                       // Dreifachschlag
     return f;
   }
   function envelope(f, dt) {
@@ -1431,7 +1435,7 @@ function initBackgroundFx() {
     for (let i = 0; i < f.pulses.length; i++) {
       const k = dt - f.pulses[i];
       if (k < 0) continue;
-      e += (i ? 0.7 : 1) * (k < 0.03 ? k / 0.03 : Math.exp(-(k - 0.03) / f.decay));
+      e += (i ? 0.75 : 1) * (k < 0.03 ? k / 0.03 : Math.exp(-(k - 0.03) / f.decay));
     }
     return e * f.a;
   }
@@ -1479,9 +1483,13 @@ function initBackgroundFx() {
     for (let i = flashes.length - 1; i >= 0; i--) {
       if (now - flashes[i].t0 > 3) flashes.splice(i, 1);
     }
+    let glow = 0;
     flashes.forEach((f, i) => {
-      arr[i * 4] = f.x; arr[i * 4 + 1] = f.y; arr[i * 4 + 2] = f.r; arr[i * 4 + 3] = envelope(f, now - f.t0);
+      const e = envelope(f, now - f.t0);
+      arr[i * 4] = f.x; arr[i * 4 + 1] = f.y; arr[i * 4 + 2] = f.r; arr[i * 4 + 3] = e;
+      if (f.glob) glow += e * 0.55;
     });
+    gl.uniform1f(U.uGlow, Math.min(glow, 0.9));
     gl.uniform1i(U.uTex, 0);
     gl.uniform2f(U.uRes, bw, bh);
     gl.uniform2f(U.uImg, IW, IH);
