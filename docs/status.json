@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-12T20:40:06+00:00",
+  "generated_at": "2026-11-12T20:42:06+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -15,11 +15,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "742"
+          "score": "720"
         },
         {
           "name": "allied",
-          "score": "516"
+          "score": "455"
         }
       ],
       "settings": [
@@ -48,7 +48,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-12T20:40:06+00:00"
+      "last_seen": "2026-11-12T20:42:06+00:00"
     },
     {
       "id": "bf1942-ponyhof-2",
@@ -100,68 +100,58 @@
       "map": "OPERATION FLAMING DART",
       "mode": "coop",
       "mod": "Vanilla",
-      "players": 5,
+      "players": 4,
       "max_players": 32,
       "scoreboard": [
-        {
-          "name": "MaeKey",
-          "team": "2",
-          "rank": "",
-          "score": "4",
-          "kills": "4",
-          "deaths": "1",
-          "ping": "1",
-          "is_bot": false
-        },
         {
           "name": "nick",
           "team": "2",
           "rank": "",
-          "score": "1",
-          "kills": "1",
+          "score": "5",
+          "kills": "2",
           "deaths": "2",
-          "ping": "15",
+          "ping": "17",
           "is_bot": false
         },
         {
-          "name": "*** OCE ***",
+          "name": "MaeKey",
           "team": "2",
           "rank": "",
-          "score": "0",
-          "kills": "0",
-          "deaths": "0",
-          "ping": "40",
-          "is_bot": false
-        },
-        {
-          "name": "5chzme5",
-          "team": "2",
-          "rank": "",
-          "score": "0",
-          "kills": "0",
-          "deaths": "0",
-          "ping": "15",
+          "score": "5",
+          "kills": "5",
+          "deaths": "3",
+          "ping": "1",
           "is_bot": false
         },
         {
           "name": "b.a",
           "team": "2",
           "rank": "",
-          "score": "-4",
-          "kills": "0",
+          "score": "3",
+          "kills": "4",
           "deaths": "0",
-          "ping": "12",
+          "ping": "11",
+          "is_bot": false
+        },
+        {
+          "name": "5chzme5",
+          "team": "2",
+          "rank": "",
+          "score": "1",
+          "kills": "3",
+          "deaths": "0",
+          "ping": "14",
           "is_bot": false
         }
       ],
       "tickets": [
         {
           "name": "red",
-          "score": "984"
+          "score": "951"
         },
         {
           "name": "blue",
-          "score": "970"
+          "score": "957"
         }
       ],
       "settings": [
@@ -190,7 +180,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-12T20:40:06+00:00"
+      "last_seen": "2026-11-12T20:42:06+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
@@ -602,7 +592,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-12T20:40:06+00:00"
+      "last_seen": "2026-11-12T20:42:06+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -1022,7 +1012,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-12T20:40:06+00:00"
+      "last_seen": "2026-11-12T20:42:06+00:00"
     },
     {
       "id": "bf2142-ponyhof-2",
