@@ -658,9 +658,9 @@
   </header>
 
   <div class="hours" id="hours">
-    <strong>Operating hours</strong> <span class="dim">(CET/CEST)</span><br>
+    <strong>Regular operating hours</strong> <span class="dim">(CET/CEST)</span><br>
     Start: Mon&ndash;Fri from 18:30 &middot; Sat&ndash;Sun from 16:30<br>
-    Closing: Sun&ndash;Wed 22:00 &middot; Thu&ndash;Sat midnight<br>
+    Closing: Sun&ndash;Wed 22:30 &middot; Thu&ndash;Sat midnight<br>
     <span class="dim">After closing time, empty servers are shut down; servers with players keep running until the last player has left.</span>
     <span class="live" id="hours-live"></span>
   </div>
@@ -772,14 +772,14 @@ function zhWallNow() {
   return Date.UTC(g("year"), g("month") - 1, g("day"), g("hour"), g("minute"));
 }
 
-// Start: Mo-Fr 18:30, Sa/So 16:30. Ende: So-Mi 22:00, Do-Sa 24:00.
+// Start: Mo-Fr 18:30, Sa/So 16:30. Ende: So-Mi 22:30, Do-Sa 24:00.
 function zhStart(dayMs) {
   const dow = new Date(dayMs).getUTCDay();
   return dayMs + ((dow === 0 || dow === 6) ? 16 * 60 + 30 : 18 * 60 + 30) * 60000;
 }
 function zhEnd(dayMs) {
   const dow = new Date(dayMs).getUTCDay();
-  return dow <= 3 ? dayMs + 22 * 3600000 : dayMs + 24 * 3600000;
+  return dow <= 3 ? dayMs + (22 * 60 + 30) * 60000 : dayMs + 24 * 3600000;
 }
 function fmtHM(ms) {
   const d = new Date(ms);
@@ -806,7 +806,7 @@ function updateHours() {
       const s = zhStart(day);
       if (s > now) {
         const when = i === 0 ? "today" : (i === 1 ? "tomorrow" : ZH_DAYS[new Date(day).getUTCDay()]);
-        text = "Outside operating hours \u2013 next start " + when + " at " + fmtHM(s);
+        text = "Outside regular operating hours \u2013 next start " + when + " at " + fmtHM(s);
         break;
       }
     }
