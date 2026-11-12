@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-12T13:42:25+00:00",
+  "generated_at": "2026-11-12T13:44:27+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -241,7 +241,7 @@
         {
           "name": "C. Tou",
           "team": "",
-          "rank": "0",
+          "rank": "",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -251,7 +251,7 @@
         {
           "name": "J. Persson",
           "team": "",
-          "rank": "0",
+          "rank": "",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -261,7 +261,7 @@
         {
           "name": "T. Soderman",
           "team": "",
-          "rank": "0",
+          "rank": "",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -271,7 +271,7 @@
         {
           "name": "R. Love",
           "team": "",
-          "rank": "0",
+          "rank": "",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -281,7 +281,7 @@
         {
           "name": "T. Holmsten",
           "team": "",
-          "rank": "0",
+          "rank": "",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -291,7 +291,7 @@
         {
           "name": "J. Ostman",
           "team": "",
-          "rank": "0",
+          "rank": "",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -301,7 +301,7 @@
         {
           "name": "J. Dawsari",
           "team": "",
-          "rank": "0",
+          "rank": "",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -311,7 +311,7 @@
         {
           "name": "S. Parkinson",
           "team": "",
-          "rank": "0",
+          "rank": "",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -321,7 +321,7 @@
         {
           "name": "M. Sjoberg",
           "team": "",
-          "rank": "0",
+          "rank": "",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -331,7 +331,7 @@
         {
           "name": "F. Lindblom",
           "team": "",
-          "rank": "0",
+          "rank": "",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -341,7 +341,7 @@
         {
           "name": "E. Smith",
           "team": "",
-          "rank": "0",
+          "rank": "",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -351,7 +351,7 @@
         {
           "name": "R. Lopez",
           "team": "",
-          "rank": "0",
+          "rank": "",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -361,7 +361,7 @@
         {
           "name": "R. Edgren",
           "team": "",
-          "rank": "0",
+          "rank": "",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -371,7 +371,7 @@
         {
           "name": "C. Clarke",
           "team": "",
-          "rank": "0",
+          "rank": "",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -381,7 +381,7 @@
         {
           "name": "J. Dohl",
           "team": "",
-          "rank": "0",
+          "rank": "",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -391,7 +391,7 @@
         {
           "name": "R. Linde",
           "team": "",
-          "rank": "0",
+          "rank": "",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -401,7 +401,7 @@
         {
           "name": "W. Young",
           "team": "",
-          "rank": "0",
+          "rank": "",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -411,7 +411,7 @@
         {
           "name": "A. Marini",
           "team": "",
-          "rank": "0",
+          "rank": "",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -421,7 +421,7 @@
         {
           "name": "D. Kerr",
           "team": "",
-          "rank": "0",
+          "rank": "",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -431,7 +431,7 @@
         {
           "name": "J. Jonsson",
           "team": "",
-          "rank": "0",
+          "rank": "",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -441,7 +441,7 @@
         {
           "name": "P.K. Johansson",
           "team": "",
-          "rank": "0",
+          "rank": "",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -451,7 +451,7 @@
         {
           "name": "T. Dahl",
           "team": "",
-          "rank": "0",
+          "rank": "",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -461,7 +461,7 @@
         {
           "name": "S. Lindgren",
           "team": "",
-          "rank": "0",
+          "rank": "",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -471,7 +471,7 @@
         {
           "name": "R. Gimbel",
           "team": "",
-          "rank": "0",
+          "rank": "",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -481,7 +481,7 @@
         {
           "name": "F. Liliegren",
           "team": "",
-          "rank": "0",
+          "rank": "",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -491,7 +491,7 @@
         {
           "name": "L. Josephson",
           "team": "",
-          "rank": "0",
+          "rank": "",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -501,7 +501,7 @@
         {
           "name": "P. Osterblom",
           "team": "",
-          "rank": "0",
+          "rank": "",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -511,7 +511,7 @@
         {
           "name": "S. Decker",
           "team": "",
-          "rank": "0",
+          "rank": "",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -521,7 +521,7 @@
         {
           "name": "C. Barnett",
           "team": "",
-          "rank": "0",
+          "rank": "",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -531,7 +531,7 @@
         {
           "name": "S. Pinkerton",
           "team": "",
-          "rank": "0",
+          "rank": "",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -541,7 +541,7 @@
         {
           "name": "A. Papasavas",
           "team": "",
-          "rank": "0",
+          "rank": "",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -551,7 +551,7 @@
         {
           "name": "M. Choy",
           "team": "",
-          "rank": "0",
+          "rank": "",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -599,7 +599,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-12T13:42:25+00:00"
+      "last_seen": "2026-11-12T13:44:27+00:00"
     },
     {
       "id": "bf2142-ponyhof-1",
