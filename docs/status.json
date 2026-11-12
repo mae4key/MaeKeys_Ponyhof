@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-12T23:19:59+00:00",
+  "generated_at": "2026-11-12T23:22:19+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -227,51 +227,14 @@
       "id": "bf2-ponyhof-2",
       "game": "Battlefield 2",
       "name": "MaeKeys Ponyhof",
-      "status": "offline",
-      "map": "",
+      "status": "not_available",
+      "map": "Midnight Sun",
       "mode": "",
-      "mod": "",
+      "mod": "Vanilla",
       "players": 0,
       "max_players": 0,
       "scoreboard": [],
-      "tickets": [],
-      "last": {
-        "map": "Daqing Oilfields",
-        "mode": "gpm_coop",
-        "mod": "Vanilla",
-        "max_players": 16,
-        "settings": [
-          [
-            "Time limit",
-            "no limit"
-          ],
-          [
-            "Ticket ratio",
-            "100"
-          ],
-          [
-            "Rounds per map",
-            "1"
-          ],
-          [
-            "Team ratio",
-            "1 : 1"
-          ],
-          [
-            "Friendly fire",
-            "on"
-          ],
-          [
-            "PunkBuster",
-            "off"
-          ],
-          [
-            "Map layout",
-            "16 players"
-          ]
-        ]
-      },
-      "last_seen": "2026-11-12T13:54:31+00:00"
+      "tickets": []
     },
     {
       "id": "bf2142-ponyhof-1",
