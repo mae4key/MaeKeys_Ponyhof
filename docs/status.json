@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-12T13:32:05+00:00",
+  "generated_at": "2026-11-12T13:34:11+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -245,7 +245,7 @@
           "score": "0",
           "kills": "0",
           "deaths": "0",
-          "ping": "1",
+          "ping": "2",
           "is_bot": false
         },
         {
@@ -609,7 +609,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-12T13:32:05+00:00"
+      "last_seen": "2026-11-12T13:34:11+00:00"
     },
     {
       "id": "bf2142-ponyhof-1",
