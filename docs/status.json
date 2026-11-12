@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-12T22:07:24+00:00",
+  "generated_at": "2026-11-12T22:09:26+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -15,11 +15,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "934"
+          "score": "924"
         },
         {
           "name": "allied",
-          "score": "935"
+          "score": "934"
         }
       ],
       "settings": [
@@ -48,7 +48,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-12T22:07:24+00:00"
+      "last_seen": "2026-11-12T22:09:26+00:00"
     },
     {
       "id": "bf1942-ponyhof-2",
@@ -97,7 +97,7 @@
       "game": "Battlefield Vietnam",
       "name": "MaeKeys Ponyhof",
       "status": "online",
-      "map": "OPERATION GAME WARDEN",
+      "map": "OPERATION HASTINGS",
       "mode": "coop",
       "mod": "Vanilla",
       "players": 0,
@@ -106,11 +106,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "562"
+          "score": "997"
         },
         {
           "name": "blue",
-          "score": "665"
+          "score": "994"
         }
       ],
       "settings": [
@@ -139,7 +139,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-12T22:07:24+00:00"
+      "last_seen": "2026-11-12T22:09:26+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
@@ -551,7 +551,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-12T22:07:24+00:00"
+      "last_seen": "2026-11-12T22:09:26+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -971,7 +971,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-12T22:07:24+00:00"
+      "last_seen": "2026-11-12T22:09:26+00:00"
     },
     {
       "id": "bf2142-ponyhof-2",
