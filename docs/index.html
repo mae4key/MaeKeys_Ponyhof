@@ -1307,15 +1307,23 @@ function initBackgroundPan() {
     return;
   }
 
+  // Feste Bezugshoehe (Hintergrund-Ebene = 100lvh), unabhaengig davon, ob die
+  // Adressleiste gerade ein- oder ausgefahren ist; sonst springt das Bild am
+  // Ende des Scrollens nach.
+  let bgTicking = false;
   function updatePan() {
-    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    bgTicking = false;
+    const maxScroll = document.documentElement.scrollHeight - bg.offsetHeight;
     const progress = maxScroll > 0 ? Math.min(1, Math.max(0, window.scrollY / maxScroll)) : 0;
     bg.style.backgroundPositionX = (progress * 100) + "%";
   }
+  function schedulePan() {
+    if (!bgTicking) { bgTicking = true; requestAnimationFrame(updatePan); }
+  }
 
   updatePan();
-  window.addEventListener("scroll", updatePan, { passive: true });
-  window.addEventListener("resize", updatePan);
+  window.addEventListener("scroll", schedulePan, { passive: true });
+  window.addEventListener("resize", schedulePan);
 }
 
 initBackgroundPan();
