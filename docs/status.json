@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-12T23:28:33+00:00",
+  "generated_at": "2026-11-12T23:32:35+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -287,9 +287,9 @@
       "game": "Battlefield 2142",
       "name": "MaeKeys Ponyhof",
       "status": "not_available",
-      "map": "Fall_of_Berlin",
+      "map": "",
       "mode": "",
-      "mod": "Vanilla",
+      "mod": "",
       "players": 0,
       "max_players": 0,
       "scoreboard": [],
