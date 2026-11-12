@@ -571,6 +571,8 @@
   .pl-stats dd { margin: 0; }
   .pl-bar { display: grid; grid-template-columns: 4.5rem 1fr 3.5rem; gap: 0.5rem; align-items: center; font-size: 0.78rem; margin: 0.25rem 0; }
   .pl-bar i { display: block; height: 0.55rem; background: var(--field-green); }
+  .hours summary { cursor: pointer; }
+  .hours[open] summary { margin-bottom: 0.4rem; }
 </style>
 </head>
 <body>
@@ -585,7 +587,7 @@
   </div>
   <div class="menu-panel-content">
   <h3>About</h3>
-  <p>MaeKeys Ponyhof is a small, free, self-hosted community project keeping classic early-2000s Battlefield multiplayer alive — because the official matchmaking services for these games have long been shut down. Everything here runs on a home server, queried directly and shown live, with no third-party listing service in between.</p>
+  <p>MaeKeys Ponyhof is a small, free, self-hosted community project keeping classic early-2000s multiplayer games like Battlefield alive — because the official matchmaking services for these games have long been shut down. Everything here runs on a home server, queried directly and shown live, with no third-party listing service in between.</p>
   <p>Currently hosting Battlefield 1942, Battlefield Vietnam, Battlefield 2 and Battlefield 2142, including a couple of classic mods alongside vanilla. On the roadmap: Medal of Honor: Allied Assault (via the open-source OpenMoHAA project) and Medal of Honor: Pacific Assault — and, as a longer-term, more ambitious goal, Battlefield: Bad Company 2.</p>
   <h3>Server lists</h3>
   <a href="http://master.bf1942.org/" target="_blank" rel="noopener">master.bf1942.org (BF1942)</a>
@@ -710,13 +712,12 @@
   </nav>
 
   <section id="view-servers">
-  <div class="hours" id="hours">
-    <strong>Regular operating hours</strong> <span class="dim">(CET/CEST)</span><br>
+  <details class="hours" id="hours">
+    <summary><strong>Regular operating hours</strong> <span class="dim">(CET/CEST)</span><span class="live" id="hours-live"></span></summary>
     Start: Mon&ndash;Fri from 18:30 &middot; Sat&ndash;Sun from 16:30<br>
     Closing: Sun&ndash;Wed 22:30 &middot; Thu&ndash;Sat midnight<br>
     <span class="dim">After closing time, empty servers are shut down; servers with players keep running until the last player has left.</span>
-    <span class="live" id="hours-live"></span>
-  </div>
+  </details>
 
   <div id="servers" class="servers">
     <p class="empty"><strong>Loading status …</strong>Live status of the MaeKeys Ponyhof servers for Battlefield 1942, Battlefield Vietnam, Battlefield 2 and Battlefield 2142.</p>
@@ -740,7 +741,7 @@
         <ul>
           <li>Points are score gains of human players on the internet servers. Bots and LAN games are not counted.</li>
           <li>Players are ranked by their exact nickname. The same nickname is added up across all games in the Overall ranking; a different nickname counts as a separate entry.</li>
-          <li>Nicknames starting with &quot;Player&quot; (default name) or &quot;MaeKey&quot; are not shown.</li>
+          <li>Nicknames starting with &quot;Player&quot; (the default name) are not shown.</li>
           <li>A gaming day ends at 04:00 (CET/CEST), so late sessions still count for the day before. Weeks run Monday to Sunday.</li>
           <li>The current period is an interim standing and is updated about every 15 minutes.</li>
         </ul>
@@ -1168,6 +1169,24 @@ document.getElementById("rk-found").addEventListener("click", e => {
   const p = h[parseInt(b.dataset.n, 10)];
   if (p) rkOpenPlayer(p.n);
 });
+// Wischen: nach links = Ranking, nach rechts = Servers
+let swipeStart = null;
+document.addEventListener("touchstart", e => {
+  const t = e.touches[0];
+  const skip = e.target.closest("select, input, .modal-box, .modal-backdrop");
+  swipeStart = (e.touches.length === 1 && !skip) ? { x: t.clientX, y: t.clientY } : null;
+}, { passive: true });
+document.addEventListener("touchend", e => {
+  if (!swipeStart) return;
+  const t = e.changedTouches[0];
+  const dx = t.clientX - swipeStart.x, dy = t.clientY - swipeStart.y;
+  swipeStart = null;
+  if (Math.abs(dx) < 70 || Math.abs(dx) < 1.8 * Math.abs(dy)) return;
+  if (!document.getElementById("modal-backdrop").hidden) return;
+  const onRanking = !document.getElementById("view-ranking").hidden;
+  if (dx < 0 && !onRanking) showTab("ranking");
+  else if (dx > 0 && onRanking) showTab("servers");
+}, { passive: true });
 setInterval(() => { if (!document.getElementById("view-ranking").hidden) rkLoad(); }, 300000);
 if (location.hash === "#ranking") showTab("ranking");
 
