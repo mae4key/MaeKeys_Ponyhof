@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-11-12T21:34:45+00:00",
+  "generated_at": "2026-11-12T21:36:53+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
       "game": "Battlefield 1942",
       "name": "MaeKeys Ponyhof",
       "status": "online",
-      "map": "guadalcanal",
+      "map": "invasion of the philippines",
       "mode": "coop",
       "mod": "Vanilla",
       "players": 0,
@@ -15,11 +15,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "706"
+          "score": "999"
         },
         {
           "name": "allied",
-          "score": "518"
+          "score": "1000"
         }
       ],
       "settings": [
@@ -48,7 +48,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-12T21:34:45+00:00"
+      "last_seen": "2026-11-12T21:36:53+00:00"
     },
     {
       "id": "bf1942-ponyhof-2",
@@ -106,11 +106,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "927"
+          "score": "889"
         },
         {
           "name": "blue",
-          "score": "927"
+          "score": "915"
         }
       ],
       "settings": [
@@ -139,7 +139,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-12T21:34:45+00:00"
+      "last_seen": "2026-11-12T21:36:53+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
@@ -551,7 +551,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-12T21:34:45+00:00"
+      "last_seen": "2026-11-12T21:36:53+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -971,7 +971,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-12T21:34:45+00:00"
+      "last_seen": "2026-11-12T21:36:53+00:00"
     },
     {
       "id": "bf2142-ponyhof-2",
