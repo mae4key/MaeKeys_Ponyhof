@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-12T22:43:48+00:00",
+  "generated_at": "2026-11-12T22:45:47+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -15,11 +15,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "918"
+          "score": "909"
         },
         {
           "name": "allied",
-          "score": "263"
+          "score": "196"
         }
       ],
       "settings": [
@@ -48,7 +48,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-12T22:43:48+00:00"
+      "last_seen": "2026-11-12T22:45:47+00:00"
     },
     {
       "id": "bf1942-ponyhof-2",
@@ -106,11 +106,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "837"
+          "score": "825"
         },
         {
           "name": "blue",
-          "score": "411"
+          "score": "380"
         }
       ],
       "settings": [
@@ -139,7 +139,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-12T22:43:48+00:00"
+      "last_seen": "2026-11-12T22:45:47+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
@@ -551,7 +551,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-12T22:43:48+00:00"
+      "last_seen": "2026-11-12T22:45:47+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -971,53 +971,20 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-12T22:43:48+00:00"
+      "last_seen": "2026-11-12T22:45:47+00:00"
     },
     {
       "id": "bf2142-ponyhof-2",
       "game": "Battlefield 2142",
       "name": "MaeKeys Ponyhof",
-      "status": "offline",
-      "map": "",
+      "status": "not_available",
+      "map": "Bridge_at_Remagen",
       "mode": "",
-      "mod": "",
+      "mod": "Vanilla",
       "players": 0,
       "max_players": 0,
       "scoreboard": [],
-      "tickets": [],
-      "last": {
-        "map": "Bridge_at_Remagen",
-        "mode": "gpm_ti",
-        "mod": "Vanilla",
-        "max_players": 32,
-        "settings": [
-          [
-            "Time limit",
-            "no limit"
-          ],
-          [
-            "Ticket ratio",
-            "100"
-          ],
-          [
-            "Rounds per map",
-            "3"
-          ],
-          [
-            "Friendly fire",
-            "on"
-          ],
-          [
-            "PunkBuster",
-            "off"
-          ],
-          [
-            "Map layout",
-            "48 players"
-          ]
-        ]
-      },
-      "last_seen": "2026-11-11T22:31:13+00:00"
+      "tickets": []
     }
   ]
 }
