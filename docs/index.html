@@ -573,6 +573,14 @@
   .pl-bar i { display: block; height: 0.55rem; background: var(--field-green); }
   .hours summary { cursor: pointer; }
   .hours[open] summary { margin-bottom: 0.4rem; }
+  /* Reiter als zwei nebeneinanderliegende Seiten (wie ein aufgeschlagenes Buch) */
+  .pager {
+    display: flex; align-items: flex-start; overflow-x: auto; overflow-y: hidden;
+    scroll-snap-type: x mandatory; overscroll-behavior-x: contain;
+    scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  }
+  .pager::-webkit-scrollbar { display: none; }
+  .pager > section { flex: 0 0 100%; min-width: 0; scroll-snap-align: start; scroll-snap-stop: always; }
 </style>
 </head>
 <body>
@@ -711,6 +719,7 @@
     <button type="button" class="tab-btn" id="tab-ranking" onclick="showTab('ranking')">Ranking</button>
   </nav>
 
+  <div class="pager" id="pager">
   <section id="view-servers">
   <details class="hours" id="hours">
     <summary><strong>Regular operating hours</strong> <span class="dim">(CET/CEST)</span><span class="live" id="hours-live"></span></summary>
@@ -727,7 +736,7 @@
   <p class="stale-notice" id="stale-notice" hidden></p>
   </section>
 
-  <section id="view-ranking" hidden>
+  <section id="view-ranking">
     <div class="rk">
       <div class="rk-chips" id="rk-periods"></div>
       <select id="rk-select" aria-label="Time period"></select>
@@ -748,6 +757,7 @@
       </details>
     </div>
   </section>
+  </div>
 </div>
 
 <div class="modal-backdrop" id="modal-backdrop" hidden onclick="if(event.target===this) closeScoreboard()">
@@ -1130,15 +1140,76 @@ async function rkLoad() {
     if (!RK.data) document.getElementById("rk-list").innerHTML = `<li class="rk-empty">Ranking currently unavailable. Please try again later.</li>`;
   }
 }
-function showTab(name) {
-  const rank = name === "ranking";
-  document.getElementById("view-servers").hidden = rank;
-  document.getElementById("view-ranking").hidden = !rank;
-  document.getElementById("tab-servers").classList.toggle("active", !rank);
-  document.getElementById("tab-ranking").classList.toggle("active", rank);
-  if (history.replaceState) history.replaceState(null, "", rank ? "#ranking" : location.pathname + location.search);
-  if (rank && !RK.started) { RK.started = true; rkLoad(); }
+// Reiter = zwei Seiten nebeneinander (Scroll-Snap): mit dem Finger hineinziehen,
+// ab etwa der Haelfte (oder per Schwung) rastet die neue Seite ein.
+const PAGER = document.getElementById("pager");
+const PAGES = [document.getElementById("view-servers"), document.getElementById("view-ranking")];
+let pagerIdx = 0, pagerTimer = null, pagerExpanded = false, pagerTouch = null, pagerDown = false;
+
+function pagerFit() {
+  if (pagerDown) return;
+  pagerExpanded = false;
+  PAGER.style.height = PAGES[pagerIdx].offsetHeight + "px";
 }
+function pagerExpand() {
+  if (pagerExpanded) return;
+  pagerExpanded = true;
+  PAGER.style.height = "";
+}
+function pagerSetActive(i) {
+  if (i === pagerIdx) return;
+  pagerIdx = i;
+  document.getElementById("tab-servers").classList.toggle("active", i === 0);
+  document.getElementById("tab-ranking").classList.toggle("active", i === 1);
+  PAGES.forEach((pg, k) => pg.setAttribute("aria-hidden", k === i ? "false" : "true"));
+  if (history.replaceState) history.replaceState(null, "", i ? "#ranking" : location.pathname + location.search);
+  if (i === 1 && !RK.started) { RK.started = true; rkLoad(); }
+}
+PAGER.addEventListener("scroll", () => {
+  pagerSetActive(Math.round(PAGER.scrollLeft / Math.max(1, PAGER.clientWidth)));
+  clearTimeout(pagerTimer);
+  pagerTimer = setTimeout(pagerFit, 150);
+}, { passive: true });
+PAGER.addEventListener("touchstart", e => {
+  const t = e.touches[0];
+  pagerTouch = { x: t.clientX, y: t.clientY };
+  pagerDown = true;
+}, { passive: true });
+PAGER.addEventListener("touchmove", e => {
+  if (!pagerTouch) return;
+  const t = e.touches[0];
+  if (Math.abs(t.clientX - pagerTouch.x) > 8 && Math.abs(t.clientX - pagerTouch.x) > Math.abs(t.clientY - pagerTouch.y)) {
+    pagerExpand();
+    pagerTouch = null;
+  }
+}, { passive: true });
+const pagerUp = () => {
+  pagerDown = false;
+  setTimeout(() => {
+    if (Math.abs(PAGER.scrollLeft - pagerIdx * PAGER.clientWidth) < 2) pagerFit();
+  }, 300);
+};
+PAGER.addEventListener("touchend", pagerUp, { passive: true });
+PAGER.addEventListener("touchcancel", pagerUp, { passive: true });
+if (window.ResizeObserver) {
+  const ro = new ResizeObserver(() => { if (!pagerExpanded) pagerFit(); });
+  PAGES.forEach(pg => ro.observe(pg));
+}
+let pagerW = PAGER.clientWidth;
+window.addEventListener("resize", () => {
+  if (PAGER.clientWidth === pagerW) return;
+  pagerW = PAGER.clientWidth;
+  PAGER.scrollLeft = pagerIdx * pagerW;
+  pagerFit();
+});
+function showTab(name) {
+  const i = name === "ranking" ? 1 : 0;
+  pagerExpand();
+  PAGER.scrollTo({ left: i * PAGER.clientWidth, behavior: "smooth" });
+  setTimeout(pagerFit, 500);
+}
+pagerFit();
+PAGES[1].setAttribute("aria-hidden", "true");
 document.getElementById("rk-periods").addEventListener("click", e => {
   const b = e.target.closest("[data-p]"); if (!b) return;
   RK.period = b.dataset.p; RK.key = null; rkRender();
@@ -1169,26 +1240,8 @@ document.getElementById("rk-found").addEventListener("click", e => {
   const p = h[parseInt(b.dataset.n, 10)];
   if (p) rkOpenPlayer(p.n);
 });
-// Wischen: nach links = Ranking, nach rechts = Servers
-let swipeStart = null;
-document.addEventListener("touchstart", e => {
-  const t = e.touches[0];
-  const skip = e.target.closest("select, input, .modal-box, .modal-backdrop");
-  swipeStart = (e.touches.length === 1 && !skip) ? { x: t.clientX, y: t.clientY } : null;
-}, { passive: true });
-document.addEventListener("touchend", e => {
-  if (!swipeStart) return;
-  const t = e.changedTouches[0];
-  const dx = t.clientX - swipeStart.x, dy = t.clientY - swipeStart.y;
-  swipeStart = null;
-  if (Math.abs(dx) < 70 || Math.abs(dx) < 1.8 * Math.abs(dy)) return;
-  if (!document.getElementById("modal-backdrop").hidden) return;
-  const onRanking = !document.getElementById("view-ranking").hidden;
-  if (dx < 0 && !onRanking) showTab("ranking");
-  else if (dx > 0 && onRanking) showTab("servers");
-}, { passive: true });
-setInterval(() => { if (!document.getElementById("view-ranking").hidden) rkLoad(); }, 300000);
-if (location.hash === "#ranking") showTab("ranking");
+setInterval(() => { if (pagerIdx === 1) rkLoad(); }, 300000);
+if (location.hash === "#ranking") { pagerSetActive(1); PAGER.scrollLeft = PAGER.clientWidth; pagerFit(); }
 
 function toggleMenu() {
   const panel = document.getElementById("menu-panel");
