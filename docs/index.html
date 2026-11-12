@@ -1365,12 +1365,19 @@ function initBackgroundFx() {
       vec2 base = uv;
       float gust = 0.75 + 0.25 * sin(uT * 0.35) + 0.15 * sin(uT * 0.9 + 1.3);
       float wGrass = sin(uT * 1.1 + uv.x * 5.0 + uv.y * 4.0) * gust;
-      float wTree = (sin(uT * 1.2 + uv.x * 9.0 + uv.y * 18.0)
-                   + 0.6 * sin(uT * 2.3 + uv.y * 42.0 - uv.x * 7.0)) * gust;
       float gR = sm(0.78, 0.86, uv.x) * sm(0.62, 0.76, uv.y) * 0.45;
       float gM = sm(0.24, 0.30, uv.x) * (1.0 - sm(0.44, 0.50, uv.x)) * sm(0.50, 0.56, uv.y) * (1.0 - sm(0.66, 0.72, uv.y));
-      float tr = sm(0.52, 0.58, uv.x) * sm(0.04, 0.10, uv.y) * (1.0 - sm(0.40, 0.48, uv.y)) * (1.0 - uv.y * 1.6);
-      uv.x += wGrass * max(gR, gM) * 0.0011 + wTree * tr * 0.0036;
+      // Baeume im Wind: Stamm biegt sich als Ganzes, oben staerker (Hebel),
+      // dazu leichtes Laub-Flattern. Toter Baum im Vordergrund nur minimal.
+      float ygate = sm(0.03, 0.08, uv.y) * (1.0 - sm(0.38, 0.48, uv.y));
+      float bgT = sm(0.52, 0.58, uv.x) * (1.0 - sm(0.66, 0.70, uv.x)) + sm(0.93, 0.96, uv.x);
+      float deadT = sm(0.68, 0.72, uv.x) * (1.0 - sm(0.94, 0.97, uv.x));
+      float hT = clamp((0.55 - uv.y) / 0.45, 0.0, 1.0);
+      float bendT = hT * hT;
+      float windT = (sin(uT * 0.9 + uv.x * 6.0) + 0.3 * sin(uT * 1.7 + uv.x * 11.0)) * gust;
+      float flutT = 0.25 * sin(uT * 3.3 + uv.x * 60.0 + uv.y * 45.0);
+      float trAmp = (bgT * 0.0042 + deadT * 0.0005) * ygate;
+      uv.x += wGrass * max(gR, gM) * 0.0011 + (windT * bendT + flutT * hT * 0.5) * trAmp;
       vec3 col = texture2D(uTex, uv).rgb;
       float asp = uImg.x / uImg.y;
       float amb = 0.0;
