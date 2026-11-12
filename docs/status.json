@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-12T13:22:03+00:00",
+  "generated_at": "2026-11-12T13:24:03+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -239,21 +239,31 @@
       "max_players": 16,
       "scoreboard": [
         {
-          "name": "MaeKey",
-          "team": "",
-          "rank": "2",
-          "score": "5",
-          "kills": "2",
-          "deaths": "1",
-          "ping": "7",
-          "is_bot": false
-        },
-        {
           "name": "D. Rickard",
           "team": "",
-          "rank": "11",
-          "score": "23",
-          "kills": "11",
+          "rank": "15",
+          "score": "25",
+          "kills": "15",
+          "deaths": "1",
+          "ping": "0",
+          "is_bot": true
+        },
+        {
+          "name": "T. Karlsson",
+          "team": "",
+          "rank": "8",
+          "score": "18",
+          "kills": "8",
+          "deaths": "1",
+          "ping": "0",
+          "is_bot": true
+        },
+        {
+          "name": "J. Vifian",
+          "team": "",
+          "rank": "4",
+          "score": "14",
+          "kills": "4",
           "deaths": "1",
           "ping": "0",
           "is_bot": true
@@ -261,20 +271,40 @@
         {
           "name": "D. Kerr",
           "team": "",
-          "rank": "3",
-          "score": "8",
-          "kills": "3",
-          "deaths": "0",
+          "rank": "5",
+          "score": "12",
+          "kills": "5",
+          "deaths": "1",
           "ping": "0",
           "is_bot": true
         },
         {
-          "name": "T. Karlsson",
+          "name": "J. Ceron",
+          "team": "",
+          "rank": "5",
+          "score": "10",
+          "kills": "5",
+          "deaths": "2",
+          "ping": "0",
+          "is_bot": true
+        },
+        {
+          "name": "G. Pigula",
+          "team": "",
+          "rank": "0",
+          "score": "9",
+          "kills": "0",
+          "deaths": "1",
+          "ping": "0",
+          "is_bot": true
+        },
+        {
+          "name": "K. Bergqvist",
           "team": "",
           "rank": "3",
-          "score": "7",
+          "score": "8",
           "kills": "3",
-          "deaths": "1",
+          "deaths": "2",
           "ping": "0",
           "is_bot": true
         },
@@ -284,36 +314,56 @@
           "rank": "1",
           "score": "7",
           "kills": "1",
-          "deaths": "0",
+          "deaths": "2",
           "ping": "0",
           "is_bot": true
         },
         {
-          "name": "J. Vifian",
+          "name": "H. Andersson",
           "team": "",
-          "rank": "1",
-          "score": "7",
-          "kills": "1",
-          "deaths": "0",
+          "rank": "3",
+          "score": "6",
+          "kills": "3",
+          "deaths": "3",
           "ping": "0",
           "is_bot": true
         },
         {
-          "name": "G. Pigula",
-          "team": "",
-          "rank": "0",
-          "score": "7",
-          "kills": "0",
-          "deaths": "0",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "K. Bergqvist",
+          "name": "R. Linde",
           "team": "",
           "rank": "2",
           "score": "6",
           "kills": "2",
+          "deaths": "2",
+          "ping": "0",
+          "is_bot": true
+        },
+        {
+          "name": "M. Livesey",
+          "team": "",
+          "rank": "2",
+          "score": "5",
+          "kills": "2",
+          "deaths": "1",
+          "ping": "0",
+          "is_bot": true
+        },
+        {
+          "name": "L. Martensson",
+          "team": "",
+          "rank": "2",
+          "score": "5",
+          "kills": "2",
+          "deaths": "1",
+          "ping": "0",
+          "is_bot": true
+        },
+        {
+          "name": "D. Mod",
+          "team": "",
+          "rank": "1",
+          "score": "5",
+          "kills": "1",
           "deaths": "1",
           "ping": "0",
           "is_bot": true
@@ -324,7 +374,7 @@
           "rank": "0",
           "score": "5",
           "kills": "0",
-          "deaths": "1",
+          "deaths": "2",
           "ping": "0",
           "is_bot": true
         },
@@ -334,17 +384,37 @@
           "rank": "2",
           "score": "4",
           "kills": "2",
-          "deaths": "1",
+          "deaths": "2",
           "ping": "0",
           "is_bot": true
         },
         {
-          "name": "M. Livesey",
+          "name": "M. Brassard",
+          "team": "",
+          "rank": "2",
+          "score": "4",
+          "kills": "2",
+          "deaths": "4",
+          "ping": "0",
+          "is_bot": true
+        },
+        {
+          "name": "J. Price",
+          "team": "",
+          "rank": "1",
+          "score": "4",
+          "kills": "1",
+          "deaths": "2",
+          "ping": "0",
+          "is_bot": true
+        },
+        {
+          "name": "L. Gustavsson",
           "team": "",
           "rank": "1",
           "score": "3",
           "kills": "1",
-          "deaths": "0",
+          "deaths": "2",
           "ping": "0",
           "is_bot": true
         },
@@ -359,47 +429,7 @@
           "is_bot": true
         },
         {
-          "name": "L. Martensson",
-          "team": "",
-          "rank": "1",
-          "score": "2",
-          "kills": "1",
-          "deaths": "0",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "M. Brassard",
-          "team": "",
-          "rank": "1",
-          "score": "2",
-          "kills": "1",
-          "deaths": "1",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "D. Mod",
-          "team": "",
-          "rank": "1",
-          "score": "2",
-          "kills": "1",
-          "deaths": "1",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "J. Ceron",
-          "team": "",
-          "rank": "1",
-          "score": "2",
-          "kills": "1",
-          "deaths": "1",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "H. Andersson",
+          "name": "M. Choy",
           "team": "",
           "rank": "1",
           "score": "2",
@@ -409,17 +439,27 @@
           "is_bot": true
         },
         {
-          "name": "R. Linde",
+          "name": "S. Flyte",
           "team": "",
-          "rank": "0",
+          "rank": "1",
           "score": "2",
-          "kills": "0",
-          "deaths": "1",
+          "kills": "1",
+          "deaths": "2",
           "ping": "0",
           "is_bot": true
         },
         {
-          "name": "J. Hargelid",
+          "name": "K. Yip",
+          "team": "",
+          "rank": "0",
+          "score": "2",
+          "kills": "0",
+          "deaths": "3",
+          "ping": "0",
+          "is_bot": true
+        },
+        {
+          "name": "S. Wallberg",
           "team": "",
           "rank": "0",
           "score": "1",
@@ -429,42 +469,12 @@
           "is_bot": true
         },
         {
-          "name": "L. Gustavsson",
+          "name": "J. Hargelid",
           "team": "",
           "rank": "0",
           "score": "1",
           "kills": "0",
-          "deaths": "1",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "F. Lindblom",
-          "team": "",
-          "rank": "0",
-          "score": "1",
-          "kills": "0",
-          "deaths": "1",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "K. Yip",
-          "team": "",
-          "rank": "0",
-          "score": "1",
-          "kills": "0",
-          "deaths": "1",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "J. Price",
-          "team": "",
-          "rank": "0",
-          "score": "1",
-          "kills": "0",
-          "deaths": "1",
+          "deaths": "2",
           "ping": "0",
           "is_bot": true
         },
@@ -479,47 +489,17 @@
           "is_bot": true
         },
         {
-          "name": "M. Choy",
+          "name": "F. Lindblom",
           "team": "",
           "rank": "0",
-          "score": "0",
+          "score": "1",
           "kills": "0",
-          "deaths": "0",
+          "deaths": "2",
           "ping": "0",
           "is_bot": true
         },
         {
           "name": "I. Ackworth",
-          "team": "",
-          "rank": "0",
-          "score": "0",
-          "kills": "0",
-          "deaths": "0",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "S. Wallberg",
-          "team": "",
-          "rank": "0",
-          "score": "0",
-          "kills": "0",
-          "deaths": "0",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "T. Laedre",
-          "team": "",
-          "rank": "0",
-          "score": "0",
-          "kills": "0",
-          "deaths": "1",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "R. Edgren",
           "team": "",
           "rank": "0",
           "score": "0",
@@ -549,22 +529,32 @@
           "is_bot": true
         },
         {
-          "name": "S. Flyte",
+          "name": "T. Laedre",
           "team": "",
           "rank": "0",
           "score": "0",
           "kills": "0",
-          "deaths": "1",
+          "deaths": "2",
+          "ping": "0",
+          "is_bot": true
+        },
+        {
+          "name": "R. Edgren",
+          "team": "",
+          "rank": "0",
+          "score": "0",
+          "kills": "0",
+          "deaths": "2",
           "ping": "0",
           "is_bot": true
         },
         {
           "name": "E. Douridas",
           "team": "",
-          "rank": "0",
-          "score": "-4",
-          "kills": "0",
-          "deaths": "1",
+          "rank": "1",
+          "score": "-7",
+          "kills": "1",
+          "deaths": "4",
           "ping": "0",
           "is_bot": true
         }
@@ -609,7 +599,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-12T13:22:03+00:00"
+      "last_seen": "2026-11-12T13:24:03+00:00"
     },
     {
       "id": "bf2142-ponyhof-1",
