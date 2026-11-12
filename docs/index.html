@@ -524,6 +524,53 @@
     color: var(--offline);
     text-align: center;
   }
+
+  /* ---- Reiter + Ranking ---- */
+  .tabs { display: flex; gap: 0.4rem; justify-content: center; margin: 0 auto 1rem; max-width: 760px; }
+  .tab-btn {
+    flex: 1; max-width: 11rem; background: rgba(36,40,25,0.62); color: var(--text-dim);
+    border: 1px solid var(--panel-line); padding: 0.5rem 0.8rem; cursor: pointer;
+    font-family: "Staatliches", sans-serif; letter-spacing: 0.05em; font-size: 1rem;
+  }
+  .tab-btn.active { color: var(--brass); border-color: var(--brass); background: rgba(36,40,25,0.9); }
+  .rk { max-width: 760px; margin: 0 auto 1rem; }
+  .rk-chips { display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 0 0 0.6rem; }
+  .chip {
+    background: rgba(36,40,25,0.62); color: var(--text-dim); border: 1px solid var(--panel-line);
+    padding: 0.3rem 0.7rem; font-size: 0.78rem; cursor: pointer; font-family: inherit;
+  }
+  .chip.active { color: var(--bg); background: var(--brass); border-color: var(--brass); }
+  .rk select, .rk input[type=search] {
+    width: 100%; background: rgba(36,40,25,0.8); color: var(--text); border: 1px solid var(--panel-line);
+    padding: 0.5rem 0.6rem; font-size: 0.85rem; font-family: inherit; margin: 0 0 0.6rem;
+  }
+  .rk-list { list-style: none; margin: 0; padding: 0; border: 1px solid var(--panel-line); background: rgba(36,40,25,0.62); }
+  .rk-row {
+    display: grid; grid-template-columns: 2.6rem 1fr auto; gap: 0.5rem; align-items: center;
+    padding: 0.55rem 0.7rem; border-bottom: 1px solid var(--panel-line); cursor: pointer; font-size: 0.9rem;
+  }
+  .rk-row:last-child { border-bottom: 0; }
+  .rk-row:hover { background: rgba(201,168,76,0.08); }
+  .rk-rank { font-family: "Staatliches", sans-serif; color: var(--text-dim); font-size: 1.05rem; text-align: center; }
+  .rk-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .rk-pts { font-variant-numeric: tabular-nums; color: var(--brass); }
+  .rk-r1 .rk-rank { color: #e6c35a; font-size: 1.3rem; }
+  .rk-r2 .rk-rank { color: #c4c8cc; font-size: 1.2rem; }
+  .rk-r3 .rk-rank { color: #c98a55; font-size: 1.15rem; }
+  .rk-r1 { background: rgba(230,195,90,0.08); }
+  .rk-empty { padding: 1.2rem; text-align: center; color: var(--text-dim); font-size: 0.85rem; }
+  .rk-meta { font-size: 0.7rem; color: var(--text-dim); margin: 0.6rem 0; line-height: 1.5; }
+  .rk-info { font-size: 0.78rem; line-height: 1.6; margin: 0.6rem 0; border: 1px solid var(--panel-line); background: rgba(36,40,25,0.62); padding: 0.4rem 0.8rem; }
+  .rk-info summary { cursor: pointer; color: var(--brass); font-family: "Staatliches", sans-serif; letter-spacing: 0.04em; font-size: 0.95rem; }
+  .rk-info ul { margin: 0.4rem 0 0.2rem; padding-left: 1.1rem; }
+  .rk-found { margin: 0 0 0.6rem; font-size: 0.8rem; }
+  .rk-found button { background: none; border: 1px solid var(--panel-line); color: var(--text); padding: 0.25rem 0.6rem; margin: 0 0.3rem 0.3rem 0; cursor: pointer; font-family: inherit; font-size: 0.78rem; }
+  .rk-found button:hover { border-color: var(--brass); }
+  .pl-stats { display: grid; grid-template-columns: auto 1fr; gap: 0.25rem 0.8rem; font-size: 0.82rem; margin: 0 0 0.8rem; }
+  .pl-stats dt { color: var(--text-dim); }
+  .pl-stats dd { margin: 0; }
+  .pl-bar { display: grid; grid-template-columns: 4.5rem 1fr 3.5rem; gap: 0.5rem; align-items: center; font-size: 0.78rem; margin: 0.25rem 0; }
+  .pl-bar i { display: block; height: 0.55rem; background: var(--field-green); }
 </style>
 </head>
 <body>
@@ -657,6 +704,12 @@
     <span class="online-count" id="online-count"></span>
   </header>
 
+  <nav class="tabs" aria-label="Sections">
+    <button type="button" class="tab-btn active" id="tab-servers" onclick="showTab('servers')">Servers</button>
+    <button type="button" class="tab-btn" id="tab-ranking" onclick="showTab('ranking')">Ranking</button>
+  </nav>
+
+  <section id="view-servers">
   <div class="hours" id="hours">
     <strong>Regular operating hours</strong> <span class="dim">(CET/CEST)</span><br>
     Start: Mon&ndash;Fri from 18:30 &middot; Sat&ndash;Sun from 16:30<br>
@@ -671,6 +724,29 @@
 
   <p class="timestamp" id="timestamp"></p>
   <p class="stale-notice" id="stale-notice" hidden></p>
+  </section>
+
+  <section id="view-ranking" hidden>
+    <div class="rk">
+      <div class="rk-chips" id="rk-periods"></div>
+      <select id="rk-select" aria-label="Time period"></select>
+      <div class="rk-chips" id="rk-games"></div>
+      <input type="search" id="rk-search" placeholder="Find a player (nickname)" maxlength="32" autocomplete="off">
+      <div class="rk-found" id="rk-found"></div>
+      <ol class="rk-list" id="rk-list"></ol>
+      <p class="rk-meta" id="rk-meta"></p>
+      <details class="rk-info">
+        <summary>How the ranking works</summary>
+        <ul>
+          <li>Points are score gains of human players on the internet servers. Bots and LAN games are not counted.</li>
+          <li>Players are ranked by their exact nickname. The same nickname is added up across all games in the Overall ranking; a different nickname counts as a separate entry.</li>
+          <li>Nicknames starting with &quot;Player&quot; (default name) or &quot;MaeKey&quot; are not shown.</li>
+          <li>A gaming day ends at 04:00 (CET/CEST), so late sessions still count for the day before. Weeks run Monday to Sunday.</li>
+          <li>The current period is an interim standing and is updated about every 15 minutes.</li>
+        </ul>
+      </details>
+    </div>
+  </section>
 </div>
 
 <div class="modal-backdrop" id="modal-backdrop" hidden onclick="if(event.target===this) closeScoreboard()">
@@ -940,6 +1016,160 @@ function showScoreboard(id) {
   body.innerHTML = html;
   document.getElementById("modal-backdrop").hidden = false;
 }
+
+// ---------- Ranking ----------
+const RANKING_BASE = "https://raw.githubusercontent.com/mae4key/MaeKeys_Ponyhof_Ranking/main/data/";
+const RK = { data: null, players: null, period: "week", game: "all", key: null, arch: {}, rows: [], started: false };
+const RK_PERIODS = [["day", "Day"], ["week", "Week"], ["month", "Month"], ["year", "Year"], ["all", "All time"]];
+const RK_SHORT = { bf1942: "BF1942", bfv: "BFV", bf2: "BF2", bf2142: "BF2142" };
+
+function rkFetch(path) {
+  return fetch(RANKING_BASE + path + "?t=" + Math.floor(Date.now() / 300000), { cache: "no-store" })
+    .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); });
+}
+function rkD(iso) { return new Date(iso + "T00:00:00Z"); }
+function rkFmt(iso, opt) { return rkD(iso).toLocaleDateString("en-GB", Object.assign({ timeZone: "UTC" }, opt)); }
+function rkEnd(period, start) {
+  const d = rkD(start);
+  if (period === "week") d.setUTCDate(d.getUTCDate() + 6);
+  return d.toISOString().slice(0, 10);
+}
+function rkWeekNo(iso) {
+  const d = rkD(iso);
+  d.setUTCDate(d.getUTCDate() + 3 - ((d.getUTCDay() + 6) % 7));
+  const y0 = new Date(Date.UTC(d.getUTCFullYear(), 0, 4));
+  return 1 + Math.round(((d - y0) / 86400000 - 3 + ((y0.getUTCDay() + 6) % 7)) / 7);
+}
+function rkLabel(period, start, current) {
+  const cur = current ? " (so far)" : "";
+  if (period === "day") return rkFmt(start, { weekday: "short", day: "numeric", month: "short" }) + cur;
+  if (period === "week") return "Week " + rkWeekNo(start) + " \u00b7 " + rkFmt(start, { day: "numeric", month: "short" }) + " \u2013 " + rkFmt(rkEnd("week", start), { day: "numeric", month: "short" }) + cur;
+  if (period === "month") return rkFmt(start, { month: "long", year: "numeric" }) + cur;
+  return start.slice(0, 4) + cur;
+}
+function rkOptions(period) {
+  const list = (RK.data.periods[period] || []).map(v => ({ key: v.key, start: v.start, current: v.current }));
+  const have = new Set(list.map(o => o.key));
+  ((RK.data.archive || {})[period] || []).slice().reverse().forEach(k => {
+    if (!have.has(k)) list.push({ key: k, start: k, current: false });
+  });
+  return list;
+}
+function rkView() {
+  if (RK.period === "all") return (RK.data.periods.all || [])[0] || null;
+  const v = (RK.data.periods[RK.period] || []).find(x => x.key === RK.key);
+  return v || RK.arch[RK.period + "/" + RK.key] || null;
+}
+async function rkSelectKey(key) {
+  RK.key = key;
+  const inMain = (RK.data.periods[RK.period] || []).some(x => x.key === key);
+  const ck = RK.period + "/" + key;
+  if (!inMain && !RK.arch[ck]) {
+    try { RK.arch[ck] = await rkFetch("archive/" + RK.period + "/" + key + ".json"); } catch (e) { /* bleibt leer */ }
+  }
+  rkRender();
+}
+function rkRender() {
+  if (!RK.data) return;
+  const pc = document.getElementById("rk-periods");
+  pc.innerHTML = RK_PERIODS.map(([id, lab]) =>
+    `<button type="button" class="chip${id === RK.period ? " active" : ""}" data-p="${id}">${lab}</button>`).join("");
+  const opts = RK.period === "all" ? [] : rkOptions(RK.period);
+  if (RK.period !== "all" && !opts.some(o => o.key === RK.key)) RK.key = opts.length ? opts[0].key : null;
+  const sel = document.getElementById("rk-select");
+  sel.hidden = RK.period === "all";
+  sel.innerHTML = opts.map(o => `<option value="${esc(o.key)}"${o.key === RK.key ? " selected" : ""}>${esc(rkLabel(RK.period, o.start, o.current))}</option>`).join("");
+  document.getElementById("rk-games").innerHTML =
+    [{ id: "all", name: "Overall" }].concat(RK.data.games || []).map(g =>
+      `<button type="button" class="chip${g.id === RK.game ? " active" : ""}" data-g="${esc(g.id)}">${esc(g.id === "all" ? "Overall" : (RK_SHORT[g.id] || g.name))}</button>`).join("");
+  const v = rkView();
+  RK.rows = v ? (v.scopes[RK.game] || []) : [];
+  const ul = document.getElementById("rk-list");
+  ul.innerHTML = RK.rows.length
+    ? RK.rows.map((r, i) => `<li class="rk-row${i < 3 ? " rk-r" + (i + 1) : ""}" data-i="${i}"><span class="rk-rank">${i + 1}</span><span class="rk-name">${esc(r.n)}</span><span class="rk-pts">${esc(r.p)}</span></li>`).join("")
+    : `<li class="rk-empty">No points recorded in this period yet.</li>`;
+  const last = RK.data.last_points_ts ? new Date(RK.data.last_points_ts * 1000).toLocaleString("en-GB", { dateStyle: "medium", timeStyle: "short" }) : "\u2013";
+  document.getElementById("rk-meta").textContent = "Last points recorded: " + last + " \u00b7 gaming day ends 04:00 (CET/CEST)";
+}
+async function rkPlayers() {
+  if (!RK.players) { try { RK.players = (await rkFetch("players.json")).players || []; } catch (e) { RK.players = []; } }
+  return RK.players;
+}
+async function rkOpenPlayer(name) {
+  const list = await rkPlayers();
+  const p = list.find(x => x.n === name);
+  document.getElementById("modal-title").textContent = name;
+  document.getElementById("modal-sub").textContent = p ? "All-time rank #" + p.r : "";
+  let html = "";
+  if (!p) {
+    html = `<p class="modal-empty">No details available yet.</p>`;
+  } else {
+    const c = p.c || {};
+    html += `<dl class="pl-stats"><dt>Total points</dt><dd>${esc(p.t)}</dd>`
+      + `<dt>Days played</dt><dd>${esc(p.d)}</dd>`
+      + `<dt>First seen</dt><dd>${esc(rkFmt(p.f, { day: "numeric", month: "short", year: "numeric" }))}</dd>`
+      + `<dt>Last seen</dt><dd>${esc(rkFmt(p.l, { day: "numeric", month: "short", year: "numeric" }))}</dd>`
+      + `<dt>Today</dt><dd>${esc(c.day || 0)}</dd><dt>This week</dt><dd>${esc(c.week || 0)}</dd>`
+      + `<dt>This month</dt><dd>${esc(c.month || 0)}</dd><dt>This year</dt><dd>${esc(c.year || 0)}</dd></dl>`;
+    const max = Math.max(1, ...Object.values(p.g || {}));
+    html += (RK.data.games || []).filter(g => (p.g || {})[g.id]).map(g => {
+      const v = p.g[g.id];
+      return `<div class="pl-bar"><span>${esc(RK_SHORT[g.id] || g.name)}</span><span><i style="width:${Math.max(3, Math.round(100 * v / max))}%"></i></span><span>${esc(v)}</span></div>`;
+    }).join("");
+  }
+  document.getElementById("modal-body").innerHTML = html;
+  document.getElementById("modal-backdrop").hidden = false;
+}
+async function rkLoad() {
+  try {
+    RK.data = await rkFetch("ranking.json");
+    RK.players = null;
+    rkRender();
+  } catch (e) {
+    if (!RK.data) document.getElementById("rk-list").innerHTML = `<li class="rk-empty">Ranking currently unavailable. Please try again later.</li>`;
+  }
+}
+function showTab(name) {
+  const rank = name === "ranking";
+  document.getElementById("view-servers").hidden = rank;
+  document.getElementById("view-ranking").hidden = !rank;
+  document.getElementById("tab-servers").classList.toggle("active", !rank);
+  document.getElementById("tab-ranking").classList.toggle("active", rank);
+  if (history.replaceState) history.replaceState(null, "", rank ? "#ranking" : location.pathname + location.search);
+  if (rank && !RK.started) { RK.started = true; rkLoad(); }
+}
+document.getElementById("rk-periods").addEventListener("click", e => {
+  const b = e.target.closest("[data-p]"); if (!b) return;
+  RK.period = b.dataset.p; RK.key = null; rkRender();
+});
+document.getElementById("rk-games").addEventListener("click", e => {
+  const b = e.target.closest("[data-g]"); if (!b) return;
+  RK.game = b.dataset.g; rkRender();
+});
+document.getElementById("rk-select").addEventListener("change", e => rkSelectKey(e.target.value));
+document.getElementById("rk-list").addEventListener("click", e => {
+  const li = e.target.closest("[data-i]"); if (!li) return;
+  const r = RK.rows[parseInt(li.dataset.i, 10)];
+  if (r) rkOpenPlayer(r.n);
+});
+document.getElementById("rk-search").addEventListener("input", async e => {
+  const q = e.target.value.trim().toLowerCase();
+  const box = document.getElementById("rk-found");
+  if (q.length < 2) { box.innerHTML = ""; return; }
+  const hits = (await rkPlayers()).filter(p => p.n.toLowerCase().includes(q)).slice(0, 8);
+  box.innerHTML = hits.length
+    ? hits.map((p, i) => `<button type="button" data-n="${i}">#${esc(p.r)} ${esc(p.n)}</button>`).join("")
+    : `<span class="rk-meta">No player found.</span>`;
+  box._hits = hits;
+});
+document.getElementById("rk-found").addEventListener("click", e => {
+  const b = e.target.closest("[data-n]"); if (!b) return;
+  const h = document.getElementById("rk-found")._hits || [];
+  const p = h[parseInt(b.dataset.n, 10)];
+  if (p) rkOpenPlayer(p.n);
+});
+setInterval(() => { if (!document.getElementById("view-ranking").hidden) rkLoad(); }, 300000);
+if (location.hash === "#ranking") showTab("ranking");
 
 function toggleMenu() {
   const panel = document.getElementById("menu-panel");
