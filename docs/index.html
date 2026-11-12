@@ -1377,7 +1377,7 @@ function initBackgroundFx() {
       float bendT = hT * hT;
       float windT = (0.35 + 0.65 * sin(uT * 0.9 + uv.x * 3.0)) * gust;
       float trAmp = (bgT * 0.0050 + deadT * 0.0005) * ygate;
-      uv.x += wGrass * max(gR, gM) * 0.0011 + windT * bendT * trAmp;
+      uv.x += windT * bendT * trAmp;   // Gras bewusst ohne Verschiebung
       vec3 col = texture2D(uTex, uv).rgb;
       float asp = uImg.x / uImg.y;
       float amb = 0.0;
