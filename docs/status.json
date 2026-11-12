@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-12T20:01:26+00:00",
+  "generated_at": "2026-11-12T20:03:25+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -15,11 +15,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "417"
+          "score": "355"
         },
         {
           "name": "allied",
-          "score": "487"
+          "score": "485"
         }
       ],
       "settings": [
@@ -48,7 +48,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-12T20:01:26+00:00"
+      "last_seen": "2026-11-12T20:03:25+00:00"
     },
     {
       "id": "bf1942-ponyhof-2",
@@ -107,28 +107,28 @@
           "name": "***BillyBobJoe***",
           "team": "2",
           "rank": "",
-          "score": "19",
-          "kills": "5",
-          "deaths": "4",
-          "ping": "63",
+          "score": "22",
+          "kills": "6",
+          "deaths": "6",
+          "ping": "65",
           "is_bot": false
         },
         {
           "name": "*** LINUS ***",
           "team": "2",
           "rank": "",
-          "score": "18",
-          "kills": "7",
-          "deaths": "1",
-          "ping": "76",
+          "score": "19",
+          "kills": "8",
+          "deaths": "4",
+          "ping": "79",
           "is_bot": false
         },
         {
           "name": "*** OCE ***",
           "team": "2",
           "rank": "",
-          "score": "12",
-          "kills": "7",
+          "score": "13",
+          "kills": "8",
           "deaths": "3",
           "ping": "42",
           "is_bot": false
@@ -137,11 +137,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "814"
+          "score": "764"
         },
         {
           "name": "blue",
-          "score": "935"
+          "score": "917"
         }
       ],
       "settings": [
@@ -170,7 +170,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-12T20:01:26+00:00"
+      "last_seen": "2026-11-12T20:03:25+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
@@ -582,7 +582,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-12T20:01:26+00:00"
+      "last_seen": "2026-11-12T20:03:25+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -1002,7 +1002,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-12T20:01:26+00:00"
+      "last_seen": "2026-11-12T20:03:25+00:00"
     },
     {
       "id": "bf2142-ponyhof-2",
