@@ -574,13 +574,11 @@
   .hours summary { cursor: pointer; }
   .hours[open] summary { margin-bottom: 0.4rem; }
   /* Reiter als zwei nebeneinanderliegende Seiten (wie ein aufgeschlagenes Buch) */
-  .pager {
-    display: flex; align-items: flex-start; overflow-x: auto; overflow-y: hidden;
-    scroll-snap-type: x mandatory; overscroll-behavior-x: contain;
-    scrollbar-width: none; -webkit-overflow-scrolling: touch;
-  }
-  .pager::-webkit-scrollbar { display: none; }
-  .pager > section { flex: 0 0 100%; min-width: 0; scroll-snap-align: start; scroll-snap-stop: always; }
+  .pager { position: relative; overflow: hidden; touch-action: pan-y; }
+  .pager > section.pg-other { display: none; }
+  .pager.moving > section.pg-other { display: block; position: absolute; top: 0; left: 0; width: 100%; }
+  .pager > section { will-change: auto; }
+  .pager.moving > section { will-change: transform; }
 </style>
 </head>
 <body>
@@ -720,7 +718,7 @@
   </nav>
 
   <div class="pager" id="pager">
-  <section id="view-servers">
+  <section id="view-servers" class="pg-active">
   <details class="hours" id="hours">
     <summary><strong>Regular operating hours</strong> <span class="dim">(CET/CEST)</span><span class="live" id="hours-live"></span></summary>
     Start: Mon&ndash;Fri from 18:30 &middot; Sat&ndash;Sun from 16:30<br>
@@ -736,7 +734,7 @@
   <p class="stale-notice" id="stale-notice" hidden></p>
   </section>
 
-  <section id="view-ranking">
+  <section id="view-ranking" class="pg-other">
     <div class="rk">
       <div class="rk-chips" id="rk-periods"></div>
       <select id="rk-select" aria-label="Time period"></select>
@@ -1140,76 +1138,106 @@ async function rkLoad() {
     if (!RK.data) document.getElementById("rk-list").innerHTML = `<li class="rk-empty">Ranking currently unavailable. Please try again later.</li>`;
   }
 }
-// Reiter = zwei Seiten nebeneinander (Scroll-Snap): mit dem Finger hineinziehen,
-// ab etwa der Haelfte (oder per Schwung) rastet die neue Seite ein.
+// Reiter = zwei Seiten nebeneinander: mit dem Finger mitziehen, ab ca. 30 % (oder
+// per Schwung) wechselt die Seite. Nur zwei Seiten -> endlos in beide Richtungen.
 const PAGER = document.getElementById("pager");
 const PAGES = [document.getElementById("view-servers"), document.getElementById("view-ranking")];
-let pagerIdx = 0, pagerTimer = null, pagerExpanded = false, pagerTouch = null, pagerDown = false;
+const PAGER_GAP = 24, PAGER_MS = 280, PAGER_EASE = "cubic-bezier(0.22, 0.8, 0.3, 1)";
+let pagerIdx = 0, pdrag = null, pbusy = false;
 
-function pagerFit() {
-  if (pagerDown) return;
-  pagerExpanded = false;
-  PAGER.style.height = PAGES[pagerIdx].offsetHeight + "px";
-}
-function pagerExpand() {
-  if (pagerExpanded) return;
-  pagerExpanded = true;
-  PAGER.style.height = "";
-}
-function pagerSetActive(i) {
-  if (i === pagerIdx) return;
-  pagerIdx = i;
+function pagerTabs(i) {
   document.getElementById("tab-servers").classList.toggle("active", i === 0);
   document.getElementById("tab-ranking").classList.toggle("active", i === 1);
-  PAGES.forEach((pg, k) => pg.setAttribute("aria-hidden", k === i ? "false" : "true"));
+}
+function pagerLayout() {
+  PAGES.forEach((pg, k) => {
+    pg.classList.toggle("pg-active", k === pagerIdx);
+    pg.classList.toggle("pg-other", k !== pagerIdx);
+    pg.setAttribute("aria-hidden", k === pagerIdx ? "false" : "true");
+    pg.style.transform = "";
+    pg.style.transition = "";
+  });
+  PAGER.classList.remove("moving");
+  PAGER.style.minHeight = "";
+  pbusy = false;
+}
+function pagerActivate(i) {
+  pagerIdx = i;
+  pagerTabs(i);
   if (history.replaceState) history.replaceState(null, "", i ? "#ranking" : location.pathname + location.search);
   if (i === 1 && !RK.started) { RK.started = true; rkLoad(); }
+  pagerLayout();
 }
-PAGER.addEventListener("scroll", () => {
-  pagerSetActive(Math.round(PAGER.scrollLeft / Math.max(1, PAGER.clientWidth)));
-  clearTimeout(pagerTimer);
-  pagerTimer = setTimeout(pagerFit, 150);
-}, { passive: true });
-PAGER.addEventListener("touchstart", e => {
-  const t = e.touches[0];
-  pagerTouch = { x: t.clientX, y: t.clientY };
-  pagerDown = true;
-}, { passive: true });
-PAGER.addEventListener("touchmove", e => {
-  if (!pagerTouch) return;
-  const t = e.touches[0];
-  if (Math.abs(t.clientX - pagerTouch.x) > 8 && Math.abs(t.clientX - pagerTouch.x) > Math.abs(t.clientY - pagerTouch.y)) {
-    pagerExpand();
-    pagerTouch = null;
+function pagerStartMove() {
+  PAGER.classList.add("moving");
+  PAGER.style.minHeight = Math.max(PAGES[0].offsetHeight, PAGES[1].offsetHeight) + "px";
+}
+function pagerPlace(dx) {
+  const step = PAGER.clientWidth + PAGER_GAP;
+  PAGES[pagerIdx].style.transform = "translate3d(" + dx + "px,0,0)";
+  PAGES[1 - pagerIdx].style.transform = "translate3d(" + (dx + (dx < 0 ? step : -step)) + "px,0,0)";
+}
+function pagerSettle(dir, commit) {
+  // dir: -1 = Inhalt nach links geschoben (naechste Seite von rechts), +1 = nach rechts
+  pbusy = true;
+  const step = PAGER.clientWidth + PAGER_GAP;
+  const cur = PAGES[pagerIdx], oth = PAGES[1 - pagerIdx];
+  const tr = "transform " + PAGER_MS + "ms " + PAGER_EASE;
+  cur.style.transition = tr; oth.style.transition = tr;
+  if (commit) {
+    cur.style.transform = "translate3d(" + (dir * step) + "px,0,0)";
+    oth.style.transform = "translate3d(0,0,0)";
+  } else {
+    cur.style.transform = "translate3d(0,0,0)";
+    oth.style.transform = "translate3d(" + (-dir * step) + "px,0,0)";
   }
-}, { passive: true });
-const pagerUp = () => {
-  pagerDown = false;
-  setTimeout(() => {
-    if (Math.abs(PAGER.scrollLeft - pagerIdx * PAGER.clientWidth) < 2) pagerFit();
-  }, 300);
-};
-PAGER.addEventListener("touchend", pagerUp, { passive: true });
-PAGER.addEventListener("touchcancel", pagerUp, { passive: true });
-if (window.ResizeObserver) {
-  const ro = new ResizeObserver(() => { if (!pagerExpanded) pagerFit(); });
-  PAGES.forEach(pg => ro.observe(pg));
+  const next = 1 - pagerIdx;
+  setTimeout(() => { if (commit) pagerActivate(next); else { pagerTabs(pagerIdx); pagerLayout(); } }, PAGER_MS + 40);
 }
-let pagerW = PAGER.clientWidth;
-window.addEventListener("resize", () => {
-  if (PAGER.clientWidth === pagerW) return;
-  pagerW = PAGER.clientWidth;
-  PAGER.scrollLeft = pagerIdx * pagerW;
-  pagerFit();
-});
 function showTab(name) {
   const i = name === "ranking" ? 1 : 0;
-  pagerExpand();
-  PAGER.scrollTo({ left: i * PAGER.clientWidth, behavior: "smooth" });
-  setTimeout(pagerFit, 500);
+  if (i === pagerIdx || pbusy) return;
+  pagerStartMove();
+  pagerPlace(0);
+  PAGES[1 - pagerIdx].style.transform = "translate3d(" + (i === 1 ? 1 : -1) * (PAGER.clientWidth + PAGER_GAP) + "px,0,0)";
+  void PAGER.offsetWidth;
+  pagerSettle(i === 1 ? -1 : 1, true);
 }
-pagerFit();
-PAGES[1].setAttribute("aria-hidden", "true");
+PAGER.addEventListener("pointerdown", e => {
+  if (e.pointerType === "mouse" || pbusy || e.target.closest("input, select, textarea")) return;
+  pdrag = { id: e.pointerId, x: e.clientX, y: e.clientY, active: false, dx: 0, vx: 0, lx: e.clientX, lt: performance.now() };
+});
+PAGER.addEventListener("pointermove", e => {
+  if (!pdrag || e.pointerId !== pdrag.id) return;
+  const dx = e.clientX - pdrag.x, dy = e.clientY - pdrag.y;
+  if (!pdrag.active) {
+    if (Math.abs(dx) > 10 && Math.abs(dx) > 1.4 * Math.abs(dy)) {
+      pdrag.active = true;
+      try { PAGER.setPointerCapture(e.pointerId); } catch (err) { /* egal */ }
+      pagerStartMove();
+    } else return;
+  }
+  const now = performance.now();
+  const dt = Math.max(1, now - pdrag.lt);
+  pdrag.vx = 0.7 * pdrag.vx + 0.3 * ((e.clientX - pdrag.lx) / dt);
+  pdrag.lx = e.clientX; pdrag.lt = now;
+  pdrag.dx = dx;
+  pagerPlace(dx);
+  const target = Math.abs(dx) > PAGER.clientWidth * 0.3 ? 1 - pagerIdx : pagerIdx;
+  pagerTabs(target);
+});
+function pagerRelease(cancelled) {
+  const d = pdrag; pdrag = null;
+  if (!d || !d.active) return;
+  const w = PAGER.clientWidth;
+  const dir = d.dx < 0 ? -1 : 1;
+  const fast = Math.abs(d.vx) > 0.45 && Math.abs(d.dx) > 24 && Math.sign(d.vx) === dir;
+  const commit = !cancelled && (Math.abs(d.dx) > w * 0.3 || fast);
+  pagerSettle(dir, commit);
+}
+PAGER.addEventListener("pointerup", () => pagerRelease(false));
+PAGER.addEventListener("pointercancel", () => pagerRelease(true));
+pagerLayout();
 document.getElementById("rk-periods").addEventListener("click", e => {
   const b = e.target.closest("[data-p]"); if (!b) return;
   RK.period = b.dataset.p; RK.key = null; rkRender();
@@ -1241,7 +1269,7 @@ document.getElementById("rk-found").addEventListener("click", e => {
   if (p) rkOpenPlayer(p.n);
 });
 setInterval(() => { if (pagerIdx === 1) rkLoad(); }, 300000);
-if (location.hash === "#ranking") { pagerSetActive(1); PAGER.scrollLeft = PAGER.clientWidth; pagerFit(); }
+if (location.hash === "#ranking") pagerActivate(1);
 
 function toggleMenu() {
   const panel = document.getElementById("menu-panel");
