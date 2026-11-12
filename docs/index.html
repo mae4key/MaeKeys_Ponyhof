@@ -34,6 +34,7 @@
   html, body {
     margin: 0;
     min-height: 100%;
+    overscroll-behavior-y: none;
     background: var(--bg);
     color: var(--text);
   }
@@ -46,7 +47,9 @@
 
   .bg-photo {
     position: fixed;
-    top: 0; right: 0; bottom: 0; left: 0;
+    top: 0; right: 0; left: 0;
+    height: 100vh;
+    height: 100lvh;
     z-index: 0;
     background-image: url("assets/bg-church.jpg");
     background-repeat: no-repeat;
@@ -56,7 +59,9 @@
 
   .bg-overlay {
     position: fixed;
-    top: 0; right: 0; bottom: 0; left: 0;
+    top: 0; right: 0; left: 0;
+    height: 100vh;
+    height: 100lvh;
     z-index: 1;
     pointer-events: none;
     background-image:
@@ -69,7 +74,8 @@
      beim Scrollen horizontal "Spielraum" zum Schwenken entsteht. */
   @media (max-width: 640px) {
     .bg-photo {
-      background-size: 230% auto;
+      background-size: auto 100%;
+      background-position-y: 50%;
     }
   }
 
