@@ -474,6 +474,69 @@ def _bf2_raw_teams(host, port):
         return []
 
 
+def _bf2_raw_players(host, port, bot_names=None):
+    """BF2/BF2142: Spielerliste direkt aus den Rohpaketen lesen. opengsq verliert
+    bei mehrteiligen Antworten die Spalten skill_ und deaths_. Zuordnung (am
+    laufenden Server verifiziert): score_ = Punkte, skill_ = Kills,
+    deaths_ = Tode, AIBot_/ping_ = Bot-Erkennung. Gibt eine fertige
+    Scoreboard-Liste zurueck oder None, wenn die Daten nicht konsistent sind."""
+    try:
+        sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        sock.settimeout(TIMEOUT_SECONDS)
+        sock.sendto(b"\xfe\xfd\x00\x10\x20\x30\x40\xff\xff\xff\x01", (host, port))
+        pk = []
+        try:
+            pk.append(sock.recv(65535))
+            sock.settimeout(0.7)
+            while True:
+                pk.append(sock.recv(65535))
+        except Exception:
+            pass
+        sock.close()
+        parts = {}
+        for d in pk:
+            if len(d) < 16 or d[0] != 0:
+                continue
+            num = d[14]
+            rest = d[16:]
+            obj = d[15]
+            if obj >= 1:
+                e = rest.index(b"\x00")
+                key = rest[:e + 1]
+                count = rest[e + 1]
+                rest = rest[e + 2:]
+                if count == 0:
+                    rest = b"\x00" + key + b"\x00" + rest
+            rest = rest[:-1]
+            rest = rest[:rest.rfind(b"\x00") + 1]
+            parts[num & 0x7F] = rest
+        if not parts:
+            return None
+        data = b"".join(parts[k] for k in sorted(parts))
+
+        def col(key):
+            m = re.search(rb"(?<![A-Za-z_])" + re.escape(key) + rb"\x00\x00(.*?)\x00\x00", data, re.S)
+            if not m:
+                return None
+            return [x.decode("latin1") for x in m.group(1).split(b"\x00")]
+
+        names, score, skill, deaths, ping, aibot = (
+            col(b"player_"), col(b"score_"), col(b"skill_"),
+            col(b"deaths_"), col(b"ping_"), col(b"AIBot_"))
+        if not names or any(c is None or len(c) != len(names) for c in (score, skill, deaths, ping)):
+            return None
+        bot_names = bot_names or set()
+        board = []
+        for i, n in enumerate(names):
+            is_bot = ping[i] == "0" or (aibot is not None and aibot[i] == "1") or n in bot_names
+            board.append({"name": n, "team": "", "rank": "", "score": score[i],
+                          "kills": skill[i], "deaths": deaths[i], "ping": ping[i], "is_bot": is_bot})
+        board.sort(key=lambda r: (r["is_bot"], -(int(r["score"]) if r["score"].lstrip("-").isdigit() else 0)))
+        return board
+    except Exception:
+        return None
+
+
 def _onoff(v) -> str:
     return "on" if str(v).strip().lower() in ("1", "on", "yes", "true") else "off"
 
@@ -674,6 +737,11 @@ async def query_one(entry: dict) -> dict:
                 raw_teams = await asyncio.to_thread(_bf2_raw_teams, entry["host"], int(entry["port"]))
                 if raw_teams:
                     result["tickets"] = raw_teams
+                raw_board = await asyncio.to_thread(
+                    _bf2_raw_players, entry["host"], int(entry["port"]),
+                    BOT_NAMES_BY_GAME.get(entry.get("game", "")))
+                if raw_board:
+                    result["scoreboard"] = raw_board
             # Spielerzahl bevorzugt direkt aus dem Scoreboard ableiten
             # (dieselbe Quelle wie die Detailansicht), damit Kachel und
             # Scoreboard nie auseinanderlaufen koennen. Nur wenn gar keine
