@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-12T20:27:55+00:00",
+  "generated_at": "2026-11-12T20:29:57+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -15,11 +15,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "837"
+          "score": "811"
         },
         {
           "name": "allied",
-          "score": "680"
+          "score": "673"
         }
       ],
       "settings": [
@@ -48,7 +48,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-12T20:27:55+00:00"
+      "last_seen": "2026-11-12T20:29:57+00:00"
     },
     {
       "id": "bf1942-ponyhof-2",
@@ -107,39 +107,39 @@
           "name": "***BillyBobJoe***",
           "team": "2",
           "rank": "",
-          "score": "85",
-          "kills": "62",
-          "deaths": "28",
-          "ping": "79",
+          "score": "89",
+          "kills": "66",
+          "deaths": "30",
+          "ping": "56",
           "is_bot": false
         },
         {
           "name": "*** LINUS ***",
           "team": "2",
           "rank": "",
-          "score": "61",
-          "kills": "43",
-          "deaths": "32",
-          "ping": "90",
+          "score": "63",
+          "kills": "45",
+          "deaths": "34",
+          "ping": "67",
           "is_bot": false
         },
         {
           "name": "*** OCE ***",
           "team": "2",
           "rank": "",
-          "score": "55",
-          "kills": "46",
-          "deaths": "23",
-          "ping": "39",
+          "score": "60",
+          "kills": "51",
+          "deaths": "24",
+          "ping": "40",
           "is_bot": false
         },
         {
           "name": "MaeKey",
           "team": "1",
           "rank": "",
-          "score": "19",
-          "kills": "19",
-          "deaths": "4",
+          "score": "27",
+          "kills": "24",
+          "deaths": "5",
           "ping": "1",
           "is_bot": false
         },
@@ -147,21 +147,21 @@
           "name": "nick",
           "team": "1",
           "rank": "",
-          "score": "13",
-          "kills": "10",
-          "deaths": "3",
-          "ping": "15",
+          "score": "18",
+          "kills": "12",
+          "deaths": "4",
+          "ping": "18",
           "is_bot": false
         }
       ],
       "tickets": [
         {
           "name": "red",
-          "score": "122"
+          "score": "102"
         },
         {
           "name": "blue",
-          "score": "664"
+          "score": "638"
         }
       ],
       "settings": [
@@ -190,7 +190,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-12T20:27:55+00:00"
+      "last_seen": "2026-11-12T20:29:57+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
@@ -602,7 +602,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-12T20:27:55+00:00"
+      "last_seen": "2026-11-12T20:29:57+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -1022,7 +1022,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-12T20:27:55+00:00"
+      "last_seen": "2026-11-12T20:29:57+00:00"
     },
     {
       "id": "bf2142-ponyhof-2",
