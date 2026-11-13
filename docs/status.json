@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-13T09:33:01+00:00",
+  "generated_at": "2026-11-13T09:35:03+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -549,7 +549,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-13T09:33:01+00:00"
+      "last_seen": "2026-11-13T09:35:03+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -575,16 +575,6 @@
       "players": 0,
       "max_players": 32,
       "scoreboard": [
-        {
-          "name": " MaeKey",
-          "team": "",
-          "rank": "",
-          "score": "0",
-          "kills": "0",
-          "deaths": "0",
-          "ping": "5",
-          "is_bot": false
-        },
         {
           "name": "A. Kertz",
           "team": "",
@@ -946,7 +936,7 @@
           "32 players"
         ]
       ],
-      "last_seen": "2026-11-13T09:33:01+00:00"
+      "last_seen": "2026-11-13T09:35:03+00:00"
     },
     {
       "id": "bf2142-ponyhof-2",
