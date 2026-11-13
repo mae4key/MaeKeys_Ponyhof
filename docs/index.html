@@ -824,6 +824,8 @@ function fmtDate(iso) {
 function renderServers(servers) {
   const el = document.getElementById("servers");
   currentServers = {};
+  // WEB20: 'nicht verfuegbar' (Nur LAN) sieht von aussen wie offline aus -> gleich anzeigen
+  servers = servers.map(s => s.status === "not_available" ? Object.assign({}, s, { status: "offline" }) : s);
   servers.forEach(s => { currentServers[s.id] = s; });
 
   if (servers.length === 0) {
