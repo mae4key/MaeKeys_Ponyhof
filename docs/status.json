@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-11-14T16:35:27+00:00",
+  "generated_at": "2026-11-14T16:37:30+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
       "game": "Battlefield 1942",
       "name": "MaeKeys Ponyhof",
       "status": "online",
-      "map": "liberation of caen",
+      "map": "omaha beach",
       "mode": "coop",
       "mod": "Vanilla",
       "players": 0,
@@ -15,11 +15,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "573"
+          "score": "997"
         },
         {
           "name": "allied",
-          "score": "705"
+          "score": "981"
         }
       ],
       "settings": [
@@ -48,14 +48,14 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-14T16:35:27+00:00"
+      "last_seen": "2026-11-14T16:37:30+00:00"
     },
     {
       "id": "bf1942-ponyhof-2",
       "game": "Battlefield 1942",
       "name": "MaeKeys Ponyhof",
       "status": "online",
-      "map": "midway",
+      "map": "aberdeen",
       "mode": "coop",
       "mod": "Vanilla",
       "players": 0,
@@ -64,11 +64,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "884"
+          "score": "1000"
         },
         {
           "name": "allied",
-          "score": "197"
+          "score": "1000"
         }
       ],
       "settings": [
@@ -97,7 +97,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-14T16:35:27+00:00"
+      "last_seen": "2026-11-14T16:37:30+00:00"
     },
     {
       "id": "bfv-ponyhof-1",
@@ -113,11 +113,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "887"
+          "score": "871"
         },
         {
           "name": "blue",
-          "score": "721"
+          "score": "694"
         }
       ],
       "settings": [
@@ -146,7 +146,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-14T16:35:27+00:00"
+      "last_seen": "2026-11-14T16:37:30+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
@@ -562,7 +562,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-14T16:35:27+00:00"
+      "last_seen": "2026-11-14T16:37:30+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -945,7 +945,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-14T16:35:27+00:00"
+      "last_seen": "2026-11-14T16:37:30+00:00"
     },
     {
       "id": "bf2142-ponyhof-2",
