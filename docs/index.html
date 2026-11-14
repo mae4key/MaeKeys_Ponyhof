@@ -536,6 +536,15 @@
     margin-bottom: 0.4rem;
   }
 
+  /* WEB21: Countdown bis zum Serverstart */
+  .countdown { text-align: center; margin: 1rem 0; padding: 0.7rem 1rem; background: var(--panel); border: 1px solid var(--panel-line); border-radius: 8px; }
+  .countdown .cd-label { color: var(--text-dim); font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  .countdown .cd-num { color: var(--brass); font-size: 1.5rem; font-variant-numeric: tabular-nums; }
+  .countdown .cd-unit { display: none; color: var(--text-dim); font-size: 0.95rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  .countdown.big { padding: 1.3rem 1rem 1.1rem; border-color: var(--brass); }
+  .countdown.big .cd-num { font-size: clamp(4.5rem, 24vw, 9rem); font-weight: 700; line-height: 1; margin: 0.15rem 0; }
+  .countdown.big .cd-unit { display: block; }
+  .countdown.last .cd-num { color: var(--online); }
   .stale-notice {
     margin-top: 1.5rem;
     font-size: 0.75rem;
@@ -745,6 +754,7 @@
     <span class="dim">After closing time, empty servers are shut down; servers with players keep running until the last player has left.</span>
   </details>
 
+  <div class="countdown" id="countdown" hidden><div class="cd-label" id="cd-label"></div><div class="cd-num" id="cd-num"></div><div class="cd-unit" id="cd-unit"></div></div>
   <div id="servers" class="servers">
     <p class="empty"><strong>Loading status …</strong>Live status of the MaeKeys Ponyhof servers for Battlefield 1942, Battlefield Vietnam, Battlefield 2 and Battlefield 2142.</p>
   </div>
@@ -920,12 +930,16 @@ function updateHours() {
   el.textContent = text;
 }
 
-async function load() {
+let loadedOnce = false, anyOnline = false, kickIdx = -1; // WEB21
+async function load(force) {
+  if (force !== true && loadedOnce && freezeActive()) return;
   try {
     const res = await fetch("https://raw.githubusercontent.com/mae4key/MaeKeys_Ponyhof/main/docs/status.json?t=" + Math.floor(Date.now() / 20000), { cache: "no-store" })
       .catch(() => fetch("status.json", { cache: "no-store" }));
     const data = await res.json();
     renderServers(data.servers || []);
+    loadedOnce = true;
+    anyOnline = (data.servers || []).some(sv => sv.status === "online");
     const totalOnline = (data.servers || [])
       .filter(s => s.status === "online")
       .reduce((sum, s) => sum + (s.map ? (s.players || 0) : 0), 0);
@@ -950,6 +964,77 @@ load();
 setInterval(load, 30000);
 updateHours();
 setInterval(updateHours, 60000);
+
+// WEB21: Countdown. Letzte 999 s gross; in den letzten 300 s vor Start wird der Status
+// nicht mehr neu geladen, bei 0 sofort (danach 3 Min. alle 15 s), damit alle Server gleichzeitig gruen werden.
+function zhNowSec() {
+  const parts = new Intl.DateTimeFormat("en-GB", {
+    timeZone: "Europe/Zurich", year: "numeric", month: "2-digit", day: "2-digit",
+    hour: "2-digit", minute: "2-digit", second: "2-digit", hourCycle: "h23",
+  }).formatToParts(new Date());
+  const g = t => parseInt(parts.find(x => x.type === t).value, 10);
+  return Date.UTC(g("year"), g("month") - 1, g("day"), g("hour"), g("minute"), g("second"));
+}
+function zhState(now) {
+  const today = Math.floor(now / 86400000) * 86400000;
+  let open = false, lastStart = -1;
+  for (const off of [0, -1]) {
+    const day = today + off * 86400000;
+    const st = zhStart(day);
+    if (st <= now) {
+      lastStart = Math.max(lastStart, st);
+      if (now < zhEnd(day)) open = true;
+    }
+  }
+  let next = -1;
+  for (let i = 0; i < 9 && next < 0; i++) {
+    const st = zhStart(today + i * 86400000);
+    if (st > now) next = st;
+  }
+  return { open, lastStart, next };
+}
+function freezeActive() {
+  const now = zhNowSec(), st = zhState(now);
+  if (st.open) return false;
+  const rem = (st.next - now) / 1000;
+  return rem > 0 && rem <= 300;
+}
+function pad2(n) { return String(n).padStart(2, "0"); }
+function tickCountdown() {
+  const box = document.getElementById("countdown");
+  if (!box) return;
+  const now = zhNowSec(), st = zhState(now);
+  const label = document.getElementById("cd-label"), num = document.getElementById("cd-num"), unit = document.getElementById("cd-unit");
+  if (st.open) {
+    const since = (now - st.lastStart) / 1000;
+    if (since >= 0 && since < 180) {
+      const idx = Math.floor(since / 15);
+      if (idx !== kickIdx) { kickIdx = idx; load(true); }
+    } else { kickIdx = -1; }
+    if (since >= 0 && since < 180 && loadedOnce && !anyOnline) {
+      box.className = "countdown"; label.textContent = "Servers are starting";
+      num.textContent = "live status loading\u2026"; unit.textContent = ""; box.hidden = false;
+    } else { box.hidden = true; }
+    return;
+  }
+  kickIdx = -1;
+  const rem = Math.max(0, Math.round((st.next - now) / 1000));
+  box.hidden = false;
+  if (rem <= 999) {
+    box.className = "countdown big" + (rem <= 10 ? " last" : "");
+    label.textContent = "Servers start in";
+    num.textContent = String(rem);
+    unit.textContent = rem === 1 ? "second" : "seconds";
+  } else {
+    box.className = "countdown";
+    const d = Math.floor(rem / 86400), h = Math.floor(rem % 86400 / 3600), m = Math.floor(rem % 3600 / 60), sec = rem % 60;
+    label.textContent = "Next server start in";
+    num.textContent = (d > 0 ? d + " d " : "") + pad2(h) + ":" + pad2(m) + ":" + pad2(sec);
+    unit.textContent = "";
+  }
+}
+tickCountdown();
+setInterval(tickCountdown, 1000);
 
 // Sofort neu laden, wenn die Seite wieder sichtbar wird (Tab-Wechsel,
 // Handy entsperrt, Seite aus dem Cache zurueck) - zusaetzlich zum 30-s-Takt.
