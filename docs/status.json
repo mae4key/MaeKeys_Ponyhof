@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-11-14T20:25:49+00:00",
+  "generated_at": "2026-11-14T20:27:49+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
       "game": "Battlefield 1942",
       "name": "MaeKeys Ponyhof",
       "status": "online",
-      "map": "berlin",
+      "map": "el alamein",
       "mode": "coop",
       "mod": "Vanilla",
       "players": 0,
@@ -15,11 +15,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "105"
+          "score": "1000"
         },
         {
           "name": "allied",
-          "score": "647"
+          "score": "998"
         }
       ],
       "settings": [
@@ -48,7 +48,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-14T20:25:49+00:00"
+      "last_seen": "2026-11-14T20:27:49+00:00"
     },
     {
       "id": "bf1942-ponyhof-2",
@@ -114,7 +114,7 @@
         },
         {
           "name": "blue",
-          "score": "312"
+          "score": "248"
         }
       ],
       "settings": [
@@ -143,7 +143,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-14T20:25:49+00:00"
+      "last_seen": "2026-11-14T20:27:49+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
@@ -559,7 +559,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-14T20:25:49+00:00"
+      "last_seen": "2026-11-14T20:27:49+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -942,7 +942,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-14T20:25:49+00:00"
+      "last_seen": "2026-11-14T20:27:49+00:00"
     },
     {
       "id": "bf2142-ponyhof-2",
