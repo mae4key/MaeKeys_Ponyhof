@@ -761,9 +761,10 @@ async def query_one(entry: dict) -> dict:
                         result["players"] = 0
                     elif result["players"] > np_val:
                         result["players"] = np_val
-            else:
+            elif not result["scoreboard"]:
                 # Ohne Spielerliste (z. B. waehrend des Kartenladens) meldet
                 # numplayers auch Bots -> lieber 0 als eine falsche Zahl.
+                # (QS1: mit Spielerliste gilt die Zahl aus dem Scoreboard)
                 result["players"] = 0
             if not result["map"]:
                 # Server laedt gerade eine Karte: Zahlen sind unzuverlaessig
