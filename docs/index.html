@@ -537,14 +537,14 @@
   }
 
   /* WEB21: Countdown bis zum Serverstart */
-  .countdown { text-align: center; margin: 1rem 0; padding: 0.7rem 1rem; background: var(--panel); border: 1px solid var(--panel-line); border-radius: 8px; }
-  .countdown .cd-label { color: var(--text-dim); font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; }
-  .countdown .cd-num { color: var(--brass); font-size: 1.5rem; font-variant-numeric: tabular-nums; }
+  .countdown { text-align: center; margin: 0.6rem 0; padding: 0.4rem 0.8rem; /* WEB25 */ background: var(--panel); border: 1px solid var(--panel-line); border-radius: 8px; }
+  .countdown .cd-label { color: var(--text-dim); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  .countdown .cd-num { color: var(--brass); font-size: 1.1rem; font-variant-numeric: tabular-nums; }
   .countdown .cd-unit { display: none; color: var(--text-dim); font-size: 0.95rem; letter-spacing: 0.08em; text-transform: uppercase; }
   .countdown.big { padding: 1.3rem 1rem 1.1rem; border-color: var(--brass); }
   .countdown.big .cd-num { font-size: clamp(4.5rem, 24vw, 9rem); font-weight: 700; line-height: 1; margin: 0.15rem 0; }
   .countdown.big .cd-unit { display: block; }
-  .countdown.last .cd-num { color: var(--online); }
+  .countdown.big .cd-num { color: var(--online); }
   .stale-notice {
     margin-top: 1.5rem;
     font-size: 0.75rem;
