@@ -809,6 +809,17 @@ def _snapshot(s: dict) -> dict:
     }
 
 
+def _resolve_ip(entries) -> str:  # QS2
+    """Aktuelle oeffentliche IPv4 des Spielservers (aus dem Host-Namen)."""
+    import socket
+    for e in entries:
+        try:
+            return socket.gethostbyname(e["host"])
+        except (OSError, KeyError):
+            continue
+    return ""
+
+
 async def main_async() -> None:
     entries = json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
     # Alle aktivierten Server werden angezeigt. "internet": false = Testbetrieb
@@ -851,6 +862,7 @@ async def main_async() -> None:
 
     payload = {
         "generated_at": now_iso,
+        "public_ip": _resolve_ip(active),
         "servers": final,
     }
 

@@ -815,6 +815,15 @@ const STATUS_META = {
   offline: { cls: "offline", label: "OFFLINE" },
 };
 
+// WEB27: Verbindungsdaten ip:port (IP aus status.json, vom Status-Lauf aufgeloest)
+let PUBLIC_IP = "";
+const JOIN_PORTS = {
+  "bf1942-ponyhof-1": 14567, "bf1942-ponyhof-2": 14568,
+  "bfv-ponyhof-1": 15567, "bfv-ponyhof-2": 15568,
+  "bf2-ponyhof-1": 16567, "bf2-ponyhof-2": 16568,
+  "bf2142-ponyhof-1": 17567, "bf2142-ponyhof-2": 17568,
+};
+
 function gameLabel(s) {
   return s.game + (/-2$/.test(s.id) ? " (2)" : "");
 }
@@ -864,6 +873,10 @@ function renderServers(servers) {
       rows += `<dt>Map</dt><dd>${esc(d.map || "\u2013")}</dd>`;
       rows += `<dt>Mode</dt><dd>${esc(d.mode || "\u2013")}</dd>`;
       rows += `<dt>Last seen</dt><dd>${esc(fmtDate(s.last_seen) || "\u2013")}</dd>`;
+    }
+    const jp = JOIN_PORTS[s.id];
+    if (jp && /^\d{1,3}(\.\d{1,3}){3}$/.test(PUBLIC_IP)) {
+      rows += `<dt>Join</dt><dd>${PUBLIC_IP}:${jp}</dd>`;
     }
     return `
     <div class="card ${meta.cls}">
@@ -937,6 +950,7 @@ async function load(force) {
     const res = await fetch("https://raw.githubusercontent.com/mae4key/MaeKeys_Ponyhof/main/docs/status.json?t=" + Math.floor(Date.now() / 20000), { cache: "no-store" })
       .catch(() => fetch("status.json", { cache: "no-store" }));
     const data = await res.json();
+    if (typeof data.public_ip === "string") PUBLIC_IP = data.public_ip;
     // WEB23: in den letzten 300 s vor dem Start alles als offline zeigen (auch nach manuellem Reload),
     // damit alle Server erst bei 0 gleichzeitig gruen werden
     if (freezeActive() && data.servers) data.servers = data.servers.map(sv => Object.assign({}, sv, { status: "offline" }));
