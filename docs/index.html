@@ -1014,7 +1014,10 @@ function tickCountdown() {
       const idx = Math.floor(since / 15);
       if (idx !== kickIdx) { kickIdx = idx; load(true); }
     } else { kickIdx = -1; }
-    if (since >= 0 && since < 180 && loadedOnce && !anyOnline) {
+    if (since >= 0 && since < 10) { // WEB24: die 0 bleibt 10 s stehen
+      box.className = "countdown big last"; label.textContent = "Servers start in";
+      num.textContent = "0"; unit.textContent = "seconds"; box.hidden = false;
+    } else if (since >= 10 && since < 180 && loadedOnce && !anyOnline) {
       box.className = "countdown"; label.textContent = "Servers are starting";
       num.textContent = "live status loading\u2026"; unit.textContent = ""; box.hidden = false;
     } else { box.hidden = true; }
