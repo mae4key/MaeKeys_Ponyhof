@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-14T18:06:07+00:00",
+  "generated_at": "2026-11-14T18:08:11+00:00",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
@@ -15,11 +15,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "981"
+          "score": "965"
         },
         {
           "name": "allied",
-          "score": "974"
+          "score": "959"
         }
       ],
       "settings": [
@@ -48,7 +48,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-14T18:06:07+00:00"
+      "last_seen": "2026-11-14T18:08:11+00:00"
     },
     {
       "id": "bf1942-ponyhof-2",
@@ -64,11 +64,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "1264"
+          "score": "1253"
         },
         {
           "name": "allied",
-          "score": "887"
+          "score": "843"
         }
       ],
       "settings": [
@@ -97,7 +97,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-14T18:06:07+00:00"
+      "last_seen": "2026-11-14T18:08:11+00:00"
     },
     {
       "id": "bfv-ponyhof-1",
@@ -113,7 +113,7 @@
       "tickets": [
         {
           "name": "red",
-          "score": "809"
+          "score": "788"
         },
         {
           "name": "blue",
@@ -146,7 +146,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-14T18:06:07+00:00"
+      "last_seen": "2026-11-14T18:08:11+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
@@ -199,51 +199,14 @@
       "game": "Battlefield 2",
       "name": "MaeKeys Ponyhof",
       "status": "online",
-      "map": "",
-      "mode": "",
-      "mod": "",
-      "players": 0,
-      "max_players": 0,
-      "scoreboard": [],
-      "tickets": [
-        {
-          "name": "CH",
-          "score": "0"
-        },
-        {
-          "name": "EU",
-          "score": "0"
-        }
-      ],
-      "settings": [],
-      "last_seen": "2026-11-14T18:06:07+00:00"
-    },
-    {
-      "id": "bf2-ponyhof-2",
-      "game": "Battlefield 2",
-      "name": "MaeKeys Ponyhof",
-      "status": "offline",
-      "map": "",
-      "mode": "",
-      "mod": "",
-      "players": 0,
-      "max_players": 0,
-      "scoreboard": [],
-      "tickets": []
-    },
-    {
-      "id": "bf2142-ponyhof-1",
-      "game": "Battlefield 2142",
-      "name": "MaeKeys Ponyhof",
-      "status": "online",
-      "map": "2142_Shipment",
+      "map": "Great Wall",
       "mode": "gpm_coop",
       "mod": "Vanilla",
       "players": 0,
       "max_players": 32,
       "scoreboard": [
         {
-          "name": "D. Gothberg",
+          "name": "N. Fegraeus",
           "team": "",
           "rank": "",
           "score": "0",
@@ -253,7 +216,7 @@
           "is_bot": true
         },
         {
-          "name": "D. Thiger",
+          "name": "T. Karlsson",
           "team": "",
           "rank": "",
           "score": "0",
@@ -263,7 +226,7 @@
           "is_bot": true
         },
         {
-          "name": "A. Gyllenberg",
+          "name": "S. Strandberg",
           "team": "",
           "rank": "",
           "score": "0",
@@ -273,7 +236,7 @@
           "is_bot": true
         },
         {
-          "name": "P. Osterblom",
+          "name": "F. Morales",
           "team": "",
           "rank": "",
           "score": "0",
@@ -283,7 +246,7 @@
           "is_bot": true
         },
         {
-          "name": "L. Josephson",
+          "name": "C. Bergqvist",
           "team": "",
           "rank": "",
           "score": "0",
@@ -293,7 +256,7 @@
           "is_bot": true
         },
         {
-          "name": "G. VanDyke",
+          "name": "M. Le",
           "team": "",
           "rank": "",
           "score": "0",
@@ -303,7 +266,7 @@
           "is_bot": true
         },
         {
-          "name": "M. Lokner",
+          "name": "M. Doran",
           "team": "",
           "rank": "",
           "score": "0",
@@ -313,7 +276,7 @@
           "is_bot": true
         },
         {
-          "name": "K. Bergqvist",
+          "name": "L. Castillo",
           "team": "",
           "rank": "",
           "score": "0",
@@ -323,7 +286,7 @@
           "is_bot": true
         },
         {
-          "name": "B. Johnson",
+          "name": "J. Jonsson",
           "team": "",
           "rank": "",
           "score": "0",
@@ -333,7 +296,7 @@
           "is_bot": true
         },
         {
-          "name": "J. Evans",
+          "name": "N. White",
           "team": "",
           "rank": "",
           "score": "0",
@@ -343,7 +306,37 @@
           "is_bot": true
         },
         {
-          "name": "F. Lindblom",
+          "name": "G. Pigula",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "0",
+          "deaths": "0",
+          "ping": "0",
+          "is_bot": true
+        },
+        {
+          "name": "K. Lee",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "0",
+          "deaths": "0",
+          "ping": "0",
+          "is_bot": true
+        },
+        {
+          "name": "J. Lord",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "0",
+          "deaths": "0",
+          "ping": "0",
+          "is_bot": true
+        },
+        {
+          "name": "S. Lindgren",
           "team": "",
           "rank": "",
           "score": "0",
@@ -363,7 +356,7 @@
           "is_bot": true
         },
         {
-          "name": "M. Fritze",
+          "name": "D. Sirland",
           "team": "",
           "rank": "",
           "score": "0",
@@ -373,7 +366,7 @@
           "is_bot": true
         },
         {
-          "name": "R. Smedberg",
+          "name": "J. Stenkvist",
           "team": "",
           "rank": "",
           "score": "0",
@@ -383,7 +376,7 @@
           "is_bot": true
         },
         {
-          "name": "J. Soderqvist",
+          "name": "E. Douridas",
           "team": "",
           "rank": "",
           "score": "0",
@@ -393,7 +386,7 @@
           "is_bot": true
         },
         {
-          "name": "A. Zoghob",
+          "name": "D. Wiksten",
           "team": "",
           "rank": "",
           "score": "0",
@@ -403,7 +396,7 @@
           "is_bot": true
         },
         {
-          "name": "M. Nilsson",
+          "name": "P. Lindholm",
           "team": "",
           "rank": "",
           "score": "0",
@@ -413,7 +406,7 @@
           "is_bot": true
         },
         {
-          "name": "J. Salt",
+          "name": "P.K. Johansson",
           "team": "",
           "rank": "",
           "score": "0",
@@ -423,7 +416,7 @@
           "is_bot": true
         },
         {
-          "name": "I. Holberg",
+          "name": "P. Soderlund",
           "team": "",
           "rank": "",
           "score": "0",
@@ -433,7 +426,7 @@
           "is_bot": true
         },
         {
-          "name": "H. Andersson",
+          "name": "B. Smith",
           "team": "",
           "rank": "",
           "score": "0",
@@ -443,7 +436,7 @@
           "is_bot": true
         },
         {
-          "name": "R. Eden",
+          "name": "M. Cassidy",
           "team": "",
           "rank": "",
           "score": "0",
@@ -453,7 +446,7 @@
           "is_bot": true
         },
         {
-          "name": "F. Karlsson",
+          "name": "A. Andersson",
           "team": "",
           "rank": "",
           "score": "0",
@@ -463,7 +456,7 @@
           "is_bot": true
         },
         {
-          "name": "S. Wallberg",
+          "name": "R. Love",
           "team": "",
           "rank": "",
           "score": "0",
@@ -473,7 +466,7 @@
           "is_bot": true
         },
         {
-          "name": "P. Sandberg",
+          "name": "J. VanRooyen",
           "team": "",
           "rank": "",
           "score": "0",
@@ -483,7 +476,7 @@
           "is_bot": true
         },
         {
-          "name": "A. Hansevi",
+          "name": "R. Edgren",
           "team": "",
           "rank": "",
           "score": "0",
@@ -493,7 +486,7 @@
           "is_bot": true
         },
         {
-          "name": "M. Choy",
+          "name": "R. Lopez",
           "team": "",
           "rank": "",
           "score": "0",
@@ -503,7 +496,7 @@
           "is_bot": true
         },
         {
-          "name": "S. Dugan",
+          "name": "M. Rudberg",
           "team": "",
           "rank": "",
           "score": "0",
@@ -513,7 +506,7 @@
           "is_bot": true
         },
         {
-          "name": "J. Biro",
+          "name": "U. Rask",
           "team": "",
           "rank": "",
           "score": "0",
@@ -523,37 +516,7 @@
           "is_bot": true
         },
         {
-          "name": "S. Holman",
-          "team": "",
-          "rank": "",
-          "score": "0",
-          "kills": "0",
-          "deaths": "0",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "J. Lingmark",
-          "team": "",
-          "rank": "",
-          "score": "0",
-          "kills": "0",
-          "deaths": "0",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "C. Carter",
-          "team": "",
-          "rank": "",
-          "score": "0",
-          "kills": "0",
-          "deaths": "0",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "K. Reutersward",
+          "name": "T. Laedre",
           "team": "",
           "rank": "",
           "score": "0",
@@ -565,7 +528,7 @@
       ],
       "tickets": [
         {
-          "name": "PAC",
+          "name": "CH",
           "score": "0"
         },
         {
@@ -599,7 +562,44 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-14T18:06:07+00:00"
+      "last_seen": "2026-11-14T18:08:11+00:00"
+    },
+    {
+      "id": "bf2-ponyhof-2",
+      "game": "Battlefield 2",
+      "name": "MaeKeys Ponyhof",
+      "status": "offline",
+      "map": "",
+      "mode": "",
+      "mod": "",
+      "players": 0,
+      "max_players": 0,
+      "scoreboard": [],
+      "tickets": []
+    },
+    {
+      "id": "bf2142-ponyhof-1",
+      "game": "Battlefield 2142",
+      "name": "MaeKeys Ponyhof",
+      "status": "online",
+      "map": "",
+      "mode": "",
+      "mod": "",
+      "players": 0,
+      "max_players": 0,
+      "scoreboard": [],
+      "tickets": [
+        {
+          "name": "PAC",
+          "score": "0"
+        },
+        {
+          "name": "EU",
+          "score": "0"
+        }
+      ],
+      "settings": [],
+      "last_seen": "2026-11-14T18:08:11+00:00"
     },
     {
       "id": "bf2142-ponyhof-2",
