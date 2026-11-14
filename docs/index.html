@@ -937,6 +937,9 @@ async function load(force) {
     const res = await fetch("https://raw.githubusercontent.com/mae4key/MaeKeys_Ponyhof/main/docs/status.json?t=" + Math.floor(Date.now() / 20000), { cache: "no-store" })
       .catch(() => fetch("status.json", { cache: "no-store" }));
     const data = await res.json();
+    // WEB23: in den letzten 300 s vor dem Start alles als offline zeigen (auch nach manuellem Reload),
+    // damit alle Server erst bei 0 gleichzeitig gruen werden
+    if (freezeActive() && data.servers) data.servers = data.servers.map(sv => Object.assign({}, sv, { status: "offline" }));
     renderServers(data.servers || []);
     loadedOnce = true;
     anyOnline = (data.servers || []).some(sv => sv.status === "online");
@@ -995,7 +998,7 @@ function zhState(now) {
 }
 function freezeActive() {
   const now = zhNowSec(), st = zhState(now);
-  if (st.open) return false;
+  if (st.open) return false; // WEB23
   const rem = (st.next - now) / 1000;
   return rem > 0 && rem <= 300;
 }
@@ -1018,6 +1021,7 @@ function tickCountdown() {
     return;
   }
   kickIdx = -1;
+  if (anyOnline) { box.hidden = true; return; } // WEB22: laeuft ein Server, kein Countdown
   const rem = Math.max(0, Math.round((st.next - now) / 1000));
   box.hidden = false;
   if (rem <= 999) {
