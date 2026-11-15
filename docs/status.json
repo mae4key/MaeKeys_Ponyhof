@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-15T17:11:36+00:00",
+  "generated_at": "2026-11-15T17:13:38+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
@@ -16,11 +16,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "879"
+          "score": "860"
         },
         {
           "name": "allied",
-          "score": "357"
+          "score": "294"
         }
       ],
       "settings": [
@@ -49,7 +49,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-15T17:11:36+00:00"
+      "last_seen": "2026-11-15T17:13:38+00:00"
     },
     {
       "id": "bf1942-ponyhof-2",
@@ -111,11 +111,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "931"
+          "score": "922"
         },
         {
           "name": "blue",
-          "score": "955"
+          "score": "949"
         }
       ],
       "settings": [
@@ -144,7 +144,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-15T17:11:36+00:00"
+      "last_seen": "2026-11-15T17:13:38+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
@@ -560,7 +560,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-15T17:11:36+00:00"
+      "last_seen": "2026-11-15T17:13:38+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -579,380 +579,46 @@
       "id": "bf2142-ponyhof-1",
       "game": "Battlefield 2142",
       "name": "MaeKeys Ponyhof",
-      "status": "online",
-      "map": "Verdun_coop",
-      "mode": "gpm_coop",
-      "mod": "Vanilla",
-      "players": 1,
-      "max_players": 32,
-      "scoreboard": [
-        {
-          "name": " OerbiKnoerwens",
-          "team": "",
-          "rank": "",
-          "score": "89",
-          "kills": "82",
-          "deaths": "15",
-          "ping": "22",
-          "is_bot": false
-        },
-        {
-          "name": "S. Holman",
-          "team": "",
-          "rank": "",
-          "score": "43",
-          "kills": "33",
-          "deaths": "23",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "J. Aberg",
-          "team": "",
-          "rank": "",
-          "score": "40",
-          "kills": "28",
-          "deaths": "19",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "R. Eden",
-          "team": "",
-          "rank": "",
-          "score": "35",
-          "kills": "16",
-          "deaths": "16",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "T. Holmsten",
-          "team": "",
-          "rank": "",
-          "score": "34",
-          "kills": "21",
-          "deaths": "20",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "C. Wahlfors",
-          "team": "",
-          "rank": "",
-          "score": "31",
-          "kills": "14",
-          "deaths": "31",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "A. Zoghob",
-          "team": "",
-          "rank": "",
-          "score": "26",
-          "kills": "16",
-          "deaths": "19",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "C. Bennison",
-          "team": "",
-          "rank": "",
-          "score": "25",
-          "kills": "16",
-          "deaths": "17",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "A. Kertz",
-          "team": "",
-          "rank": "",
-          "score": "20",
-          "kills": "20",
-          "deaths": "15",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "B. Pajor",
-          "team": "",
-          "rank": "",
-          "score": "20",
-          "kills": "12",
-          "deaths": "18",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "M. Lokner",
-          "team": "",
-          "rank": "",
-          "score": "20",
-          "kills": "9",
-          "deaths": "22",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "M. Nilsson",
-          "team": "",
-          "rank": "",
-          "score": "19",
-          "kills": "15",
-          "deaths": "24",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "P. Soderlund",
-          "team": "",
-          "rank": "",
-          "score": "19",
-          "kills": "14",
-          "deaths": "18",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "J. Soderqvist",
-          "team": "",
-          "rank": "",
-          "score": "18",
-          "kills": "14",
-          "deaths": "17",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "D. Mod",
-          "team": "",
-          "rank": "",
-          "score": "18",
-          "kills": "14",
-          "deaths": "17",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "M. Kylmamaa",
-          "team": "",
-          "rank": "",
-          "score": "17",
-          "kills": "15",
-          "deaths": "14",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "D. Barron",
-          "team": "",
-          "rank": "",
-          "score": "17",
-          "kills": "14",
-          "deaths": "21",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "J. Ostman",
-          "team": "",
-          "rank": "",
-          "score": "15",
-          "kills": "11",
-          "deaths": "21",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "T. Karlsson",
-          "team": "",
-          "rank": "",
-          "score": "13",
-          "kills": "11",
-          "deaths": "28",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "A. Hansevi",
-          "team": "",
-          "rank": "",
-          "score": "13",
-          "kills": "8",
-          "deaths": "23",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "S. Dugan",
-          "team": "",
-          "rank": "",
-          "score": "12",
-          "kills": "10",
-          "deaths": "14",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "A. Peters",
-          "team": "",
-          "rank": "",
-          "score": "12",
-          "kills": "10",
-          "deaths": "15",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "S. Decker",
-          "team": "",
-          "rank": "",
-          "score": "12",
-          "kills": "6",
-          "deaths": "11",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "N. Grover",
-          "team": "",
-          "rank": "",
-          "score": "11",
-          "kills": "11",
-          "deaths": "22",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "S. Wallberg",
-          "team": "",
-          "rank": "",
-          "score": "10",
-          "kills": "13",
-          "deaths": "18",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "F. Karlsson",
-          "team": "",
-          "rank": "",
-          "score": "8",
-          "kills": "23",
-          "deaths": "27",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "B. Johnson",
-          "team": "",
-          "rank": "",
-          "score": "8",
-          "kills": "7",
-          "deaths": "22",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "A. Brattberg",
-          "team": "",
-          "rank": "",
-          "score": "7",
-          "kills": "17",
-          "deaths": "15",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "M. Andersson",
-          "team": "",
-          "rank": "",
-          "score": "5",
-          "kills": "13",
-          "deaths": "22",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "N. Goksu",
-          "team": "",
-          "rank": "",
-          "score": "5",
-          "kills": "12",
-          "deaths": "21",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "S. Vukanovic",
-          "team": "",
-          "rank": "",
-          "score": "4",
-          "kills": "8",
-          "deaths": "16",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "I. Holberg",
-          "team": "",
-          "rank": "",
-          "score": "1",
-          "kills": "3",
-          "deaths": "22",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "B. Humbe",
-          "team": "",
-          "rank": "",
-          "score": "-1",
-          "kills": "18",
-          "deaths": "21",
-          "ping": "0",
-          "is_bot": true
-        }
-      ],
-      "tickets": [
-        {
-          "name": "Pac",
-          "score": "0"
-        },
-        {
-          "name": "EU",
-          "score": "0"
-        }
-      ],
-      "settings": [
-        [
-          "Time limit",
-          "45 min"
-        ],
-        [
-          "Ticket ratio",
-          "500"
-        ],
-        [
-          "Rounds per map",
-          "1"
-        ],
-        [
-          "Friendly fire",
-          "on"
-        ],
-        [
-          "PunkBuster",
-          "off"
-        ],
-        [
-          "Map layout",
-          "32 players"
+      "status": "offline",
+      "map": "",
+      "mode": "",
+      "mod": "",
+      "players": 0,
+      "max_players": 0,
+      "scoreboard": [],
+      "tickets": [],
+      "last": {
+        "map": "Verdun_coop",
+        "mode": "gpm_coop",
+        "mod": "Vanilla",
+        "max_players": 32,
+        "settings": [
+          [
+            "Time limit",
+            "45 min"
+          ],
+          [
+            "Ticket ratio",
+            "500"
+          ],
+          [
+            "Rounds per map",
+            "1"
+          ],
+          [
+            "Friendly fire",
+            "on"
+          ],
+          [
+            "PunkBuster",
+            "off"
+          ],
+          [
+            "Map layout",
+            "32 players"
+          ]
         ]
-      ],
+      },
       "last_seen": "2026-11-15T17:11:36+00:00"
     },
     {
