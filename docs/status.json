@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-15T16:25:00+00:00",
+  "generated_at": "2026-11-15T16:27:09+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
@@ -16,11 +16,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "971"
+          "score": "938"
         },
         {
           "name": "allied",
-          "score": "982"
+          "score": "967"
         }
       ],
       "settings": [
@@ -49,7 +49,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-15T16:25:00+00:00"
+      "last_seen": "2026-11-15T16:27:09+00:00"
     },
     {
       "id": "bf1942-ponyhof-2",
@@ -111,11 +111,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "916"
+          "score": "904"
         },
         {
           "name": "blue",
-          "score": "892"
+          "score": "862"
         }
       ],
       "settings": [
@@ -144,7 +144,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-15T16:25:00+00:00"
+      "last_seen": "2026-11-15T16:27:09+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
@@ -560,7 +560,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-15T16:25:00+00:00"
+      "last_seen": "2026-11-15T16:27:09+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -583,9 +583,19 @@
       "map": "Verdun_coop",
       "mode": "gpm_coop",
       "mod": "Vanilla",
-      "players": 0,
+      "players": 1,
       "max_players": 32,
       "scoreboard": [
+        {
+          "name": " OerbiKnoerwens",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "0",
+          "deaths": "0",
+          "ping": "21",
+          "is_bot": false
+        },
         {
           "name": "J. Soderqvist",
           "team": "",
@@ -943,7 +953,7 @@
           "32 players"
         ]
       ],
-      "last_seen": "2026-11-15T16:25:00+00:00"
+      "last_seen": "2026-11-15T16:27:09+00:00"
     },
     {
       "id": "bf2142-ponyhof-2",
