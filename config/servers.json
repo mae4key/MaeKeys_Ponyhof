@@ -17,7 +17,7 @@
     "host": "870om3k8bee3muwz.myfritz.net",
     "port": 23001,
     "enabled": true,
-    "internet": true
+    "internet": false
   },
   {
     "id": "bfv-ponyhof-1",
