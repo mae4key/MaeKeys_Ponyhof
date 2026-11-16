@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://raw.githubusercontent.com; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://raw.githubusercontent.com https://api.github.com; base-uri 'none'; form-action 'none'">
 <title>MaeKeys Ponyhof – Live Battlefield Server Status (BF1942, BF Vietnam, BF2, BF2142)</title>
 <meta name="description" content="Live status of the MaeKeys Ponyhof retro game servers: Battlefield 1942, Battlefield Vietnam, Battlefield 2 and Battlefield 2142. Players online, current map and scoreboard.">
 <meta name="robots" content="index, follow">
@@ -305,6 +305,7 @@
 
   .card.offline { border-left-color: var(--offline); opacity: 0.8; }
   .card.notavail { border-left-color: var(--notavail); opacity: 0.9; }
+  .card.unknown { border-left-color: #8a8f98; opacity: 0.85; } /* WEB28 */
 
   .card-top {
     display: flex;
@@ -472,6 +473,7 @@
   .tag.online { color: var(--online); }
   .tag.offline { color: var(--offline); }
   .tag.notavail { color: var(--notavail); }
+  .tag.unknown { color: #8a8f98; }
   .game-name.plain { border-bottom: none; cursor: default; }
   .game-name.plain:hover { color: var(--text); }
   .settings-h {
@@ -813,6 +815,7 @@ const STATUS_META = {
   online: { cls: "online", label: "ONLINE" },
   not_available: { cls: "notavail", label: "NOT AVAILABLE" },
   offline: { cls: "offline", label: "OFFLINE" },
+  unknown: { cls: "unknown", label: "UNKNOWN" }, // WEB28
 };
 
 // WEB27: Verbindungsdaten ip:port (IP aus status.json, vom Status-Lauf aufgeloest)
@@ -857,7 +860,7 @@ function renderServers(servers) {
   const ordered = [...servers.filter(s => s.status === "online"), ...servers.filter(s => s.status !== "online")];
   el.innerHTML = ordered.map(s => {
     const meta = STATUS_META[s.status] || STATUS_META.offline;
-    const d = s.status === "offline" ? (s.last || {}) : s;
+    const d = (s.status === "offline" || s.status === "unknown") ? (s.last || {}) : s; // WEB28
     const title = s.status !== "online"
       ? `<span class="game-name plain">${esc(gameLabel(s))}</span>`
       : `<button type="button" class="game-name" data-id="${esc(s.id)}" onclick="showScoreboard(this.dataset.id)">${esc(gameLabel(s))} \u25b8</button>`;
@@ -943,13 +946,70 @@ function updateHours() {
   el.textContent = text;
 }
 
+// WEB28: Status aus mehreren Quellen; neueste gewinnt. Alte Daten: waehrend der Betriebszeiten "unknown",
+// ausserhalb "offline" (ausser der Gameserver meldet selbst "final"). Quellen: API und raw des Daten-Repos, altes raw.
+const STATUS_URLS = {
+  api: "https://api.github.com/repos/mae4key/MaeKeys_Ponyhof_Status/contents/status.json",
+  rawNew: "https://raw.githubusercontent.com/mae4key/MaeKeys_Ponyhof_Status/main/status.json",
+  rawOld: "https://raw.githubusercontent.com/mae4key/MaeKeys_Ponyhof/main/docs/status.json",
+};
+const STALE_MIN = 15;
+let apiNextTry = 0, bestSeen = null;
+async function getJson(url, opts) {
+  const res = await fetch(url, opts);
+  if (res.status === 403 || res.status === 429) { const e = new Error("rate"); e.rate = true; throw e; }
+  if (!res.ok) throw new Error("http " + res.status);
+  const j = await res.json();
+  if (!j || typeof j !== "object" || !Array.isArray(j.servers)) throw new Error("format");
+  return j;
+}
+function genTime(d) { const t = d ? Date.parse(d.generated_at) : NaN; return isNaN(t) ? -Infinity : t; }
+function statusAgeMin(d) { const t = genTime(d); return t === -Infinity ? Infinity : (Date.now() - t) / 60000; }
+function isStale(d) { return !d.final && statusAgeMin(d) > STALE_MIN; }
+function newest(list) {
+  let best = null;
+  for (const d of list) if (d && (!best || genTime(d) > genTime(best))) best = d;
+  return best;
+}
+async function fetchStatus() {
+  const jobs = [];
+  if (Date.now() >= apiNextTry) {
+    apiNextTry = Date.now() + 70000; // API hoechstens alle 70 s (Limit 60/h je IP)
+    jobs.push(getJson(STATUS_URLS.api, { headers: { Accept: "application/vnd.github.raw+json" } })
+      .catch(e => { if (e.rate) apiNextTry = Date.now() + 15 * 60000; return null; }));
+  }
+  const bucket = "?t=" + Math.floor(Date.now() / 20000);
+  jobs.push(getJson(STATUS_URLS.rawNew + bucket, { cache: "no-store" }).catch(() => null));
+  const oldJob = getJson(STATUS_URLS.rawOld + bucket, { cache: "no-store" })
+    .catch(() => getJson("status.json", { cache: "no-store" })).catch(() => null);
+  const [fresh, old] = await Promise.all([Promise.all(jobs), oldJob]);
+  let best = newest([bestSeen, ...fresh]);
+  if (!best || isStale(best)) best = newest([best, old]);
+  if (!best) throw new Error("no data");
+  bestSeen = best;
+  return best;
+}
+function applyStale(data) {
+  data.unknown = false;
+  if (!isStale(data)) return;
+  const open = zhState(zhNowSec()).open;
+  data.servers = data.servers.map(sv => {
+    const was = sv.status === "online";
+    return Object.assign({}, sv, {
+      status: open ? "unknown" : "offline",
+      last: was ? { map: sv.map, mode: sv.mode, mod: sv.mod } : (sv.last || {}),
+      last_seen: was ? data.generated_at : (sv.last_seen || ""),
+    });
+  });
+  data.unknown = open;
+}
+
 let loadedOnce = false, anyOnline = false, kickIdx = -1; // WEB21
 async function load(force) {
   if (force !== true && loadedOnce && freezeActive()) return;
   try {
-    const res = await fetch("https://raw.githubusercontent.com/mae4key/MaeKeys_Ponyhof/main/docs/status.json?t=" + Math.floor(Date.now() / 20000), { cache: "no-store" })
-      .catch(() => fetch("status.json", { cache: "no-store" }));
-    const data = await res.json();
+    const data = await fetchStatus(); // WEB28
+    applyStale(data);
     if (typeof data.public_ip === "string") PUBLIC_IP = data.public_ip;
     // WEB23: in den letzten 300 s vor dem Start alles als offline zeigen (auch nach manuellem Reload),
     // damit alle Server erst bei 0 gleichzeitig gruen werden
@@ -960,16 +1020,15 @@ async function load(force) {
     const totalOnline = (data.servers || [])
       .filter(s => s.status === "online")
       .reduce((sum, s) => sum + (s.map ? (s.players || 0) : 0), 0);
-    document.getElementById("online-count").innerHTML = `<strong>${totalOnline}</strong> online`;
+    document.getElementById("online-count").innerHTML = data.unknown ? `<strong>?</strong> online` : `<strong>${totalOnline}</strong> online`;
     document.getElementById("timestamp").textContent = fmtTimestamp(data.generated_at);
 
     const staleNotice = document.getElementById("stale-notice");
-    if (data.generated_at) {
-      const ageMinutes = (Date.now() - new Date(data.generated_at)) / 60000;
-      if (ageMinutes > 20) {
-        staleNotice.hidden = false;
-        staleNotice.textContent = "Note: the last update was over 20 minutes ago – data may be outdated.";
-      }
+    if (data.unknown) {
+      staleNotice.hidden = false;
+      staleNotice.textContent = "Live status is temporarily unavailable. Showing the last known values.";
+    } else {
+      staleNotice.hidden = true;
     }
   } catch (e) {
     document.getElementById("servers").innerHTML =
