@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-16T21:19:18+00:00",
+  "generated_at": "2026-11-16T21:23:27+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
@@ -16,11 +16,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "849"
+          "score": "835"
         },
         {
           "name": "allied",
-          "score": "771"
+          "score": "631"
         }
       ],
       "settings": [
@@ -49,7 +49,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-16T21:19:18+00:00"
+      "last_seen": "2026-11-16T21:23:27+00:00"
     },
     {
       "id": "bf1942-ponyhof-2",
@@ -78,11 +78,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "993"
+          "score": "985"
         },
         {
           "name": "blue",
-          "score": "863"
+          "score": "777"
         }
       ],
       "settings": [
@@ -111,53 +111,20 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-16T21:19:18+00:00"
+      "last_seen": "2026-11-16T21:23:27+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
       "game": "Battlefield Vietnam",
       "name": "MaeKeys Ponyhof",
-      "status": "offline",
+      "status": "not_available",
       "map": "",
       "mode": "",
       "mod": "",
       "players": 0,
       "max_players": 0,
       "scoreboard": [],
-      "tickets": [],
-      "last": {
-        "map": "LANDING ZONE ALBANY",
-        "mode": "coop",
-        "mod": "Vanilla",
-        "max_players": 32,
-        "settings": [
-          [
-            "Time limit",
-            "45 min"
-          ],
-          [
-            "Ticket ratio",
-            "500"
-          ],
-          [
-            "Rounds per map",
-            "1"
-          ],
-          [
-            "Team ratio",
-            "2 : 3"
-          ],
-          [
-            "Friendly fire",
-            "on"
-          ],
-          [
-            "PunkBuster",
-            "off"
-          ]
-        ]
-      },
-      "last_seen": "2026-11-13T23:00:41+00:00"
+      "tickets": []
     },
     {
       "id": "bf2-ponyhof-1",
@@ -527,7 +494,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-16T21:19:18+00:00"
+      "last_seen": "2026-11-16T21:23:27+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -910,7 +877,7 @@
           "32 players"
         ]
       ],
-      "last_seen": "2026-11-16T21:19:18+00:00"
+      "last_seen": "2026-11-16T21:23:27+00:00"
     },
     {
       "id": "bf2142-ponyhof-2",
