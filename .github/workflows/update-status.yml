@@ -16,7 +16,9 @@ on:
 
 concurrency:
   group: update-status-b
-  cancel-in-progress: true
+  # WF1: laufende Laeufe nie abbrechen (sonst reisst die Selbstanstoss-Kette ab);
+  # es wartet hoechstens ein weiterer Lauf, mehrere Ketten laufen so zu einer zusammen.
+  cancel-in-progress: false
 
 permissions:
   contents: write
