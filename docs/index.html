@@ -803,10 +803,10 @@
 </div>
 
 <script>
-function fmtTimestamp(iso) {
+function fmtTimestamp(iso, label) { // WEB29
   if (!iso) return "No update yet.";
   const d = new Date(iso);
-  return "Last updated: " + d.toLocaleString("en-GB", { dateStyle: "medium", timeStyle: "short" });
+  return (label || "Last updated") + ": " + d.toLocaleString("en-GB", { dateStyle: "medium", timeStyle: "short" });
 }
 
 let currentServers = {};
@@ -1021,7 +1021,13 @@ async function load(force) {
       .filter(s => s.status === "online")
       .reduce((sum, s) => sum + (s.map ? (s.players || 0) : 0), 0);
     document.getElementById("online-count").innerHTML = data.unknown ? `<strong>?</strong> online` : `<strong>${totalOnline}</strong> online`;
-    document.getElementById("timestamp").textContent = fmtTimestamp(data.generated_at);
+    // WEB29: ausserhalb der Betriebszeiten und ohne online-Server: letzter bekannter Online-Zeitpunkt
+    let tsIso = data.generated_at, tsLabel = "Last updated";
+    if (!zhState(zhNowSec()).open && !anyOnline) {
+      const seen = (data.servers || []).map(sv => Date.parse(sv.last_seen || "")).filter(t => !isNaN(t));
+      if (seen.length) { tsIso = new Date(Math.max.apply(null, seen)).toISOString(); tsLabel = "Last online"; }
+    }
+    document.getElementById("timestamp").textContent = fmtTimestamp(tsIso, tsLabel);
 
     const staleNotice = document.getElementById("stale-notice");
     if (data.unknown) {
