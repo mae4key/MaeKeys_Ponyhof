@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-17T20:46:52+00:00",
+  "generated_at": "2026-11-17T20:48:52+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
@@ -7,7 +7,7 @@
       "game": "Battlefield 1942",
       "name": "MaeKeys Ponyhof",
       "status": "online",
-      "map": "liberation of caen",
+      "map": "midway",
       "mode": "coop",
       "mod": "Vanilla",
       "players": 0,
@@ -16,11 +16,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "597"
+          "score": "1000"
         },
         {
           "name": "allied",
-          "score": "847"
+          "score": "1000"
         }
       ],
       "settings": [
@@ -49,7 +49,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-17T20:46:52+00:00"
+      "last_seen": "2026-11-17T20:48:52+00:00"
     },
     {
       "id": "bf1942-ponyhof-2",
@@ -78,11 +78,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "809"
+          "score": "801"
         },
         {
           "name": "blue",
-          "score": "651"
+          "score": "629"
         }
       ],
       "settings": [
@@ -111,7 +111,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-17T20:46:52+00:00"
+      "last_seen": "2026-11-17T20:48:52+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
@@ -494,7 +494,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-17T20:46:52+00:00"
+      "last_seen": "2026-11-17T20:48:52+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -877,7 +877,7 @@
           "32 players"
         ]
       ],
-      "last_seen": "2026-11-17T20:46:52+00:00"
+      "last_seen": "2026-11-17T20:48:52+00:00"
     },
     {
       "id": "bf2142-ponyhof-2",
