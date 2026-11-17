@@ -1025,7 +1025,7 @@ async function load(force) {
     let tsIso = data.generated_at, tsLabel = "Last updated";
     if (!zhState(zhNowSec()).open && !anyOnline) {
       const seen = (data.servers || []).map(sv => Date.parse(sv.last_seen || "")).filter(t => !isNaN(t));
-      if (seen.length) { tsIso = new Date(Math.max.apply(null, seen)).toISOString(); tsLabel = "Last online"; }
+      if (seen.length) { tsIso = new Date(Math.ceil(Math.max.apply(null, seen) / 60000) * 60000).toISOString(); tsLabel = "Last online"; } // WEB30
     }
     document.getElementById("timestamp").textContent = fmtTimestamp(tsIso, tsLabel);
 
