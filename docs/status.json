@@ -1,54 +1,51 @@
 {
-  "generated_at": "2026-11-17T18:40:06+00:00",
+  "generated_at": "2026-11-17T18:42:07+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
       "game": "Battlefield 1942",
       "name": "MaeKeys Ponyhof",
-      "status": "online",
-      "map": "iwo jima",
-      "mode": "coop",
-      "mod": "Vanilla",
+      "status": "offline",
+      "map": "",
+      "mode": "",
+      "mod": "",
       "players": 0,
-      "max_players": 32,
+      "max_players": 0,
       "scoreboard": [],
-      "tickets": [
-        {
-          "name": "axis",
-          "score": "905"
-        },
-        {
-          "name": "allied",
-          "score": "62"
-        }
-      ],
-      "settings": [
-        [
-          "Time limit",
-          "45 min"
-        ],
-        [
-          "Ticket ratio",
-          "500"
-        ],
-        [
-          "Rounds per map",
-          "1"
-        ],
-        [
-          "Team ratio",
-          "2 : 3"
-        ],
-        [
-          "Friendly fire",
-          "on"
-        ],
-        [
-          "PunkBuster",
-          "off"
+      "tickets": [],
+      "last": {
+        "map": "iwo jima",
+        "mode": "coop",
+        "mod": "Vanilla",
+        "max_players": 32,
+        "settings": [
+          [
+            "Time limit",
+            "45 min"
+          ],
+          [
+            "Ticket ratio",
+            "500"
+          ],
+          [
+            "Rounds per map",
+            "1"
+          ],
+          [
+            "Team ratio",
+            "2 : 3"
+          ],
+          [
+            "Friendly fire",
+            "on"
+          ],
+          [
+            "PunkBuster",
+            "off"
+          ]
         ]
-      ],
+      },
       "last_seen": "2026-11-17T18:40:06+00:00"
     },
     {
@@ -82,7 +79,7 @@
         },
         {
           "name": "blue",
-          "score": "267"
+          "score": "227"
         }
       ],
       "settings": [
@@ -111,7 +108,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-17T18:40:06+00:00"
+      "last_seen": "2026-11-17T18:42:07+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
@@ -494,7 +491,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-17T18:40:06+00:00"
+      "last_seen": "2026-11-17T18:42:07+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -877,7 +874,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-17T18:40:06+00:00"
+      "last_seen": "2026-11-17T18:42:07+00:00"
     },
     {
       "id": "bf2142-ponyhof-2",
