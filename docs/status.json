@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-18T11:26:05+00:00",
+  "generated_at": "2026-11-18T11:27:59+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
@@ -16,11 +16,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "999"
+          "score": "995"
         },
         {
           "name": "allied",
-          "score": "1000"
+          "score": "991"
         }
       ],
       "settings": [
@@ -49,7 +49,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-18T11:26:05+00:00"
+      "last_seen": "2026-11-18T11:27:59+00:00"
     },
     {
       "id": "bf1942-ponyhof-2",
@@ -94,7 +94,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-18T11:26:05+00:00"
+      "last_seen": "2026-11-18T11:27:59+00:00"
     },
     {
       "id": "bfv-ponyhof-1",
@@ -110,11 +110,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "1000"
+          "score": "997"
         },
         {
           "name": "blue",
-          "score": "997"
+          "score": "967"
         }
       ],
       "settings": [
@@ -143,13 +143,13 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-18T11:26:05+00:00"
+      "last_seen": "2026-11-18T11:27:59+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
       "game": "Battlefield Vietnam",
       "name": "MaeKeys Ponyhof",
-      "status": "offline",
+      "status": "not_available",
       "map": "",
       "mode": "",
       "mod": "",
@@ -526,7 +526,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-18T11:26:05+00:00"
+      "last_seen": "2026-11-18T11:27:59+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -575,7 +575,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-18T11:26:05+00:00"
+      "last_seen": "2026-11-18T11:27:59+00:00"
     },
     {
       "id": "bf2142-ponyhof-1",
@@ -949,7 +949,7 @@
           "32 players"
         ]
       ],
-      "last_seen": "2026-11-18T11:26:05+00:00"
+      "last_seen": "2026-11-18T11:27:59+00:00"
     },
     {
       "id": "bf2142-ponyhof-2",
