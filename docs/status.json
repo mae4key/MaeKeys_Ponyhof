@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-18T11:27:59+00:00",
+  "generated_at": "2026-11-18T11:29:53+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
@@ -16,11 +16,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "995"
+          "score": "993"
         },
         {
           "name": "allied",
-          "score": "991"
+          "score": "978"
         }
       ],
       "settings": [
@@ -49,7 +49,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-18T11:27:59+00:00"
+      "last_seen": "2026-11-18T11:29:53+00:00"
     },
     {
       "id": "bf1942-ponyhof-2",
@@ -94,7 +94,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-18T11:27:59+00:00"
+      "last_seen": "2026-11-18T11:29:53+00:00"
     },
     {
       "id": "bfv-ponyhof-1",
@@ -110,11 +110,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "997"
+          "score": "983"
         },
         {
           "name": "blue",
-          "score": "967"
+          "score": "945"
         }
       ],
       "settings": [
@@ -143,7 +143,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-18T11:27:59+00:00"
+      "last_seen": "2026-11-18T11:29:53+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
@@ -526,7 +526,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-18T11:27:59+00:00"
+      "last_seen": "2026-11-18T11:29:53+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -575,7 +575,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-18T11:27:59+00:00"
+      "last_seen": "2026-11-18T11:29:53+00:00"
     },
     {
       "id": "bf2142-ponyhof-1",
@@ -949,16 +949,16 @@
           "32 players"
         ]
       ],
-      "last_seen": "2026-11-18T11:27:59+00:00"
+      "last_seen": "2026-11-18T11:29:53+00:00"
     },
     {
       "id": "bf2142-ponyhof-2",
       "game": "Battlefield 2142",
       "name": "MaeKeys Ponyhof",
       "status": "not_available",
-      "map": "Belgrade",
+      "map": "",
       "mode": "",
-      "mod": "Vanilla",
+      "mod": "",
       "players": 0,
       "max_players": 0,
       "scoreboard": [],
