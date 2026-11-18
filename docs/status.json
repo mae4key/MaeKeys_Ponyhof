@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-18T14:14:26+00:00",
+  "generated_at": "2026-11-18T14:16:27+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
@@ -52,43 +52,46 @@
       "id": "bf1942-ponyhof-2",
       "game": "Battlefield 1942",
       "name": "MaeKeys Ponyhof",
-      "status": "offline",
-      "map": "",
-      "mode": "",
-      "mod": "",
+      "status": "online",
+      "map": "kursk",
+      "mode": "coop",
+      "mod": "Vanilla",
       "players": 0,
-      "max_players": 0,
+      "max_players": 32,
       "scoreboard": [],
-      "tickets": [],
-      "last": {
-        "map": "coral sea",
-        "mode": "conquest",
-        "mod": "Vanilla",
-        "max_players": 32,
-        "settings": [
-          [
-            "Ticket ratio",
-            "500"
-          ],
-          [
-            "Rounds per map",
-            "1"
-          ],
-          [
-            "Team ratio",
-            "1 : 1"
-          ],
-          [
-            "Friendly fire",
-            "on"
-          ],
-          [
-            "PunkBuster",
-            "off"
-          ]
+      "tickets": [
+        {
+          "name": "axis",
+          "score": "1000"
+        },
+        {
+          "name": "allied",
+          "score": "998"
+        }
+      ],
+      "settings": [
+        [
+          "Ticket ratio",
+          "500"
+        ],
+        [
+          "Rounds per map",
+          "1"
+        ],
+        [
+          "Team ratio",
+          "1 : 1"
+        ],
+        [
+          "Friendly fire",
+          "on"
+        ],
+        [
+          "PunkBuster",
+          "off"
         ]
-      },
-      "last_seen": "2026-11-18T11:29:53+00:00"
+      ],
+      "last_seen": "2026-11-18T14:16:27+00:00"
     },
     {
       "id": "bfv-ponyhof-1",
@@ -567,7 +570,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-18T14:14:26+00:00"
+      "last_seen": "2026-11-18T14:16:27+00:00"
     },
     {
       "id": "bf2142-ponyhof-1",
