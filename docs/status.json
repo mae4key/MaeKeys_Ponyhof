@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-18T18:51:47+00:00",
+  "generated_at": "2026-11-18T18:53:49+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
@@ -10,17 +10,28 @@
       "map": "berlin",
       "mode": "coop",
       "mod": "Vanilla",
-      "players": 0,
+      "players": 1,
       "max_players": 32,
-      "scoreboard": [],
+      "scoreboard": [
+        {
+          "name": "MaeKey",
+          "team": "1",
+          "rank": "",
+          "score": "0",
+          "kills": "0",
+          "deaths": "0",
+          "ping": "22",
+          "is_bot": false
+        }
+      ],
       "tickets": [
         {
           "name": "axis",
-          "score": "411"
+          "score": "398"
         },
         {
           "name": "allied",
-          "score": "823"
+          "score": "811"
         }
       ],
       "settings": [
@@ -49,7 +60,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-18T18:51:47+00:00"
+      "last_seen": "2026-11-18T18:53:49+00:00"
     },
     {
       "id": "bf1942-ponyhof-2",
@@ -65,11 +76,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "993"
+          "score": "971"
         },
         {
           "name": "allied",
-          "score": "2000"
+          "score": "1998"
         }
       ],
       "settings": [
@@ -94,14 +105,14 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-18T18:51:47+00:00"
+      "last_seen": "2026-11-18T18:53:49+00:00"
     },
     {
       "id": "bfv-ponyhof-1",
       "game": "Battlefield Vietnam",
       "name": "MaeKeys Ponyhof",
       "status": "online",
-      "map": "FALL OF LANG VEI",
+      "map": "HO CHI MINH TRAIL",
       "mode": "coop",
       "mod": "Vanilla",
       "players": 0,
@@ -110,11 +121,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "774"
+          "score": "994"
         },
         {
           "name": "blue",
-          "score": "15"
+          "score": "991"
         }
       ],
       "settings": [
@@ -143,7 +154,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-18T18:51:47+00:00"
+      "last_seen": "2026-11-18T18:53:49+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
@@ -526,7 +537,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-18T18:51:47+00:00"
+      "last_seen": "2026-11-18T18:53:49+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -900,7 +911,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-18T18:51:47+00:00"
+      "last_seen": "2026-11-18T18:53:49+00:00"
     },
     {
       "id": "bf2142-ponyhof-1",
@@ -1270,7 +1281,7 @@
           "32 players"
         ]
       ],
-      "last_seen": "2026-11-18T18:51:47+00:00"
+      "last_seen": "2026-11-18T18:53:49+00:00"
     },
     {
       "id": "bf2142-ponyhof-2",
