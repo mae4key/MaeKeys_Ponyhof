@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-18T19:37:08+00:00",
+  "generated_at": "2026-11-18T19:39:08+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
@@ -16,11 +16,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "748"
+          "score": "745"
         },
         {
           "name": "allied",
-          "score": "899"
+          "score": "833"
         }
       ],
       "settings": [
@@ -49,51 +49,48 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-18T19:37:08+00:00"
+      "last_seen": "2026-11-18T19:39:08+00:00"
     },
     {
       "id": "bf1942-ponyhof-2",
       "game": "Battlefield 1942",
       "name": "MaeKeys Ponyhof",
-      "status": "online",
-      "map": "kursk",
-      "mode": "coop",
-      "mod": "Vanilla",
+      "status": "offline",
+      "map": "",
+      "mode": "",
+      "mod": "",
       "players": 0,
-      "max_players": 32,
+      "max_players": 0,
       "scoreboard": [],
-      "tickets": [
-        {
-          "name": "axis",
-          "score": "967"
-        },
-        {
-          "name": "allied",
-          "score": "166"
-        }
-      ],
-      "settings": [
-        [
-          "Ticket ratio",
-          "500"
-        ],
-        [
-          "Rounds per map",
-          "1"
-        ],
-        [
-          "Team ratio",
-          "1 : 1"
-        ],
-        [
-          "Friendly fire",
-          "on"
-        ],
-        [
-          "PunkBuster",
-          "off"
+      "tickets": [],
+      "last": {
+        "map": "kursk",
+        "mode": "coop",
+        "mod": "Vanilla",
+        "max_players": 32,
+        "settings": [
+          [
+            "Ticket ratio",
+            "500"
+          ],
+          [
+            "Rounds per map",
+            "1"
+          ],
+          [
+            "Team ratio",
+            "1 : 1"
+          ],
+          [
+            "Friendly fire",
+            "on"
+          ],
+          [
+            "PunkBuster",
+            "off"
+          ]
         ]
-      ],
+      },
       "last_seen": "2026-11-18T19:37:08+00:00"
     },
     {
@@ -101,7 +98,7 @@
       "game": "Battlefield Vietnam",
       "name": "MaeKeys Ponyhof",
       "status": "online",
-      "map": "HO CHI MINH TRAIL",
+      "map": "HUE 1968",
       "mode": "coop",
       "mod": "Vanilla",
       "players": 0,
@@ -110,11 +107,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "938"
+          "score": "1000"
         },
         {
           "name": "blue",
-          "score": "897"
+          "score": "1000"
         }
       ],
       "settings": [
@@ -143,7 +140,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-18T19:37:08+00:00"
+      "last_seen": "2026-11-18T19:39:08+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
@@ -526,7 +523,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-18T19:37:08+00:00"
+      "last_seen": "2026-11-18T19:39:08+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -900,7 +897,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-18T19:37:08+00:00"
+      "last_seen": "2026-11-18T19:39:08+00:00"
     },
     {
       "id": "bf2142-ponyhof-1",
@@ -1270,7 +1267,7 @@
           "32 players"
         ]
       ],
-      "last_seen": "2026-11-18T19:37:08+00:00"
+      "last_seen": "2026-11-18T19:39:08+00:00"
     },
     {
       "id": "bf2142-ponyhof-2",
