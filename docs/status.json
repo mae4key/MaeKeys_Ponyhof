@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-18T17:35:35+00:00",
+  "generated_at": "2026-11-18T17:37:44+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
@@ -16,11 +16,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "914"
+          "score": "892"
         },
         {
           "name": "allied",
-          "score": "983"
+          "score": "978"
         }
       ],
       "settings": [
@@ -49,7 +49,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-18T17:35:35+00:00"
+      "last_seen": "2026-11-18T17:37:44+00:00"
     },
     {
       "id": "bf1942-ponyhof-2",
@@ -107,11 +107,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "940"
+          "score": "912"
         },
         {
           "name": "blue",
-          "score": "940"
+          "score": "929"
         }
       ],
       "settings": [
@@ -140,7 +140,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-18T17:35:35+00:00"
+      "last_seen": "2026-11-18T17:37:44+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
@@ -169,7 +169,7 @@
         {
           "name": "L. Brown",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -179,7 +179,7 @@
         {
           "name": "C. Cyreus",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -189,7 +189,7 @@
         {
           "name": "R. Walton",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -199,7 +199,7 @@
         {
           "name": "S. North",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -209,7 +209,7 @@
         {
           "name": "M. Crabtree",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -219,7 +219,7 @@
         {
           "name": "D. Gothberg",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -229,7 +229,7 @@
         {
           "name": "J. Aberg",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -239,7 +239,7 @@
         {
           "name": "T. Karlsson",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -249,7 +249,7 @@
         {
           "name": "K. Hoang",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -259,7 +259,7 @@
         {
           "name": "H. Karlsson",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -269,7 +269,7 @@
         {
           "name": "K. Yip",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -279,7 +279,7 @@
         {
           "name": "S. Flyte",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -289,7 +289,7 @@
         {
           "name": "T. Holmsten",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -299,7 +299,7 @@
         {
           "name": "R. Hallwood",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -309,7 +309,7 @@
         {
           "name": "P. OShaughnessy",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -319,7 +319,7 @@
         {
           "name": "S. Decker",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -329,7 +329,7 @@
         {
           "name": "N. Goksu",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -339,7 +339,7 @@
         {
           "name": "E. Douridas",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -349,7 +349,7 @@
         {
           "name": "D. Sundberg",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -359,7 +359,7 @@
         {
           "name": "N. White",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -369,7 +369,7 @@
         {
           "name": "N. Stromquist",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -379,7 +379,7 @@
         {
           "name": "J. Biro",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -389,7 +389,7 @@
         {
           "name": "E. Smith",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -399,7 +399,7 @@
         {
           "name": "S. Wallberg",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -409,7 +409,7 @@
         {
           "name": "R. Smedberg",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -419,7 +419,7 @@
         {
           "name": "L. Castillo",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -429,7 +429,7 @@
         {
           "name": "R. Edgren",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -439,7 +439,7 @@
         {
           "name": "C. Clarke",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -449,7 +449,7 @@
         {
           "name": "J. Jonsson",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -459,7 +459,7 @@
         {
           "name": "C. Grass",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -469,7 +469,7 @@
         {
           "name": "J. Sanick",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -479,7 +479,7 @@
         {
           "name": "J. Kjellstrom",
           "team": "",
-          "rank": "",
+          "rank": "0",
           "score": "0",
           "kills": "0",
           "deaths": "0",
@@ -523,7 +523,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-18T17:35:35+00:00"
+      "last_seen": "2026-11-18T17:37:44+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -943,7 +943,7 @@
           "32 players"
         ]
       ],
-      "last_seen": "2026-11-18T17:35:35+00:00"
+      "last_seen": "2026-11-18T17:37:44+00:00"
     },
     {
       "id": "bf2142-ponyhof-2",
