@@ -3,7 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MaeKeys Ponyhof – Server Status</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://raw.githubusercontent.com https://api.github.com; base-uri 'none'; form-action 'none'">
+<title>MaeKeys Ponyhof – Live Battlefield Server Status (BF1942, BF Vietnam, BF2, BF2142)</title>
+<meta name="description" content="Live status of the MaeKeys Ponyhof retro game servers: Battlefield 1942, Battlefield Vietnam, Battlefield 2 and Battlefield 2142. Players online, current map and scoreboard.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://mae4key.github.io/MaeKeys_Ponyhof/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="MaeKeys Ponyhof – Live Battlefield Server Status">
+<meta property="og:description" content="Self-hosted classic Battlefield servers (1942, Vietnam, 2, 2142) with live player counts, maps and scoreboards.">
+<meta property="og:url" content="https://mae4key.github.io/MaeKeys_Ponyhof/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Staatliches&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -15,7 +23,8 @@
     --brass: #c9a84c;
     --field-green: #6f8458;
     --online: #8aab5e;
-    --offline: #9a5a46;
+    --offline: #c4564a;
+    --notavail: #e0a03c;
     --text: #ece4cc;
     --text-dim: #a9a186;
   }
@@ -37,7 +46,9 @@
 
   .bg-photo {
     position: fixed;
-    top: 0; right: 0; bottom: 0; left: 0;
+    top: 0; right: 0; left: 0;
+    height: 100vh;
+    height: 100lvh;
     z-index: 0;
     background-image: url("assets/bg-church.jpg");
     background-repeat: no-repeat;
@@ -45,9 +56,24 @@
     background-position: 50% center;
   }
 
+  #bg-fx {
+    position: fixed;
+    top: 0; right: 0; left: 0;
+    height: 100vh;
+    height: 100lvh;
+    width: 100%;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 1.2s ease;
+  }
+  #bg-fx.on { opacity: 1; }
+
   .bg-overlay {
     position: fixed;
-    top: 0; right: 0; bottom: 0; left: 0;
+    top: 0; right: 0; left: 0;
+    height: 100vh;
+    height: 100lvh;
     z-index: 1;
     pointer-events: none;
     background-image:
@@ -60,7 +86,8 @@
      beim Scrollen horizontal "Spielraum" zum Schwenken entsteht. */
   @media (max-width: 640px) {
     .bg-photo {
-      background-size: 230% auto;
+      background-size: auto 100%;
+      background-position-y: 50%;
     }
   }
 
@@ -276,7 +303,9 @@
     clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%);
   }
 
-  .card.offline { border-left-color: var(--offline); opacity: 0.72; }
+  .card.offline { border-left-color: var(--offline); opacity: 0.8; }
+  .card.notavail { border-left-color: var(--notavail); opacity: 0.9; }
+  .card.unknown { border-left-color: #8a8f98; opacity: 0.85; } /* WEB28 */
 
   .card-top {
     display: flex;
@@ -440,8 +469,45 @@
     border: 1px solid currentColor;
   }
 
+  .tag { margin-left: auto; white-space: nowrap; }
   .tag.online { color: var(--online); }
   .tag.offline { color: var(--offline); }
+  .tag.notavail { color: var(--notavail); }
+  .tag.unknown { color: #8a8f98; }
+  .game-name.plain { border-bottom: none; cursor: default; }
+  .game-name.plain:hover { color: var(--text); }
+  .settings-h {
+    font-family: "Staatliches", sans-serif;
+    letter-spacing: 0.03em;
+    color: var(--text-dim);
+    font-size: 0.8rem;
+    margin: 1rem 0 0.3rem;
+    border-bottom: 1px solid var(--panel-line);
+    padding-bottom: 0.2rem;
+    font-weight: normal;
+  }
+  .offline-note { color: var(--offline); font-size: 0.8rem; margin: 0 0 0.6rem; }
+  .hours {
+    background: rgba(36, 40, 25, 0.62);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    border: 1px solid var(--panel-line);
+    border-left: 4px solid var(--brass);
+    padding: 0.6rem 0.8rem;
+    margin: 0 auto 1rem;
+    max-width: 760px;
+    font-size: 0.74rem;
+    line-height: 1.6;
+  }
+  .hours strong {
+    font-family: "Staatliches", sans-serif;
+    letter-spacing: 0.04em;
+    color: var(--brass);
+    font-size: 0.9rem;
+    font-weight: normal;
+  }
+  .hours .dim { color: var(--text-dim); }
+  .hours .live { display: block; margin-top: 0.3rem; color: var(--text); }
 
   dl.meta {
     margin: 0.55rem 0 0;
@@ -472,16 +538,81 @@
     margin-bottom: 0.4rem;
   }
 
+  /* WEB21: Countdown bis zum Serverstart */
+  .countdown { text-align: center; margin: 0.6rem 0; padding: 0.4rem 0.8rem; /* WEB25 */ background: var(--panel); border: 1px solid var(--panel-line); border-radius: 8px; }
+  .countdown .cd-label { color: var(--text-dim); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  .countdown .cd-num { color: var(--brass); font-size: 1.1rem; font-variant-numeric: tabular-nums; }
+  .countdown .cd-unit { display: none; color: var(--text-dim); font-size: 0.95rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  .countdown.big { padding: 1.3rem 1rem 1.1rem; border-color: var(--brass); }
+  .countdown.big .cd-num { font-size: clamp(4.5rem, 24vw, 9rem); font-weight: 700; line-height: 1; margin: 0.15rem 0; }
+  .countdown.big .cd-unit { display: block; }
+  .countdown.big .cd-num { color: var(--online); }
   .stale-notice {
     margin-top: 1.5rem;
     font-size: 0.75rem;
     color: var(--offline);
     text-align: center;
   }
+
+  /* ---- Reiter + Ranking ---- */
+  .tabs { display: flex; gap: 0.4rem; justify-content: center; margin: 0 auto 1rem; max-width: 760px; }
+  .tab-btn {
+    flex: 1; max-width: 11rem; background: rgba(36,40,25,0.62); color: var(--text-dim);
+    border: 1px solid var(--panel-line); padding: 0.5rem 0.8rem; cursor: pointer;
+    font-family: "Staatliches", sans-serif; letter-spacing: 0.05em; font-size: 1rem;
+  }
+  .tab-btn.active { color: var(--brass); border-color: var(--brass); background: rgba(36,40,25,0.9); }
+  .rk { max-width: 760px; margin: 0 auto 1rem; }
+  .rk-chips { display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 0 0 0.6rem; }
+  .chip {
+    background: rgba(36,40,25,0.62); color: var(--text-dim); border: 1px solid var(--panel-line);
+    padding: 0.3rem 0.7rem; font-size: 0.78rem; cursor: pointer; font-family: inherit;
+  }
+  .chip.active { color: var(--bg); background: var(--brass); border-color: var(--brass); }
+  .rk select, .rk input[type=search] {
+    width: 100%; background: rgba(36,40,25,0.8); color: var(--text); border: 1px solid var(--panel-line);
+    padding: 0.5rem 0.6rem; font-size: 0.85rem; font-family: inherit; margin: 0 0 0.6rem;
+  }
+  .rk-list { list-style: none; margin: 0; padding: 0; border: 1px solid var(--panel-line); background: rgba(36,40,25,0.62); }
+  .rk-row {
+    display: grid; grid-template-columns: 2.6rem 1fr auto; gap: 0.5rem; align-items: center;
+    padding: 0.55rem 0.7rem; border-bottom: 1px solid var(--panel-line); cursor: pointer; font-size: 0.9rem;
+  }
+  .rk-row:last-child { border-bottom: 0; }
+  .rk-row:hover { background: rgba(201,168,76,0.08); }
+  .rk-rank { font-family: "Staatliches", sans-serif; color: var(--text-dim); font-size: 1.05rem; text-align: center; }
+  .rk-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .rk-pts { font-variant-numeric: tabular-nums; color: var(--brass); }
+  .rk-r1 .rk-rank { color: #e6c35a; font-size: 1.3rem; }
+  .rk-r2 .rk-rank { color: #c4c8cc; font-size: 1.2rem; }
+  .rk-r3 .rk-rank { color: #c98a55; font-size: 1.15rem; }
+  .rk-r1 { background: rgba(230,195,90,0.08); }
+  .rk-empty { padding: 1.2rem; text-align: center; color: var(--text-dim); font-size: 0.85rem; }
+  .rk-meta { font-size: 0.7rem; color: var(--text-dim); margin: 0.6rem 0; line-height: 1.5; }
+  .rk-info { font-size: 0.78rem; line-height: 1.6; margin: 0.6rem 0; border: 1px solid var(--panel-line); background: rgba(36,40,25,0.62); padding: 0.4rem 0.8rem; }
+  .rk-info summary { cursor: pointer; color: var(--brass); font-family: "Staatliches", sans-serif; letter-spacing: 0.04em; font-size: 0.95rem; }
+  .rk-info ul { margin: 0.4rem 0 0.2rem; padding-left: 1.1rem; }
+  .rk-found { margin: 0 0 0.6rem; font-size: 0.8rem; }
+  .rk-found button { background: none; border: 1px solid var(--panel-line); color: var(--text); padding: 0.25rem 0.6rem; margin: 0 0.3rem 0.3rem 0; cursor: pointer; font-family: inherit; font-size: 0.78rem; }
+  .rk-found button:hover { border-color: var(--brass); }
+  .pl-stats { display: grid; grid-template-columns: auto 1fr; gap: 0.25rem 0.8rem; font-size: 0.82rem; margin: 0 0 0.8rem; }
+  .pl-stats dt { color: var(--text-dim); }
+  .pl-stats dd { margin: 0; }
+  .pl-bar { display: grid; grid-template-columns: 4.5rem 1fr 3.5rem; gap: 0.5rem; align-items: center; font-size: 0.78rem; margin: 0.25rem 0; }
+  .pl-bar i { display: block; height: 0.55rem; background: var(--field-green); }
+  .hours summary { cursor: pointer; }
+  .hours[open] summary { margin-bottom: 0.4rem; }
+  /* Reiter als zwei nebeneinanderliegende Seiten (wie ein aufgeschlagenes Buch) */
+  .pager { position: relative; overflow: hidden; touch-action: pan-y; }
+  .pager > section.pg-other { display: none; }
+  .pager.moving > section.pg-other { display: block; position: absolute; top: 0; left: 0; width: 100%; }
+  .pager > section { will-change: auto; }
+  .pager.moving > section { will-change: transform; }
 </style>
 </head>
 <body>
 <div class="bg-photo" id="bg-photo"></div>
+<canvas id="bg-fx" aria-hidden="true"></canvas>
 <div class="bg-overlay"></div>
 
 <button type="button" class="menu-btn" onclick="toggleMenu()" aria-label="Menu">☰</button>
@@ -492,7 +623,7 @@
   </div>
   <div class="menu-panel-content">
   <h3>About</h3>
-  <p>MaeKeys Ponyhof is a small, free, self-hosted community project keeping classic early-2000s Battlefield multiplayer alive — because the official matchmaking services for these games have long been shut down. Everything here runs on a home server, queried directly and shown live, with no third-party listing service in between.</p>
+  <p>MaeKeys Ponyhof is a small, free, self-hosted community project keeping classic early-2000s multiplayer games like Battlefield alive — because the official matchmaking services for these games have long been shut down. Everything here runs on a home server, queried directly and shown live, with no third-party listing service in between.</p>
   <p>Currently hosting Battlefield 1942, Battlefield Vietnam, Battlefield 2 and Battlefield 2142, including a couple of classic mods alongside vanilla. On the roadmap: Medal of Honor: Allied Assault (via the open-source OpenMoHAA project) and Medal of Honor: Pacific Assault — and, as a longer-term, more ambitious goal, Battlefield: Bad Company 2.</p>
   <h3>Server lists</h3>
   <a href="http://master.bf1942.org/" target="_blank" rel="noopener">master.bf1942.org (BF1942)</a>
@@ -611,12 +742,51 @@
     <span class="online-count" id="online-count"></span>
   </header>
 
+  <nav class="tabs" aria-label="Sections">
+    <button type="button" class="tab-btn active" id="tab-servers" onclick="showTab('servers')">Servers</button>
+    <button type="button" class="tab-btn" id="tab-ranking" onclick="showTab('ranking')">Ranking</button>
+  </nav>
+
+  <div class="pager" id="pager">
+  <section id="view-servers" class="pg-active">
+  <details class="hours" id="hours">
+    <summary><strong>Regular operating hours</strong> <span class="dim">(CET/CEST)</span><span class="live" id="hours-live"></span></summary>
+    Start: Mon&ndash;Fri from 18:30 &middot; Sat&ndash;Sun from 16:30<br>
+    Closing: Sun&ndash;Wed 22:30 &middot; Thu&ndash;Sat midnight<br>
+    <span class="dim">After closing time, empty servers are shut down; servers with players keep running until the last player has left.</span>
+  </details>
+
+  <div class="countdown" id="countdown" hidden><div class="cd-label" id="cd-label"></div><div class="cd-num" id="cd-num"></div><div class="cd-unit" id="cd-unit"></div></div>
   <div id="servers" class="servers">
-    <p class="empty"><strong>Loading status …</strong></p>
+    <p class="empty"><strong>Loading status …</strong>Live status of the MaeKeys Ponyhof servers for Battlefield 1942, Battlefield Vietnam, Battlefield 2 and Battlefield 2142.</p>
   </div>
 
   <p class="timestamp" id="timestamp"></p>
   <p class="stale-notice" id="stale-notice" hidden></p>
+  </section>
+
+  <section id="view-ranking" class="pg-other">
+    <div class="rk">
+      <div class="rk-chips" id="rk-periods"></div>
+      <select id="rk-select" aria-label="Time period"></select>
+      <div class="rk-chips" id="rk-games"></div>
+      <input type="search" id="rk-search" placeholder="Find a player (nickname)" maxlength="32" autocomplete="off">
+      <div class="rk-found" id="rk-found"></div>
+      <ol class="rk-list" id="rk-list"></ol>
+      <p class="rk-meta" id="rk-meta"></p>
+      <details class="rk-info">
+        <summary>How the ranking works</summary>
+        <ul>
+          <li>Points are score gains of human players on the internet servers. Bots and LAN games are not counted.</li>
+          <li>Players are ranked by their exact nickname. The same nickname is added up across all games in the Overall ranking; a different nickname counts as a separate entry.</li>
+          <li>Nicknames starting with &quot;Player&quot; (the default name) are not shown.</li>
+          <li>A gaming day ends at 04:00 (CET/CEST), so late sessions still count for the day before. Weeks run Monday to Sunday.</li>
+          <li>The current period is an interim standing and is updated about every 15 minutes.</li>
+        </ul>
+      </details>
+    </div>
+  </section>
+  </div>
 </div>
 
 <div class="modal-backdrop" id="modal-backdrop" hidden onclick="if(event.target===this) closeScoreboard()">
@@ -633,59 +803,238 @@
 </div>
 
 <script>
-function fmtTimestamp(iso) {
+function fmtTimestamp(iso, label) { // WEB29
   if (!iso) return "No update yet.";
   const d = new Date(iso);
-  return "Last updated: " + d.toLocaleString("en-GB", { dateStyle: "medium", timeStyle: "short" });
+  return (label || "Last updated") + ": " + d.toLocaleString("en-GB", { dateStyle: "medium", timeStyle: "short" });
 }
 
 let currentServers = {};
 
+const STATUS_META = {
+  online: { cls: "online", label: "ONLINE" },
+  not_available: { cls: "notavail", label: "NOT AVAILABLE" },
+  offline: { cls: "offline", label: "OFFLINE" },
+  unknown: { cls: "unknown", label: "UNKNOWN" }, // WEB28
+};
+
+// WEB27: Verbindungsdaten ip:port (IP aus status.json, vom Status-Lauf aufgeloest)
+let PUBLIC_IP = "";
+const JOIN_PORTS = {
+  "bf1942-ponyhof-1": 14567, "bf1942-ponyhof-2": 14568,
+  "bfv-ponyhof-1": 15567, "bfv-ponyhof-2": 15568,
+  "bf2-ponyhof-1": 16567, "bf2-ponyhof-2": 16568,
+  "bf2142-ponyhof-1": 17567, "bf2142-ponyhof-2": 17568,
+};
+
+function gameLabel(s) {
+  return s.game + (/-2$/.test(s.id) ? " (2)" : "");
+}
+
+function esc(v) {
+  return String(v == null ? "" : v).replace(/[&<>"']/g, c => (
+    { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]
+  ));
+}
+
+function fmtDate(iso) {
+  if (!iso) return "";
+  const d = new Date(iso);
+  return isNaN(d) ? "" : d.toLocaleString("en-GB", { dateStyle: "medium", timeStyle: "short" });
+}
+
 function renderServers(servers) {
   const el = document.getElementById("servers");
-  const online = servers.filter(s => s.status === "online");
   currentServers = {};
-  online.forEach(s => { currentServers[s.id] = s; });
+  // WEB20: 'nicht verfuegbar' (Nur LAN) sieht von aussen wie offline aus -> gleich anzeigen
+  servers = servers.map(s => s.status === "not_available" ? Object.assign({}, s, { status: "offline" }) : s);
+  servers.forEach(s => { currentServers[s.id] = s; });
 
-  if (online.length === 0) {
-    el.innerHTML = `<p class="empty"><strong>No game currently running</strong>All servers are currently offline or unreachable.</p>`;
+  if (servers.length === 0) {
+    el.innerHTML = `<p class="empty"><strong>No servers configured</strong>Please check back later.</p>`;
     return;
   }
 
-  el.innerHTML = online.map(s => `
-    <div class="card">
+  // Sortierung: online zuerst, danach die restlichen; innerhalb beider Gruppen
+  // bleibt die Reihenfolge der Konfiguration (1942, Vietnam, 2, 2142).
+  const ordered = [...servers.filter(s => s.status === "online"), ...servers.filter(s => s.status !== "online")];
+  el.innerHTML = ordered.map(s => {
+    const meta = STATUS_META[s.status] || STATUS_META.offline;
+    const d = (s.status === "offline" || s.status === "unknown") ? (s.last || {}) : s; // WEB28
+    const title = s.status !== "online"
+      ? `<span class="game-name plain">${esc(gameLabel(s))}</span>`
+      : `<button type="button" class="game-name" data-id="${esc(s.id)}" onclick="showScoreboard(this.dataset.id)">${esc(gameLabel(s))} \u25b8</button>`;
+    const serverLine = esc(d.mod ? s.name + " \u2013 " + d.mod : s.name);
+    let rows = `<dt>Server</dt><dd>${serverLine}</dd>`;
+    if (s.status === "online") {
+      rows += `<dt>Map</dt><dd>${esc(s.map || "\u2013")}</dd>`;
+      rows += `<dt>Mode</dt><dd>${esc(s.mode || "\u2013")}</dd>`;
+      rows += `<dt>Players</dt><dd>${s.map ? esc(s.players + (s.max_players ? " / " + s.max_players : "")) : "\u2013"}</dd>`;
+    } else if (s.status === "not_available") {
+      rows += `<dt>Map</dt><dd>${esc(s.map || "\u2013")}</dd>`;
+    } else {
+      rows += `<dt>Map</dt><dd>${esc(d.map || "\u2013")}</dd>`;
+      rows += `<dt>Mode</dt><dd>${esc(d.mode || "\u2013")}</dd>`;
+      rows += `<dt>Last seen</dt><dd>${esc(fmtDate(s.last_seen) || "\u2013")}</dd>`;
+    }
+    const jp = JOIN_PORTS[s.id];
+    if (jp && /^\d{1,3}(\.\d{1,3}){3}$/.test(PUBLIC_IP)) {
+      rows += `<dt>Join</dt><dd>${PUBLIC_IP}:${jp}</dd>`;
+    }
+    return `
+    <div class="card ${meta.cls}">
       <div class="card-top">
-        <button type="button" class="game-name" data-id="${s.id}" onclick="showScoreboard(this.dataset.id)">${s.game} ▸</button>
-        <span class="tag online">ONLINE</span>
+        ${title}
+        <span class="tag ${meta.cls}">${meta.label}</span>
       </div>
-      <dl class="meta">
-        <dt>Server</dt><dd>${s.mod ? s.name + " – " + s.mod : s.name}</dd>
-        <dt>Map</dt><dd>${s.map || "–"}</dd>
-        <dt>Mode</dt><dd>${s.mode || "–"}</dd>
-        <dt>Players</dt><dd>${s.map ? s.players + (s.max_players ? " / " + s.max_players : "") : "–"}</dd>
-      </dl>
-    </div>
-  `).join("");
+      <dl class="meta">${rows}</dl>
+    </div>`;
+  }).join("");
 }
 
-async function load() {
+const ZH_DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+// "Wanduhrzeit" in Zuerich als Pseudo-UTC-Zeitstempel (sommerzeitsicher).
+function zhWallNow() {
+  const parts = new Intl.DateTimeFormat("en-GB", {
+    timeZone: "Europe/Zurich", year: "numeric", month: "2-digit", day: "2-digit",
+    hour: "2-digit", minute: "2-digit", hourCycle: "h23",
+  }).formatToParts(new Date());
+  const g = t => parseInt(parts.find(p => p.type === t).value, 10);
+  return Date.UTC(g("year"), g("month") - 1, g("day"), g("hour"), g("minute"));
+}
+
+// Start: Mo-Fr 18:30, Sa/So 16:30. Ende: So-Mi 22:30, Do-Sa 24:00.
+function zhStart(dayMs) {
+  const dow = new Date(dayMs).getUTCDay();
+  return dayMs + ((dow === 0 || dow === 6) ? 16 * 60 + 30 : 18 * 60 + 30) * 60000;
+}
+function zhEnd(dayMs) {
+  const dow = new Date(dayMs).getUTCDay();
+  return dow <= 3 ? dayMs + (22 * 60 + 30) * 60000 : dayMs + 24 * 3600000;
+}
+function fmtHM(ms) {
+  const d = new Date(ms);
+  return String(d.getUTCHours()).padStart(2, "0") + ":" + String(d.getUTCMinutes()).padStart(2, "0");
+}
+
+function updateHours() {
+  const el = document.getElementById("hours-live");
+  if (!el) return;
+  const now = zhWallNow();
+  const today = Math.floor(now / 86400000) * 86400000;
+  let text = "";
+  for (const off of [0, -1]) {
+    const day = today + off * 86400000;
+    if (zhStart(day) <= now && now < zhEnd(day)) {
+      const end = zhEnd(day);
+      text = "Open now \u2013 closing at " + ((end - day) >= 86400000 ? "midnight" : fmtHM(end));
+      break;
+    }
+  }
+  if (!text) {
+    for (let i = 0; i < 8; i++) {
+      const day = today + i * 86400000;
+      const s = zhStart(day);
+      if (s > now) {
+        const when = i === 0 ? "today" : (i === 1 ? "tomorrow" : ZH_DAYS[new Date(day).getUTCDay()]);
+        text = "Outside regular operating hours \u2013 next start " + when + " at " + fmtHM(s);
+        break;
+      }
+    }
+  }
+  el.textContent = text;
+}
+
+// WEB28: Status aus mehreren Quellen; neueste gewinnt. Alte Daten: waehrend der Betriebszeiten "unknown",
+// ausserhalb "offline" (ausser der Gameserver meldet selbst "final"). Quellen: API und raw des Daten-Repos, altes raw.
+const STATUS_URLS = {
+  api: "https://api.github.com/repos/mae4key/MaeKeys_Ponyhof_Status/contents/status.json",
+  rawNew: "https://raw.githubusercontent.com/mae4key/MaeKeys_Ponyhof_Status/main/status.json",
+  rawOld: "https://raw.githubusercontent.com/mae4key/MaeKeys_Ponyhof/main/docs/status.json",
+};
+const STALE_MIN = 15;
+let apiNextTry = 0, bestSeen = null;
+async function getJson(url, opts) {
+  const res = await fetch(url, opts);
+  if (res.status === 403 || res.status === 429) { const e = new Error("rate"); e.rate = true; throw e; }
+  if (!res.ok) throw new Error("http " + res.status);
+  const j = await res.json();
+  if (!j || typeof j !== "object" || !Array.isArray(j.servers)) throw new Error("format");
+  return j;
+}
+function genTime(d) { const t = d ? Date.parse(d.generated_at) : NaN; return isNaN(t) ? -Infinity : t; }
+function statusAgeMin(d) { const t = genTime(d); return t === -Infinity ? Infinity : (Date.now() - t) / 60000; }
+function isStale(d) { return !d.final && statusAgeMin(d) > STALE_MIN; }
+function newest(list) {
+  let best = null;
+  for (const d of list) if (d && (!best || genTime(d) > genTime(best))) best = d;
+  return best;
+}
+async function fetchStatus() {
+  const jobs = [];
+  if (Date.now() >= apiNextTry) {
+    apiNextTry = Date.now() + 70000; // API hoechstens alle 70 s (Limit 60/h je IP)
+    jobs.push(getJson(STATUS_URLS.api, { headers: { Accept: "application/vnd.github.raw+json" } })
+      .catch(e => { if (e.rate) apiNextTry = Date.now() + 15 * 60000; return null; }));
+  }
+  const bucket = "?t=" + Math.floor(Date.now() / 20000);
+  jobs.push(getJson(STATUS_URLS.rawNew + bucket, { cache: "no-store" }).catch(() => null));
+  const oldJob = getJson(STATUS_URLS.rawOld + bucket, { cache: "no-store" })
+    .catch(() => getJson("status.json", { cache: "no-store" })).catch(() => null);
+  const [fresh, old] = await Promise.all([Promise.all(jobs), oldJob]);
+  let best = newest([bestSeen, ...fresh]);
+  if (!best || isStale(best)) best = newest([best, old]);
+  if (!best) throw new Error("no data");
+  bestSeen = best;
+  return best;
+}
+function applyStale(data) {
+  data.unknown = false;
+  if (!isStale(data)) return;
+  const open = zhState(zhNowSec()).open;
+  data.servers = data.servers.map(sv => {
+    const was = sv.status === "online";
+    return Object.assign({}, sv, {
+      status: open ? "unknown" : "offline",
+      last: was ? { map: sv.map, mode: sv.mode, mod: sv.mod } : (sv.last || {}),
+      last_seen: was ? data.generated_at : (sv.last_seen || ""),
+    });
+  });
+  data.unknown = open;
+}
+
+let loadedOnce = false, anyOnline = false, kickIdx = -1; // WEB21
+async function load(force) {
+  if (force !== true && loadedOnce && freezeActive()) return;
   try {
-    const res = await fetch("status.json", { cache: "no-store" });
-    const data = await res.json();
+    const data = await fetchStatus(); // WEB28
+    applyStale(data);
+    if (typeof data.public_ip === "string") PUBLIC_IP = data.public_ip;
+    // WEB23: in den letzten 300 s vor dem Start alles als offline zeigen (auch nach manuellem Reload),
+    // damit alle Server erst bei 0 gleichzeitig gruen werden
+    if (freezeActive() && data.servers) data.servers = data.servers.map(sv => Object.assign({}, sv, { status: "offline" }));
     renderServers(data.servers || []);
+    loadedOnce = true;
+    anyOnline = (data.servers || []).some(sv => sv.status === "online");
     const totalOnline = (data.servers || [])
       .filter(s => s.status === "online")
-      .reduce((sum, s) => sum + (s.players || 0), 0);
-    document.getElementById("online-count").innerHTML = `<strong>${totalOnline}</strong> online`;
-    document.getElementById("timestamp").textContent = fmtTimestamp(data.generated_at);
+      .reduce((sum, s) => sum + (s.map ? (s.players || 0) : 0), 0);
+    document.getElementById("online-count").innerHTML = data.unknown ? `<strong>?</strong> online` : `<strong>${totalOnline}</strong> online`;
+    // WEB29: ausserhalb der Betriebszeiten und ohne online-Server: letzter bekannter Online-Zeitpunkt
+    let tsIso = data.generated_at, tsLabel = "Last updated";
+    if (!zhState(zhNowSec()).open && !anyOnline) {
+      const seen = (data.servers || []).map(sv => Date.parse(sv.last_seen || "")).filter(t => !isNaN(t));
+      if (seen.length) { tsIso = new Date(Math.ceil(Math.max.apply(null, seen) / 60000) * 60000).toISOString(); tsLabel = "Last online"; } // WEB30
+    }
+    document.getElementById("timestamp").textContent = fmtTimestamp(tsIso, tsLabel);
 
     const staleNotice = document.getElementById("stale-notice");
-    if (data.generated_at) {
-      const ageMinutes = (Date.now() - new Date(data.generated_at)) / 60000;
-      if (ageMinutes > 5) {
-        staleNotice.hidden = false;
-        staleNotice.textContent = "Note: the last update was over 5 minutes ago – data may be outdated.";
-      }
+    if (data.unknown) {
+      staleNotice.hidden = false;
+      staleNotice.textContent = "Live status is temporarily unavailable. Showing the last known values.";
+    } else {
+      staleNotice.hidden = true;
     }
   } catch (e) {
     document.getElementById("servers").innerHTML =
@@ -695,24 +1044,133 @@ async function load() {
 
 load();
 setInterval(load, 30000);
+updateHours();
+setInterval(updateHours, 60000);
+
+// WEB21: Countdown. Letzte 999 s gross; in den letzten 300 s vor Start wird der Status
+// nicht mehr neu geladen, bei 0 sofort (danach 3 Min. alle 15 s), damit alle Server gleichzeitig gruen werden.
+function zhNowSec() {
+  const parts = new Intl.DateTimeFormat("en-GB", {
+    timeZone: "Europe/Zurich", year: "numeric", month: "2-digit", day: "2-digit",
+    hour: "2-digit", minute: "2-digit", second: "2-digit", hourCycle: "h23",
+  }).formatToParts(new Date());
+  const g = t => parseInt(parts.find(x => x.type === t).value, 10);
+  return Date.UTC(g("year"), g("month") - 1, g("day"), g("hour"), g("minute"), g("second"));
+}
+function zhState(now) {
+  const today = Math.floor(now / 86400000) * 86400000;
+  let open = false, lastStart = -1;
+  for (const off of [0, -1]) {
+    const day = today + off * 86400000;
+    const st = zhStart(day);
+    if (st <= now) {
+      lastStart = Math.max(lastStart, st);
+      if (now < zhEnd(day)) open = true;
+    }
+  }
+  let next = -1;
+  for (let i = 0; i < 9 && next < 0; i++) {
+    const st = zhStart(today + i * 86400000);
+    if (st > now) next = st;
+  }
+  return { open, lastStart, next };
+}
+function freezeActive() {
+  const now = zhNowSec(), st = zhState(now);
+  if (st.open) return false; // WEB23
+  const rem = (st.next - now) / 1000;
+  return rem > 0 && rem <= 300;
+}
+function pad2(n) { return String(n).padStart(2, "0"); }
+function tickCountdown() {
+  const box = document.getElementById("countdown");
+  if (!box) return;
+  const now = zhNowSec(), st = zhState(now);
+  const label = document.getElementById("cd-label"), num = document.getElementById("cd-num"), unit = document.getElementById("cd-unit");
+  if (st.open) {
+    const since = (now - st.lastStart) / 1000;
+    if (since >= 0 && since < 180) {
+      const idx = Math.floor(since / 15);
+      if (idx !== kickIdx) { kickIdx = idx; load(true); }
+    } else { kickIdx = -1; }
+    if (since >= 0 && since < 10) { // WEB24: die 0 bleibt 10 s stehen
+      box.className = "countdown big last"; label.textContent = "Servers start in";
+      num.textContent = "0"; unit.textContent = "seconds"; box.hidden = false;
+    } else if (since >= 10 && since < 180 && loadedOnce && !anyOnline) {
+      box.className = "countdown"; label.textContent = "Servers are starting";
+      num.textContent = "live status loading\u2026"; unit.textContent = ""; box.hidden = false;
+    } else { box.hidden = true; }
+    return;
+  }
+  kickIdx = -1;
+  if (anyOnline) { box.hidden = true; return; } // WEB22: laeuft ein Server, kein Countdown
+  const rem = Math.max(0, Math.round((st.next - now) / 1000));
+  box.hidden = false;
+  if (rem <= 999) {
+    box.className = "countdown big" + (rem <= 10 ? " last" : "");
+    label.textContent = "Servers start in";
+    num.textContent = String(rem);
+    unit.textContent = rem === 1 ? "second" : "seconds";
+  } else {
+    box.className = "countdown";
+    const d = Math.floor(rem / 86400), h = Math.floor(rem % 86400 / 3600), m = Math.floor(rem % 3600 / 60), sec = rem % 60;
+    label.textContent = "Next server start in";
+    num.textContent = (d > 0 ? d + " d " : "") + pad2(h) + ":" + pad2(m) + ":" + pad2(sec);
+    unit.textContent = "";
+  }
+}
+tickCountdown();
+setInterval(tickCountdown, 1000);
+
+// Sofort neu laden, wenn die Seite wieder sichtbar wird (Tab-Wechsel,
+// Handy entsperrt, Seite aus dem Cache zurueck) - zusaetzlich zum 30-s-Takt.
+let lastRefresh = Date.now();
+function refreshIfStale() {
+  if (Date.now() - lastRefresh > 5000) {
+    lastRefresh = Date.now();
+    load();
+  }
+}
+document.addEventListener("visibilitychange", () => {
+  if (!document.hidden) refreshIfStale();
+});
+window.addEventListener("focus", refreshIfStale);
+window.addEventListener("pageshow", refreshIfStale);
 
 // Scoreboard-Detailfenster: zeigt nur unsere eigenen Abfragedaten, kein
 // externer Link.
+function settingsHtml(rows) {
+  if (!rows || !rows.length) return "";
+  return `<h3 class="settings-h">Server settings</h3><dl class="meta">` +
+    rows.map(r => `<dt>${esc(r[0])}</dt><dd>${esc(r[1])}</dd>`).join("") + `</dl>`;
+}
+
 function showScoreboard(id) {
   const s = currentServers[id];
-  if (!s) return;
-  document.getElementById("modal-title").textContent = s.game;
+  if (!s || s.status !== "online") return;
+  const isOffline = s.status !== "online";
+  const d = isOffline ? (s.last || {}) : s;
+  document.getElementById("modal-title").textContent = gameLabel(s);
   document.getElementById("modal-sub").textContent =
-    (s.mod ? s.name + " \u2013 " + s.mod : s.name) +
-    (s.map ? " \u00b7 " + s.map : "") +
-    (s.mode ? " \u00b7 " + s.mode : "");
+    (d.mod ? s.name + " \u2013 " + d.mod : s.name) +
+    (d.map ? " \u00b7 " + d.map : "") +
+    (d.mode ? " \u00b7 " + d.mode : "");
 
   const body = document.getElementById("modal-body");
   let html = "";
 
+  if (isOffline) {
+    html += `<p class="offline-note">Server offline` +
+      (s.last_seen ? " \u2013 last seen " + esc(fmtDate(s.last_seen)) : "") + `. Showing the last known settings.</p>`;
+    html += settingsHtml(d.settings) || `<p class="modal-empty">No data yet.</p>`;
+    body.innerHTML = html;
+    document.getElementById("modal-backdrop").hidden = false;
+    return;
+  }
+
   const teamInfo = s.tickets || [];
-  if (teamInfo.length >= 2 && (teamInfo[0].score || teamInfo[1].score)) {
-    html += `<p class="tickets-line">Tickets: ${teamInfo[0].name ? teamInfo[0].name + " " : ""}${teamInfo[0].score || "\u2013"} \u2013 ${teamInfo[1].name ? teamInfo[1].name + " " : ""}${teamInfo[1].score || "\u2013"}</p>`;
+  if (teamInfo.length >= 2 && (parseInt(teamInfo[0].score) || parseInt(teamInfo[1].score))) {
+    html += `<p class="tickets-line">Tickets: ${teamInfo[0].name ? esc(teamInfo[0].name) + " " : ""}${esc(teamInfo[0].score || "\u2013")} \u2013 ${teamInfo[1].name ? esc(teamInfo[1].name) + " " : ""}${esc(teamInfo[1].score || "\u2013")}</p>`;
   }
 
   // Nur echte Spieler, nie Bots.
@@ -723,15 +1181,14 @@ function showScoreboard(id) {
   } else {
     const rowHtml = (p, i) => `
       <tr>
-        <td>${p.rank || (i + 1)}</td>
-        <td>${p.name}</td>
-        <td>${p.score}</td>
-        <td>${p.kills || "\u2013"}</td>
-        <td>${p.deaths || "\u2013"}</td>
+        <td>${esc(p.name)}</td>
+        <td>${esc(p.score)}</td>
+        <td>${esc(p.kills || "\u2013")}</td>
+        <td>${esc(p.deaths || "\u2013")}</td>
       </tr>`;
     const table = rows => `
       <table class="scoreboard">
-        <thead><tr><th>Rank</th><th>Name</th><th>Score</th><th>Kills</th><th>Deaths</th></tr></thead>
+        <thead><tr><th>Name</th><th>Score</th><th>Kills</th><th>Deaths</th></tr></thead>
         <tbody>${rows.map(rowHtml).join("")}</tbody>
       </table>`;
     const sortRow = (a, b) => (parseInt(b.score) || 0) - (parseInt(a.score) || 0);
@@ -741,13 +1198,13 @@ function showScoreboard(id) {
     if (teamValues.length >= 2) {
       const team1 = humans.filter(p => p.team === teamValues[0]).sort(sortRow);
       const team2 = humans.filter(p => p.team === teamValues[1]).sort(sortRow);
-      const unassigned = humans.filter(p => !teamValues.slice(0, 2).includes(p.team));
+      const unassigned = humans.filter(p => !teamValues.slice(0, 2).includes(p.team)).sort(sortRow);
       const team1Label = (teamInfo[0] && teamInfo[0].name) || (isNaN(teamValues[0]) ? teamValues[0] : "Team 1");
       const team2Label = (teamInfo[1] && teamInfo[1].name) || (isNaN(teamValues[1]) ? teamValues[1] : "Team 2");
 
       html += `<div class="teams-split">`;
-      if (team1.length) html += `<div class="team-col"><h4>${team1Label}</h4>${table(team1)}</div>`;
-      if (team2.length) html += `<div class="team-col"><h4>${team2Label}</h4>${table(team2)}</div>`;
+      if (team1.length) html += `<div class="team-col"><h4>${esc(team1Label)}</h4>${table(team1)}</div>`;
+      if (team2.length) html += `<div class="team-col"><h4>${esc(team2Label)}</h4>${table(team2)}</div>`;
       if (unassigned.length) html += `<div class="team-col"><h4>Unassigned</h4>${table(unassigned)}</div>`;
       html += `</div>`;
     } else {
@@ -755,9 +1212,256 @@ function showScoreboard(id) {
     }
   }
 
+  html += settingsHtml(s.settings);
+
   body.innerHTML = html;
   document.getElementById("modal-backdrop").hidden = false;
 }
+
+// ---------- Ranking ----------
+const RANKING_BASE = "https://raw.githubusercontent.com/mae4key/MaeKeys_Ponyhof_Ranking/main/data/";
+const RK = { data: null, players: null, period: "week", game: "all", key: null, arch: {}, rows: [], started: false };
+const RK_PERIODS = [["day", "Day"], ["week", "Week"], ["month", "Month"], ["year", "Year"], ["all", "All time"]];
+const RK_SHORT = { bf1942: "BF1942", bfv: "BFV", bf2: "BF2", bf2142: "BF2142" };
+
+function rkFetch(path) {
+  return fetch(RANKING_BASE + path + "?t=" + Math.floor(Date.now() / 300000), { cache: "no-store" })
+    .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); });
+}
+function rkD(iso) { return new Date(iso + "T00:00:00Z"); }
+function rkFmt(iso, opt) { return rkD(iso).toLocaleDateString("en-GB", Object.assign({ timeZone: "UTC" }, opt)); }
+function rkEnd(period, start) {
+  const d = rkD(start);
+  if (period === "week") d.setUTCDate(d.getUTCDate() + 6);
+  return d.toISOString().slice(0, 10);
+}
+function rkWeekNo(iso) {
+  const d = rkD(iso);
+  d.setUTCDate(d.getUTCDate() + 3 - ((d.getUTCDay() + 6) % 7));
+  const y0 = new Date(Date.UTC(d.getUTCFullYear(), 0, 4));
+  return 1 + Math.round(((d - y0) / 86400000 - 3 + ((y0.getUTCDay() + 6) % 7)) / 7);
+}
+function rkLabel(period, start, current) {
+  const cur = current ? " (so far)" : "";
+  if (period === "day") return rkFmt(start, { weekday: "short", day: "numeric", month: "short" }) + cur;
+  if (period === "week") return "Week " + rkWeekNo(start) + " \u00b7 " + rkFmt(start, { day: "numeric", month: "short" }) + " \u2013 " + rkFmt(rkEnd("week", start), { day: "numeric", month: "short" }) + cur;
+  if (period === "month") return rkFmt(start, { month: "long", year: "numeric" }) + cur;
+  return start.slice(0, 4) + cur;
+}
+function rkOptions(period) {
+  const list = (RK.data.periods[period] || []).map(v => ({ key: v.key, start: v.start, current: v.current }));
+  const have = new Set(list.map(o => o.key));
+  ((RK.data.archive || {})[period] || []).slice().reverse().forEach(k => {
+    if (!have.has(k)) list.push({ key: k, start: k, current: false });
+  });
+  return list;
+}
+function rkView() {
+  if (RK.period === "all") return (RK.data.periods.all || [])[0] || null;
+  const v = (RK.data.periods[RK.period] || []).find(x => x.key === RK.key);
+  return v || RK.arch[RK.period + "/" + RK.key] || null;
+}
+async function rkSelectKey(key) {
+  RK.key = key;
+  const inMain = (RK.data.periods[RK.period] || []).some(x => x.key === key);
+  const ck = RK.period + "/" + key;
+  if (!inMain && !RK.arch[ck]) {
+    try { RK.arch[ck] = await rkFetch("archive/" + RK.period + "/" + key + ".json"); } catch (e) { /* bleibt leer */ }
+  }
+  rkRender();
+}
+function rkRender() {
+  if (!RK.data) return;
+  const pc = document.getElementById("rk-periods");
+  pc.innerHTML = RK_PERIODS.map(([id, lab]) =>
+    `<button type="button" class="chip${id === RK.period ? " active" : ""}" data-p="${id}">${lab}</button>`).join("");
+  const opts = RK.period === "all" ? [] : rkOptions(RK.period);
+  if (RK.period !== "all" && !opts.some(o => o.key === RK.key)) RK.key = opts.length ? opts[0].key : null;
+  const sel = document.getElementById("rk-select");
+  sel.hidden = RK.period === "all";
+  sel.innerHTML = opts.map(o => `<option value="${esc(o.key)}"${o.key === RK.key ? " selected" : ""}>${esc(rkLabel(RK.period, o.start, o.current))}</option>`).join("");
+  document.getElementById("rk-games").innerHTML =
+    [{ id: "all", name: "Overall" }].concat(RK.data.games || []).map(g =>
+      `<button type="button" class="chip${g.id === RK.game ? " active" : ""}" data-g="${esc(g.id)}">${esc(g.id === "all" ? "Overall" : (RK_SHORT[g.id] || g.name))}</button>`).join("");
+  const v = rkView();
+  RK.rows = v ? (v.scopes[RK.game] || []) : [];
+  const ul = document.getElementById("rk-list");
+  ul.innerHTML = RK.rows.length
+    ? RK.rows.map((r, i) => `<li class="rk-row${i < 3 ? " rk-r" + (i + 1) : ""}" data-i="${i}"><span class="rk-rank">${i + 1}</span><span class="rk-name">${esc(r.n)}</span><span class="rk-pts">${esc(r.p)}</span></li>`).join("")
+    : `<li class="rk-empty">No points recorded in this period yet.</li>`;
+  const last = RK.data.last_points_ts ? new Date(RK.data.last_points_ts * 1000).toLocaleString("en-GB", { dateStyle: "medium", timeStyle: "short" }) : "\u2013";
+  document.getElementById("rk-meta").textContent = "Last points recorded: " + last + " \u00b7 gaming day ends 04:00 (CET/CEST)";
+}
+async function rkPlayers() {
+  if (!RK.players) { try { RK.players = (await rkFetch("players.json")).players || []; } catch (e) { RK.players = []; } }
+  return RK.players;
+}
+async function rkOpenPlayer(name) {
+  const list = await rkPlayers();
+  const p = list.find(x => x.n === name);
+  document.getElementById("modal-title").textContent = name;
+  document.getElementById("modal-sub").textContent = p ? "All-time rank #" + p.r : "";
+  let html = "";
+  if (!p) {
+    html = `<p class="modal-empty">No details available yet.</p>`;
+  } else {
+    const c = p.c || {};
+    html += `<dl class="pl-stats"><dt>Total points</dt><dd>${esc(p.t)}</dd>`
+      + `<dt>Days played</dt><dd>${esc(p.d)}</dd>`
+      + `<dt>First seen</dt><dd>${esc(rkFmt(p.f, { day: "numeric", month: "short", year: "numeric" }))}</dd>`
+      + `<dt>Last seen</dt><dd>${esc(rkFmt(p.l, { day: "numeric", month: "short", year: "numeric" }))}</dd>`
+      + `<dt>Today</dt><dd>${esc(c.day || 0)}</dd><dt>This week</dt><dd>${esc(c.week || 0)}</dd>`
+      + `<dt>This month</dt><dd>${esc(c.month || 0)}</dd><dt>This year</dt><dd>${esc(c.year || 0)}</dd></dl>`;
+    const max = Math.max(1, ...Object.values(p.g || {}));
+    html += (RK.data.games || []).filter(g => (p.g || {})[g.id]).map(g => {
+      const v = p.g[g.id];
+      return `<div class="pl-bar"><span>${esc(RK_SHORT[g.id] || g.name)}</span><span><i style="width:${Math.max(3, Math.round(100 * v / max))}%"></i></span><span>${esc(v)}</span></div>`;
+    }).join("");
+  }
+  document.getElementById("modal-body").innerHTML = html;
+  document.getElementById("modal-backdrop").hidden = false;
+}
+async function rkLoad() {
+  try {
+    RK.data = await rkFetch("ranking.json");
+    RK.players = null;
+    rkRender();
+  } catch (e) {
+    if (!RK.data) document.getElementById("rk-list").innerHTML = `<li class="rk-empty">Ranking currently unavailable. Please try again later.</li>`;
+  }
+}
+// Reiter = zwei Seiten nebeneinander: mit dem Finger mitziehen, ab ca. 30 % (oder
+// per Schwung) wechselt die Seite. Nur zwei Seiten -> endlos in beide Richtungen.
+const PAGER = document.getElementById("pager");
+const PAGES = [document.getElementById("view-servers"), document.getElementById("view-ranking")];
+const PAGER_GAP = 24, PAGER_MS = 280, PAGER_EASE = "cubic-bezier(0.22, 0.8, 0.3, 1)";
+let pagerIdx = 0, pdrag = null, pbusy = false;
+
+function pagerTabs(i) {
+  document.getElementById("tab-servers").classList.toggle("active", i === 0);
+  document.getElementById("tab-ranking").classList.toggle("active", i === 1);
+}
+function pagerLayout() {
+  PAGES.forEach((pg, k) => {
+    pg.classList.toggle("pg-active", k === pagerIdx);
+    pg.classList.toggle("pg-other", k !== pagerIdx);
+    pg.setAttribute("aria-hidden", k === pagerIdx ? "false" : "true");
+    pg.style.transform = "";
+    pg.style.transition = "";
+  });
+  PAGER.classList.remove("moving");
+  PAGER.style.minHeight = "";
+  pbusy = false;
+}
+function pagerActivate(i) {
+  pagerIdx = i;
+  pagerTabs(i);
+  if (history.replaceState) history.replaceState(null, "", i ? "#ranking" : location.pathname + location.search);
+  if (i === 1 && !RK.started) { RK.started = true; rkLoad(); }
+  pagerLayout();
+}
+function pagerStartMove() {
+  PAGER.classList.add("moving");
+  PAGER.style.minHeight = Math.max(PAGES[0].offsetHeight, PAGES[1].offsetHeight) + "px";
+}
+function pagerPlace(dx) {
+  const step = PAGER.clientWidth + PAGER_GAP;
+  PAGES[pagerIdx].style.transform = "translate3d(" + dx + "px,0,0)";
+  PAGES[1 - pagerIdx].style.transform = "translate3d(" + (dx + (dx < 0 ? step : -step)) + "px,0,0)";
+}
+function pagerSettle(dir, commit) {
+  // dir: -1 = Inhalt nach links geschoben (naechste Seite von rechts), +1 = nach rechts
+  pbusy = true;
+  const step = PAGER.clientWidth + PAGER_GAP;
+  const cur = PAGES[pagerIdx], oth = PAGES[1 - pagerIdx];
+  const tr = "transform " + PAGER_MS + "ms " + PAGER_EASE;
+  cur.style.transition = tr; oth.style.transition = tr;
+  if (commit) {
+    cur.style.transform = "translate3d(" + (dir * step) + "px,0,0)";
+    oth.style.transform = "translate3d(0,0,0)";
+  } else {
+    cur.style.transform = "translate3d(0,0,0)";
+    oth.style.transform = "translate3d(" + (-dir * step) + "px,0,0)";
+  }
+  const next = 1 - pagerIdx;
+  setTimeout(() => { if (commit) pagerActivate(next); else { pagerTabs(pagerIdx); pagerLayout(); } }, PAGER_MS + 40);
+}
+function showTab(name) {
+  const i = name === "ranking" ? 1 : 0;
+  if (i === pagerIdx || pbusy) return;
+  pagerStartMove();
+  pagerPlace(0);
+  PAGES[1 - pagerIdx].style.transform = "translate3d(" + (i === 1 ? 1 : -1) * (PAGER.clientWidth + PAGER_GAP) + "px,0,0)";
+  void PAGER.offsetWidth;
+  pagerSettle(i === 1 ? -1 : 1, true);
+}
+PAGER.addEventListener("pointerdown", e => {
+  if (e.pointerType === "mouse" || pbusy || e.target.closest("input, select, textarea")) return;
+  pdrag = { id: e.pointerId, x: e.clientX, y: e.clientY, active: false, dx: 0, vx: 0, lx: e.clientX, lt: performance.now() };
+});
+PAGER.addEventListener("pointermove", e => {
+  if (!pdrag || e.pointerId !== pdrag.id) return;
+  const dx = e.clientX - pdrag.x, dy = e.clientY - pdrag.y;
+  if (!pdrag.active) {
+    if (Math.abs(dx) > 10 && Math.abs(dx) > 1.4 * Math.abs(dy)) {
+      pdrag.active = true;
+      try { PAGER.setPointerCapture(e.pointerId); } catch (err) { /* egal */ }
+      pagerStartMove();
+    } else return;
+  }
+  const now = performance.now();
+  const dt = Math.max(1, now - pdrag.lt);
+  pdrag.vx = 0.7 * pdrag.vx + 0.3 * ((e.clientX - pdrag.lx) / dt);
+  pdrag.lx = e.clientX; pdrag.lt = now;
+  pdrag.dx = dx;
+  pagerPlace(dx);
+  const target = Math.abs(dx) > PAGER.clientWidth * 0.3 ? 1 - pagerIdx : pagerIdx;
+  pagerTabs(target);
+});
+function pagerRelease(cancelled) {
+  const d = pdrag; pdrag = null;
+  if (!d || !d.active) return;
+  const w = PAGER.clientWidth;
+  const dir = d.dx < 0 ? -1 : 1;
+  const fast = Math.abs(d.vx) > 0.45 && Math.abs(d.dx) > 24 && Math.sign(d.vx) === dir;
+  const commit = !cancelled && (Math.abs(d.dx) > w * 0.3 || fast);
+  pagerSettle(dir, commit);
+}
+PAGER.addEventListener("pointerup", () => pagerRelease(false));
+PAGER.addEventListener("pointercancel", () => pagerRelease(true));
+pagerLayout();
+document.getElementById("rk-periods").addEventListener("click", e => {
+  const b = e.target.closest("[data-p]"); if (!b) return;
+  RK.period = b.dataset.p; RK.key = null; rkRender();
+});
+document.getElementById("rk-games").addEventListener("click", e => {
+  const b = e.target.closest("[data-g]"); if (!b) return;
+  RK.game = b.dataset.g; rkRender();
+});
+document.getElementById("rk-select").addEventListener("change", e => rkSelectKey(e.target.value));
+document.getElementById("rk-list").addEventListener("click", e => {
+  const li = e.target.closest("[data-i]"); if (!li) return;
+  const r = RK.rows[parseInt(li.dataset.i, 10)];
+  if (r) rkOpenPlayer(r.n);
+});
+document.getElementById("rk-search").addEventListener("input", async e => {
+  const q = e.target.value.trim().toLowerCase();
+  const box = document.getElementById("rk-found");
+  if (q.length < 2) { box.innerHTML = ""; return; }
+  const hits = (await rkPlayers()).filter(p => p.n.toLowerCase().includes(q)).slice(0, 8);
+  box.innerHTML = hits.length
+    ? hits.map((p, i) => `<button type="button" data-n="${i}">#${esc(p.r)} ${esc(p.n)}</button>`).join("")
+    : `<span class="rk-meta">No player found.</span>`;
+  box._hits = hits;
+});
+document.getElementById("rk-found").addEventListener("click", e => {
+  const b = e.target.closest("[data-n]"); if (!b) return;
+  const h = document.getElementById("rk-found")._hits || [];
+  const p = h[parseInt(b.dataset.n, 10)];
+  if (p) rkOpenPlayer(p.n);
+});
+setInterval(() => { if (pagerIdx === 1) rkLoad(); }, 300000);
+if (location.hash === "#ranking") pagerActivate(1);
 
 function toggleMenu() {
   const panel = document.getElementById("menu-panel");
@@ -789,18 +1493,195 @@ function initBackgroundPan() {
     return;
   }
 
+  // Feste Bezugshoehe (Hintergrund-Ebene = 100lvh), unabhaengig davon, ob die
+  // Adressleiste gerade ein- oder ausgefahren ist; sonst springt das Bild am
+  // Ende des Scrollens nach.
+  let bgTicking = false;
   function updatePan() {
-    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    bgTicking = false;
+    const maxScroll = document.documentElement.scrollHeight - bg.offsetHeight;
     const progress = maxScroll > 0 ? Math.min(1, Math.max(0, window.scrollY / maxScroll)) : 0;
     bg.style.backgroundPositionX = (progress * 100) + "%";
+    window.__bgProgress = progress;
+  }
+  function schedulePan() {
+    if (!bgTicking) { bgTicking = true; requestAnimationFrame(updatePan); }
   }
 
   updatePan();
-  window.addEventListener("scroll", updatePan, { passive: true });
-  window.addEventListener("resize", updatePan);
+  window.addEventListener("scroll", schedulePan, { passive: true });
+  window.addEventListener("resize", schedulePan);
 }
 
 initBackgroundPan();
+
+// Lebendiger Hintergrund (WebGL): Wind in Baeumen und Gras, dazu unregelmaessige
+// Explosions-Lichtblitze. Ohne WebGL oder bei "Bewegung reduzieren" bleibt das
+// normale Hintergrundbild stehen.
+function initBackgroundFx() {
+  const cv = document.getElementById("bg-fx");
+  if (!cv || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const gl = cv.getContext("webgl", { alpha: false, antialias: false });
+  if (!gl) return;
+  const VS = "attribute vec2 a; void main(){ gl_Position = vec4(a, 0.0, 1.0); }";
+  const FS = `
+    precision mediump float;
+    uniform sampler2D uTex; uniform vec2 uRes; uniform vec2 uImg; uniform vec3 uMap;
+    uniform float uT; uniform float uGlow; uniform vec4 uF[6];
+    float sm(float a, float b, float x) { return smoothstep(a, b, x); }
+    void main() {
+      vec2 p = vec2(gl_FragCoord.x, uRes.y - gl_FragCoord.y);
+      vec2 uv = ((p - uMap.yz) / uMap.x) / uImg;
+      if (uv.x < 0.0 || uv.x > 1.0 || uv.y < 0.0 || uv.y > 1.0) {
+        gl_FragColor = vec4(0.106, 0.114, 0.082, 1.0); return;
+      }
+      vec2 base = uv;
+      float gust = 0.75 + 0.25 * sin(uT * 0.35) + 0.15 * sin(uT * 0.9 + 1.3);
+      float wGrass = sin(uT * 1.1 + uv.x * 5.0 + uv.y * 4.0) * gust;
+      float gR = sm(0.78, 0.86, uv.x) * sm(0.62, 0.76, uv.y) * 0.45;
+      float gM = sm(0.24, 0.30, uv.x) * (1.0 - sm(0.44, 0.50, uv.x)) * sm(0.50, 0.56, uv.y) * (1.0 - sm(0.66, 0.72, uv.y));
+      // Baeume im Wind: Stamm biegt sich als Ganzes, oben staerker (Hebel),
+      // dazu leichtes Laub-Flattern. Toter Baum im Vordergrund nur minimal.
+      float ygate = sm(0.03, 0.08, uv.y) * (1.0 - sm(0.38, 0.48, uv.y));
+      float bgT = sm(0.52, 0.58, uv.x) * (1.0 - sm(0.66, 0.70, uv.x)) + sm(0.93, 0.96, uv.x)
+                + sm(0.25, 0.275, uv.x) * (1.0 - sm(0.295, 0.315, uv.x));
+      float deadT = sm(0.68, 0.72, uv.x) * (1.0 - sm(0.94, 0.97, uv.x));
+      float hT = clamp((0.55 - uv.y) / 0.45, 0.0, 1.0);
+      float bendT = hT * hT;
+      float windT = (0.35 + 0.65 * sin(uT * 0.9 + uv.x * 3.0)) * gust;
+      float trAmp = (bgT * 0.0050 + deadT * 0.0005) * ygate;
+      uv.x += windT * bendT * trAmp;   // Gras bewusst ohne Verschiebung
+      vec3 col = texture2D(uTex, uv).rgb;
+      float asp = uImg.x / uImg.y;
+      float amb = 0.0;
+      vec3 add = vec3(0.0);
+      float lumMask = smoothstep(0.16, 0.5, dot(col, vec3(0.299, 0.587, 0.114)));
+      for (int i = 0; i < 6; i++) {
+        vec4 f = uF[i];
+        if (f.w > 0.002) {
+          vec2 d = (base - f.xy) * vec2(asp, 1.0);
+          float r2 = dot(d, d);
+          float g = exp(-r2 / (f.z * f.z));
+          float c = exp(-r2 / (f.z * f.z * 0.05));
+          add += f.w * (vec3(1.0, 0.52, 0.18) * g * 1.5 + vec3(1.0, 0.88, 0.65) * c * 2.0);
+          amb += f.w * 0.12;
+        }
+      }
+      col = col * (1.0 + amb + uGlow) + vec3(1.0, 0.78, 0.5) * uGlow * 0.12;
+      gl_FragColor = vec4(col + add * lumMask, 1.0);
+    }`;
+  function sh(type, src) {
+    const o = gl.createShader(type); gl.shaderSource(o, src); gl.compileShader(o);
+    if (!gl.getShaderParameter(o, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(o));
+    return o;
+  }
+  let prog;
+  try {
+    prog = gl.createProgram();
+    gl.attachShader(prog, sh(gl.VERTEX_SHADER, VS));
+    gl.attachShader(prog, sh(gl.FRAGMENT_SHADER, FS));
+    gl.linkProgram(prog);
+    if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) throw new Error("link");
+  } catch (e) { return; }
+  gl.useProgram(prog);
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
+  const loc = gl.getAttribLocation(prog, "a");
+  gl.enableVertexAttribArray(loc);
+  gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+  const U = {};
+  ["uTex", "uRes", "uImg", "uMap", "uT", "uGlow", "uF"].forEach(n => { U[n] = gl.getUniformLocation(prog, n); });
+
+  const flashes = [];
+  let nextAt = 1.0;
+  const R = Math.random;
+  function spawn() {
+    const big = R() < 0.4;
+    const z = R();
+    let x, y;
+    if (z < 0.20)      { x = 0.40 + R() * 0.55; y = 0.04 + R() * 0.18; }   // Himmel am Horizont
+    else               { x = 0.45 + R() * 0.55; y = 0.20 + R() * 0.20; }   // Horizont hinter dem Wald
+    const f = { x, y, r: big ? 0.08 + R() * 0.08 : 0.03 + R() * 0.045,
+                a: big ? 0.8 + R() * 0.7 : 0.25 + R() * 0.4,
+                decay: big ? 0.35 + R() * 0.25 : 0.15 + R() * 0.15, pulses: [0],
+                glob: big && R() < 0.5 };
+    const m = R();
+    if (m >= 0.35) f.pulses.push(0.09 + R() * 0.09);                       // Doppelschlag
+    if (m >= 0.70) f.pulses.push(0.24 + R() * 0.18);                       // Dreifachschlag
+    return f;
+  }
+  function envelope(f, dt) {
+    let e = 0;
+    for (let i = 0; i < f.pulses.length; i++) {
+      const k = dt - f.pulses[i];
+      if (k < 0) continue;
+      e += (i ? 0.75 : 1) * (k < 0.03 ? k / 0.03 : Math.exp(-(k - 0.03) / f.decay));
+    }
+    return e * f.a;
+  }
+
+  const img = new Image();
+  let ready = false, last = 0, mobileMq = window.matchMedia("(max-width: 640px)");
+  const arr = new Float32Array(24);
+  img.onload = function () {
+    const tex = gl.createTexture();
+    gl.bindTexture(gl.TEXTURE_2D, tex);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, img);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+    ready = true;
+    requestAnimationFrame(frame);
+  };
+  img.src = "assets/bg-church.jpg";
+
+  function frame(ts) {
+    requestAnimationFrame(frame);
+    if (!ready || document.hidden || ts - last < 33) return;
+    last = ts;
+    const now = ts / 1000;
+    const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+    const W = cv.clientWidth, H = cv.clientHeight;
+    if (!W || !H) return;
+    const bw = Math.round(W * dpr), bh = Math.round(H * dpr);
+    if (cv.width !== bw || cv.height !== bh) { cv.width = bw; cv.height = bh; gl.viewport(0, 0, bw, bh); }
+    const IW = img.naturalWidth, IH = img.naturalHeight;
+    let scale, offX = 0, offY = 0;
+    if (mobileMq.matches) {
+      scale = H / IH;
+      offX = (W - IW * scale) * (window.__bgProgress || 0);
+    } else {
+      scale = W / IW;
+      offY = (H - IH * scale) / 2;
+    }
+    if (now >= nextAt) {
+      if (flashes.length < 6) flashes.push(Object.assign(spawn(), { t0: now }));
+      nextAt = now + 0.8 + R() * 3.4;
+    }
+    arr.fill(0);
+    for (let i = flashes.length - 1; i >= 0; i--) {
+      if (now - flashes[i].t0 > 3) flashes.splice(i, 1);
+    }
+    let glow = 0;
+    flashes.forEach((f, i) => {
+      const e = envelope(f, now - f.t0);
+      arr[i * 4] = f.x; arr[i * 4 + 1] = f.y; arr[i * 4 + 2] = f.r; arr[i * 4 + 3] = e;
+      if (f.glob) glow += e * 0.55;
+    });
+    gl.uniform1f(U.uGlow, Math.min(glow, 0.9));
+    gl.uniform1i(U.uTex, 0);
+    gl.uniform2f(U.uRes, bw, bh);
+    gl.uniform2f(U.uImg, IW, IH);
+    gl.uniform3f(U.uMap, scale * dpr, offX * dpr, offY * dpr);
+    gl.uniform1f(U.uT, now);
+    gl.uniform4fv(U.uF, arr);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    if (!cv.classList.contains("on")) cv.classList.add("on");
+  }
+}
+initBackgroundFx();
 </script>
 </body>
 </html>

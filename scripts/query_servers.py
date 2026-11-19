@@ -15,6 +15,8 @@ from __future__ import annotations
 import asyncio
 import json
 import pathlib
+import re
+import socket
 from datetime import datetime, timezone
 
 from opengsq.protocols.gamespy1 import GameSpy1
@@ -445,6 +447,207 @@ def _extract_scoreboard(
     return board
 
 
+def _bf2_raw_teams(host, port):
+    """BF2 verschickt grosse Antworten (viele Bots) in mehreren UDP-Paketen,
+    die opengsq falsch zusammensetzt. Der Team-Block (team_t / score_t) steht
+    im letzten Paket und wird hier direkt aus den Rohdaten gelesen."""
+    try:
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        s.settimeout(TIMEOUT_SECONDS)
+        s.sendto(b"\xfe\xfd\x00\x10\x20\x30\x40\xff\xff\xff\x01", (host, port))
+        data = b""
+        try:
+            data += s.recv(65535)
+            s.settimeout(0.7)
+            while True:
+                data += s.recv(65535)
+        except Exception:
+            pass
+        s.close()
+        m = re.search(rb"team_t\x00\x00(.*?)\x00\x00score_t\x00\x00(.*?)\x00\x00", data, re.S)
+        if not m:
+            return []
+        names = [x.decode("latin1") for x in m.group(1).split(b"\x00")]
+        scores = [x.decode("latin1") for x in m.group(2).split(b"\x00")]
+        return [{"name": n, "score": scores[i] if i < len(scores) else ""} for i, n in enumerate(names)]
+    except Exception:
+        return []
+
+
+def _bf2_raw_players(host, port, bot_names=None):
+    """BF2/BF2142: Spielerliste direkt aus den Rohpaketen lesen. opengsq verliert
+    bei mehrteiligen Antworten die Spalten skill_ und deaths_. Zuordnung (am
+    laufenden Server verifiziert): score_ = Punkte, skill_ = Kills,
+    deaths_ = Tode, AIBot_/ping_ = Bot-Erkennung. Gibt eine fertige
+    Scoreboard-Liste zurueck oder None, wenn die Daten nicht konsistent sind."""
+    try:
+        sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        sock.settimeout(TIMEOUT_SECONDS)
+        sock.sendto(b"\xfe\xfd\x00\x10\x20\x30\x40\xff\xff\xff\x01", (host, port))
+        pk = []
+        try:
+            pk.append(sock.recv(65535))
+            sock.settimeout(0.7)
+            while True:
+                pk.append(sock.recv(65535))
+        except Exception:
+            pass
+        sock.close()
+        parts = {}
+        for d in pk:
+            if len(d) < 16 or d[0] != 0:
+                continue
+            num = d[14]
+            rest = d[16:]
+            obj = d[15]
+            if obj >= 1:
+                e = rest.index(b"\x00")
+                key = rest[:e + 1]
+                count = rest[e + 1]
+                rest = rest[e + 2:]
+                if count == 0:
+                    rest = b"\x00" + key + b"\x00" + rest
+            rest = rest[:-1]
+            rest = rest[:rest.rfind(b"\x00") + 1]
+            parts[num & 0x7F] = rest
+        if not parts:
+            return None
+        data = b"".join(parts[k] for k in sorted(parts))
+
+        def col(key):
+            m = re.search(rb"(?<![A-Za-z_])" + re.escape(key) + rb"\x00\x00(.*?)\x00\x00", data, re.S)
+            if not m:
+                return None
+            return [x.decode("latin1") for x in m.group(1).split(b"\x00")]
+
+        names, score, skill, deaths, ping, aibot = (
+            col(b"player_"), col(b"score_"), col(b"skill_"),
+            col(b"deaths_"), col(b"ping_"), col(b"AIBot_"))
+        if not names or any(c is None or len(c) != len(names) for c in (score, skill, deaths, ping)):
+            return None
+        bot_names = bot_names or set()
+        board = []
+        for i, n in enumerate(names):
+            is_bot = ping[i] == "0" or (aibot is not None and aibot[i] == "1") or n in bot_names
+            board.append({"name": n, "team": "", "rank": "", "score": score[i],
+                          "kills": skill[i], "deaths": deaths[i], "ping": ping[i], "is_bot": is_bot})
+        board.sort(key=lambda r: (r["is_bot"], -(int(r["score"]) if r["score"].lstrip("-").isdigit() else 0)))
+        return board
+    except Exception:
+        return None
+
+
+def _onoff(v) -> str:
+    return "on" if str(v).strip().lower() in ("1", "on", "yes", "true") else "off"
+
+
+def _num(v) -> str:
+    """'2.000000' -> '2', '7s' -> '7', '500%' -> '500'."""
+    t = str(v).strip().rstrip("s%").strip()
+    try:
+        f = float(t)
+        return str(int(f)) if f == int(f) else str(f)
+    except ValueError:
+        return str(v).strip()
+
+
+def _extract_settings(protocol_name: str, info: dict) -> list:
+    """Einheitliche Liste der laufenden Server-Einstellungen [Beschriftung, Wert]
+    fuer das Detailfenster: Rundenzeit, Ticket-Ratio, Runden pro Karte,
+    Team-Ratio, Friendly Fire, PunkBuster, Kartengroesse - jeweils nur, wenn
+    das Spiel den Wert meldet. Keine Passwoerter, keine Pfade."""
+    norm = {}
+    for k, v in info.items():
+        kk = k
+        for pre in ("bf2142_", "bf2_"):
+            if kk.startswith(pre):
+                kk = kk[len(pre):]
+        norm.setdefault(kk, v)
+
+    def g(*keys):
+        for key in keys:
+            if key in norm and str(norm[key]).strip() != "":
+                return str(norm[key]).strip()
+        return ""
+
+    rows = []
+
+    def add(label, value):
+        if value != "":
+            rows.append([label, value])
+
+    is_bf2 = protocol_name == "battlefield2"
+
+    # Rundenzeit: BF1942/BFV in Minuten, BF2/BF2142 in Sekunden
+    tl = g("time_limit", "timelimit")
+    if tl.isdigit():
+        minutes = int(tl) // 60 if is_bf2 else int(tl)
+        add("Time limit", "no limit" if minutes == 0 else str(minutes) + " min")
+
+    # Ticket-Ratio ohne Prozentzeichen
+    tr = g("ticket_ratio", "ticketratio")
+    if tr:
+        add("Ticket ratio", _num(tr))
+
+    # Runden pro Karte (BF2/BF2142 melden sie im Feld "roundtime")
+    rounds = g("roundtime") if is_bf2 else g("number_of_rounds")
+    if rounds:
+        add("Rounds per map", _num(rounds))
+
+    # Team-Ratio: nur BF1942/BFV (zwei Werte). BF2/BF2142 melden einen einzelnen
+    # Prozentwert (100 = gleich grosse Teams), der mit dem Wizard-Wert "2 : 3"
+    # nicht uebereinstimmt - deshalb dort bewusst nicht angezeigt.
+    allied = g("allied_team_ratio", "us_team_ratio")
+    axis = g("axis_team_ratio", "nva_team_ratio")
+    if allied and axis:
+        add("Team ratio", _num(allied) + " : " + _num(axis))
+
+    # Friendly Fire einheitlich als on/off
+    ff = g("soldier_friendly_fire", "friendlyfire")
+    if ff:
+        if ff in ("0", "1"):
+            add("Friendly fire", _onoff(ff))
+        else:
+            n = _num(ff)
+            add("Friendly fire", "off" if n == "0" else ("on" if n == "100" else "on (" + n + " %)"))
+
+    pb = g("sv_punkbuster", "anticheat")
+    if pb:
+        add("PunkBuster", _onoff(pb))
+
+    ms = g("mapsize")
+    if ms:
+        add("Map layout", ms + " players")
+
+    return rows
+
+
+def _simplify_ratio(text: str) -> str:
+    """"13 : 13" -> "1 : 1", "15 : 5" -> "3 : 1". Ist das Verhaeltnis mit
+    einstelligen Zahlen nicht exakt darstellbar, wird auf die kleinste
+    Abweichung gerundet und mit "~" markiert ("19 : 13" -> "~3 : 2")."""
+    parts = [p.strip() for p in text.split(":")]
+    if len(parts) != 2 or not (parts[0].isdigit() and parts[1].isdigit()):
+        return text
+    a, b = int(parts[0]), int(parts[1])
+    if a == 0 and b == 0:
+        return text
+    if a == 0:
+        return "0 : 1"
+    if b == 0:
+        return "1 : 0"
+    target = a / b
+    best = None
+    for n in range(1, 10):
+        for d in range(1, 10):
+            key = (abs(n / d - target), n + d)
+            if best is None or key < best[0]:
+                best = (key, n, d)
+    _, n, d = best
+    exact = (n * b == d * a)
+    return ("" if exact else "~") + str(n) + " : " + str(d)
+
+
 async def _try_protocol(protocol_cls, host, port, challenge_required=None):
     client = protocol_cls(host=host, port=port, timeout=TIMEOUT_SECONDS)
     if challenge_required is not None and hasattr(client, "challenge_required"):
@@ -487,9 +690,17 @@ async def query_one(entry: dict) -> dict:
     debug_errors = []
     for protocol_cls, challenge_required in candidates:
         try:
-            status = await _try_protocol(
-                protocol_cls, entry["host"], int(entry["port"]), challenge_required
-            )
+            try:
+                status = await _try_protocol(
+                    protocol_cls, entry["host"], int(entry["port"]), challenge_required
+                )
+            except Exception:
+                if protocol_name not in ("gamespy1", "gamespy2"):
+                    raise
+                # zweiter Versuch (einzelne UDP-Antworten gehen manchmal verloren)
+                status = await _try_protocol(
+                    protocol_cls, entry["host"], int(entry["port"]), challenge_required
+                )
             info = {k.lower(): v for k, v in status.info.items()}
 
             result["status"] = "online"
@@ -512,6 +723,25 @@ async def query_one(entry: dict) -> dict:
                 bot_names=BOT_NAMES_BY_GAME.get(entry.get("game", "")),
             )
             result["tickets"] = _extract_teams(getattr(status, "teams", []), info)
+            result["settings"] = _extract_settings(protocol_name, info)
+            # Coop-Bots (Team 1 : Team 2) kennt nur der Wizard, nicht die Abfrage
+            _bt = _simplify_ratio(str(entry.get("bot_teams", "")).strip())
+            if _bt and protocol_name == "battlefield2":
+                _pos = len(result["settings"])
+                for _i, _row in enumerate(result["settings"]):
+                    if _row[0] == "Friendly fire":
+                        _pos = _i
+                        break
+                result["settings"].insert(_pos, ["Team ratio", _bt])
+            if protocol_name == "battlefield2":
+                raw_teams = await asyncio.to_thread(_bf2_raw_teams, entry["host"], int(entry["port"]))
+                if raw_teams:
+                    result["tickets"] = raw_teams
+                raw_board = await asyncio.to_thread(
+                    _bf2_raw_players, entry["host"], int(entry["port"]),
+                    BOT_NAMES_BY_GAME.get(entry.get("game", "")))
+                if raw_board:
+                    result["scoreboard"] = raw_board
             # Spielerzahl bevorzugt direkt aus dem Scoreboard ableiten
             # (dieselbe Quelle wie die Detailansicht), damit Kachel und
             # Scoreboard nie auseinanderlaufen koennen. Nur wenn gar keine
@@ -520,11 +750,31 @@ async def query_one(entry: dict) -> dict:
                 result["players"] = sum(
                     1 for row in result["scoreboard"] if not row["is_bot"]
                 )
+            if protocol_name in ("gamespy1", "gamespy2"):
+                # BF1942/BFV: Die Spielerliste kann haengende Eintraege (Zombie-Spieler)
+                # enthalten. numplayers gilt als Wahrheit.
+                np_raw = _first(info, "numplayers", default="")
+                if np_raw.isdigit():
+                    np_val = int(np_raw)
+                    if np_val == 0:
+                        result["scoreboard"] = []
+                        result["players"] = 0
+                    elif result["players"] > np_val:
+                        result["players"] = np_val
+            elif not result["scoreboard"]:
+                # Ohne Spielerliste (z. B. waehrend des Kartenladens) meldet
+                # numplayers auch Bots -> lieber 0 als eine falsche Zahl.
+                # (QS1: mit Spielerliste gilt die Zahl aus dem Scoreboard)
+                result["players"] = 0
+            if not result["map"]:
+                # Server laedt gerade eine Karte: Zahlen sind unzuverlaessig
+                result["players"] = 0
+                result["scoreboard"] = []
             if not result["mod"]:
                 # TEMPORAER zur Fehlersuche: Mod-Feld weiterhin leer trotz
                 # Fix - zeig die komplette Rohantwort, um den echten
                 # Schluesselnamen zu finden.
-                result["_debug_info"] = info
+                print("[debug] " + str(entry.get("id")) + ": Mod-Feld leer, Schluessel: " + ", ".join(sorted(info.keys())))
             break  # Erfolgreich -> nicht mehr den naechsten Kandidaten versuchen
         except Exception as exc:
             # Dieser Kandidat hat nicht geklappt -> naechsten probieren
@@ -535,34 +785,92 @@ async def query_one(entry: dict) -> dict:
     if result["status"] == "offline":
         # TEMPORAER zur Fehlersuche: zeigt, woran jeder einzelne Versuch
         # gescheitert ist (z. B. Timeout vs. falsches Antwortformat).
-        result["_debug_errors"] = debug_errors
+        print("[debug] " + str(entry.get("id")) + ": " + " | ".join(debug_errors))
 
     return result
 
 
+def _load_previous() -> tuple:
+    """Letzte status.json einlesen (Gedaechtnis fuer 'zuletzt bekannte Werte')."""
+    try:
+        old = json.loads(OUTPUT_PATH.read_text(encoding="utf-8"))
+        return {s.get("id"): s for s in old.get("servers", [])}, old.get("generated_at", "")
+    except Exception:
+        return {}, ""
+
+
+def _snapshot(s: dict) -> dict:
+    return {
+        "map": s.get("map", ""),
+        "mode": s.get("mode", ""),
+        "mod": s.get("mod", ""),
+        "max_players": s.get("max_players", 0),
+        "settings": s.get("settings", []),
+    }
+
+
+def _resolve_ip(entries) -> str:  # QS2
+    """Aktuelle oeffentliche IPv4 des Spielservers (aus dem Host-Namen)."""
+    import socket
+    for e in entries:
+        try:
+            return socket.gethostbyname(e["host"])
+        except (OSError, KeyError):
+            continue
+    return ""
+
+
 async def main_async() -> None:
     entries = json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
-    # "internet": true = oeffentlich gestartet (Standard, falls Feld fehlt),
-    # false = bewusst nur lokal/LAN gestartet (Testbetrieb) - wird trotz
-    # technischer Erreichbarkeit nie angezeigt.
-    active = [
-        e
-        for e in entries
-        if e.get("enabled", False) and e.get("internet", True)
-    ]
+    # Alle aktivierten Server werden angezeigt. "internet": false = Testbetrieb
+    # (Status "not_available", nur Spiel/Mod/Karte, keine Details); sonst
+    # "online" bzw. "offline" (mit den zuletzt bekannten Werten).
+    active = [e for e in entries if e.get("enabled", False)]
 
     results = await asyncio.gather(*(query_one(e) for e in active))
 
+    prev, prev_generated = _load_previous()
+    now_iso = datetime.now(timezone.utc).isoformat(timespec="seconds")
+
+    final = []
+    for entry, r in zip(active, results):
+        if not entry.get("internet", True):
+            r = {
+                "id": r["id"],
+                "game": r["game"],
+                "name": r["name"],
+                "status": "not_available",
+                "map": r.get("map", "") if r["status"] == "online" else "",
+                "mode": "",
+                "mod": r.get("mod", "") if r["status"] == "online" else "",
+                "players": 0,
+                "max_players": 0,
+                "scoreboard": [],
+                "tickets": [],
+            }
+        elif r["status"] == "online":
+            r["last_seen"] = now_iso
+        else:
+            p = prev.get(r["id"], {})
+            if p.get("status") == "online":
+                r["last"] = _snapshot(p)
+                r["last_seen"] = p.get("last_seen") or prev_generated or now_iso
+            elif p.get("last"):
+                r["last"] = p["last"]
+                r["last_seen"] = p.get("last_seen", "")
+        final.append(r)
+
     payload = {
-        "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-        "servers": results,
+        "generated_at": now_iso,
+        "public_ip": _resolve_ip(active),
+        "servers": final,
     }
 
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT_PATH.write_text(
         json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8"
     )
-    print(f"Geschrieben: {OUTPUT_PATH} ({len(results)} Server abgefragt)")
+    print(f"Geschrieben: {OUTPUT_PATH} ({len(final)} Server abgefragt)")
 
 
 if __name__ == "__main__":
