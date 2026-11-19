@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-19T21:58:35+00:00",
+  "generated_at": "2026-11-19T22:00:38+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
@@ -16,11 +16,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "860"
+          "score": "791"
         },
         {
           "name": "allied",
-          "score": "987"
+          "score": "973"
         }
       ],
       "settings": [
@@ -49,7 +49,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-19T21:58:35+00:00"
+      "last_seen": "2026-11-19T22:00:38+00:00"
     },
     {
       "id": "bf1942-ponyhof-2",
@@ -65,11 +65,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "484"
+          "score": "413"
         },
         {
           "name": "allied",
-          "score": "838"
+          "score": "828"
         }
       ],
       "settings": [
@@ -94,14 +94,14 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-19T21:58:35+00:00"
+      "last_seen": "2026-11-19T22:00:38+00:00"
     },
     {
       "id": "bfv-ponyhof-1",
       "game": "Battlefield Vietnam",
       "name": "MaeKeys Ponyhof",
       "status": "online",
-      "map": "SIEGE OF KHE SAHN",
+      "map": "IA DRANG VALLEY",
       "mode": "coop",
       "mod": "Vanilla",
       "players": 0,
@@ -110,11 +110,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "881"
+          "score": "1000"
         },
         {
           "name": "blue",
-          "score": "216"
+          "score": "978"
         }
       ],
       "settings": [
@@ -143,7 +143,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-19T21:58:35+00:00"
+      "last_seen": "2026-11-19T22:00:38+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
@@ -526,7 +526,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-19T21:58:35+00:00"
+      "last_seen": "2026-11-19T22:00:38+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -946,7 +946,7 @@
           "32 players"
         ]
       ],
-      "last_seen": "2026-11-19T21:58:35+00:00"
+      "last_seen": "2026-11-19T22:00:38+00:00"
     },
     {
       "id": "bf2142-ponyhof-2",
@@ -983,7 +983,7 @@
           "no limit"
         ]
       ],
-      "last_seen": "2026-11-19T21:58:35+00:00"
+      "last_seen": "2026-11-19T22:00:38+00:00"
     },
     {
       "id": "mohaa-ponyhof-2",
