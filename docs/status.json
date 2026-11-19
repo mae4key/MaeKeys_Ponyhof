@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-19T20:52:37+00:00",
+  "generated_at": "2026-11-19T20:54:37+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
@@ -16,11 +16,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "1000"
+          "score": "981"
         },
         {
           "name": "allied",
-          "score": "983"
+          "score": "911"
         }
       ],
       "settings": [
@@ -49,14 +49,14 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-19T20:52:37+00:00"
+      "last_seen": "2026-11-19T20:54:37+00:00"
     },
     {
       "id": "bf1942-ponyhof-2",
       "game": "Battlefield 1942",
       "name": "MaeKeys Ponyhof",
       "status": "online",
-      "map": "battle of britain",
+      "map": "battle of the bulge",
       "mode": "coop",
       "mod": "Vanilla",
       "players": 0,
@@ -65,11 +65,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "833"
+          "score": "978"
         },
         {
           "name": "allied",
-          "score": "641"
+          "score": "2000"
         }
       ],
       "settings": [
@@ -94,7 +94,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-19T20:52:37+00:00"
+      "last_seen": "2026-11-19T20:54:37+00:00"
     },
     {
       "id": "bfv-ponyhof-1",
@@ -110,11 +110,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "807"
+          "score": "790"
         },
         {
           "name": "blue",
-          "score": "675"
+          "score": "649"
         }
       ],
       "settings": [
@@ -143,7 +143,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-19T20:52:37+00:00"
+      "last_seen": "2026-11-19T20:54:37+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
@@ -526,7 +526,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-19T20:52:37+00:00"
+      "last_seen": "2026-11-19T20:54:37+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -946,7 +946,7 @@
           "32 players"
         ]
       ],
-      "last_seen": "2026-11-19T20:52:37+00:00"
+      "last_seen": "2026-11-19T20:54:37+00:00"
     },
     {
       "id": "bf2142-ponyhof-2",
@@ -969,36 +969,16 @@
       "map": "mohdm6",
       "mode": "Free-For-All",
       "mod": "Breakthrough",
-      "players": 3,
+      "players": 4,
       "max_players": 10,
       "scoreboard": [
         {
           "name": "Ben Dover",
           "team": "",
           "rank": "",
-          "score": "70",
-          "kills": "70",
-          "deaths": "57",
-          "ping": "10",
-          "is_bot": false
-        },
-        {
-          "name": "MONSTERN)ICK",
-          "team": "",
-          "rank": "",
-          "score": "55",
-          "kills": "55",
-          "deaths": "81",
-          "ping": "4",
-          "is_bot": false
-        },
-        {
-          "name": "Justin C. Morningwood",
-          "team": "",
-          "rank": "",
-          "score": "44",
-          "kills": "44",
-          "deaths": "41",
+          "score": "75",
+          "kills": "75",
+          "deaths": "62",
           "ping": "12",
           "is_bot": false
         },
@@ -1006,11 +986,31 @@
           "name": "Beni Spitz",
           "team": "",
           "rank": "",
-          "score": "61",
-          "kills": "61",
-          "deaths": "56",
-          "ping": "0",
-          "is_bot": true
+          "score": "68",
+          "kills": "68",
+          "deaths": "63",
+          "ping": "3",
+          "is_bot": false
+        },
+        {
+          "name": "MONSTERN)ICK",
+          "team": "",
+          "rank": "",
+          "score": "59",
+          "kills": "59",
+          "deaths": "84",
+          "ping": "3",
+          "is_bot": false
+        },
+        {
+          "name": "Justin C. Morningwood",
+          "team": "",
+          "rank": "",
+          "score": "45",
+          "kills": "45",
+          "deaths": "45",
+          "ping": "24",
+          "is_bot": false
         }
       ],
       "tickets": [],
@@ -1024,7 +1024,7 @@
           "no limit"
         ]
       ],
-      "last_seen": "2026-11-19T20:52:37+00:00"
+      "last_seen": "2026-11-19T20:54:37+00:00"
     },
     {
       "id": "mohaa-ponyhof-2",
