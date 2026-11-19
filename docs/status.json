@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-19T20:22:26+00:00",
+  "generated_at": "2026-11-19T20:24:25+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
@@ -16,11 +16,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "983"
+          "score": "979"
         },
         {
           "name": "allied",
-          "score": "740"
+          "score": "722"
         }
       ],
       "settings": [
@@ -49,7 +49,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-19T20:22:26+00:00"
+      "last_seen": "2026-11-19T20:24:25+00:00"
     },
     {
       "id": "bf1942-ponyhof-2",
@@ -65,11 +65,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "864"
+          "score": "852"
         },
         {
           "name": "allied",
-          "score": "377"
+          "score": "344"
         }
       ],
       "settings": [
@@ -94,7 +94,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-19T20:22:26+00:00"
+      "last_seen": "2026-11-19T20:24:25+00:00"
     },
     {
       "id": "bfv-ponyhof-1",
@@ -114,7 +114,7 @@
         },
         {
           "name": "blue",
-          "score": "750"
+          "score": "731"
         }
       ],
       "settings": [
@@ -143,7 +143,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-19T20:22:26+00:00"
+      "last_seen": "2026-11-19T20:24:25+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
@@ -526,7 +526,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-19T20:22:26+00:00"
+      "last_seen": "2026-11-19T20:24:25+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -946,7 +946,7 @@
           "32 players"
         ]
       ],
-      "last_seen": "2026-11-19T20:22:26+00:00"
+      "last_seen": "2026-11-19T20:24:25+00:00"
     },
     {
       "id": "bf2142-ponyhof-2",
@@ -971,7 +971,28 @@
       "mod": "Breakthrough",
       "players": 0,
       "max_players": 10,
-      "scoreboard": [],
+      "scoreboard": [
+        {
+          "name": "MONSTERN)ICK",
+          "team": "",
+          "rank": "",
+          "score": "1",
+          "kills": "1",
+          "deaths": "1",
+          "ping": "0",
+          "is_bot": true
+        },
+        {
+          "name": "Beni Spitz",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "0",
+          "deaths": "2",
+          "ping": "0",
+          "is_bot": true
+        }
+      ],
       "tickets": [],
       "settings": [
         [
@@ -983,7 +1004,7 @@
           "no limit"
         ]
       ],
-      "last_seen": "2026-11-19T20:22:26+00:00"
+      "last_seen": "2026-11-19T20:24:25+00:00"
     },
     {
       "id": "mohaa-ponyhof-2",
