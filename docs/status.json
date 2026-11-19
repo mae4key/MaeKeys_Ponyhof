@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-19T18:11:56+00:00",
+  "generated_at": "2026-11-19T18:14:10+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
@@ -16,11 +16,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "880"
+          "score": "873"
         },
         {
           "name": "allied",
-          "score": "608"
+          "score": "504"
         }
       ],
       "settings": [
@@ -49,7 +49,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-19T18:11:56+00:00"
+      "last_seen": "2026-11-19T18:14:10+00:00"
     },
     {
       "id": "bf1942-ponyhof-2",
@@ -65,11 +65,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "1000"
+          "score": "995"
         },
         {
           "name": "allied",
-          "score": "988"
+          "score": "920"
         }
       ],
       "settings": [
@@ -94,14 +94,14 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-19T18:11:56+00:00"
+      "last_seen": "2026-11-19T18:14:10+00:00"
     },
     {
       "id": "bfv-ponyhof-1",
       "game": "Battlefield Vietnam",
       "name": "MaeKeys Ponyhof",
       "status": "online",
-      "map": "OPERATION GAME WARDEN",
+      "map": "OPERATION HASTINGS",
       "mode": "coop",
       "mod": "Vanilla",
       "players": 0,
@@ -110,11 +110,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "520"
+          "score": "995"
         },
         {
           "name": "blue",
-          "score": "521"
+          "score": "993"
         }
       ],
       "settings": [
@@ -143,7 +143,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-19T18:11:56+00:00"
+      "last_seen": "2026-11-19T18:14:10+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
@@ -526,7 +526,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-19T18:11:56+00:00"
+      "last_seen": "2026-11-19T18:14:10+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -946,7 +946,7 @@
           "32 players"
         ]
       ],
-      "last_seen": "2026-11-19T18:11:56+00:00"
+      "last_seen": "2026-11-19T18:14:10+00:00"
     },
     {
       "id": "bf2142-ponyhof-2",
@@ -966,7 +966,7 @@
       "game": "Medal of Honor: Allied Assault",
       "name": "MaeKeys Ponyhof",
       "status": "online",
-      "map": "mohdm6",
+      "map": "mohdm7",
       "mode": "Free-For-All",
       "mod": "Vanilla",
       "players": 0,
@@ -983,7 +983,7 @@
           "no limit"
         ]
       ],
-      "last_seen": "2026-11-19T18:11:56+00:00"
+      "last_seen": "2026-11-19T18:14:10+00:00"
     },
     {
       "id": "mohaa-ponyhof-2",
