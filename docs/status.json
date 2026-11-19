@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-19T16:13:20+00:00",
+  "generated_at": "2026-11-19T16:17:39+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
@@ -306,12 +306,12 @@
     },
     {
       "id": "mohaa-ponyhof-1",
-      "game": "Medal of Honor",
+      "game": "Medal of Honor: Allied Assault",
       "name": "MaeKeys Ponyhof",
       "status": "online",
-      "map": "mohdm7",
+      "map": "mohdm6",
       "mode": "Free-For-All",
-      "mod": "Breakthrough",
+      "mod": "Vanilla",
       "players": 0,
       "max_players": 10,
       "scoreboard": [],
@@ -326,11 +326,11 @@
           "no limit"
         ]
       ],
-      "last_seen": "2026-11-19T16:13:20+00:00"
+      "last_seen": "2026-11-19T16:17:39+00:00"
     },
     {
       "id": "mohaa-ponyhof-2",
-      "game": "Medal of Honor",
+      "game": "Medal of Honor: Allied Assault",
       "name": "MaeKeys Ponyhof",
       "status": "online",
       "map": "mohdm6",
@@ -350,7 +350,7 @@
           "no limit"
         ]
       ],
-      "last_seen": "2026-11-19T16:13:20+00:00"
+      "last_seen": "2026-11-19T16:17:39+00:00"
     }
   ]
 }
