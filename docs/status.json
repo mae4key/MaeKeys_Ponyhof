@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-19T20:26:24+00:00",
+  "generated_at": "2026-11-19T20:28:26+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
@@ -16,11 +16,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "974"
+          "score": "970"
         },
         {
           "name": "allied",
-          "score": "660"
+          "score": "626"
         }
       ],
       "settings": [
@@ -49,7 +49,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-19T20:26:24+00:00"
+      "last_seen": "2026-11-19T20:28:26+00:00"
     },
     {
       "id": "bf1942-ponyhof-2",
@@ -65,11 +65,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "843"
+          "score": "829"
         },
         {
           "name": "allied",
-          "score": "336"
+          "score": "309"
         }
       ],
       "settings": [
@@ -94,14 +94,14 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-19T20:26:24+00:00"
+      "last_seen": "2026-11-19T20:28:26+00:00"
     },
     {
       "id": "bfv-ponyhof-1",
       "game": "Battlefield Vietnam",
       "name": "MaeKeys Ponyhof",
       "status": "online",
-      "map": "QUANG TRI 1972",
+      "map": "RECLAIMING HUE",
       "mode": "coop",
       "mod": "Vanilla",
       "players": 0,
@@ -110,11 +110,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "793"
+          "score": "1000"
         },
         {
           "name": "blue",
-          "score": "711"
+          "score": "1000"
         }
       ],
       "settings": [
@@ -143,7 +143,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-19T20:26:24+00:00"
+      "last_seen": "2026-11-19T20:28:26+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
@@ -526,7 +526,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-19T20:26:24+00:00"
+      "last_seen": "2026-11-19T20:28:26+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -946,7 +946,7 @@
           "32 players"
         ]
       ],
-      "last_seen": "2026-11-19T20:26:24+00:00"
+      "last_seen": "2026-11-19T20:28:26+00:00"
     },
     {
       "id": "bf2142-ponyhof-2",
@@ -969,26 +969,26 @@
       "map": "mohdm6",
       "mode": "Free-For-All",
       "mod": "Breakthrough",
-      "players": 2,
+      "players": 3,
       "max_players": 10,
       "scoreboard": [
         {
           "name": "MONSTERN)ICK",
           "team": "",
           "rank": "",
-          "score": "5",
-          "kills": "5",
-          "deaths": "5",
-          "ping": "3",
+          "score": "12",
+          "kills": "12",
+          "deaths": "9",
+          "ping": "1",
           "is_bot": false
         },
         {
           "name": "Ben Dover",
           "team": "",
           "rank": "",
-          "score": "2",
-          "kills": "2",
-          "deaths": "1",
+          "score": "8",
+          "kills": "8",
+          "deaths": "4",
           "ping": "14",
           "is_bot": false
         },
@@ -996,11 +996,11 @@
           "name": "Beni Spitz",
           "team": "",
           "rank": "",
-          "score": "4",
-          "kills": "4",
-          "deaths": "8",
-          "ping": "0",
-          "is_bot": true
+          "score": "7",
+          "kills": "7",
+          "deaths": "13",
+          "ping": "4",
+          "is_bot": false
         }
       ],
       "tickets": [],
@@ -1014,7 +1014,7 @@
           "no limit"
         ]
       ],
-      "last_seen": "2026-11-19T20:26:24+00:00"
+      "last_seen": "2026-11-19T20:28:26+00:00"
     },
     {
       "id": "mohaa-ponyhof-2",
