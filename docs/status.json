@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-19T22:33:38+00:00",
+  "generated_at": "2026-11-19T22:35:39+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
@@ -16,11 +16,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "1000"
+          "score": "999"
         },
         {
           "name": "allied",
-          "score": "988"
+          "score": "975"
         }
       ],
       "settings": [
@@ -49,7 +49,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-19T22:33:38+00:00"
+      "last_seen": "2026-11-19T22:35:39+00:00"
     },
     {
       "id": "bf1942-ponyhof-2",
@@ -65,11 +65,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "987"
+          "score": "947"
         },
         {
           "name": "allied",
-          "score": "988"
+          "score": "941"
         }
       ],
       "settings": [
@@ -94,7 +94,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-19T22:33:38+00:00"
+      "last_seen": "2026-11-19T22:35:39+00:00"
     },
     {
       "id": "bfv-ponyhof-1",
@@ -110,11 +110,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "912"
+          "score": "907"
         },
         {
           "name": "blue",
-          "score": "156"
+          "score": "105"
         }
       ],
       "settings": [
@@ -143,7 +143,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-19T22:33:38+00:00"
+      "last_seen": "2026-11-19T22:35:39+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
@@ -159,11 +159,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "896"
+          "score": "891"
         },
         {
           "name": "blue",
-          "score": "813"
+          "score": "790"
         }
       ],
       "settings": [
@@ -188,7 +188,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-19T22:33:38+00:00"
+      "last_seen": "2026-11-19T22:35:39+00:00"
     },
     {
       "id": "bf2-ponyhof-1",
@@ -558,7 +558,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-19T22:33:38+00:00"
+      "last_seen": "2026-11-19T22:35:39+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -978,7 +978,7 @@
           "32 players"
         ]
       ],
-      "last_seen": "2026-11-19T22:33:38+00:00"
+      "last_seen": "2026-11-19T22:35:39+00:00"
     },
     {
       "id": "bf2142-ponyhof-2",
@@ -998,7 +998,7 @@
       "game": "Medal of Honor: Allied Assault",
       "name": "MaeKeys Ponyhof",
       "status": "online",
-      "map": "mp_bahnhof_dm",
+      "map": "mp_bazaar_dm",
       "mode": "Free-For-All",
       "mod": "Breakthrough",
       "players": 0,
@@ -1015,7 +1015,7 @@
           "no limit"
         ]
       ],
-      "last_seen": "2026-11-19T22:33:38+00:00"
+      "last_seen": "2026-11-19T22:35:39+00:00"
     },
     {
       "id": "mohaa-ponyhof-2",
