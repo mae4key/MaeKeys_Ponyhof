@@ -292,7 +292,7 @@ MOD_LABELS = {
     "bf2": "Vanilla",
     "bf2142": "Vanilla",
     # Medal of Honor (OpenMOHAA, Feld gamename)
-    "mohaa": "Allied Assault",
+    "mohaa": "Vanilla",
     "mohaas": "Spearhead",
     "mohaab": "Breakthrough",
     # Battlefield Vietnam
