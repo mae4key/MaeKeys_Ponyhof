@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-19T21:48:37+00:00",
+  "generated_at": "2026-11-19T21:50:37+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
@@ -16,11 +16,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "701"
+          "score": "687"
         },
         {
           "name": "allied",
-          "score": "174"
+          "score": "92"
         }
       ],
       "settings": [
@@ -49,7 +49,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-19T21:48:37+00:00"
+      "last_seen": "2026-11-19T21:50:37+00:00"
     },
     {
       "id": "bf1942-ponyhof-2",
@@ -65,11 +65,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "833"
+          "score": "766"
         },
         {
           "name": "allied",
-          "score": "871"
+          "score": "863"
         }
       ],
       "settings": [
@@ -94,7 +94,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-19T21:48:37+00:00"
+      "last_seen": "2026-11-19T21:50:37+00:00"
     },
     {
       "id": "bfv-ponyhof-1",
@@ -114,7 +114,7 @@
         },
         {
           "name": "blue",
-          "score": "420"
+          "score": "377"
         }
       ],
       "settings": [
@@ -143,7 +143,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-19T21:48:37+00:00"
+      "last_seen": "2026-11-19T21:50:37+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
@@ -526,7 +526,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-19T21:48:37+00:00"
+      "last_seen": "2026-11-19T21:50:37+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -946,7 +946,7 @@
           "32 players"
         ]
       ],
-      "last_seen": "2026-11-19T21:48:37+00:00"
+      "last_seen": "2026-11-19T21:50:37+00:00"
     },
     {
       "id": "bf2142-ponyhof-2",
@@ -966,7 +966,7 @@
       "game": "Medal of Honor: Allied Assault",
       "name": "MaeKeys Ponyhof",
       "status": "online",
-      "map": "mohdm7",
+      "map": "mp_bahnhof_dm",
       "mode": "Free-For-All",
       "mod": "Breakthrough",
       "players": 0,
@@ -983,7 +983,7 @@
           "no limit"
         ]
       ],
-      "last_seen": "2026-11-19T21:48:37+00:00"
+      "last_seen": "2026-11-19T21:50:37+00:00"
     },
     {
       "id": "mohaa-ponyhof-2",
