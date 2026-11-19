@@ -1,58 +1,9 @@
 {
-  "generated_at": "2026-11-19T18:56:38+00:00",
+  "generated_at": "2026-11-19T18:58:37+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
-      "game": "Battlefield 1942",
-      "name": "MaeKeys Ponyhof",
-      "status": "online",
-      "map": "kursk",
-      "mode": "coop",
-      "mod": "Vanilla",
-      "players": 0,
-      "max_players": 32,
-      "scoreboard": [],
-      "tickets": [
-        {
-          "name": "axis",
-          "score": "703"
-        },
-        {
-          "name": "allied",
-          "score": "416"
-        }
-      ],
-      "settings": [
-        [
-          "Time limit",
-          "45 min"
-        ],
-        [
-          "Ticket ratio",
-          "500"
-        ],
-        [
-          "Rounds per map",
-          "1"
-        ],
-        [
-          "Team ratio",
-          "2 : 3"
-        ],
-        [
-          "Friendly fire",
-          "on"
-        ],
-        [
-          "PunkBuster",
-          "off"
-        ]
-      ],
-      "last_seen": "2026-11-19T18:56:38+00:00"
-    },
-    {
-      "id": "bf1942-ponyhof-2",
       "game": "Battlefield 1942",
       "name": "MaeKeys Ponyhof",
       "status": "offline",
@@ -64,11 +15,15 @@
       "scoreboard": [],
       "tickets": [],
       "last": {
-        "map": "bocage",
+        "map": "kursk",
         "mode": "coop",
         "mod": "Vanilla",
         "max_players": 32,
         "settings": [
+          [
+            "Time limit",
+            "45 min"
+          ],
           [
             "Ticket ratio",
             "500"
@@ -79,7 +34,7 @@
           ],
           [
             "Team ratio",
-            "1 : 1"
+            "2 : 3"
           ],
           [
             "Friendly fire",
@@ -91,14 +46,59 @@
           ]
         ]
       },
-      "last_seen": "2026-11-19T18:54:39+00:00"
+      "last_seen": "2026-11-19T18:56:38+00:00"
+    },
+    {
+      "id": "bf1942-ponyhof-2",
+      "game": "Battlefield 1942",
+      "name": "MaeKeys Ponyhof",
+      "status": "online",
+      "map": "omaha beach",
+      "mode": "coop",
+      "mod": "Vanilla",
+      "players": 0,
+      "max_players": 32,
+      "scoreboard": [],
+      "tickets": [
+        {
+          "name": "axis",
+          "score": "1000"
+        },
+        {
+          "name": "allied",
+          "score": "1000"
+        }
+      ],
+      "settings": [
+        [
+          "Ticket ratio",
+          "500"
+        ],
+        [
+          "Rounds per map",
+          "1"
+        ],
+        [
+          "Team ratio",
+          "1 : 1"
+        ],
+        [
+          "Friendly fire",
+          "on"
+        ],
+        [
+          "PunkBuster",
+          "off"
+        ]
+      ],
+      "last_seen": "2026-11-19T18:58:37+00:00"
     },
     {
       "id": "bfv-ponyhof-1",
       "game": "Battlefield Vietnam",
       "name": "MaeKeys Ponyhof",
       "status": "online",
-      "map": "OPERATION HASTINGS",
+      "map": "QUANG TRI 1968",
       "mode": "coop",
       "mod": "Vanilla",
       "players": 0,
@@ -107,11 +107,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "833"
+          "score": "988"
         },
         {
           "name": "blue",
-          "score": "256"
+          "score": "997"
         }
       ],
       "settings": [
@@ -140,7 +140,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-19T18:56:38+00:00"
+      "last_seen": "2026-11-19T18:58:37+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
@@ -523,7 +523,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-19T18:56:38+00:00"
+      "last_seen": "2026-11-19T18:58:37+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -943,7 +943,7 @@
           "32 players"
         ]
       ],
-      "last_seen": "2026-11-19T18:56:38+00:00"
+      "last_seen": "2026-11-19T18:58:37+00:00"
     },
     {
       "id": "bf2142-ponyhof-2",
@@ -963,7 +963,7 @@
       "game": "Medal of Honor: Allied Assault",
       "name": "MaeKeys Ponyhof",
       "status": "online",
-      "map": "mohdm7",
+      "map": "mohdm1",
       "mode": "Free-For-All",
       "mod": "Vanilla",
       "players": 0,
@@ -980,7 +980,7 @@
           "no limit"
         ]
       ],
-      "last_seen": "2026-11-19T18:56:38+00:00"
+      "last_seen": "2026-11-19T18:58:37+00:00"
     },
     {
       "id": "mohaa-ponyhof-2",
