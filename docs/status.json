@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-19T16:50:44+00:00",
+  "generated_at": "2026-11-19T16:52:56+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
@@ -308,48 +308,60 @@
       "id": "mohaa-ponyhof-1",
       "game": "Medal of Honor: Allied Assault",
       "name": "MaeKeys Ponyhof",
-      "status": "online",
-      "map": "mohdm6",
-      "mode": "Free-For-All",
-      "mod": "Vanilla",
+      "status": "offline",
+      "map": "",
+      "mode": "",
+      "mod": "",
       "players": 0,
-      "max_players": 10,
+      "max_players": 0,
       "scoreboard": [],
       "tickets": [],
-      "settings": [
-        [
-          "Time limit",
-          "45 min"
-        ],
-        [
-          "Frag limit",
-          "no limit"
+      "last": {
+        "map": "mohdm6",
+        "mode": "Free-For-All",
+        "mod": "Vanilla",
+        "max_players": 10,
+        "settings": [
+          [
+            "Time limit",
+            "45 min"
+          ],
+          [
+            "Frag limit",
+            "no limit"
+          ]
         ]
-      ],
+      },
       "last_seen": "2026-11-19T16:50:44+00:00"
     },
     {
       "id": "mohaa-ponyhof-2",
       "game": "Medal of Honor: Allied Assault",
       "name": "MaeKeys Ponyhof",
-      "status": "online",
-      "map": "mohdm7",
-      "mode": "Team-Match",
-      "mod": "Breakthrough",
+      "status": "offline",
+      "map": "",
+      "mode": "",
+      "mod": "",
       "players": 0,
-      "max_players": 10,
+      "max_players": 0,
       "scoreboard": [],
       "tickets": [],
-      "settings": [
-        [
-          "Time limit",
-          "45 min"
-        ],
-        [
-          "Frag limit",
-          "no limit"
+      "last": {
+        "map": "mohdm7",
+        "mode": "Team-Match",
+        "mod": "Breakthrough",
+        "max_players": 10,
+        "settings": [
+          [
+            "Time limit",
+            "45 min"
+          ],
+          [
+            "Frag limit",
+            "no limit"
+          ]
         ]
-      ],
+      },
       "last_seen": "2026-11-19T16:50:44+00:00"
     }
   ]
