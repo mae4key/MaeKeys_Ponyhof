@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-19T20:42:34+00:00",
+  "generated_at": "2026-11-19T20:44:34+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
@@ -16,11 +16,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "938"
+          "score": "935"
         },
         {
           "name": "allied",
-          "score": "276"
+          "score": "205"
         }
       ],
       "settings": [
@@ -49,7 +49,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-19T20:42:34+00:00"
+      "last_seen": "2026-11-19T20:44:34+00:00"
     },
     {
       "id": "bf1942-ponyhof-2",
@@ -65,11 +65,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "933"
+          "score": "915"
         },
         {
           "name": "allied",
-          "score": "986"
+          "score": "978"
         }
       ],
       "settings": [
@@ -94,7 +94,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-19T20:42:34+00:00"
+      "last_seen": "2026-11-19T20:44:34+00:00"
     },
     {
       "id": "bfv-ponyhof-1",
@@ -110,11 +110,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "875"
+          "score": "855"
         },
         {
           "name": "blue",
-          "score": "819"
+          "score": "794"
         }
       ],
       "settings": [
@@ -143,7 +143,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-19T20:42:34+00:00"
+      "last_seen": "2026-11-19T20:44:34+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
@@ -526,7 +526,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-19T20:42:34+00:00"
+      "last_seen": "2026-11-19T20:44:34+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -946,7 +946,7 @@
           "32 players"
         ]
       ],
-      "last_seen": "2026-11-19T20:42:34+00:00"
+      "last_seen": "2026-11-19T20:44:34+00:00"
     },
     {
       "id": "bf2142-ponyhof-2",
@@ -976,9 +976,9 @@
           "name": "Ben Dover",
           "team": "",
           "rank": "",
-          "score": "45",
-          "kills": "45",
-          "deaths": "35",
+          "score": "51",
+          "kills": "51",
+          "deaths": "38",
           "ping": "14",
           "is_bot": false
         },
@@ -986,19 +986,19 @@
           "name": "MONSTERN)ICK",
           "team": "",
           "rank": "",
-          "score": "36",
-          "kills": "36",
-          "deaths": "55",
-          "ping": "3",
+          "score": "45",
+          "kills": "45",
+          "deaths": "62",
+          "ping": "4",
           "is_bot": false
         },
         {
           "name": "Beni Spitz",
           "team": "",
           "rank": "",
-          "score": "34",
-          "kills": "34",
-          "deaths": "43",
+          "score": "42",
+          "kills": "42",
+          "deaths": "44",
           "ping": "1",
           "is_bot": false
         },
@@ -1006,10 +1006,10 @@
           "name": "Justin C. Morningwood",
           "team": "",
           "rank": "",
-          "score": "18",
-          "kills": "18",
-          "deaths": "19",
-          "ping": "21",
+          "score": "22",
+          "kills": "22",
+          "deaths": "24",
+          "ping": "42",
           "is_bot": false
         }
       ],
@@ -1024,7 +1024,7 @@
           "no limit"
         ]
       ],
-      "last_seen": "2026-11-19T20:42:34+00:00"
+      "last_seen": "2026-11-19T20:44:34+00:00"
     },
     {
       "id": "mohaa-ponyhof-2",
