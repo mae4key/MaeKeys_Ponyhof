@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-19T19:55:49+00:00",
+  "generated_at": "2026-11-19T19:57:52+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
@@ -16,11 +16,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "683"
+          "score": "671"
         },
         {
           "name": "allied",
-          "score": "864"
+          "score": "846"
         }
       ],
       "settings": [
@@ -49,49 +49,52 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-19T19:55:49+00:00"
+      "last_seen": "2026-11-19T19:57:52+00:00"
     },
     {
       "id": "bf1942-ponyhof-2",
       "game": "Battlefield 1942",
       "name": "MaeKeys Ponyhof",
-      "status": "offline",
-      "map": "",
-      "mode": "",
-      "mod": "",
+      "status": "online",
+      "map": "stalingrad",
+      "mode": "coop",
+      "mod": "Vanilla",
       "players": 0,
-      "max_players": 0,
+      "max_players": 32,
       "scoreboard": [],
-      "tickets": [],
-      "last": {
-        "map": "market garden",
-        "mode": "coop",
-        "mod": "Vanilla",
-        "max_players": 32,
-        "settings": [
-          [
-            "Ticket ratio",
-            "500"
-          ],
-          [
-            "Rounds per map",
-            "1"
-          ],
-          [
-            "Team ratio",
-            "1 : 1"
-          ],
-          [
-            "Friendly fire",
-            "on"
-          ],
-          [
-            "PunkBuster",
-            "off"
-          ]
+      "tickets": [
+        {
+          "name": "axis",
+          "score": "991"
+        },
+        {
+          "name": "allied",
+          "score": "990"
+        }
+      ],
+      "settings": [
+        [
+          "Ticket ratio",
+          "500"
+        ],
+        [
+          "Rounds per map",
+          "1"
+        ],
+        [
+          "Team ratio",
+          "1 : 1"
+        ],
+        [
+          "Friendly fire",
+          "on"
+        ],
+        [
+          "PunkBuster",
+          "off"
         ]
-      },
-      "last_seen": "2026-11-19T19:53:38+00:00"
+      ],
+      "last_seen": "2026-11-19T19:57:52+00:00"
     },
     {
       "id": "bfv-ponyhof-1",
@@ -107,11 +110,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "885"
+          "score": "868"
         },
         {
           "name": "blue",
-          "score": "952"
+          "score": "944"
         }
       ],
       "settings": [
@@ -140,7 +143,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-19T19:55:49+00:00"
+      "last_seen": "2026-11-19T19:57:52+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
@@ -523,7 +526,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-19T19:55:49+00:00"
+      "last_seen": "2026-11-19T19:57:52+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -943,7 +946,7 @@
           "32 players"
         ]
       ],
-      "last_seen": "2026-11-19T19:55:49+00:00"
+      "last_seen": "2026-11-19T19:57:52+00:00"
     },
     {
       "id": "bf2142-ponyhof-2",
@@ -980,7 +983,7 @@
           "no limit"
         ]
       ],
-      "last_seen": "2026-11-19T19:55:49+00:00"
+      "last_seen": "2026-11-19T19:57:52+00:00"
     },
     {
       "id": "mohaa-ponyhof-2",
