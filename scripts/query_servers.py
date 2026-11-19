@@ -291,6 +291,10 @@ MOD_LABELS = {
     "bfvietnam": "Vanilla",
     "bf2": "Vanilla",
     "bf2142": "Vanilla",
+    # Medal of Honor (OpenMOHAA, Feld gamename)
+    "mohaa": "Allied Assault",
+    "mohaas": "Spearhead",
+    "mohaab": "Breakthrough",
     # Battlefield Vietnam
     "bfv_ww2mod": "WW2Mod",
     "eod_mod": "EoD",
@@ -425,13 +429,13 @@ def _extract_scoreboard(
         p = {k.lower(): v for k, v in p.items()}
         ping = str(p.get("ping", "1")).strip()
         name = _first(p, "player", "playername", "name", default="?")
-        is_bot = ping == "0" or name in bot_names
+        is_bot = ping in ("0", "bot") or name in bot_names
         board.append(
             {
                 "name": name,
                 "team": _first(p, "team", "team_t", default="") if trust_team else "",
                 "rank": _first(p, "rank", "skill", default=""),
-                "score": _first(p, "score", default="0"),
+                "score": _first(p, "score", "frags", default="0"),
                 "kills": _first(p, "kills", "kill", "frags", "skill", default=""),
                 "deaths": _first(p, "deaths", "death", default=""),
                 "ping": ping,
@@ -611,6 +615,10 @@ def _extract_settings(protocol_name: str, info: dict) -> list:
             n = _num(ff)
             add("Friendly fire", "off" if n == "0" else ("on" if n == "100" else "on (" + n + " %)"))
 
+    fl = g("fraglimit")
+    if fl.isdigit():
+        add("Frag limit", "no limit" if int(fl) == 0 else fl)
+
     pb = g("sv_punkbuster", "anticheat")
     if pb:
         add("PunkBuster", _onoff(pb))
@@ -712,6 +720,8 @@ async def query_one(entry: dict) -> dict:
             raw_mod = _first(
                 info, "game_id", "gameid", "gamevariant", "modname", "mod"
             )
+            if not raw_mod and str(entry.get("game", "")).startswith("Medal of Honor"):
+                raw_mod = _first(info, "gamename")  # MOHAA/SH/BT: mohaa / mohaas / mohaab
             result["mod"] = _friendly_mod(raw_mod)
             result["players"] = _count_humans(info, status.players)
             result["max_players"] = int(

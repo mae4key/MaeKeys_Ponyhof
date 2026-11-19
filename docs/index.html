@@ -624,12 +624,13 @@
   <div class="menu-panel-content">
   <h3>About</h3>
   <p>MaeKeys Ponyhof is a small, free, self-hosted community project keeping classic early-2000s multiplayer games like Battlefield alive — because the official matchmaking services for these games have long been shut down. Everything here runs on a home server, queried directly and shown live, with no third-party listing service in between.</p>
-  <p>Currently hosting Battlefield 1942, Battlefield Vietnam, Battlefield 2 and Battlefield 2142, including a couple of classic mods alongside vanilla. On the roadmap: Medal of Honor: Allied Assault (via the open-source OpenMoHAA project) and Medal of Honor: Pacific Assault — and, as a longer-term, more ambitious goal, Battlefield: Bad Company 2.</p>
+  <p>Currently hosting Battlefield 1942, Battlefield Vietnam, Battlefield 2, Battlefield 2142 and Medal of Honor (via the open-source OpenMoHAA project), including a couple of classic mods alongside vanilla. On the roadmap: Medal of Honor: Pacific Assault — and, as a longer-term, more ambitious goal, Battlefield: Bad Company 2.</p>
   <h3>Server lists</h3>
   <a href="http://master.bf1942.org/" target="_blank" rel="noopener">master.bf1942.org (BF1942)</a>
   <a href="https://openspy.net/server-list/bfvietnam" target="_blank" rel="noopener">OpenSpy (BF Vietnam)</a>
   <a href="https://www.bf2hub.com/servers/unranked/" target="_blank" rel="noopener">BF2Hub (BF2)</a>
   <a href="https://openspy.net/server-list/stella" target="_blank" rel="noopener">OpenSpy (BF2142)</a>
+  <a href="https://github.com/openmoh/openmohaa" target="_blank" rel="noopener">OpenMoHAA (Medal of Honor client)</a>
   </div>
 </div>
 
@@ -825,6 +826,7 @@ const JOIN_PORTS = {
   "bfv-ponyhof-1": 15567, "bfv-ponyhof-2": 15568,
   "bf2-ponyhof-1": 16567, "bf2-ponyhof-2": 16568,
   "bf2142-ponyhof-1": 17567, "bf2142-ponyhof-2": 17568,
+  "mohaa-ponyhof-1": 12203, "mohaa-ponyhof-2": 12204,
 };
 
 function gameLabel(s) {
@@ -1222,7 +1224,7 @@ function showScoreboard(id) {
 const RANKING_BASE = "https://raw.githubusercontent.com/mae4key/MaeKeys_Ponyhof_Ranking/main/data/";
 const RK = { data: null, players: null, period: "week", game: "all", key: null, arch: {}, rows: [], started: false };
 const RK_PERIODS = [["day", "Day"], ["week", "Week"], ["month", "Month"], ["year", "Year"], ["all", "All time"]];
-const RK_SHORT = { bf1942: "BF1942", bfv: "BFV", bf2: "BF2", bf2142: "BF2142" };
+const RK_SHORT = { bf1942: "BF1942", bfv: "BFV", bf2: "BF2", bf2142: "BF2142", mohaa: "MOHAA" };
 
 function rkFetch(path) {
   return fetch(RANKING_BASE + path + "?t=" + Math.floor(Date.now() / 300000), { cache: "no-store" })
