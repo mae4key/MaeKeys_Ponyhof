@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-19T22:48:11+00:00",
+  "generated_at": "2026-11-19T22:50:12+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
@@ -16,11 +16,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "831"
+          "score": "776"
         },
         {
           "name": "allied",
-          "score": "527"
+          "score": "446"
         }
       ],
       "settings": [
@@ -49,7 +49,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-19T22:48:11+00:00"
+      "last_seen": "2026-11-19T22:50:12+00:00"
     },
     {
       "id": "bf1942-ponyhof-2",
@@ -65,11 +65,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "826"
+          "score": "818"
         },
         {
           "name": "allied",
-          "score": "897"
+          "score": "885"
         }
       ],
       "settings": [
@@ -94,7 +94,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-19T22:48:11+00:00"
+      "last_seen": "2026-11-19T22:50:12+00:00"
     },
     {
       "id": "bfv-ponyhof-1",
@@ -110,11 +110,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "916"
+          "score": "897"
         },
         {
           "name": "blue",
-          "score": "973"
+          "score": "948"
         }
       ],
       "settings": [
@@ -143,7 +143,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-19T22:48:11+00:00"
+      "last_seen": "2026-11-19T22:50:12+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
@@ -159,11 +159,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "828"
+          "score": "822"
         },
         {
           "name": "blue",
-          "score": "623"
+          "score": "595"
         }
       ],
       "settings": [
@@ -188,7 +188,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-19T22:48:11+00:00"
+      "last_seen": "2026-11-19T22:50:12+00:00"
     },
     {
       "id": "bf2-ponyhof-1",
@@ -558,7 +558,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-19T22:48:11+00:00"
+      "last_seen": "2026-11-19T22:50:12+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -978,7 +978,7 @@
           "32 players"
         ]
       ],
-      "last_seen": "2026-11-19T22:48:11+00:00"
+      "last_seen": "2026-11-19T22:50:12+00:00"
     },
     {
       "id": "bf2142-ponyhof-2",
@@ -1015,7 +1015,7 @@
           "no limit"
         ]
       ],
-      "last_seen": "2026-11-19T22:48:11+00:00"
+      "last_seen": "2026-11-19T22:50:12+00:00"
     },
     {
       "id": "mohaa-ponyhof-2",
