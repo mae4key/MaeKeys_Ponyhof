@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-19T21:04:48+00:00",
+  "generated_at": "2026-11-19T21:06:46+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
@@ -16,11 +16,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "925"
+          "score": "913"
         },
         {
           "name": "allied",
-          "score": "523"
+          "score": "428"
         }
       ],
       "settings": [
@@ -49,7 +49,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-19T21:04:48+00:00"
+      "last_seen": "2026-11-19T21:06:46+00:00"
     },
     {
       "id": "bf1942-ponyhof-2",
@@ -65,11 +65,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "848"
+          "score": "838"
         },
         {
           "name": "allied",
-          "score": "1899"
+          "score": "1861"
         }
       ],
       "settings": [
@@ -94,7 +94,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-19T21:04:48+00:00"
+      "last_seen": "2026-11-19T21:06:46+00:00"
     },
     {
       "id": "bfv-ponyhof-1",
@@ -110,11 +110,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "694"
+          "score": "678"
         },
         {
           "name": "blue",
-          "score": "526"
+          "score": "492"
         }
       ],
       "settings": [
@@ -143,7 +143,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-19T21:04:48+00:00"
+      "last_seen": "2026-11-19T21:06:46+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
@@ -526,7 +526,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-19T21:04:48+00:00"
+      "last_seen": "2026-11-19T21:06:46+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -946,7 +946,7 @@
           "32 players"
         ]
       ],
-      "last_seen": "2026-11-19T21:04:48+00:00"
+      "last_seen": "2026-11-19T21:06:46+00:00"
     },
     {
       "id": "bf2142-ponyhof-2",
@@ -976,10 +976,10 @@
           "name": "fresca",
           "team": "",
           "rank": "",
-          "score": "0",
-          "kills": "0",
-          "deaths": "0",
-          "ping": "95",
+          "score": "3",
+          "kills": "3",
+          "deaths": "2",
+          "ping": "98",
           "is_bot": false
         }
       ],
@@ -994,7 +994,7 @@
           "no limit"
         ]
       ],
-      "last_seen": "2026-11-19T21:04:48+00:00"
+      "last_seen": "2026-11-19T21:06:46+00:00"
     },
     {
       "id": "mohaa-ponyhof-2",
