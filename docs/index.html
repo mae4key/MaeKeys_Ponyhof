@@ -518,6 +518,17 @@
   }
 
   dl.meta dt { color: var(--text-dim); }
+  /* SERVERNAME_V2 */
+  .server-name {
+    margin-top: 0.35rem;
+    font-size: 0.8rem;
+    color: var(--brass);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  dl.meta { margin-top: 0.35rem; row-gap: 0.12rem; }
+  dl.meta dd { min-width: 0; overflow-wrap: anywhere; }
   dl.meta dd { margin: 0; }
 
   .empty {
@@ -835,6 +846,8 @@ function gameLabel(s) {
   return s.game + (/-2$/.test(s.id) ? " (2)" : "");
 }
 
+function srvName(s, d) { return (d && d.server_name) || s.server_name || s.name || ""; }
+
 function esc(v) {
   return String(v == null ? "" : v).replace(/[&<>"']/g, c => (
     { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]
@@ -868,8 +881,8 @@ function renderServers(servers) {
     const title = s.status !== "online"
       ? `<span class="game-name plain">${esc(gameLabel(s))}</span>`
       : `<button type="button" class="game-name" data-id="${esc(s.id)}" onclick="showScoreboard(this.dataset.id)">${esc(gameLabel(s))} \u25b8</button>`;
-    const serverLine = esc(d.mod ? s.name + " \u2013 " + d.mod : s.name);
-    let rows = `<dt>Server</dt><dd>${serverLine}</dd>`;
+    const sn = srvName(s, d);
+    let rows = d.mod ? `<dt>Mod</dt><dd>${esc(d.mod)}</dd>` : "";
     if (s.status === "online") {
       rows += `<dt>Map</dt><dd>${esc(s.map || "\u2013")}</dd>`;
       rows += `<dt>Mode</dt><dd>${esc(s.mode || "\u2013")}</dd>`;
@@ -891,6 +904,7 @@ function renderServers(servers) {
         ${title}
         <span class="tag ${meta.cls}">${meta.label}</span>
       </div>
+      <div class="server-name" title="${esc(sn)}">${esc(sn)}</div>
       <dl class="meta">${rows}</dl>
     </div>`;
   }).join("");
@@ -1156,7 +1170,7 @@ function showScoreboard(id) {
   const d = isOffline ? (s.last || {}) : s;
   document.getElementById("modal-title").textContent = gameLabel(s);
   document.getElementById("modal-sub").textContent =
-    (d.mod ? s.name + " \u2013 " + d.mod : s.name) +
+    (d.mod ? srvName(s, d) + " \u2013 " + d.mod : srvName(s, d)) +
     (d.map ? " \u00b7 " + d.map : "") +
     (d.mode ? " \u00b7 " + d.mode : "");
 

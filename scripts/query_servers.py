@@ -656,6 +656,14 @@ def _simplify_ratio(text: str) -> str:
     return ("" if exact else "~") + str(n) + " : " + str(d)
 
 
+def _fix_text(s):  # SERVERNAME_V2
+    s = str(s).strip()
+    try:
+        return s.encode("latin-1").decode("utf-8")
+    except (UnicodeEncodeError, UnicodeDecodeError):
+        return s
+
+
 async def _try_protocol(protocol_cls, host, port, challenge_required=None):
     client = protocol_cls(host=host, port=port, timeout=TIMEOUT_SECONDS)
     if challenge_required is not None and hasattr(client, "challenge_required"):
@@ -668,6 +676,7 @@ async def query_one(entry: dict) -> dict:
         "id": entry["id"],
         "game": entry["game"],
         "name": entry["name"],
+        "server_name": entry["name"],
         "status": "offline",
         "map": "",
         "mode": "",
@@ -723,6 +732,9 @@ async def query_one(entry: dict) -> dict:
             if not raw_mod and str(entry.get("game", "")).startswith("Medal of Honor"):
                 raw_mod = _first(info, "gamename")  # MOHAA/SH/BT: mohaa / mohaas / mohaab
             result["mod"] = _friendly_mod(raw_mod)
+            hostname = _fix_text(_first(info, "hostname", "servername", "server_name"))
+            if hostname:
+                result["server_name"] = hostname
             result["players"] = _count_humans(info, status.players)
             result["max_players"] = int(
                 _first(info, "maxplayers", "maxplayers_", default="0") or 0
