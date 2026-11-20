@@ -638,7 +638,7 @@
   <div class="menu-panel-content">
   <h3>About</h3>
   <p>MaeKeys Ponyhof is a small, free, self-hosted community project keeping classic early-2000s multiplayer games like Battlefield alive — because the official matchmaking services for these games have long been shut down. Everything here runs on a home server, queried directly and shown live, with no third-party listing service in between.</p>
-  <p>Currently hosting Battlefield 1942, Battlefield Vietnam, Battlefield 2, Battlefield 2142 and Medal of Honor (via the open-source OpenMoHAA project), including a couple of classic mods alongside vanilla. On the roadmap: Medal of Honor: Pacific Assault — and, as a longer-term, more ambitious goal, Battlefield: Bad Company 2.</p>
+  <p>Currently hosting Battlefield 1942, Battlefield Vietnam, Battlefield 2, Battlefield 2142, Medal of Honor (via the open-source OpenMoHAA project) and Medal of Honor: Pacific Assault, including a couple of classic mods alongside vanilla. On the roadmap, as a longer-term, more ambitious goal: Battlefield: Bad Company 2.</p>
   <h3>Server lists</h3>
   <a href="http://master.bf1942.org/" target="_blank" rel="noopener">master.bf1942.org (BF1942)</a>
   <a href="https://openspy.net/server-list/bfvietnam" target="_blank" rel="noopener">OpenSpy (BF Vietnam)</a>
@@ -647,6 +647,7 @@
   <a href="https://master.frag-net.com/mohaa/" target="_blank" rel="noopener">frag-net (MOHAA)</a>
   <a href="https://master.frag-net.com/mohaas/" target="_blank" rel="noopener">frag-net (MOHAA SH)</a>
   <a href="https://master.frag-net.com/mohaab/" target="_blank" rel="noopener">frag-net (MOHAA BT)</a>
+  <a href="https://portal.mohpa.net/servers" target="_blank" rel="noopener">mohPA portal (MOHPA)</a>
   </div>
 </div>
 
@@ -843,6 +844,7 @@ const JOIN_PORTS = {
   "bf2-ponyhof-1": 16567, "bf2-ponyhof-2": 16568,
   "bf2142-ponyhof-1": 17567, "bf2142-ponyhof-2": 17568,
   "mohaa-ponyhof-1": 12203, "mohaa-ponyhof-2": 12204,
+  "mohpa-ponyhof-1": 13200,  // MOHPA1
 };
 
 function gameLabel(s) {
@@ -879,10 +881,20 @@ const MOH_MAPS = {
   mp_ship_lib: "Stuckguter",
   mp_tunisia_lib: "Tunisia",
   mp_thunder_dm: "Thunder",
-  mp_streetsofmessina_tow: "Streets of Messina"
+  mp_streetsofmessina_tow: "Streets of Messina",
+  // MOHPA1 (Pacific Assault)
+  mp_airfield_inv: "Airfield",
+  mp_bataan_inv: "Bataan",
+  mp_bougainville_inv: "Bougainville",
+  mp_bridge_inv: "Bridge",
+  mp_corregidor_inv: "Corregidor",
+  mp_gavutu_inv: "Gavutu",
+  mp_gifu_inv: "Gifu",
+  mp_matanikau_inv: "Matanikau",
+  mp_wakeisland_inv: "Wake Island"
 };
 function mapText(s, m) {
-  if (!m || !/^mohaa/i.test(s.id || "")) return m;
+  if (!m || !/^moh(aa|pa)/i.test(s.id || "")) return m;
   const n = MOH_MAPS[String(m).toLowerCase().replace(/^(dm|obj)\//, "")];
   return n ? (/^mp_/i.test(m) ? n : m + " \u2013 " + n) : m;
 }
@@ -1285,7 +1297,7 @@ function showScoreboard(id) {
 const RANKING_BASE = "https://raw.githubusercontent.com/mae4key/MaeKeys_Ponyhof_Ranking/main/data/";
 const RK = { data: null, players: null, period: "week", game: "all", key: null, arch: {}, rows: [], started: false };
 const RK_PERIODS = [["day", "Day"], ["week", "Week"], ["month", "Month"], ["year", "Year"], ["all", "All time"]];
-const RK_SHORT = { bf1942: "BF1942", bfv: "BFV", bf2: "BF2", bf2142: "BF2142", mohaa: "MOHAA" };
+const RK_SHORT = { bf1942: "BF1942", bfv: "BFV", bf2: "BF2", bf2142: "BF2142", mohaa: "MOHAA", mohpa: "MOHPA" };
 
 function rkFetch(path) {
   return fetch(RANKING_BASE + path + "?t=" + Math.floor(Date.now() / 300000), { cache: "no-store" })

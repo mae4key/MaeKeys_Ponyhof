@@ -100,5 +100,15 @@
     "port": 12301,
     "enabled": true,
     "internet": true
+  },
+  {
+    "id": "mohpa-ponyhof-1",
+    "game": "Medal of Honor: Pacific Assault",
+    "name": "MaeKeys Ponyhof",
+    "protocol": "gamespy1",
+    "host": "870om3k8bee3muwz.myfritz.net",
+    "port": 13300,
+    "enabled": true,
+    "internet": true
   }
 ]

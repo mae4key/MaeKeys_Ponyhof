@@ -295,6 +295,7 @@ MOD_LABELS = {
     "mohaa": "Vanilla",
     "mohaas": "Spearhead",
     "mohaab": "Breakthrough",
+    "mohpa": "Vanilla",   # MOHPA1
     # Battlefield Vietnam
     "bfv_ww2mod": "WW2Mod",
     "eod_mod": "EoD",
