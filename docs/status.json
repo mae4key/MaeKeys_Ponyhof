@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-20T23:27:59+00:00",
+  "generated_at": "2026-11-20T23:31:41+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
@@ -359,7 +359,7 @@
       "name": "MaeKeys Ponyhof",
       "server_name": "MaeKeys Ponyhof MOHAA BT",
       "status": "online",
-      "map": "mp_malta_dm",
+      "map": "mp_stadt_dm",
       "mode": "Free-For-All",
       "mod": "Breakthrough",
       "players": 0,
@@ -376,7 +376,7 @@
           "no limit"
         ]
       ],
-      "last_seen": "2026-11-20T23:27:59+00:00"
+      "last_seen": "2026-11-20T23:31:41+00:00"
     },
     {
       "id": "mohaa-ponyhof-2",
@@ -433,7 +433,7 @@
           "no limit"
         ]
       ],
-      "last_seen": "2026-11-20T23:27:59+00:00"
+      "last_seen": "2026-11-20T23:31:41+00:00"
     }
   ]
 }
