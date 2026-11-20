@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-20T10:59:33+00:00",
+  "generated_at": "2026-11-20T11:01:33+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
@@ -17,7 +17,7 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "757"
+          "score": "741"
         },
         {
           "name": "allied",
@@ -50,7 +50,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-20T10:59:33+00:00"
+      "last_seen": "2026-11-20T11:01:33+00:00"
     },
     {
       "id": "bf1942-ponyhof-2",
@@ -110,7 +110,7 @@
       "tickets": [
         {
           "name": "red",
-          "score": "706"
+          "score": "686"
         },
         {
           "name": "blue",
@@ -143,7 +143,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-20T10:59:33+00:00"
+      "last_seen": "2026-11-20T11:01:33+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
@@ -236,7 +236,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-20T10:59:33+00:00"
+      "last_seen": "2026-11-20T11:01:33+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -337,7 +337,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-20T10:59:33+00:00"
+      "last_seen": "2026-11-20T11:01:33+00:00"
     },
     {
       "id": "bf2142-ponyhof-2",
@@ -359,7 +359,7 @@
       "name": "MaeKeys Ponyhof",
       "server_name": "MaeKeys Ponyhof MOHAA BT Test",
       "status": "online",
-      "map": "mp_bahnhof_dm",
+      "map": "mp_bazaar_dm",
       "mode": "Free-For-All",
       "mod": "Breakthrough",
       "players": 0,
@@ -376,7 +376,7 @@
           "no limit"
         ]
       ],
-      "last_seen": "2026-11-20T10:59:33+00:00"
+      "last_seen": "2026-11-20T11:01:33+00:00"
     },
     {
       "id": "mohaa-ponyhof-2",
@@ -401,7 +401,7 @@
           "no limit"
         ]
       ],
-      "last_seen": "2026-11-20T10:59:33+00:00"
+      "last_seen": "2026-11-20T11:01:33+00:00"
     }
   ]
 }
