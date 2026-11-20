@@ -519,14 +519,17 @@
 
   dl.meta dt { color: var(--text-dim); }
   /* SERVERNAME_V2 */
+  /* NAMEWRAP_V1 */
   .server-name {
     margin-top: 0.35rem;
     font-size: 0.8rem;
     color: var(--brass);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    min-width: 0;
   }
+  .card { min-width: 0; }
   dl.meta { margin-top: 0.35rem; row-gap: 0.12rem; }
   dl.meta dd { min-width: 0; overflow-wrap: anywhere; }
   dl.meta dd { margin: 0; }
