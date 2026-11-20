@@ -847,6 +847,16 @@ function gameLabel(s) {
 }
 
 function srvName(s, d) { return (d && d.server_name) || s.server_name || s.name || ""; }
+const MOH_MAPS = {
+  mohdm1: "Southern France", mohdm2: "Destroyed Village", mohdm3: "Remagen",
+  mohdm4: "The Crossroads", mohdm5: "Snowy Park", mohdm6: "Stalingrad", mohdm7: "Algiers",
+  obj_team1: "The Hunt", obj_team2: "V2 Rocket Facility", obj_team3: "Omaha Beach", obj_team4: "The Bridge"
+};
+function mapText(s, m) {
+  if (!m || !/^mohaa/i.test(s.id || "")) return m;
+  const n = MOH_MAPS[String(m).toLowerCase().replace(/^(dm|obj)\//, "")];
+  return n ? m + " \u2013 " + n : m;
+}
 function isMoh(s) { return /^mohaa/i.test(s.id || ""); }
 function modText(s, d) { return isMoh(s) && d.mod === "Vanilla" ? "Base Game" : d.mod; }
 function modRow(s, d) {
@@ -890,13 +900,13 @@ function renderServers(servers) {
     const sn = srvName(s, d);
     let rows = modRow(s, d);
     if (s.status === "online") {
-      rows += `<dt>Map</dt><dd>${esc(s.map || "\u2013")}</dd>`;
+      rows += `<dt>Map</dt><dd>${esc(mapText(s, s.map) || "\u2013")}</dd>`;
       rows += `<dt>Mode</dt><dd>${esc(s.mode || "\u2013")}</dd>`;
       rows += `<dt>Players</dt><dd>${s.map ? esc(s.players + (s.max_players ? " / " + s.max_players : "")) : "\u2013"}</dd>`;
     } else if (s.status === "not_available") {
-      rows += `<dt>Map</dt><dd>${esc(s.map || "\u2013")}</dd>`;
+      rows += `<dt>Map</dt><dd>${esc(mapText(s, s.map) || "\u2013")}</dd>`;
     } else {
-      rows += `<dt>Map</dt><dd>${esc(d.map || "\u2013")}</dd>`;
+      rows += `<dt>Map</dt><dd>${esc(mapText(s, d.map) || "\u2013")}</dd>`;
       rows += `<dt>Mode</dt><dd>${esc(d.mode || "\u2013")}</dd>`;
       rows += `<dt>Last seen</dt><dd>${esc(fmtDate(s.last_seen) || "\u2013")}</dd>`;
     }
@@ -1177,7 +1187,7 @@ function showScoreboard(id) {
   document.getElementById("modal-title").textContent = gameLabel(s);
   document.getElementById("modal-sub").textContent =
     (d.mod ? srvName(s, d) + " \u2013 " + modText(s, d) : srvName(s, d)) +
-    (d.map ? " \u00b7 " + d.map : "") +
+    (d.map ? " \u00b7 " + mapText(s, d.map) : "") +
     (d.mode ? " \u00b7 " + d.mode : "");
 
   const body = document.getElementById("modal-body");
