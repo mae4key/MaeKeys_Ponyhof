@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-20T11:14:15+00:00",
+  "generated_at": "2026-11-20T11:16:15+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
@@ -8,7 +8,7 @@
       "name": "MaeKeys Ponyhof",
       "server_name": "MaeKeys Ponyhof BF1942",
       "status": "online",
-      "map": "battle of britain",
+      "map": "battle of the bulge",
       "mode": "conquest",
       "mod": "Vanilla",
       "players": 0,
@@ -17,7 +17,7 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "640"
+          "score": "748"
         },
         {
           "name": "allied",
@@ -50,7 +50,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-20T11:14:15+00:00"
+      "last_seen": "2026-11-20T11:16:15+00:00"
     },
     {
       "id": "bf1942-ponyhof-2",
@@ -101,7 +101,7 @@
       "name": "MaeKeys Ponyhof",
       "server_name": "MaeKeys Ponyhof BFVietnam",
       "status": "online",
-      "map": "CAMBODIAN INCURSION",
+      "map": "DEFENSE OF CON THIEN",
       "mode": "conquest",
       "mod": "Vanilla",
       "players": 0,
@@ -110,11 +110,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "559"
+          "score": "500"
         },
         {
           "name": "blue",
-          "score": "1000"
+          "score": "500"
         }
       ],
       "settings": [
@@ -143,7 +143,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-20T11:14:15+00:00"
+      "last_seen": "2026-11-20T11:16:15+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
@@ -236,7 +236,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-20T11:14:15+00:00"
+      "last_seen": "2026-11-20T11:16:15+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -337,7 +337,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-20T11:14:15+00:00"
+      "last_seen": "2026-11-20T11:16:15+00:00"
     },
     {
       "id": "bf2142-ponyhof-2",
@@ -376,7 +376,7 @@
           "no limit"
         ]
       ],
-      "last_seen": "2026-11-20T11:14:15+00:00"
+      "last_seen": "2026-11-20T11:16:15+00:00"
     },
     {
       "id": "mohaa-ponyhof-2",
@@ -401,7 +401,7 @@
           "no limit"
         ]
       ],
-      "last_seen": "2026-11-20T11:14:15+00:00"
+      "last_seen": "2026-11-20T11:16:15+00:00"
     }
   ]
 }
