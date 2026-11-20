@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-20T21:35:33+00:00",
+  "generated_at": "2026-11-20T21:37:36+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
@@ -17,11 +17,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "848"
+          "score": "843"
         },
         {
           "name": "allied",
-          "score": "210"
+          "score": "141"
         }
       ],
       "settings": [
@@ -50,7 +50,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-20T21:35:33+00:00"
+      "last_seen": "2026-11-20T21:37:36+00:00"
     },
     {
       "id": "bf1942-ponyhof-2",
@@ -110,11 +110,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "591"
+          "score": "574"
         },
         {
           "name": "blue",
-          "score": "704"
+          "score": "685"
         }
       ],
       "settings": [
@@ -143,7 +143,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-20T21:35:33+00:00"
+      "last_seen": "2026-11-20T21:37:36+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
@@ -561,7 +561,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-20T21:35:33+00:00"
+      "last_seen": "2026-11-20T21:37:36+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -987,7 +987,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-20T21:35:33+00:00"
+      "last_seen": "2026-11-20T21:37:36+00:00"
     },
     {
       "id": "bf2142-ponyhof-2",
@@ -1026,7 +1026,7 @@
           "no limit"
         ]
       ],
-      "last_seen": "2026-11-20T21:35:33+00:00"
+      "last_seen": "2026-11-20T21:37:36+00:00"
     },
     {
       "id": "mohaa-ponyhof-2",
@@ -1064,25 +1064,32 @@
       "id": "mohpa-ponyhof-1",
       "game": "Medal of Honor: Pacific Assault",
       "name": "MaeKeys Ponyhof",
-      "server_name": "MaeKeys Ponyhof MOHPA",
-      "status": "online",
-      "map": "mp_airfield_inv",
-      "mode": "Free-For-All",
+      "server_name": "MaeKeys Ponyhof",
+      "status": "offline",
+      "map": "",
+      "mode": "",
       "mod": "",
       "players": 0,
-      "max_players": 10,
+      "max_players": 0,
       "scoreboard": [],
       "tickets": [],
-      "settings": [
-        [
-          "Time limit",
-          "45 min"
-        ],
-        [
-          "Frag limit",
-          "no limit"
+      "last": {
+        "map": "mp_airfield_inv",
+        "mode": "Free-For-All",
+        "mod": "",
+        "server_name": "MaeKeys Ponyhof MOHPA",
+        "max_players": 10,
+        "settings": [
+          [
+            "Time limit",
+            "45 min"
+          ],
+          [
+            "Frag limit",
+            "no limit"
+          ]
         ]
-      ],
+      },
       "last_seen": "2026-11-20T21:35:33+00:00"
     }
   ]
