@@ -850,12 +850,36 @@ function srvName(s, d) { return (d && d.server_name) || s.server_name || s.name 
 const MOH_MAPS = {
   mohdm1: "Southern France", mohdm2: "Destroyed Village", mohdm3: "Remagen",
   mohdm4: "The Crossroads", mohdm5: "Snowy Park", mohdm6: "Stalingrad", mohdm7: "Algiers",
-  obj_team1: "The Hunt", obj_team2: "V2 Rocket Facility", obj_team3: "Omaha Beach", obj_team4: "The Bridge"
+  obj_team1: "The Hunt", obj_team2: "V2 Rocket Facility", obj_team3: "Omaha Beach", obj_team4: "The Bridge",
+  mp_bahnhof_dm: "Bahnhof",
+  mp_bazaar_dm: "Bazaar",
+  mp_brest_dm: "Brest",
+  mp_gewitter_dm: "Gewitter",
+  mp_holland_dm: "Holland",
+  mp_malta_dm: "Malta",
+  mp_stadt_dm: "Stadt",
+  mp_unterseite_dm: "Unterseite",
+  mp_verschneit_dm: "Verschneit",
+  mp_ardennes_tow: "Ardennes",
+  mp_berlin_tow: "Berlin",
+  mp_druckkammern_tow: "Druckkammern",
+  mp_flughafen_tow: "Flughafen",
+  mp_kasserine_tow: "Kasserine",
+  mp_montecassino_tow: "Monte Cassino",
+  mp_montebattaglia_tow: "Monte Battaglia",
+  mp_bizertefort_obj: "Bizerte Fort",
+  mp_bologna_obj: "Bologna",
+  mp_castello_obj: "Castello",
+  mp_palermo_obj: "Palermo",
+  mp_anzio_lib: "Anzio",
+  mp_bizerteharbor_lib: "Bizerte Harbor",
+  mp_ship_lib: "Ship",
+  mp_tunisia_lib: "Tunisia"
 };
 function mapText(s, m) {
   if (!m || !/^mohaa/i.test(s.id || "")) return m;
   const n = MOH_MAPS[String(m).toLowerCase().replace(/^(dm|obj)\//, "")];
-  return n ? m + " \u2013 " + n : m;
+  return n ? (/^mp_/i.test(m) ? n : m + " \u2013 " + n) : m;
 }
 function isMoh(s) { return /^mohaa/i.test(s.id || ""); }
 function modText(s, d) { return isMoh(s) && d.mod === "Vanilla" ? "Base Game" : d.mod; }
