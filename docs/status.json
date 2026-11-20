@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-20T11:58:36+00:00",
+  "generated_at": "2026-11-20T12:00:37+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
@@ -21,18 +21,18 @@
           "score": "0",
           "kills": "0",
           "deaths": "0",
-          "ping": "3",
+          "ping": "2",
           "is_bot": false
         }
       ],
       "tickets": [
         {
           "name": "axis",
-          "score": "970"
+          "score": "959"
         },
         {
           "name": "allied",
-          "score": "972"
+          "score": "952"
         }
       ],
       "settings": [
@@ -61,7 +61,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-20T11:58:36+00:00"
+      "last_seen": "2026-11-20T12:00:37+00:00"
     },
     {
       "id": "bf1942-ponyhof-2",
@@ -110,50 +110,48 @@
       "id": "bfv-ponyhof-1",
       "game": "Battlefield Vietnam",
       "name": "MaeKeys Ponyhof",
-      "server_name": "MaeKeys Ponyhof BFVietnam",
-      "status": "online",
-      "map": "DEFENSE OF CON THIEN",
-      "mode": "conquest",
-      "mod": "Vanilla",
+      "server_name": "MaeKeys Ponyhof",
+      "status": "offline",
+      "map": "",
+      "mode": "",
+      "mod": "",
       "players": 0,
-      "max_players": 32,
+      "max_players": 0,
       "scoreboard": [],
-      "tickets": [
-        {
-          "name": "red",
-          "score": "500"
-        },
-        {
-          "name": "blue",
-          "score": "500"
-        }
-      ],
-      "settings": [
-        [
-          "Time limit",
-          "45 min"
-        ],
-        [
-          "Ticket ratio",
-          "500"
-        ],
-        [
-          "Rounds per map",
-          "1"
-        ],
-        [
-          "Team ratio",
-          "2 : 3"
-        ],
-        [
-          "Friendly fire",
-          "on"
-        ],
-        [
-          "PunkBuster",
-          "off"
+      "tickets": [],
+      "last": {
+        "map": "DEFENSE OF CON THIEN",
+        "mode": "conquest",
+        "mod": "Vanilla",
+        "server_name": "MaeKeys Ponyhof BFVietnam",
+        "max_players": 32,
+        "settings": [
+          [
+            "Time limit",
+            "45 min"
+          ],
+          [
+            "Ticket ratio",
+            "500"
+          ],
+          [
+            "Rounds per map",
+            "1"
+          ],
+          [
+            "Team ratio",
+            "2 : 3"
+          ],
+          [
+            "Friendly fire",
+            "on"
+          ],
+          [
+            "PunkBuster",
+            "off"
+          ]
         ]
-      ],
+      },
       "last_seen": "2026-11-20T11:58:36+00:00"
     },
     {
@@ -247,7 +245,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-20T11:58:36+00:00"
+      "last_seen": "2026-11-20T12:00:37+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -348,7 +346,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-20T11:58:36+00:00"
+      "last_seen": "2026-11-20T12:00:37+00:00"
     },
     {
       "id": "bf2142-ponyhof-2",
@@ -387,7 +385,7 @@
           "no limit"
         ]
       ],
-      "last_seen": "2026-11-20T11:58:36+00:00"
+      "last_seen": "2026-11-20T12:00:37+00:00"
     },
     {
       "id": "mohaa-ponyhof-2",
@@ -412,7 +410,7 @@
           "no limit"
         ]
       ],
-      "last_seen": "2026-11-20T11:58:36+00:00"
+      "last_seen": "2026-11-20T12:00:37+00:00"
     }
   ]
 }
