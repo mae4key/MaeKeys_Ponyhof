@@ -847,6 +847,12 @@ function gameLabel(s) {
 }
 
 function srvName(s, d) { return (d && d.server_name) || s.server_name || s.name || ""; }
+function isMoh(s) { return /^mohaa/i.test(s.id || ""); }
+function modText(s, d) { return isMoh(s) && d.mod === "Vanilla" ? "Base Game" : d.mod; }
+function modRow(s, d) {
+  if (!d.mod) return "";
+  return `<dt>${isMoh(s) ? "Addon" : "Mod"}</dt><dd>${esc(modText(s, d))}</dd>`;
+}
 
 function esc(v) {
   return String(v == null ? "" : v).replace(/[&<>"']/g, c => (
@@ -882,7 +888,7 @@ function renderServers(servers) {
       ? `<span class="game-name plain">${esc(gameLabel(s))}</span>`
       : `<button type="button" class="game-name" data-id="${esc(s.id)}" onclick="showScoreboard(this.dataset.id)">${esc(gameLabel(s))} \u25b8</button>`;
     const sn = srvName(s, d);
-    let rows = d.mod ? `<dt>Mod</dt><dd>${esc(d.mod)}</dd>` : "";
+    let rows = modRow(s, d);
     if (s.status === "online") {
       rows += `<dt>Map</dt><dd>${esc(s.map || "\u2013")}</dd>`;
       rows += `<dt>Mode</dt><dd>${esc(s.mode || "\u2013")}</dd>`;
@@ -1170,7 +1176,7 @@ function showScoreboard(id) {
   const d = isOffline ? (s.last || {}) : s;
   document.getElementById("modal-title").textContent = gameLabel(s);
   document.getElementById("modal-sub").textContent =
-    (d.mod ? srvName(s, d) + " \u2013 " + d.mod : srvName(s, d)) +
+    (d.mod ? srvName(s, d) + " \u2013 " + modText(s, d) : srvName(s, d)) +
     (d.map ? " \u00b7 " + d.map : "") +
     (d.mode ? " \u00b7 " + d.mode : "");
 

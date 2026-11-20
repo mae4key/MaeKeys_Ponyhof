@@ -826,6 +826,7 @@ def _snapshot(s: dict) -> dict:
         "map": s.get("map", ""),
         "mode": s.get("mode", ""),
         "mod": s.get("mod", ""),
+        "server_name": s.get("server_name", ""),
         "max_players": s.get("max_players", 0),
         "settings": s.get("settings", []),
     }
