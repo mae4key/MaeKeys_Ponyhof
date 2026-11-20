@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-20T09:56:48+00:00",
+  "generated_at": "2026-11-20T09:58:48+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
@@ -50,7 +50,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-20T09:56:48+00:00"
+      "last_seen": "2026-11-20T09:58:48+00:00"
     },
     {
       "id": "bf1942-ponyhof-2",
@@ -143,7 +143,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-20T09:56:48+00:00"
+      "last_seen": "2026-11-20T09:58:48+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
@@ -236,7 +236,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-20T09:56:48+00:00"
+      "last_seen": "2026-11-20T09:58:48+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -293,48 +293,51 @@
       "id": "bf2142-ponyhof-1",
       "game": "Battlefield 2142",
       "name": "MaeKeys Ponyhof",
-      "server_name": "MaeKeys Ponyhof",
-      "status": "offline",
-      "map": "",
-      "mode": "",
-      "mod": "",
+      "server_name": "MaeKeys Ponyhof BF2142",
+      "status": "online",
+      "map": "Delhi_River",
+      "mode": "gpm_cq",
+      "mod": "Vanilla",
       "players": 0,
-      "max_players": 0,
+      "max_players": 32,
       "scoreboard": [],
-      "tickets": [],
-      "last": {
-        "map": "Verdun_coop",
-        "mode": "gpm_coop",
-        "mod": "Vanilla",
-        "max_players": 32,
-        "settings": [
-          [
-            "Time limit",
-            "45 min"
-          ],
-          [
-            "Ticket ratio",
-            "500"
-          ],
-          [
-            "Rounds per map",
-            "1"
-          ],
-          [
-            "Friendly fire",
-            "on"
-          ],
-          [
-            "PunkBuster",
-            "off"
-          ],
-          [
-            "Map layout",
-            "32 players"
-          ]
+      "tickets": [
+        {
+          "name": "Pac",
+          "score": "0"
+        },
+        {
+          "name": "EU",
+          "score": "0"
+        }
+      ],
+      "settings": [
+        [
+          "Time limit",
+          "45 min"
+        ],
+        [
+          "Ticket ratio",
+          "500"
+        ],
+        [
+          "Rounds per map",
+          "1"
+        ],
+        [
+          "Friendly fire",
+          "on"
+        ],
+        [
+          "PunkBuster",
+          "off"
+        ],
+        [
+          "Map layout",
+          "16 players"
         ]
-      },
-      "last_seen": "2026-11-19T23:00:13+00:00"
+      ],
+      "last_seen": "2026-11-20T09:58:48+00:00"
     },
     {
       "id": "bf2142-ponyhof-2",
