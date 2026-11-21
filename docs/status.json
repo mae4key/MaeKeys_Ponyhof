@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T21:14:06+00:00",
+  "generated_at": "2026-11-21T21:16:13+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
@@ -17,11 +17,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "948"
+          "score": "943"
         },
         {
           "name": "allied",
-          "score": "374"
+          "score": "303"
         }
       ],
       "settings": [
@@ -50,7 +50,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-21T21:14:06+00:00"
+      "last_seen": "2026-11-21T21:16:13+00:00"
     },
     {
       "id": "bf1942-ponyhof-2",
@@ -101,7 +101,7 @@
       "name": "MaeKeys Ponyhof",
       "server_name": "MaeKeys Ponyhof BFVietnam",
       "status": "online",
-      "map": "LANDING ZONE ALBANY",
+      "map": "OPERATION FLAMING DART",
       "mode": "coop",
       "mod": "Vanilla",
       "players": 0,
@@ -110,11 +110,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "929"
+          "score": "1000"
         },
         {
           "name": "blue",
-          "score": "475"
+          "score": "999"
         }
       ],
       "settings": [
@@ -143,7 +143,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-21T21:14:06+00:00"
+      "last_seen": "2026-11-21T21:16:13+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
@@ -561,7 +561,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-21T21:14:06+00:00"
+      "last_seen": "2026-11-21T21:16:13+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -987,7 +987,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-21T21:14:06+00:00"
+      "last_seen": "2026-11-21T21:16:13+00:00"
     },
     {
       "id": "bf2142-ponyhof-2",
@@ -1026,7 +1026,7 @@
           "no limit"
         ]
       ],
-      "last_seen": "2026-11-21T21:14:06+00:00"
+      "last_seen": "2026-11-21T21:16:13+00:00"
     },
     {
       "id": "mohaa-ponyhof-2",
@@ -1083,7 +1083,7 @@
           "no limit"
         ]
       ],
-      "last_seen": "2026-11-21T21:14:06+00:00"
+      "last_seen": "2026-11-21T21:16:13+00:00"
     }
   ]
 }
