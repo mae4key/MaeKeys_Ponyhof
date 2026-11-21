@@ -626,6 +626,27 @@
   .pager.moving > section.pg-other { display: block; position: absolute; top: 0; left: 0; width: 100%; }
   .pager > section { will-change: auto; }
   .pager.moving > section { will-change: transform; }
+  /* LOGO1: Kopfzeile mit Symbol, Zaehler als Kapsel unter dem Titel */
+  .site-header { gap: 0.5rem; }
+  .site-header .logo { width: 48px; height: 48px; flex-shrink: 0; border-radius: 8px; }
+  .site-header .title-block { line-height: 1.25; min-width: 0; }
+  .site-header .row2 { display: flex; align-items: center; gap: 0.45rem; margin-top: 0.15rem; white-space: nowrap; }
+  .site-header .subtitle { margin: 0; font-size: 0.62rem; }
+  .site-header .online-count {
+    display: inline-flex; align-items: center; gap: 0.3rem;
+    margin: 0; padding: 0.05rem 0.5rem;
+    font-size: 0.82rem; font-weight: 700; letter-spacing: 0.02em;
+    color: #b6d77f; background: rgba(138, 171, 94, 0.16);
+    border: 1px solid var(--online); border-radius: 999px;
+  }
+  .site-header .online-count::before {
+    content: ""; width: 0.5rem; height: 0.5rem; border-radius: 50%;
+    background: var(--online); box-shadow: 0 0 6px var(--online);
+  }
+  .site-header .online-count strong { color: inherit; }
+  .site-header .online-count:empty { display: none; }
+  .site-header .online-count.zero { color: var(--text-dim); background: transparent; border-color: var(--panel-line); }
+  .site-header .online-count.zero::before { background: #6b6a58; box-shadow: none; }
 </style>
 </head>
 <body>
@@ -657,7 +678,8 @@
 
 <div class="wrap">
   <header class="site-header">
-    <svg class="mascot" viewBox="0 0 240 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pony mascot in camo with steel helmet and rifle">
+    <img class="logo" src="icons/icon-192.png?v=2" width="48" height="48" alt="MaeKeys Ponyhof">
+    <template id="pony-mascot"><svg class="mascot" viewBox="0 0 240 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pony mascot in camo with steel helmet and rifle">
       <defs>
         <clipPath id="bodyClip">
           <path d="M 60 120
@@ -756,12 +778,12 @@
         <rect x="154" y="7" width="4" height="9" fill="#2a2a24"/>
         <path d="M 40 19 q 4 8 -2 10" stroke="#3a3a30" stroke-width="2" fill="none" stroke-linecap="round"/>
       </g>
-    </svg>
+    </svg></template>
     <div class="title-block">
       <h1>MaeKeys Ponyhof</h1>
-      <p class="subtitle">Live status of the retro game servers</p>
+      <div class="row2"><span class="online-count" id="online-count"></span><p class="subtitle">retro game servers</p></div>
     </div>
-    <span class="online-count" id="online-count"></span>
+    
   </header>
 
   <nav class="tabs" aria-label="Sections">
@@ -1100,6 +1122,7 @@ async function load(force) {
       .filter(s => s.status === "online")
       .reduce((sum, s) => sum + (s.map ? (s.players || 0) : 0), 0);
     document.getElementById("online-count").innerHTML = data.unknown ? `<strong>?</strong> online` : `<strong>${totalOnline}</strong> online`;
+    document.getElementById("online-count").classList.toggle("zero", !!data.unknown || totalOnline === 0);
     // WEB29: ausserhalb der Betriebszeiten und ohne online-Server: letzter bekannter Online-Zeitpunkt
     let tsIso = data.generated_at, tsLabel = "Last updated";
     if (!zhState(zhNowSec()).open && !anyOnline) {
