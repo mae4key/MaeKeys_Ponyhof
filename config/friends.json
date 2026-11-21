@@ -1,0 +1,11 @@
+[
+  {
+    "id": "mohaa-friend-exceeder-bt",
+    "game": "Medal of Honor: Allied Assault Breakthrough",
+    "name": "Ponyhof",
+    "protocol": "gamespy1",
+    "host": "exceeder.internet-box.ch",
+    "port": 12300,
+    "enabled": true
+  }
+]

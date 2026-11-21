@@ -73,6 +73,43 @@ jobs:
             echo "Keine Aenderung am Status."
           fi
 
+      - name: Friends-Server abfragen (FRIENDS2)
+        continue-on-error: true
+        run: python scripts/query_friends.py
+
+      - name: friends.json committen, falls geaendert (FRIENDS2)
+        continue-on-error: true
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if [ -f docs/friends.json ]; then
+            CHANGED=$(python3 - <<'PY'
+          import json, subprocess
+          from datetime import datetime
+          new = json.load(open("docs/friends.json"))
+          try:
+              old = json.loads(subprocess.check_output(["git", "show", "HEAD:docs/friends.json"], stderr=subprocess.DEVNULL))
+          except Exception:
+              print("yes")
+              raise SystemExit
+          ng = new.pop("generated_at", None)
+          og = old.pop("generated_at", None)
+          if new != old:
+              print("yes")
+              raise SystemExit
+          age = (datetime.fromisoformat(ng) - datetime.fromisoformat(og)).total_seconds() / 60
+          print("yes" if age >= 20 else "no")
+          PY
+            )
+            if [ "$CHANGED" = "yes" ]; then
+              git add docs/friends.json
+              git commit -m "Friends-Status aktualisiert: $(date -u +'%Y-%m-%d %H:%M UTC')"
+              git pull --rebase origin main && git push
+            else
+              echo "Keine Aenderung an friends.json."
+            fi
+          fi
+
       - name: Naechsten Lauf in 90 Sekunden selbst anstossen
         # Umgeht GitHubs eigenen (bei neuen Repos teils unzuverlaessigen)
         # "schedule"-Mechanismus komplett: dieser Lauf wartet 90 Sekunden und

@@ -715,6 +715,10 @@
     .tabs .discord-btn { padding: 0.5rem 0.6rem; }
   }
   /* FRIENDS1 Ende */
+  /* FRIENDS2: Karten der Friends-Server */
+  #friends-list { margin-top: 0.8rem; }
+  .fr-game { font-family: "Staatliches", sans-serif; letter-spacing: 0.04em; font-size: 0.92rem; color: var(--text); line-height: 1.2; }
+  /* FRIENDS2 Ende */
 </style>
 </head>
 <body>
@@ -909,6 +913,7 @@
       They are hosted by Ponyhof friends, not by MaeKey, and do not count towards the ranking.<br>
       Status is queried live, so a server can be offline at times.
     </div>
+    <div id="friends-list" class="servers"></div>
   </section>
   </div>
 </div>
@@ -1658,6 +1663,40 @@ document.getElementById("rk-found").addEventListener("click", e => {
 });
 setInterval(() => { if (pagerIdx === 1) rkLoad(); }, 300000);
 if (PAGE_HASH.indexOf(location.hash) > 0) pagerActivate(PAGE_HASH.indexOf(location.hash));
+
+// FRIENDS2: Server von Freunden (docs/friends.json, getrennt von Ranking und Zaehler)
+async function loadFriends() {
+  const box = document.getElementById("friends-list");
+  if (!box) return;
+  try {
+    const res = await fetch("friends.json", { cache: "no-store" });
+    if (!res.ok) throw new Error("http " + res.status);
+    const data = await res.json();
+    const list = data.servers || [];
+    if (!list.length) { box.innerHTML = ""; return; }
+    const stale = data.generated_at && (Date.now() - new Date(data.generated_at)) / 60000 > 30;
+    box.innerHTML = list.map(s => {
+      const on = s.status === "online";
+      return `
+    <div class="card${on ? "" : " offline"}">
+      <div class="card-top">
+        <span class="fr-game">${esc(s.game)}</span>
+        <span class="tag ${on ? "online" : "offline"}">${on ? "ONLINE" : "OFFLINE"}</span>
+      </div>
+      <dl class="meta">
+        <dt>Server</dt><dd>${esc(s.server_name || s.name)}</dd>
+        ${on ? modRow(s, s) + `<dt>Map</dt><dd>${esc(mapText(s, s.map) || "–")}</dd>
+        <dt>Mode</dt><dd>${esc(s.mode || "–")}</dd>
+        <dt>Players</dt><dd>${s.players}${s.max_players ? " / " + s.max_players : ""}</dd>` : ""}
+      </dl>
+    </div>`;
+    }).join("") + (stale ? `<p class="stale-notice" style="grid-column:1/-1">Note: the last update was over 30 minutes ago – data may be outdated.</p>` : "");
+  } catch (e) {
+    box.innerHTML = "";
+  }
+}
+loadFriends();
+setInterval(loadFriends, 60000);
 
 function toggleMenu() {
   const panel = document.getElementById("menu-panel");
