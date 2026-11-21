@@ -666,6 +666,25 @@
     .site-header .online-count { font-size: 1.05rem; padding: 0.1rem 0.8rem; gap: 0.45rem; }
     .site-header .online-count::before { width: 0.65rem; height: 0.65rem; }
   }
+  /* LOGO3: Pony rechts neben dem Titel, links vom Menueknopf */
+  .site-header { padding-left: 5.2rem; padding-right: 5.2rem; }
+  .site-header .mascot { position: absolute; right: 3.9rem; top: 50%; transform: translateY(-50%); width: 40px; height: auto; }
+  @media (max-width: 430px) {
+    .site-header h1 { font-size: 1.5rem; }
+    .site-header .mascot { width: 34px; right: 3.8rem; }
+  }
+  @media (max-width: 400px) {
+    .site-header h1 { font-size: 1.4rem; }
+    .site-header .mascot { width: 30px; right: 3.6rem; }
+  }
+  @media (max-width: 359px) {
+    .site-header { padding-left: 3.4rem; padding-right: 3.4rem; }
+    .site-header .mascot { display: none; }
+  }
+  @media (min-width: 900px) {
+    .site-header { padding-left: 8rem; padding-right: 8rem; }
+    .site-header .mascot { right: 4.8rem; width: 92px; }
+  }
 </style>
 </head>
 <body>
@@ -698,7 +717,7 @@
 <div class="wrap">
   <header class="site-header">
     <img class="logo" src="icons/icon-192.png?v=2" width="48" height="48" alt="MaeKeys Ponyhof">
-    <template id="pony-mascot"><svg class="mascot" viewBox="0 0 240 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pony mascot in camo with steel helmet and rifle">
+    <svg class="mascot" viewBox="0 0 240 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pony mascot in camo with steel helmet and rifle">
       <defs>
         <clipPath id="bodyClip">
           <path d="M 60 120
@@ -797,7 +816,7 @@
         <rect x="154" y="7" width="4" height="9" fill="#2a2a24"/>
         <path d="M 40 19 q 4 8 -2 10" stroke="#3a3a30" stroke-width="2" fill="none" stroke-linecap="round"/>
       </g>
-    </svg></template>
+    </svg>
     <div class="title-block">
       <h1>MaeKeys Ponyhof</h1>
       <div class="row2"><span class="online-count" id="online-count"></span><p class="subtitle">retro game servers</p></div>
