@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T15:10:38+00:00",
+  "generated_at": "2026-11-22T15:12:47+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
@@ -419,33 +419,26 @@
       "id": "mohpa-ponyhof-1",
       "game": "Medal of Honor: Pacific Assault",
       "name": "MaeKeys Ponyhof",
-      "server_name": "MaeKeys Ponyhof",
-      "status": "offline",
-      "map": "",
-      "mode": "",
+      "server_name": "MaeKeys Ponyhof MOHPA",
+      "status": "online",
+      "map": "mp_airfield_inv",
+      "mode": "Free-For-All",
       "mod": "",
       "players": 0,
-      "max_players": 0,
+      "max_players": 10,
       "scoreboard": [],
       "tickets": [],
-      "last": {
-        "map": "mp_airfield_inv",
-        "mode": "Free-For-All",
-        "mod": "",
-        "server_name": "MaeKeys Ponyhof MOHPA",
-        "max_players": 10,
-        "settings": [
-          [
-            "Time limit",
-            "45 min"
-          ],
-          [
-            "Frag limit",
-            "no limit"
-          ]
+      "settings": [
+        [
+          "Time limit",
+          "45 min"
+        ],
+        [
+          "Frag limit",
+          "no limit"
         ]
-      },
-      "last_seen": "2026-11-22T13:51:47+00:00"
+      ],
+      "last_seen": "2026-11-22T15:12:47+00:00"
     }
   ]
 }
