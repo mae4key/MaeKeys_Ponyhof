@@ -1,51 +1,49 @@
 {
-  "generated_at": "2026-11-22T03:04:41+00:00",
+  "generated_at": "2026-11-22T03:06:51+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
       "game": "Battlefield 1942",
       "name": "MaeKeys Ponyhof",
-      "server_name": "LinuxGSM",
-      "status": "online",
-      "map": "berlin",
-      "mode": "conquest",
-      "mod": "Vanilla",
+      "server_name": "MaeKeys Ponyhof",
+      "status": "offline",
+      "map": "",
+      "mode": "",
+      "mod": "",
       "players": 0,
-      "max_players": 32,
+      "max_players": 0,
       "scoreboard": [],
-      "tickets": [
-        {
-          "name": "axis",
-          "score": "160"
-        },
-        {
-          "name": "allied",
-          "score": "160"
-        }
-      ],
-      "settings": [
-        [
-          "Ticket ratio",
-          "100"
-        ],
-        [
-          "Rounds per map",
-          "3"
-        ],
-        [
-          "Team ratio",
-          "1 : 1"
-        ],
-        [
-          "Friendly fire",
-          "on"
-        ],
-        [
-          "PunkBuster",
-          "off"
+      "tickets": [],
+      "last": {
+        "map": "berlin",
+        "mode": "conquest",
+        "mod": "Vanilla",
+        "server_name": "LinuxGSM",
+        "max_players": 32,
+        "settings": [
+          [
+            "Ticket ratio",
+            "100"
+          ],
+          [
+            "Rounds per map",
+            "3"
+          ],
+          [
+            "Team ratio",
+            "1 : 1"
+          ],
+          [
+            "Friendly fire",
+            "on"
+          ],
+          [
+            "PunkBuster",
+            "off"
+          ]
         ]
-      ],
+      },
       "last_seen": "2026-11-22T03:04:41+00:00"
     },
     {
