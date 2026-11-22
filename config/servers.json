@@ -79,8 +79,7 @@
     "host": "870om3k8bee3muwz.myfritz.net",
     "port": 29911,
     "enabled": true,
-    "internet": false,
-    "bot_teams": "8 : 8"
+    "internet": true
   },
   {
     "id": "mohaa-ponyhof-1",
