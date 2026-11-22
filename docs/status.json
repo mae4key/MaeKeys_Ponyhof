@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T22:40:20+00:00",
+  "generated_at": "2026-11-22T22:42:27+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
@@ -54,45 +54,51 @@
       "id": "bf1942-ponyhof-2",
       "game": "Battlefield 1942",
       "name": "MaeKeys Ponyhof",
-      "server_name": "MaeKeys Ponyhof",
-      "status": "offline",
-      "map": "",
-      "mode": "",
-      "mod": "",
+      "server_name": "MaeKeys Ponyhof DiscordConfig",
+      "status": "online",
+      "map": "el alamein",
+      "mode": "conquest",
+      "mod": "Vanilla",
       "players": 0,
-      "max_players": 0,
+      "max_players": 32,
       "scoreboard": [],
-      "tickets": [],
-      "last": {
-        "map": "battle of britain",
-        "mode": "coop",
-        "mod": "Vanilla",
-        "server_name": "MaeKeys Ponyhof BF1942",
-        "max_players": 30,
-        "settings": [
-          [
-            "Ticket ratio",
-            "500"
-          ],
-          [
-            "Rounds per map",
-            "1"
-          ],
-          [
-            "Team ratio",
-            "1 : 1"
-          ],
-          [
-            "Friendly fire",
-            "on"
-          ],
-          [
-            "PunkBuster",
-            "off"
-          ]
+      "tickets": [
+        {
+          "name": "axis",
+          "score": "1000"
+        },
+        {
+          "name": "allied",
+          "score": "1000"
+        }
+      ],
+      "settings": [
+        [
+          "Time limit",
+          "45 min"
+        ],
+        [
+          "Ticket ratio",
+          "500"
+        ],
+        [
+          "Rounds per map",
+          "1"
+        ],
+        [
+          "Team ratio",
+          "1 : 1"
+        ],
+        [
+          "Friendly fire",
+          "on"
+        ],
+        [
+          "PunkBuster",
+          "off"
         ]
-      },
-      "last_seen": "2026-11-22T21:29:09+00:00"
+      ],
+      "last_seen": "2026-11-22T22:42:27+00:00"
     },
     {
       "id": "bfv-ponyhof-1",
@@ -109,11 +115,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "1000"
+          "score": "995"
         },
         {
           "name": "blue",
-          "score": "1000"
+          "score": "991"
         }
       ],
       "settings": [
@@ -142,7 +148,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-22T22:40:20+00:00"
+      "last_seen": "2026-11-22T22:42:27+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
