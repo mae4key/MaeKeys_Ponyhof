@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T15:47:10+00:00",
+  "generated_at": "2026-11-22T15:49:26+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
@@ -17,11 +17,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "973"
+          "score": "934"
         },
         {
           "name": "allied",
-          "score": "1999"
+          "score": "1993"
         }
       ],
       "settings": [
@@ -50,7 +50,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-22T15:47:10+00:00"
+      "last_seen": "2026-11-22T15:49:26+00:00"
     },
     {
       "id": "bf1942-ponyhof-2",
@@ -148,45 +148,47 @@
       "id": "bfv-ponyhof-2",
       "game": "Battlefield Vietnam",
       "name": "MaeKeys Ponyhof",
-      "server_name": "MaeKeys Ponyhof",
-      "status": "offline",
-      "map": "",
-      "mode": "",
-      "mod": "",
+      "server_name": "MaeKeys Ponyhof DiscordConfig",
+      "status": "online",
+      "map": "CAMBODIAN INCURSION",
+      "mode": "coop",
+      "mod": "Vanilla",
       "players": 0,
-      "max_players": 0,
+      "max_players": 32,
       "scoreboard": [],
-      "tickets": [],
-      "last": {
-        "map": "HUE 1968",
-        "mode": "coop",
-        "mod": "Vanilla",
-        "server_name": "MaeKeys Ponyhof Vanilla Test",
-        "max_players": 32,
-        "settings": [
-          [
-            "Ticket ratio",
-            "500"
-          ],
-          [
-            "Rounds per map",
-            "1"
-          ],
-          [
-            "Team ratio",
-            "2 : 3"
-          ],
-          [
-            "Friendly fire",
-            "on"
-          ],
-          [
-            "PunkBuster",
-            "off"
-          ]
+      "tickets": [
+        {
+          "name": "red",
+          "score": "1000"
+        },
+        {
+          "name": "blue",
+          "score": "1000"
+        }
+      ],
+      "settings": [
+        [
+          "Ticket ratio",
+          "500"
+        ],
+        [
+          "Rounds per map",
+          "1"
+        ],
+        [
+          "Team ratio",
+          "2 : 3"
+        ],
+        [
+          "Friendly fire",
+          "on"
+        ],
+        [
+          "PunkBuster",
+          "off"
         ]
-      },
-      "last_seen": "2026-11-22T13:51:47+00:00"
+      ],
+      "last_seen": "2026-11-22T15:49:26+00:00"
     },
     {
       "id": "bf2-ponyhof-1",
@@ -561,7 +563,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-22T15:47:10+00:00"
+      "last_seen": "2026-11-22T15:49:26+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -936,7 +938,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-22T15:47:10+00:00"
+      "last_seen": "2026-11-22T15:49:26+00:00"
     },
     {
       "id": "bf2142-ponyhof-1",
@@ -1022,7 +1024,7 @@
           "no limit"
         ]
       ],
-      "last_seen": "2026-11-22T15:47:10+00:00"
+      "last_seen": "2026-11-22T15:49:26+00:00"
     },
     {
       "id": "mohaa-ponyhof-2",
@@ -1079,7 +1081,7 @@
           "no limit"
         ]
       ],
-      "last_seen": "2026-11-22T15:47:10+00:00"
+      "last_seen": "2026-11-22T15:49:26+00:00"
     }
   ]
 }
