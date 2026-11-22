@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T12:14:53+00:00",
+  "generated_at": "2026-11-22T12:17:02+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
@@ -93,49 +93,51 @@
       "id": "bfv-ponyhof-1",
       "game": "Battlefield Vietnam",
       "name": "MaeKeys Ponyhof",
-      "server_name": "MaeKeys Ponyhof",
-      "status": "offline",
-      "map": "",
-      "mode": "",
-      "mod": "",
+      "server_name": "MaeKeys Ponyhof BFVietnam",
+      "status": "online",
+      "map": "QUANG TRI 1968",
+      "mode": "coop",
+      "mod": "Vanilla",
       "players": 0,
-      "max_players": 0,
+      "max_players": 32,
       "scoreboard": [],
-      "tickets": [],
-      "last": {
-        "map": "OPERATION IRVING",
-        "mode": "coop",
-        "mod": "Vanilla",
-        "server_name": "MaeKeys Ponyhof BFVietnam",
-        "max_players": 32,
-        "settings": [
-          [
-            "Time limit",
-            "45 min"
-          ],
-          [
-            "Ticket ratio",
-            "500"
-          ],
-          [
-            "Rounds per map",
-            "1"
-          ],
-          [
-            "Team ratio",
-            "2 : 3"
-          ],
-          [
-            "Friendly fire",
-            "on"
-          ],
-          [
-            "PunkBuster",
-            "off"
-          ]
+      "tickets": [
+        {
+          "name": "red",
+          "score": "993"
+        },
+        {
+          "name": "blue",
+          "score": "997"
+        }
+      ],
+      "settings": [
+        [
+          "Time limit",
+          "45 min"
+        ],
+        [
+          "Ticket ratio",
+          "500"
+        ],
+        [
+          "Rounds per map",
+          "1"
+        ],
+        [
+          "Team ratio",
+          "2 : 3"
+        ],
+        [
+          "Friendly fire",
+          "on"
+        ],
+        [
+          "PunkBuster",
+          "off"
         ]
-      },
-      "last_seen": "2026-11-22T12:12:47+00:00"
+      ],
+      "last_seen": "2026-11-22T12:17:02+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
