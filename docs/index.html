@@ -870,8 +870,8 @@
   <section id="view-servers" class="pg-active">
   <details class="hours" id="hours">
     <summary><strong>Regular operating hours</strong> <span class="dim">(CET/CEST)</span><span class="live" id="hours-live"></span></summary>
-    Start: Mon&ndash;Fri from 18:30 &middot; Sat&ndash;Sun from 16:30<br>
-    Closing: Sun&ndash;Wed 22:30 &middot; Thu&ndash;Sat midnight<br>
+    <span id="hours-start">Start: Mon&ndash;Fri from 18:30 &middot; Sat&ndash;Sun from 16:30</span><br>
+    <span id="hours-close">Closing: Sun&ndash;Wed 22:30 &middot; Thu&ndash;Sat midnight</span><br>
     <span class="dim">After closing time, empty servers are shut down; servers with players keep running until the last player has left.</span>
   </details>
 
@@ -1090,14 +1090,79 @@ function zhWallNow() {
   return Date.UTC(g("year"), g("month") - 1, g("day"), g("hour"), g("minute"));
 }
 
-// Start: Mo-Fr 18:30, Sa/So 16:30. Ende: So-Mi 22:30, Do-Sa 24:00.
-function zhStart(dayMs) {
-  const dow = new Date(dayMs).getUTCDay();
-  return dayMs + ((dow === 0 || dow === 6) ? 16 * 60 + 30 : 18 * 60 + 30) * 60000;
+// WH1: Betriebszeiten kommen vom Gameserver (status.json, Feld operating_hours; Quelle /etc/gameserver-hours.json).
+// Reihenfolge: zuletzt gemeldet (localStorage) > Ersatzwerte unten (nur bis zur ersten Meldung). Zeitplan aendern: NUR auf dem Server.
+const HOURS_KEYS = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"]; // Index = getUTCDay()
+const HOURS_FALLBACK = {
+  mon: { start: "18:30", end: "22:30" }, tue: { start: "18:30", end: "22:30" }, wed: { start: "18:30", end: "22:30" },
+  thu: { start: "18:30", end: "24:00" }, fri: { start: "18:30", end: "24:00" }, sat: { start: "16:30", end: "24:00" },
+  sun: { start: "16:30", end: "22:30" },
+};
+function hmToMin(t) {
+  const m = /^(\d{2}):(\d{2})$/.exec(typeof t === "string" ? t : "");
+  if (!m) return NaN;
+  const h = +m[1], mi = +m[2];
+  return (mi < 60 && (h < 24 || (h === 24 && mi === 0))) ? h * 60 + mi : NaN;
 }
-function zhEnd(dayMs) {
-  const dow = new Date(dayMs).getUTCDay();
-  return dow <= 3 ? dayMs + (22 * 60 + 30) * 60000 : dayMs + 24 * 3600000;
+// Streng: alle 7 Tage, HH:MM, Start vor 24:00, Ende nach Start; sonst null. Ergebnis {sun: [startMin, endMin], ...}
+function parseHours(o) {
+  if (!o || typeof o !== "object") return null;
+  const out = {};
+  for (const k of HOURS_KEYS) {
+    const e = o[k];
+    if (!e || typeof e !== "object") return null;
+    const s = hmToMin(e.start), en = hmToMin(e.end);
+    if (isNaN(s) || isNaN(en) || s >= 1440 || en <= s) return null;
+    out[k] = [s, en];
+  }
+  return out;
+}
+let HOURS = null;
+try { HOURS = parseHours(JSON.parse(localStorage.getItem("gsHours"))); } catch (e) { HOURS = null; }
+if (!HOURS) HOURS = parseHours(HOURS_FALLBACK);
+function zhStart(dayMs) { return dayMs + HOURS[HOURS_KEYS[new Date(dayMs).getUTCDay()]][0] * 60000; }
+function zhEnd(dayMs) { return dayMs + HOURS[HOURS_KEYS[new Date(dayMs).getUTCDay()]][1] * 60000; }
+const HOURS_ORDER = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
+const HOURS_NAMES = { mon: "Mon", tue: "Tue", wed: "Wed", thu: "Thu", fri: "Fri", sat: "Sat", sun: "Sun" };
+function hoursTime(min) { return min >= 1440 ? "midnight" : pad2(Math.floor(min / 60)) + ":" + pad2(min % 60); }
+// Fasst gleiche, aufeinanderfolgende Tage (Wochenende schliesst an den Montag an) zusammen; Gruppe mit Montag zuerst.
+function hoursText(idx, prefix, join) {
+  const v = HOURS_ORDER.map(k => HOURS[k][idx]);
+  let s = -1;
+  for (let i = 0; i < 7; i++) if (v[i] !== v[(i + 6) % 7]) { s = i; break; }
+  if (s < 0) return prefix + join(["Mon\u2013Sun"], v[0]);
+  const groups = [];
+  for (let n = 0; n < 7; n++) {
+    const i = (s + n) % 7;
+    if (n > 0 && v[i] === groups[groups.length - 1].v) groups[groups.length - 1].d.push(i);
+    else groups.push({ v: v[i], d: [i] });
+  }
+  const m = groups.findIndex(g => g.d.includes(0));
+  const ordered = groups.slice(m).concat(groups.slice(0, m));
+  return prefix + ordered.map(g => {
+    const names = g.d.map(i => HOURS_NAMES[HOURS_ORDER[i]]);
+    const label = names.length === 1 ? names[0] : names[0] + "\u2013" + names[names.length - 1];
+    return join([label], g.v);
+  }).join(" \u00b7 ");
+}
+function renderHoursText() {
+  const a = document.getElementById("hours-start"), b = document.getElementById("hours-close");
+  if (a) a.textContent = hoursText(0, "Start: ", (l, t) => l[0] + " from " + hoursTime(t));
+  if (b) b.textContent = hoursText(1, "Closing: ", (l, t) => l[0] + " " + hoursTime(t));
+}
+// Neueste gueltige Meldung uebernehmen; Aenderung merken und Anzeige auffrischen.
+function adoptHours(list) {
+  const cands = list.filter(d => d && parseHours(d.operating_hours))
+    .sort((a, b) => (genTime(b) > genTime(a) ? 1 : (genTime(b) < genTime(a) ? -1 : 0)));
+  if (!cands.length) return;
+  const raw = cands[0].operating_hours, parsed = parseHours(raw);
+  if (JSON.stringify(parsed) === JSON.stringify(HOURS)) return;
+  HOURS = parsed;
+  const norm = {};
+  for (const k of HOURS_KEYS) norm[k] = { start: raw[k].start, end: raw[k].end };
+  try { localStorage.setItem("gsHours", JSON.stringify(norm)); } catch (e) { /* ohne Speicher: gilt nur fuer diese Sitzung */ }
+  renderHoursText();
+  updateHours();
 }
 function fmtHM(ms) {
   const d = new Date(ms);
@@ -1172,6 +1237,7 @@ async function fetchStatus() {
   let best = newest([bestSeen, ...fresh]);
   if (!best || isStale(best)) best = newest([best, old]);
   if (!best) throw new Error("no data");
+  adoptHours([...fresh, old, bestSeen]); // WH1
   bestSeen = best;
   return best;
 }
@@ -1231,6 +1297,7 @@ async function load(force) {
 
 load();
 setInterval(load, 30000);
+renderHoursText(); // WH1
 updateHours();
 setInterval(updateHours, 60000);
 
