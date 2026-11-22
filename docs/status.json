@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T15:19:22+00:00",
+  "generated_at": "2026-11-22T15:21:33+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
@@ -191,52 +191,30 @@
       "game": "Battlefield 2",
       "name": "MaeKeys Ponyhof",
       "server_name": "MaeKeys Ponyhof",
-      "status": "offline",
+      "status": "online",
       "map": "",
       "mode": "",
       "mod": "",
       "players": 0,
       "max_players": 0,
       "scoreboard": [],
-      "tickets": [],
-      "last": {
-        "map": "Great Wall",
-        "mode": "gpm_coop",
-        "mod": "Vanilla",
-        "server_name": "MaeKeys Ponyhof BF2",
-        "max_players": 32,
-        "settings": [
-          [
-            "Time limit",
-            "45 min"
-          ],
-          [
-            "Ticket ratio",
-            "500"
-          ],
-          [
-            "Rounds per map",
-            "1"
-          ],
-          [
-            "Team ratio",
-            "~2 : 3"
-          ],
-          [
-            "Friendly fire",
-            "on"
-          ],
-          [
-            "PunkBuster",
-            "off"
-          ],
-          [
-            "Map layout",
-            "16 players"
-          ]
+      "tickets": [
+        {
+          "name": "CH",
+          "score": "0"
+        },
+        {
+          "name": "EU",
+          "score": "0"
+        }
+      ],
+      "settings": [
+        [
+          "Team ratio",
+          "~2 : 3"
         ]
-      },
-      "last_seen": "2026-11-22T13:51:47+00:00"
+      ],
+      "last_seen": "2026-11-22T15:21:33+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -438,7 +416,7 @@
           "no limit"
         ]
       ],
-      "last_seen": "2026-11-22T15:19:22+00:00"
+      "last_seen": "2026-11-22T15:21:33+00:00"
     }
   ]
 }
