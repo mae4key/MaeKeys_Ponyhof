@@ -1,55 +1,53 @@
 {
-  "generated_at": "2026-11-22T16:06:34+00:00",
+  "generated_at": "2026-11-22T16:08:41+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
       "game": "Battlefield 1942",
       "name": "MaeKeys Ponyhof",
-      "server_name": "MaeKeys Ponyhof DiscordConfig",
-      "status": "online",
-      "map": "battleaxe",
-      "mode": "coop",
-      "mod": "Vanilla",
+      "server_name": "MaeKeys Ponyhof",
+      "status": "offline",
+      "map": "",
+      "mode": "",
+      "mod": "",
       "players": 0,
-      "max_players": 32,
+      "max_players": 0,
       "scoreboard": [],
-      "tickets": [
-        {
-          "name": "axis",
-          "score": "999"
-        },
-        {
-          "name": "allied",
-          "score": "991"
-        }
-      ],
-      "settings": [
-        [
-          "Time limit",
-          "45 min"
-        ],
-        [
-          "Ticket ratio",
-          "500"
-        ],
-        [
-          "Rounds per map",
-          "1"
-        ],
-        [
-          "Team ratio",
-          "2 : 3"
-        ],
-        [
-          "Friendly fire",
-          "on"
-        ],
-        [
-          "PunkBuster",
-          "off"
+      "tickets": [],
+      "last": {
+        "map": "battleaxe",
+        "mode": "coop",
+        "mod": "Vanilla",
+        "server_name": "MaeKeys Ponyhof DiscordConfig",
+        "max_players": 32,
+        "settings": [
+          [
+            "Time limit",
+            "45 min"
+          ],
+          [
+            "Ticket ratio",
+            "500"
+          ],
+          [
+            "Rounds per map",
+            "1"
+          ],
+          [
+            "Team ratio",
+            "2 : 3"
+          ],
+          [
+            "Friendly fire",
+            "on"
+          ],
+          [
+            "PunkBuster",
+            "off"
+          ]
         ]
-      ],
+      },
       "last_seen": "2026-11-22T16:06:34+00:00"
     },
     {
@@ -148,46 +146,44 @@
       "id": "bfv-ponyhof-2",
       "game": "Battlefield Vietnam",
       "name": "MaeKeys Ponyhof",
-      "server_name": "MaeKeys Ponyhof DiscordConfig",
-      "status": "online",
-      "map": "CAMBODIAN INCURSION",
-      "mode": "coop",
-      "mod": "Vanilla",
+      "server_name": "MaeKeys Ponyhof",
+      "status": "offline",
+      "map": "",
+      "mode": "",
+      "mod": "",
       "players": 0,
-      "max_players": 32,
+      "max_players": 0,
       "scoreboard": [],
-      "tickets": [
-        {
-          "name": "red",
-          "score": "995"
-        },
-        {
-          "name": "blue",
-          "score": "997"
-        }
-      ],
-      "settings": [
-        [
-          "Ticket ratio",
-          "500"
-        ],
-        [
-          "Rounds per map",
-          "1"
-        ],
-        [
-          "Team ratio",
-          "2 : 3"
-        ],
-        [
-          "Friendly fire",
-          "on"
-        ],
-        [
-          "PunkBuster",
-          "off"
+      "tickets": [],
+      "last": {
+        "map": "CAMBODIAN INCURSION",
+        "mode": "coop",
+        "mod": "Vanilla",
+        "server_name": "MaeKeys Ponyhof DiscordConfig",
+        "max_players": 32,
+        "settings": [
+          [
+            "Ticket ratio",
+            "500"
+          ],
+          [
+            "Rounds per map",
+            "1"
+          ],
+          [
+            "Team ratio",
+            "2 : 3"
+          ],
+          [
+            "Friendly fire",
+            "on"
+          ],
+          [
+            "PunkBuster",
+            "off"
+          ]
         ]
-      ],
+      },
       "last_seen": "2026-11-22T16:06:34+00:00"
     },
     {
@@ -563,7 +559,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-22T16:06:34+00:00"
+      "last_seen": "2026-11-22T16:08:41+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -938,7 +934,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-22T16:06:34+00:00"
+      "last_seen": "2026-11-22T16:08:41+00:00"
     },
     {
       "id": "bf2142-ponyhof-1",
@@ -1024,7 +1020,7 @@
           "no limit"
         ]
       ],
-      "last_seen": "2026-11-22T16:06:34+00:00"
+      "last_seen": "2026-11-22T16:08:41+00:00"
     },
     {
       "id": "mohaa-ponyhof-2",
@@ -1081,7 +1077,7 @@
           "no limit"
         ]
       ],
-      "last_seen": "2026-11-22T16:06:34+00:00"
+      "last_seen": "2026-11-22T16:08:41+00:00"
     }
   ]
 }
