@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-23T17:22:28+00:00",
+  "generated_at": "2026-11-23T17:24:40+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
@@ -113,11 +113,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "987"
+          "score": "986"
         },
         {
           "name": "blue",
-          "score": "887"
+          "score": "880"
         }
       ],
       "settings": [
@@ -146,7 +146,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-23T17:22:28+00:00"
+      "last_seen": "2026-11-23T17:24:40+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
@@ -381,7 +381,7 @@
           "no limit"
         ]
       ],
-      "last_seen": "2026-11-23T17:22:28+00:00"
+      "last_seen": "2026-11-23T17:24:40+00:00"
     },
     {
       "id": "mohaa-ponyhof-2",
