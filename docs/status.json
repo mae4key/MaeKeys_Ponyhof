@@ -1,55 +1,53 @@
 {
-  "generated_at": "2026-11-23T20:27:00+00:00",
+  "generated_at": "2026-11-23T20:29:12+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
       "game": "Battlefield 1942",
       "name": "MaeKeys Ponyhof",
-      "server_name": "MaeKeys Ponyhof BF1942",
-      "status": "online",
-      "map": "omaha beach",
-      "mode": "coop",
-      "mod": "Vanilla",
+      "server_name": "MaeKeys Ponyhof",
+      "status": "offline",
+      "map": "",
+      "mode": "",
+      "mod": "",
       "players": 0,
-      "max_players": 32,
+      "max_players": 0,
       "scoreboard": [],
-      "tickets": [
-        {
-          "name": "axis",
-          "score": "909"
-        },
-        {
-          "name": "allied",
-          "score": "67"
-        }
-      ],
-      "settings": [
-        [
-          "Time limit",
-          "45 min"
-        ],
-        [
-          "Ticket ratio",
-          "500"
-        ],
-        [
-          "Rounds per map",
-          "1"
-        ],
-        [
-          "Team ratio",
-          "2 : 3"
-        ],
-        [
-          "Friendly fire",
-          "on"
-        ],
-        [
-          "PunkBuster",
-          "off"
+      "tickets": [],
+      "last": {
+        "map": "omaha beach",
+        "mode": "coop",
+        "mod": "Vanilla",
+        "server_name": "MaeKeys Ponyhof BF1942",
+        "max_players": 32,
+        "settings": [
+          [
+            "Time limit",
+            "45 min"
+          ],
+          [
+            "Ticket ratio",
+            "500"
+          ],
+          [
+            "Rounds per map",
+            "1"
+          ],
+          [
+            "Team ratio",
+            "2 : 3"
+          ],
+          [
+            "Friendly fire",
+            "on"
+          ],
+          [
+            "PunkBuster",
+            "off"
+          ]
         ]
-      ],
+      },
       "last_seen": "2026-11-23T20:27:00+00:00"
     },
     {
@@ -106,7 +104,7 @@
       "name": "MaeKeys Ponyhof",
       "server_name": "MaeKeys Ponyhof BFVietnam",
       "status": "online",
-      "map": "OPERATION IRVING",
+      "map": "QUANG TRI 1968",
       "mode": "coop",
       "mod": "Vanilla",
       "players": 0,
@@ -115,11 +113,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "646"
+          "score": "988"
         },
         {
           "name": "blue",
-          "score": "489"
+          "score": "999"
         }
       ],
       "settings": [
@@ -148,7 +146,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-23T20:27:00+00:00"
+      "last_seen": "2026-11-23T20:29:12+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
@@ -567,7 +565,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-23T20:27:00+00:00"
+      "last_seen": "2026-11-23T20:29:12+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -990,7 +988,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-23T20:27:00+00:00"
+      "last_seen": "2026-11-23T20:29:12+00:00"
     },
     {
       "id": "bf2142-ponyhof-2",
@@ -1012,7 +1010,7 @@
       "name": "MaeKeys Ponyhof",
       "server_name": "MaeKeys Ponyhof MOHAA BT",
       "status": "online",
-      "map": "mohdm7",
+      "map": "mp_bahnhof_dm",
       "mode": "Free-For-All",
       "mod": "Breakthrough",
       "players": 0,
@@ -1029,7 +1027,7 @@
           "no limit"
         ]
       ],
-      "last_seen": "2026-11-23T20:27:00+00:00"
+      "last_seen": "2026-11-23T20:29:12+00:00"
     },
     {
       "id": "mohaa-ponyhof-2",
@@ -1086,7 +1084,7 @@
           "no limit"
         ]
       ],
-      "last_seen": "2026-11-23T20:27:00+00:00"
+      "last_seen": "2026-11-23T20:29:12+00:00"
     }
   ]
 }
