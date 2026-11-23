@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-23T17:31:02+00:00",
+  "generated_at": "2026-11-23T17:33:14+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
@@ -17,11 +17,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "999"
+          "score": "995"
         },
         {
           "name": "allied",
-          "score": "985"
+          "score": "910"
         }
       ],
       "settings": [
@@ -50,7 +50,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-23T17:31:02+00:00"
+      "last_seen": "2026-11-23T17:33:14+00:00"
     },
     {
       "id": "bf1942-ponyhof-2",
@@ -119,7 +119,7 @@
         },
         {
           "name": "blue",
-          "score": "868"
+          "score": "864"
         }
       ],
       "settings": [
@@ -148,7 +148,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-23T17:31:02+00:00"
+      "last_seen": "2026-11-23T17:33:14+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
@@ -567,7 +567,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-23T17:31:02+00:00"
+      "last_seen": "2026-11-23T17:33:14+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -990,7 +990,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-23T17:31:02+00:00"
+      "last_seen": "2026-11-23T17:33:14+00:00"
     },
     {
       "id": "bf2142-ponyhof-2",
@@ -1029,7 +1029,7 @@
           "no limit"
         ]
       ],
-      "last_seen": "2026-11-23T17:31:02+00:00"
+      "last_seen": "2026-11-23T17:33:14+00:00"
     },
     {
       "id": "mohaa-ponyhof-2",
@@ -1067,33 +1067,26 @@
       "id": "mohpa-ponyhof-1",
       "game": "Medal of Honor: Pacific Assault",
       "name": "MaeKeys Ponyhof",
-      "server_name": "MaeKeys Ponyhof",
-      "status": "offline",
-      "map": "",
-      "mode": "",
+      "server_name": "MaeKeys Ponyhof MOHPA",
+      "status": "online",
+      "map": "mp_airfield_inv",
+      "mode": "Free-For-All",
       "mod": "",
       "players": 0,
-      "max_players": 0,
+      "max_players": 10,
       "scoreboard": [],
       "tickets": [],
-      "last": {
-        "map": "mp_gifu_inv",
-        "mode": "Team-Match",
-        "mod": "",
-        "server_name": "MaeKeys Ponyhof DiscordConfig",
-        "max_players": 8,
-        "settings": [
-          [
-            "Time limit",
-            "45 min"
-          ],
-          [
-            "Frag limit",
-            "no limit"
-          ]
+      "settings": [
+        [
+          "Time limit",
+          "45 min"
+        ],
+        [
+          "Frag limit",
+          "no limit"
         ]
-      },
-      "last_seen": "2026-11-22T22:29:37+00:00"
+      ],
+      "last_seen": "2026-11-23T17:33:14+00:00"
     }
   ]
 }
