@@ -1257,14 +1257,23 @@ function applyStale(data) {
 }
 
 let loadedOnce = false, anyOnline = false, kickIdx = -1; // WEB21
+let frozenData = null, frozenAt = 0;   // WEB31
+async function prefetchFrozen() {       // WEB31: Daten in der Pause still vorladen, nicht anzeigen
+  if (Date.now() - frozenAt < 20000) return;
+  frozenAt = Date.now();
+  try { const d = await fetchStatus(); if (freezeActive() && d) frozenData = d; } catch (e) { /* naechster Versuch */ }
+}
 async function load(force) {
-  if (force !== true && loadedOnce && freezeActive()) return;
+  if (force !== true && loadedOnce && freezeActive()) { prefetchFrozen(); return; }
   try {
-    const data = await fetchStatus(); // WEB28
+    let data;
+    if (frozenData && !freezeActive()) { data = frozenData; frozenData = null; setTimeout(() => load(true), 3000); } // WEB31: bei 0 sofort
+    else data = await fetchStatus(); // WEB28
     applyStale(data);
     if (typeof data.public_ip === "string") PUBLIC_IP = data.public_ip;
     // WEB23: in den letzten 300 s vor dem Start alles als offline zeigen (auch nach manuellem Reload),
     // damit alle Server erst bei 0 gleichzeitig gruen werden
+    if (freezeActive()) frozenData = JSON.parse(JSON.stringify(data)); // WEB31
     if (freezeActive() && data.servers) data.servers = data.servers.map(sv => Object.assign({}, sv, { status: "offline" }));
     renderServers(data.servers || []);
     loadedOnce = true;
