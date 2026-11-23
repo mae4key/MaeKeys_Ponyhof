@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-23T17:11:21+00:00",
+  "generated_at": "2026-11-23T17:13:33+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
@@ -113,11 +113,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "998"
+          "score": "994"
         },
         {
           "name": "blue",
-          "score": "969"
+          "score": "935"
         }
       ],
       "settings": [
@@ -146,7 +146,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-23T17:11:21+00:00"
+      "last_seen": "2026-11-23T17:13:33+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
@@ -362,33 +362,26 @@
       "id": "mohaa-ponyhof-1",
       "game": "Medal of Honor: Allied Assault",
       "name": "MaeKeys Ponyhof",
-      "server_name": "MaeKeys Ponyhof",
-      "status": "offline",
-      "map": "",
-      "mode": "",
-      "mod": "",
+      "server_name": "MaeKeys Ponyhof DiscordConfig",
+      "status": "online",
+      "map": "mohdm6",
+      "mode": "Free-For-All",
+      "mod": "Breakthrough",
       "players": 0,
-      "max_players": 0,
+      "max_players": 10,
       "scoreboard": [],
       "tickets": [],
-      "last": {
-        "map": "mohdm6",
-        "mode": "Free-For-All",
-        "mod": "Breakthrough",
-        "server_name": "MaeKeys Ponyhof MOHAA BT",
-        "max_players": 10,
-        "settings": [
-          [
-            "Time limit",
-            "45 min"
-          ],
-          [
-            "Frag limit",
-            "no limit"
-          ]
+      "settings": [
+        [
+          "Time limit",
+          "45 min"
+        ],
+        [
+          "Frag limit",
+          "no limit"
         ]
-      },
-      "last_seen": "2026-11-22T22:29:37+00:00"
+      ],
+      "last_seen": "2026-11-23T17:13:33+00:00"
     },
     {
       "id": "mohaa-ponyhof-2",
