@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-24T21:59:11+00:00",
+  "generated_at": "2026-11-24T22:01:20+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
@@ -243,29 +243,27 @@
       "game": "Battlefield 2",
       "name": "MaeKeys Ponyhof",
       "server_name": "MaeKeys Ponyhof",
-      "status": "online",
+      "status": "offline",
       "map": "",
       "mode": "",
       "mod": "",
       "players": 0,
       "max_players": 0,
       "scoreboard": [],
-      "tickets": [
-        {
-          "name": "MEC",
-          "score": "0"
-        },
-        {
-          "name": "US",
-          "score": "0"
-        }
-      ],
-      "settings": [
-        [
-          "Team ratio",
-          "~3 : 2"
+      "tickets": [],
+      "last": {
+        "map": "",
+        "mode": "",
+        "mod": "",
+        "server_name": "MaeKeys Ponyhof",
+        "max_players": 0,
+        "settings": [
+          [
+            "Team ratio",
+            "~3 : 2"
+          ]
         ]
-      ],
+      },
       "last_seen": "2026-11-24T21:59:11+00:00"
     },
     {
