@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-24T18:38:09+00:00",
+  "generated_at": "2026-11-24T18:40:23+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
@@ -17,11 +17,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "943"
+          "score": "935"
         },
         {
           "name": "allied",
-          "score": "154"
+          "score": "0"
         }
       ],
       "settings": [
@@ -50,7 +50,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-24T18:38:09+00:00"
+      "last_seen": "2026-11-24T18:40:23+00:00"
     },
     {
       "id": "bf1942-ponyhof-2",
@@ -115,11 +115,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "833"
+          "score": "811"
         },
         {
           "name": "blue",
-          "score": "723"
+          "score": "680"
         }
       ],
       "settings": [
@@ -148,7 +148,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-24T18:38:09+00:00"
+      "last_seen": "2026-11-24T18:40:23+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
@@ -563,7 +563,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-24T18:38:09+00:00"
+      "last_seen": "2026-11-24T18:40:23+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -574,9 +574,19 @@
       "map": "Dalian Plant",
       "mode": "gpm_coop",
       "mod": "bf2all64",
-      "players": 0,
+      "players": 1,
       "max_players": 32,
       "scoreboard": [
+        {
+          "name": " MaeKey",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "0",
+          "deaths": "0",
+          "ping": "3",
+          "is_bot": false
+        },
         {
           "name": "J. Jonsson",
           "team": "",
@@ -1206,16 +1216,6 @@
           "deaths": "0",
           "ping": "0",
           "is_bot": true
-        },
-        {
-          "name": "R. Lopez",
-          "team": "",
-          "rank": "",
-          "score": "0",
-          "kills": "0",
-          "deaths": "0",
-          "ping": "0",
-          "is_bot": true
         }
       ],
       "tickets": [
@@ -1258,7 +1258,7 @@
           "64 players"
         ]
       ],
-      "last_seen": "2026-11-24T18:38:09+00:00"
+      "last_seen": "2026-11-24T18:40:23+00:00"
     },
     {
       "id": "bf2142-ponyhof-1",
@@ -1629,7 +1629,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-24T18:38:09+00:00"
+      "last_seen": "2026-11-24T18:40:23+00:00"
     },
     {
       "id": "bf2142-ponyhof-2",
@@ -1964,7 +1964,7 @@
           "32 players"
         ]
       ],
-      "last_seen": "2026-11-24T18:38:09+00:00"
+      "last_seen": "2026-11-24T18:40:23+00:00"
     },
     {
       "id": "mohaa-ponyhof-1",
@@ -1989,7 +1989,7 @@
           "no limit"
         ]
       ],
-      "last_seen": "2026-11-24T18:38:09+00:00"
+      "last_seen": "2026-11-24T18:40:23+00:00"
     },
     {
       "id": "mohaa-ponyhof-2",
@@ -2046,7 +2046,7 @@
           "no limit"
         ]
       ],
-      "last_seen": "2026-11-24T18:38:09+00:00"
+      "last_seen": "2026-11-24T18:40:23+00:00"
     }
   ]
 }
