@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-24T18:54:26+00:00",
+  "generated_at": "2026-11-24T18:56:30+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
@@ -17,11 +17,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "857"
+          "score": "844"
         },
         {
           "name": "allied",
-          "score": "613"
+          "score": "529"
         }
       ],
       "settings": [
@@ -50,7 +50,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-24T18:54:26+00:00"
+      "last_seen": "2026-11-24T18:56:30+00:00"
     },
     {
       "id": "bf1942-ponyhof-2",
@@ -106,7 +106,7 @@
       "name": "MaeKeys Ponyhof",
       "server_name": "MaeKeys Ponyhof BFVietnam",
       "status": "online",
-      "map": "OPERATION IRVING",
+      "map": "QUANG TRI 1968",
       "mode": "coop",
       "mod": "Vanilla",
       "players": 0,
@@ -115,11 +115,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "741"
+          "score": "999"
         },
         {
           "name": "blue",
-          "score": "557"
+          "score": "1000"
         }
       ],
       "settings": [
@@ -148,7 +148,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-24T18:54:26+00:00"
+      "last_seen": "2026-11-24T18:56:30+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
@@ -563,7 +563,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-24T18:54:26+00:00"
+      "last_seen": "2026-11-24T18:56:30+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -1018,7 +1018,7 @@
           "64 players"
         ]
       ],
-      "last_seen": "2026-11-24T18:54:26+00:00"
+      "last_seen": "2026-11-24T18:56:30+00:00"
     },
     {
       "id": "bf2142-ponyhof-1",
@@ -1389,7 +1389,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-24T18:54:26+00:00"
+      "last_seen": "2026-11-24T18:56:30+00:00"
     },
     {
       "id": "bf2142-ponyhof-2",
@@ -1724,7 +1724,7 @@
           "32 players"
         ]
       ],
-      "last_seen": "2026-11-24T18:54:26+00:00"
+      "last_seen": "2026-11-24T18:56:30+00:00"
     },
     {
       "id": "mohaa-ponyhof-1",
@@ -1732,7 +1732,7 @@
       "name": "MaeKeys Ponyhof",
       "server_name": "MaeKeys Ponyhof MOHAA BT",
       "status": "online",
-      "map": "mohdm7",
+      "map": "mp_bahnhof_dm",
       "mode": "Free-For-All",
       "mod": "Breakthrough",
       "players": 0,
@@ -1749,7 +1749,7 @@
           "no limit"
         ]
       ],
-      "last_seen": "2026-11-24T18:54:26+00:00"
+      "last_seen": "2026-11-24T18:56:30+00:00"
     },
     {
       "id": "mohaa-ponyhof-2",
@@ -1806,7 +1806,7 @@
           "no limit"
         ]
       ],
-      "last_seen": "2026-11-24T18:54:26+00:00"
+      "last_seen": "2026-11-24T18:56:30+00:00"
     }
   ]
 }
