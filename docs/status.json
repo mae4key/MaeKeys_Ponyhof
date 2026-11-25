@@ -1,54 +1,56 @@
 {
-  "generated_at": "2026-11-25T15:39:48+00:00",
+  "generated_at": "2026-11-25T16:30:53+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
       "id": "bf1942-ponyhof-1",
       "game": "Battlefield 1942",
       "name": "MaeKeys Ponyhof",
-      "server_name": "MaeKeys Ponyhof",
-      "status": "offline",
-      "map": "",
-      "mode": "",
-      "mod": "",
+      "server_name": "MaeKeys Ponyhof BF1942",
+      "status": "online",
+      "map": "midway",
+      "mode": "coop",
+      "mod": "Vanilla",
       "players": 0,
-      "max_players": 0,
+      "max_players": 40,
       "scoreboard": [],
-      "tickets": [],
-      "last": {
-        "map": "market garden",
-        "mode": "coop",
-        "mod": "Vanilla",
-        "server_name": "MaeKeys Ponyhof BF1942",
-        "max_players": 32,
-        "settings": [
-          [
-            "Time limit",
-            "45 min"
-          ],
-          [
-            "Ticket ratio",
-            "500"
-          ],
-          [
-            "Rounds per map",
-            "1"
-          ],
-          [
-            "Team ratio",
-            "2 : 3"
-          ],
-          [
-            "Friendly fire",
-            "on"
-          ],
-          [
-            "PunkBuster",
-            "off"
-          ]
+      "tickets": [
+        {
+          "name": "axis",
+          "score": "1250"
+        },
+        {
+          "name": "allied",
+          "score": "1250"
+        }
+      ],
+      "settings": [
+        [
+          "Time limit",
+          "45 min"
+        ],
+        [
+          "Ticket ratio",
+          "500"
+        ],
+        [
+          "Rounds per map",
+          "1"
+        ],
+        [
+          "Team ratio",
+          "3 : 1"
+        ],
+        [
+          "Friendly fire",
+          "on"
+        ],
+        [
+          "PunkBuster",
+          "off"
         ]
-      },
-      "last_seen": "2026-11-24T21:29:08+00:00"
+      ],
+      "last_seen": "2026-11-25T16:30:53+00:00"
     },
     {
       "id": "bf1942-ponyhof-2",
