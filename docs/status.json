@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-25T16:30:53+00:00",
+  "generated_at": "2026-11-25T16:33:06+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
@@ -11,17 +11,28 @@
       "map": "midway",
       "mode": "coop",
       "mod": "Vanilla",
-      "players": 0,
+      "players": 1,
       "max_players": 40,
-      "scoreboard": [],
+      "scoreboard": [
+        {
+          "name": "MaeKey",
+          "team": "2",
+          "rank": "",
+          "score": "0",
+          "kills": "0",
+          "deaths": "0",
+          "ping": "12",
+          "is_bot": false
+        }
+      ],
       "tickets": [
         {
           "name": "axis",
-          "score": "1250"
+          "score": "1247"
         },
         {
           "name": "allied",
-          "score": "1250"
+          "score": "1245"
         }
       ],
       "settings": [
@@ -50,7 +61,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-25T16:30:53+00:00"
+      "last_seen": "2026-11-25T16:33:06+00:00"
     },
     {
       "id": "bf1942-ponyhof-2",
