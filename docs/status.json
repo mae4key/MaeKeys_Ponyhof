@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-25T16:54:47+00:00",
+  "generated_at": "2026-11-25T16:56:58+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
@@ -17,11 +17,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "514"
+          "score": "485"
         },
         {
           "name": "allied",
-          "score": "1171"
+          "score": "1157"
         }
       ],
       "settings": [
@@ -50,7 +50,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-25T16:54:47+00:00"
+      "last_seen": "2026-11-25T16:56:58+00:00"
     },
     {
       "id": "bf1942-ponyhof-2",
@@ -115,11 +115,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "1933"
+          "score": "1901"
         },
         {
           "name": "blue",
-          "score": "1929"
+          "score": "1876"
         }
       ],
       "settings": [
@@ -148,7 +148,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-25T16:54:47+00:00"
+      "last_seen": "2026-11-25T16:56:58+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
