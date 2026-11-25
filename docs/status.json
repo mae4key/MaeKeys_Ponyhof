@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-25T19:52:29+00:00",
+  "generated_at": "2026-11-25T19:54:37+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
@@ -17,11 +17,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "1120"
+          "score": "1118"
         },
         {
           "name": "allied",
-          "score": "2167"
+          "score": "2099"
         }
       ],
       "settings": [
@@ -50,7 +50,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-25T19:52:29+00:00"
+      "last_seen": "2026-11-25T19:54:37+00:00"
     },
     {
       "id": "bf1942-ponyhof-2",
@@ -67,11 +67,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "957"
+          "score": "837"
         },
         {
           "name": "allied",
-          "score": "1293"
+          "score": "1283"
         }
       ],
       "settings": [
@@ -96,7 +96,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-25T19:52:29+00:00"
+      "last_seen": "2026-11-25T19:54:37+00:00"
     },
     {
       "id": "bfv-ponyhof-1",
@@ -104,7 +104,7 @@
       "name": "MaeKeys Ponyhof",
       "server_name": "MaeKeys Ponyhof BFVietnam",
       "status": "online",
-      "map": "HO CHI MINH TRAIL",
+      "map": "LANDING ZONE ALBANY",
       "mode": "coop",
       "mod": "Vanilla",
       "players": 0,
@@ -113,11 +113,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "1296"
+          "score": "1942"
         },
         {
           "name": "blue",
-          "score": "1068"
+          "score": "1941"
         }
       ],
       "settings": [
@@ -146,38 +146,34 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-25T19:52:29+00:00"
+      "last_seen": "2026-11-25T19:54:37+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
       "game": "Battlefield Vietnam",
       "name": "MaeKeys Ponyhof",
-      "server_name": "MaeKeys Ponyhof DiscordConfig",
+      "server_name": "MaeKeys Ponyhof BFVietnam",
       "status": "online",
-      "map": "OPERATION GAME WARDEN",
+      "map": "LANDING ZONE ALBANY",
       "mode": "coop",
       "mod": "Vanilla",
       "players": 0,
-      "max_players": 64,
+      "max_players": 32,
       "scoreboard": [],
       "tickets": [
         {
           "name": "red",
-          "score": "2068"
+          "score": "1000"
         },
         {
           "name": "blue",
-          "score": "2277"
+          "score": "1000"
         }
       ],
       "settings": [
         [
-          "Time limit",
-          "35 min"
-        ],
-        [
           "Ticket ratio",
-          "650"
+          "500"
         ],
         [
           "Rounds per map",
@@ -185,7 +181,7 @@
         ],
         [
           "Team ratio",
-          "9 : 7"
+          "2 : 3"
         ],
         [
           "Friendly fire",
@@ -196,7 +192,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-25T19:52:29+00:00"
+      "last_seen": "2026-11-25T19:54:37+00:00"
     },
     {
       "id": "bf2-ponyhof-1",
@@ -567,7 +563,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-25T19:52:29+00:00"
+      "last_seen": "2026-11-25T19:54:37+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -990,7 +986,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-25T19:52:29+00:00"
+      "last_seen": "2026-11-25T19:54:37+00:00"
     },
     {
       "id": "bf2142-ponyhof-2",
@@ -1067,7 +1063,7 @@
           "no limit"
         ]
       ],
-      "last_seen": "2026-11-25T19:52:29+00:00"
+      "last_seen": "2026-11-25T19:54:37+00:00"
     },
     {
       "id": "mohaa-ponyhof-2",
@@ -1124,7 +1120,7 @@
           "no limit"
         ]
       ],
-      "last_seen": "2026-11-25T19:52:29+00:00"
+      "last_seen": "2026-11-25T19:54:37+00:00"
     }
   ]
 }
