@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-25T16:35:06+00:00",
+  "generated_at": "2026-11-25T16:37:15+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
@@ -17,11 +17,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "1217"
+          "score": "1129"
         },
         {
           "name": "allied",
-          "score": "1243"
+          "score": "1240"
         }
       ],
       "settings": [
@@ -50,7 +50,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-25T16:35:06+00:00"
+      "last_seen": "2026-11-25T16:37:15+00:00"
     },
     {
       "id": "bf1942-ponyhof-2",
