@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-25T20:36:12+00:00",
+  "generated_at": "2026-11-25T20:38:22+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
@@ -17,11 +17,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "607"
+          "score": "547"
         },
         {
           "name": "allied",
-          "score": "1149"
+          "score": "1146"
         }
       ],
       "settings": [
@@ -50,7 +50,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-25T20:36:12+00:00"
+      "last_seen": "2026-11-25T20:38:22+00:00"
     },
     {
       "id": "bf1942-ponyhof-2",
@@ -67,11 +67,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "1373"
+          "score": "1356"
         },
         {
           "name": "allied",
-          "score": "2042"
+          "score": "1988"
         }
       ],
       "settings": [
@@ -96,7 +96,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-25T20:36:12+00:00"
+      "last_seen": "2026-11-25T20:38:22+00:00"
     },
     {
       "id": "bfv-ponyhof-1",
@@ -104,7 +104,7 @@
       "name": "MaeKeys Ponyhof",
       "server_name": "MaeKeys Ponyhof BFVietnam",
       "status": "online",
-      "map": "LANDING ZONE ALBANY",
+      "map": "OPERATION FLAMING DART",
       "mode": "coop",
       "mod": "Vanilla",
       "players": 0,
@@ -113,11 +113,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "1714"
+          "score": "1968"
         },
         {
           "name": "blue",
-          "score": "713"
+          "score": "1967"
         }
       ],
       "settings": [
@@ -146,7 +146,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-25T20:36:12+00:00"
+      "last_seen": "2026-11-25T20:38:22+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
@@ -167,7 +167,7 @@
         },
         {
           "name": "blue",
-          "score": "521"
+          "score": "500"
         }
       ],
       "settings": [
@@ -192,7 +192,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-25T20:36:12+00:00"
+      "last_seen": "2026-11-25T20:38:22+00:00"
     },
     {
       "id": "bf2-ponyhof-1",
@@ -563,7 +563,7 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-25T20:36:12+00:00"
+      "last_seen": "2026-11-25T20:38:22+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -621,64 +621,16 @@
       "id": "bf2142-ponyhof-1",
       "game": "Battlefield 2142",
       "name": "MaeKeys Ponyhof",
-      "server_name": "MaeKeys Ponyhof",
-      "status": "offline",
-      "map": "",
-      "mode": "",
-      "mod": "",
-      "players": 0,
-      "max_players": 0,
-      "scoreboard": [],
-      "tickets": [],
-      "last": {
-        "map": "The_Hell",
-        "mode": "gpm_coop",
-        "mod": "Vanilla",
-        "server_name": "MaeKeys Ponyhof BF2142",
-        "max_players": 32,
-        "settings": [
-          [
-            "Time limit",
-            "45 min"
-          ],
-          [
-            "Ticket ratio",
-            "500"
-          ],
-          [
-            "Rounds per map",
-            "1"
-          ],
-          [
-            "Friendly fire",
-            "on"
-          ],
-          [
-            "PunkBuster",
-            "off"
-          ],
-          [
-            "Map layout",
-            "16 players"
-          ]
-        ]
-      },
-      "last_seen": "2026-11-25T20:34:04+00:00"
-    },
-    {
-      "id": "bf2142-ponyhof-2",
-      "game": "Battlefield 2142",
-      "name": "MaeKeys Ponyhof",
-      "server_name": "MaeKey-PH Discord MaeKey",
+      "server_name": "MaeKeys Ponyhof BF2142",
       "status": "online",
-      "map": "Fall_of_Berlin",
+      "map": "The_Hell",
       "mode": "gpm_coop",
       "mod": "Vanilla",
       "players": 0,
       "max_players": 32,
       "scoreboard": [
         {
-          "name": "N. Grover",
+          "name": "T. Eriksson",
           "team": "",
           "rank": "",
           "score": "0",
@@ -688,7 +640,7 @@
           "is_bot": true
         },
         {
-          "name": "M. Eriksson",
+          "name": "P. Soderlund",
           "team": "",
           "rank": "",
           "score": "0",
@@ -698,57 +650,7 @@
           "is_bot": true
         },
         {
-          "name": "M. Fritze",
-          "team": "",
-          "rank": "",
-          "score": "0",
-          "kills": "0",
-          "deaths": "0",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "R. Gustafsson",
-          "team": "",
-          "rank": "",
-          "score": "0",
-          "kills": "0",
-          "deaths": "0",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "O. Sundberg",
-          "team": "",
-          "rank": "",
-          "score": "0",
-          "kills": "0",
-          "deaths": "0",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "T. Kingston",
-          "team": "",
-          "rank": "",
-          "score": "0",
-          "kills": "0",
-          "deaths": "0",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "B. Tingle",
-          "team": "",
-          "rank": "",
-          "score": "0",
-          "kills": "0",
-          "deaths": "0",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "J. Stenkvist",
+          "name": "S. Vukanovic",
           "team": "",
           "rank": "",
           "score": "0",
@@ -768,7 +670,37 @@
           "is_bot": true
         },
         {
-          "name": "C. Wahlfors",
+          "name": "K. Nilsson",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "0",
+          "deaths": "0",
+          "ping": "0",
+          "is_bot": true
+        },
+        {
+          "name": "J. Stenkvist",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "0",
+          "deaths": "0",
+          "ping": "0",
+          "is_bot": true
+        },
+        {
+          "name": "J. Biro",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "0",
+          "deaths": "0",
+          "ping": "0",
+          "is_bot": true
+        },
+        {
+          "name": "I. Holberg",
           "team": "",
           "rank": "",
           "score": "0",
@@ -788,6 +720,66 @@
           "is_bot": true
         },
         {
+          "name": "K. Reutersward",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "0",
+          "deaths": "0",
+          "ping": "0",
+          "is_bot": true
+        },
+        {
+          "name": "G. VanDyke",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "0",
+          "deaths": "0",
+          "ping": "0",
+          "is_bot": true
+        },
+        {
+          "name": "T. Sjogren",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "0",
+          "deaths": "0",
+          "ping": "0",
+          "is_bot": true
+        },
+        {
+          "name": "F. Karlsson",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "0",
+          "deaths": "0",
+          "ping": "0",
+          "is_bot": true
+        },
+        {
+          "name": "K. Chirewa",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "0",
+          "deaths": "0",
+          "ping": "0",
+          "is_bot": true
+        },
+        {
+          "name": "O. Sundberg",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "0",
+          "deaths": "0",
+          "ping": "0",
+          "is_bot": true
+        },
+        {
           "name": "A. Gyllenberg",
           "team": "",
           "rank": "",
@@ -798,137 +790,7 @@
           "is_bot": true
         },
         {
-          "name": "C. Carter",
-          "team": "",
-          "rank": "",
-          "score": "0",
-          "kills": "0",
-          "deaths": "0",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "T. Karlsson",
-          "team": "",
-          "rank": "",
-          "score": "0",
-          "kills": "0",
-          "deaths": "0",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "M. Choy",
-          "team": "",
-          "rank": "",
-          "score": "0",
-          "kills": "0",
-          "deaths": "0",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "P. Osterblom",
-          "team": "",
-          "rank": "",
-          "score": "0",
-          "kills": "0",
-          "deaths": "0",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "L. Josephson",
-          "team": "",
-          "rank": "",
-          "score": "0",
-          "kills": "0",
-          "deaths": "0",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "D. Holliday",
-          "team": "",
-          "rank": "",
-          "score": "0",
-          "kills": "0",
-          "deaths": "0",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "P. OShaughnessy",
-          "team": "",
-          "rank": "",
-          "score": "0",
-          "kills": "0",
-          "deaths": "0",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "N. Goksu",
-          "team": "",
-          "rank": "",
-          "score": "0",
-          "kills": "0",
-          "deaths": "0",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "C. Bennison",
-          "team": "",
-          "rank": "",
-          "score": "0",
-          "kills": "0",
-          "deaths": "0",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "G. Tilleby",
-          "team": "",
-          "rank": "",
-          "score": "0",
-          "kills": "0",
-          "deaths": "0",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "J. Lingmark",
-          "team": "",
-          "rank": "",
-          "score": "0",
-          "kills": "0",
-          "deaths": "0",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "D. Cooper",
-          "team": "",
-          "rank": "",
-          "score": "0",
-          "kills": "0",
-          "deaths": "0",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "K. Nilsson",
-          "team": "",
-          "rank": "",
-          "score": "0",
-          "kills": "0",
-          "deaths": "0",
-          "ping": "0",
-          "is_bot": true
-        },
-        {
-          "name": "K. Reutersward",
+          "name": "N. Nolby",
           "team": "",
           "rank": "",
           "score": "0",
@@ -948,7 +810,137 @@
           "is_bot": true
         },
         {
-          "name": "J. Bull",
+          "name": "L. Gustavsson",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "0",
+          "deaths": "0",
+          "ping": "0",
+          "is_bot": true
+        },
+        {
+          "name": "S. Holman",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "0",
+          "deaths": "0",
+          "ping": "0",
+          "is_bot": true
+        },
+        {
+          "name": "J. Salt",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "0",
+          "deaths": "0",
+          "ping": "0",
+          "is_bot": true
+        },
+        {
+          "name": "J. Aberg",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "0",
+          "deaths": "0",
+          "ping": "0",
+          "is_bot": true
+        },
+        {
+          "name": "D. Cooper",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "0",
+          "deaths": "0",
+          "ping": "0",
+          "is_bot": true
+        },
+        {
+          "name": "M. Bagge",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "0",
+          "deaths": "0",
+          "ping": "0",
+          "is_bot": true
+        },
+        {
+          "name": "N. Astrand",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "0",
+          "deaths": "0",
+          "ping": "0",
+          "is_bot": true
+        },
+        {
+          "name": "M. Kalms",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "0",
+          "deaths": "0",
+          "ping": "0",
+          "is_bot": true
+        },
+        {
+          "name": "S. Wallberg",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "0",
+          "deaths": "0",
+          "ping": "0",
+          "is_bot": true
+        },
+        {
+          "name": "B. Tingle",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "0",
+          "deaths": "0",
+          "ping": "0",
+          "is_bot": true
+        },
+        {
+          "name": "B. Pajor",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "0",
+          "deaths": "0",
+          "ping": "0",
+          "is_bot": true
+        },
+        {
+          "name": "A. Peters",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "0",
+          "deaths": "0",
+          "ping": "0",
+          "is_bot": true
+        },
+        {
+          "name": "J. Skoglund",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "0",
+          "deaths": "0",
+          "ping": "0",
+          "is_bot": true
+        },
+        {
+          "name": "J. Hopkin",
           "team": "",
           "rank": "",
           "score": "0",
@@ -971,7 +963,7 @@
       "settings": [
         [
           "Time limit",
-          "47 min"
+          "45 min"
         ],
         [
           "Ticket ratio",
@@ -994,7 +986,32 @@
           "16 players"
         ]
       ],
-      "last_seen": "2026-11-25T20:36:12+00:00"
+      "last_seen": "2026-11-25T20:38:22+00:00"
+    },
+    {
+      "id": "bf2142-ponyhof-2",
+      "game": "Battlefield 2142",
+      "name": "MaeKeys Ponyhof",
+      "server_name": "MaeKeys Ponyhof",
+      "status": "online",
+      "map": "",
+      "mode": "",
+      "mod": "",
+      "players": 0,
+      "max_players": 0,
+      "scoreboard": [],
+      "tickets": [
+        {
+          "name": "Pac",
+          "score": "0"
+        },
+        {
+          "name": "EU",
+          "score": "0"
+        }
+      ],
+      "settings": [],
+      "last_seen": "2026-11-25T20:38:22+00:00"
     },
     {
       "id": "mohaa-ponyhof-1",
@@ -1019,7 +1036,7 @@
           "no limit"
         ]
       ],
-      "last_seen": "2026-11-25T20:36:12+00:00"
+      "last_seen": "2026-11-25T20:38:22+00:00"
     },
     {
       "id": "mohaa-ponyhof-2",
@@ -1076,7 +1093,7 @@
           "no limit"
         ]
       ],
-      "last_seen": "2026-11-25T20:36:12+00:00"
+      "last_seen": "2026-11-25T20:38:22+00:00"
     }
   ]
 }
