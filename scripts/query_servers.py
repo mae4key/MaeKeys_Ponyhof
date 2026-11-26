@@ -626,7 +626,7 @@ def _extract_settings(protocol_name: str, info: dict) -> list:
 
     ms = g("mapsize")
     if ms:
-        add("Map layout", ms + " players")
+        add("Map size", ms)   # MAPSIZE1
 
     return rows
 
