@@ -813,6 +813,23 @@ async def query_one(entry: dict) -> dict:
     return result
 
 
+def _mapsize_fix(o):
+    """MAPSIZE2: alte Zeile "Map layout: N players" -> "Map size: N" (zuletzt bekannte Werte)."""
+    def val(v):
+        return v[:-len(" players")] if isinstance(v, str) and v.endswith(" players") else v
+    if isinstance(o, list):
+        if len(o) == 2 and o[0] == "Map layout":
+            return ["Map size", val(o[1])]
+        return [_mapsize_fix(x) for x in o]
+    if isinstance(o, dict):
+        d = dict((k, _mapsize_fix(v)) for k, v in o.items())
+        if d.get("label") == "Map layout":
+            d["label"] = "Map size"
+            d["value"] = val(d.get("value"))
+        return d
+    return o
+
+
 def _load_previous() -> tuple:
     """Letzte status.json einlesen (Gedaechtnis fuer 'zuletzt bekannte Werte')."""
     try:
@@ -883,6 +900,10 @@ async def main_async() -> None:
                 r["last"] = p["last"]
                 r["last_seen"] = p.get("last_seen", "")
         final.append(r)
+
+    for _r in final:   # MAPSIZE2
+        if _r.get("last"):
+            _r["last"] = _mapsize_fix(_r["last"])
 
     payload = {
         "generated_at": now_iso,
