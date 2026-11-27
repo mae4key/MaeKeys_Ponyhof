@@ -314,6 +314,7 @@
   .cfg-tag { display: inline-block; font-size: 0.68rem; letter-spacing: 0.05em; text-transform: uppercase; color: #8fd18a;
     border: 1px solid #5f9a5a; background: rgba(95, 154, 90, 0.15); padding: 0.1rem 0.45rem; text-decoration: none; }
   .cfg-tag:hover { background: rgba(95, 154, 90, 0.3); }
+  .cfg-tag.cfg-lock { color: #b3b8a6; border-color: #6b7060; background: rgba(107, 112, 96, 0.15); cursor: help; } /* WEBLOCK22 */
 
   .card-top {
     display: flex;
@@ -1068,9 +1069,19 @@ function fmtDate(iso) {
 
 // WEBCFG21: Hinweis, dass der Server per Discord konfiguriert werden kann (die echte Sperre liegt im Bot)
 const CFG_LINK = "https://discord.com/channels/1563231415863222402/1573735730268733624/1575479859990241431";
+const CFG_LOCKS = { // WEBLOCK22: Sperrfenster der Konfiguration (nicht des Servers!)
+  recent: ["recently started", "the server was just started"],
+  in_use: ["in use", "players are on the server"],
+  reserved: ["being configured", "someone is configuring it right now"],
+};
 function cfgLabel(s) {
   if (s._na || s.status === "unknown") return "";
-  if (s.status === "online" && Number(s.players) > 0) return "";
+  let lock = s.config_lock;
+  if (!CFG_LOCKS[lock] && s.status === "online" && Number(s.players) > 0) lock = "in_use";
+  const L = CFG_LOCKS[lock];
+  if (L) {
+    return `<div class="cfg-row"><span class="cfg-tag cfg-lock" title="Configuring this server via Discord is temporarily locked (${L[1]}). This does not affect joining the server.">Config locked \u00b7 ${L[0]}</span></div>`;
+  }
   return `<div class="cfg-row"><a class="cfg-tag" href="${CFG_LINK}" target="_blank" rel="noopener" title="Configure this server in Discord">Configurable</a></div>`;
 }
 
