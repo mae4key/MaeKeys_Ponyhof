@@ -310,7 +310,9 @@
   .card.offline { border-left-color: var(--offline); opacity: 0.8; }
   .card.notavail { border-left-color: var(--notavail); opacity: 0.9; }
   .card.unknown { border-left-color: #8a8f98; opacity: 0.85; } /* WEB28 */
-  .cfg-row { text-align: right; margin-top: 0.45rem; padding-right: 0.7rem; } /* WEBCFG21 */
+  .cfg-row { margin-left: auto; flex: 0 1 auto; max-width: 100%; text-align: right; } /* WEBCFG21 WEBLAY23 */
+  .meta-wrap { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 0.3rem 0.6rem; }
+  .meta-wrap dl.meta { flex: 1 1 12rem; min-width: 0; }
   .cfg-tag { display: inline-block; font-size: 0.68rem; letter-spacing: 0.05em; text-transform: uppercase; color: #8fd18a;
     border: 1px solid #5f9a5a; background: rgba(95, 154, 90, 0.15); padding: 0.1rem 0.45rem; text-decoration: none; }
   .cfg-tag:hover { background: rgba(95, 154, 90, 0.3); }
@@ -1075,7 +1077,7 @@ const CFG_LOCKS = { // WEBLOCK22: Sperrfenster der Konfiguration (nicht des Serv
   reserved: ["being configured", "someone is configuring it right now"],
 };
 function cfgLabel(s) {
-  if (s._na || s.status === "unknown") return "";
+  if (s.status === "unknown") return "";
   let lock = s.config_lock;
   if (!CFG_LOCKS[lock] && s.status === "online" && Number(s.players) > 0) lock = "in_use";
   const L = CFG_LOCKS[lock];
@@ -1130,8 +1132,7 @@ function renderServers(servers) {
         <span class="tag ${meta.cls}">${meta.label}</span>
       </div>
       <div class="server-name" title="${esc(sn)}">${esc(sn)}</div>
-      <dl class="meta">${rows}</dl>
-      ${cfgLabel(s)}
+      <div class="meta-wrap"><dl class="meta">${rows}</dl>${cfgLabel(s)}</div>
     </div>`;
   }).join("");
 }
