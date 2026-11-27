@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-27T21:52:49+00:00",
+  "generated_at": "2026-11-27T21:55:02+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
@@ -17,11 +17,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "657"
+          "score": "614"
         },
         {
           "name": "allied",
-          "score": "1088"
+          "score": "1076"
         }
       ],
       "settings": [
@@ -50,7 +50,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-27T21:52:49+00:00"
+      "last_seen": "2026-11-27T21:55:02+00:00"
     },
     {
       "id": "bf1942-ponyhof-2",
@@ -112,10 +112,10 @@
           "name": "*** LINUS ***",
           "team": "2",
           "rank": "",
-          "score": "8",
-          "kills": "7",
-          "deaths": "1",
-          "ping": "31",
+          "score": "13",
+          "kills": "12",
+          "deaths": "3",
+          "ping": "30",
           "is_bot": false
         },
         {
@@ -124,7 +124,7 @@
           "rank": "",
           "score": "5",
           "kills": "7",
-          "deaths": "5",
+          "deaths": "7",
           "ping": "27",
           "is_bot": false
         }
@@ -132,11 +132,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "1839"
+          "score": "1782"
         },
         {
           "name": "blue",
-          "score": "1866"
+          "score": "1809"
         }
       ],
       "settings": [
@@ -165,7 +165,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-27T21:52:49+00:00"
+      "last_seen": "2026-11-27T21:55:02+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
@@ -549,7 +549,7 @@
           "16"
         ]
       ],
-      "last_seen": "2026-11-27T21:52:49+00:00"
+      "last_seen": "2026-11-27T21:55:02+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -968,7 +968,7 @@
           "16"
         ]
       ],
-      "last_seen": "2026-11-27T21:52:49+00:00"
+      "last_seen": "2026-11-27T21:55:02+00:00"
     },
     {
       "id": "bf2142-ponyhof-2",
@@ -1034,10 +1034,10 @@
           "name": "yousef",
           "team": "",
           "rank": "",
-          "score": "0",
-          "kills": "0",
+          "score": "1",
+          "kills": "1",
           "deaths": "0",
-          "ping": "100",
+          "ping": "98",
           "is_bot": false
         }
       ],
@@ -1052,7 +1052,7 @@
           "no limit"
         ]
       ],
-      "last_seen": "2026-11-27T21:52:49+00:00"
+      "last_seen": "2026-11-27T21:55:02+00:00"
     },
     {
       "id": "mohaa-ponyhof-2",
@@ -1109,7 +1109,7 @@
           "no limit"
         ]
       ],
-      "last_seen": "2026-11-27T21:52:49+00:00"
+      "last_seen": "2026-11-27T21:55:02+00:00"
     }
   ]
 }
