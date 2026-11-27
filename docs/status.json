@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-27T17:21:38+00:00",
+  "generated_at": "2026-11-27T17:23:47+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
@@ -98,50 +98,48 @@
       "id": "bfv-ponyhof-1",
       "game": "Battlefield Vietnam",
       "name": "MaeKeys Ponyhof",
-      "server_name": "MaeKey-PH Discord MaeKey",
-      "status": "online",
-      "map": "HUE 1968",
-      "mode": "coop",
-      "mod": "Vanilla",
+      "server_name": "MaeKeys Ponyhof",
+      "status": "offline",
+      "map": "",
+      "mode": "",
+      "mod": "",
       "players": 0,
-      "max_players": 63,
+      "max_players": 0,
       "scoreboard": [],
-      "tickets": [
-        {
-          "name": "red",
-          "score": "1458"
-        },
-        {
-          "name": "blue",
-          "score": "884"
-        }
-      ],
-      "settings": [
-        [
-          "Time limit",
-          "45 min"
-        ],
-        [
-          "Ticket ratio",
-          "500"
-        ],
-        [
-          "Rounds per map",
-          "1"
-        ],
-        [
-          "Team ratio",
-          "7 : 10"
-        ],
-        [
-          "Friendly fire",
-          "on"
-        ],
-        [
-          "PunkBuster",
-          "off"
+      "tickets": [],
+      "last": {
+        "map": "HUE 1968",
+        "mode": "coop",
+        "mod": "Vanilla",
+        "server_name": "MaeKey-PH Discord MaeKey",
+        "max_players": 63,
+        "settings": [
+          [
+            "Time limit",
+            "45 min"
+          ],
+          [
+            "Ticket ratio",
+            "500"
+          ],
+          [
+            "Rounds per map",
+            "1"
+          ],
+          [
+            "Team ratio",
+            "7 : 10"
+          ],
+          [
+            "Friendly fire",
+            "on"
+          ],
+          [
+            "PunkBuster",
+            "off"
+          ]
         ]
-      ],
+      },
       "last_seen": "2026-11-27T17:21:38+00:00"
     },
     {
