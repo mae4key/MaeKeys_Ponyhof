@@ -310,6 +310,10 @@
   .card.offline { border-left-color: var(--offline); opacity: 0.8; }
   .card.notavail { border-left-color: var(--notavail); opacity: 0.9; }
   .card.unknown { border-left-color: #8a8f98; opacity: 0.85; } /* WEB28 */
+  .cfg-row { text-align: right; margin-top: 0.45rem; padding-right: 0.7rem; } /* WEBCFG21 */
+  .cfg-tag { display: inline-block; font-size: 0.68rem; letter-spacing: 0.05em; text-transform: uppercase; color: #8fd18a;
+    border: 1px solid #5f9a5a; background: rgba(95, 154, 90, 0.15); padding: 0.1rem 0.45rem; text-decoration: none; }
+  .cfg-tag:hover { background: rgba(95, 154, 90, 0.3); }
 
   .card-top {
     display: flex;
@@ -1062,11 +1066,19 @@ function fmtDate(iso) {
   return isNaN(d) ? "" : d.toLocaleString("en-GB", { dateStyle: "medium", timeStyle: "short" });
 }
 
+// WEBCFG21: Hinweis, dass der Server per Discord konfiguriert werden kann (die echte Sperre liegt im Bot)
+const CFG_LINK = "https://discord.com/channels/1563231415863222402/1573735730268733624/1575479859990241431";
+function cfgLabel(s) {
+  if (s._na || s.status === "unknown") return "";
+  if (s.status === "online" && Number(s.players) > 0) return "";
+  return `<div class="cfg-row"><a class="cfg-tag" href="${CFG_LINK}" target="_blank" rel="noopener" title="Configure this server in Discord">Configurable</a></div>`;
+}
+
 function renderServers(servers) {
   const el = document.getElementById("servers");
   currentServers = {};
   // WEB20: 'nicht verfuegbar' (Nur LAN) sieht von aussen wie offline aus -> gleich anzeigen
-  servers = servers.map(s => s.status === "not_available" ? Object.assign({}, s, { status: "offline" }) : s);
+  servers = servers.map(s => s.status === "not_available" ? Object.assign({}, s, { status: "offline", _na: true }) : s);
   servers.forEach(s => { currentServers[s.id] = s; });
 
   if (servers.length === 0) {
@@ -1108,6 +1120,7 @@ function renderServers(servers) {
       </div>
       <div class="server-name" title="${esc(sn)}">${esc(sn)}</div>
       <dl class="meta">${rows}</dl>
+      ${cfgLabel(s)}
     </div>`;
   }).join("");
 }
