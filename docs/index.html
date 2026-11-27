@@ -310,9 +310,9 @@
   .card.offline { border-left-color: var(--offline); opacity: 0.8; }
   .card.notavail { border-left-color: var(--notavail); opacity: 0.9; }
   .card.unknown { border-left-color: #8a8f98; opacity: 0.85; } /* WEB28 */
-  .cfg-row { margin-left: auto; flex: 0 1 auto; max-width: 100%; text-align: right; } /* WEBCFG21 WEBLAY23 */
-  .meta-wrap { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 0.3rem 0.6rem; }
-  .meta-wrap dl.meta { flex: 1 1 12rem; min-width: 0; }
+  .cfg-row { display: block; margin: 0.55rem 0 0; padding-top: 0.45rem; border-top: 1px solid rgba(255, 255, 255, 0.12); } /* WEBCFG21 WEBLAY24 */
+  .cfg-row .cfg-tag { display: block; text-align: center; padding: 0.28rem 0.5rem; }
+  dl.meta dd { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; overflow-wrap: normal; } /* Join / Last seen einzeilig */
   .cfg-tag { display: inline-block; font-size: 0.68rem; letter-spacing: 0.05em; text-transform: uppercase; color: #8fd18a;
     border: 1px solid #5f9a5a; background: rgba(95, 154, 90, 0.15); padding: 0.1rem 0.45rem; text-decoration: none; }
   .cfg-tag:hover { background: rgba(95, 154, 90, 0.3); }
@@ -1084,7 +1084,7 @@ function cfgLabel(s) {
   if (L) {
     return `<div class="cfg-row"><span class="cfg-tag cfg-lock" title="Configuring this server via Discord is temporarily locked (${L[1]}). This does not affect joining the server.">Config locked \u00b7 ${L[0]}</span></div>`;
   }
-  return `<div class="cfg-row"><a class="cfg-tag" href="${CFG_LINK}" target="_blank" rel="noopener" title="Configure this server in Discord">Configurable</a></div>`;
+  return `<div class="cfg-row"><a class="cfg-tag" href="${CFG_LINK}" target="_blank" rel="noopener" title="Configure this server in Discord">Configurable via Discord \u203a</a></div>`;
 }
 
 function renderServers(servers) {
