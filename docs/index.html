@@ -485,6 +485,9 @@
   .tag.offline { color: var(--offline); }
   .tag.notavail { color: var(--notavail); }
   .tag.unknown { color: #8a8f98; }
+  .tag.lan { color: #e08a2e; border-color: #e08a2e; } /* WEBLAN25 */
+  .tag { min-width: 6.4rem; text-align: center; box-sizing: border-box; }
+  .card.lan { border-left-color: #c9731c; opacity: 0.95; }
   .game-name.plain { border-bottom: none; cursor: default; }
   .game-name.plain:hover { color: var(--text); }
   .settings-h {
@@ -984,6 +987,7 @@ let currentServers = {};
 const STATUS_META = {
   online: { cls: "online", label: "ONLINE" },
   not_available: { cls: "notavail", label: "NOT AVAILABLE" },
+  lan: { cls: "lan", label: "LAN GAME" }, // WEBLAN25
   offline: { cls: "offline", label: "OFFLINE" },
   unknown: { cls: "unknown", label: "UNKNOWN" }, // WEB28
 };
@@ -1114,6 +1118,8 @@ function renderServers(servers) {
       rows += `<dt>Map</dt><dd>${esc(mapText(s, s.map) || "\u2013")}</dd>`;
       rows += `<dt>Mode</dt><dd>${esc(s.mode || "\u2013")}</dd>`;
       rows += `<dt>Players</dt><dd>${s.map ? esc(s.players + (s.max_players ? " / " + s.max_players : "")) : "\u2013"}</dd>`;
+    } else if (s.status === "lan") {
+      rows += `<dt>Info</dt><dd style="white-space: normal">Set up as a local network game</dd>`;
     } else if (s.status === "not_available") {
       rows += `<dt>Map</dt><dd>${esc(mapText(s, s.map) || "\u2013")}</dd>`;
     } else {
@@ -1122,7 +1128,7 @@ function renderServers(servers) {
       rows += `<dt>Last seen</dt><dd>${esc(fmtDate(s.last_seen) || "\u2013")}</dd>`;
     }
     const jp = JOIN_PORTS[s.id];
-    if (jp && /^\d{1,3}(\.\d{1,3}){3}$/.test(PUBLIC_IP)) {
+    if (jp && s.status !== "lan" && /^\d{1,3}(\.\d{1,3}){3}$/.test(PUBLIC_IP)) {
       rows += `<dt>Join</dt><dd>${PUBLIC_IP}:${jp}</dd>`;
     }
     return `
