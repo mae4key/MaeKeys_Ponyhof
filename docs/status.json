@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-27T22:01:26+00:00",
+  "generated_at": "2026-11-27T22:03:36+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
@@ -17,11 +17,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "1246"
+          "score": "1242"
         },
         {
           "name": "allied",
-          "score": "1244"
+          "score": "1229"
         }
       ],
       "settings": [
@@ -50,7 +50,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-27T22:01:26+00:00"
+      "last_seen": "2026-11-27T22:03:36+00:00"
     },
     {
       "id": "bf1942-ponyhof-2",
@@ -112,21 +112,31 @@
           "name": "*** LINUS ***",
           "team": "2",
           "rank": "",
-          "score": "14",
-          "kills": "15",
-          "deaths": "4",
-          "ping": "30",
+          "score": "20",
+          "kills": "21",
+          "deaths": "5",
+          "ping": "39",
           "is_bot": false
+        },
+        {
+          "name": "Joueur",
+          "team": "1",
+          "rank": "",
+          "score": "0",
+          "kills": "0",
+          "deaths": "0",
+          "ping": "0",
+          "is_bot": true
         }
       ],
       "tickets": [
         {
           "name": "red",
-          "score": "1612"
+          "score": "1563"
         },
         {
           "name": "blue",
-          "score": "1720"
+          "score": "1665"
         }
       ],
       "settings": [
@@ -155,7 +165,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-27T22:01:26+00:00"
+      "last_seen": "2026-11-27T22:03:36+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
@@ -539,7 +549,7 @@
           "16"
         ]
       ],
-      "last_seen": "2026-11-27T22:01:26+00:00"
+      "last_seen": "2026-11-27T22:03:36+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -958,7 +968,7 @@
           "16"
         ]
       ],
-      "last_seen": "2026-11-27T22:01:26+00:00"
+      "last_seen": "2026-11-27T22:03:36+00:00"
     },
     {
       "id": "bf2142-ponyhof-2",
@@ -1031,7 +1041,7 @@
           "no limit"
         ]
       ],
-      "last_seen": "2026-11-27T22:01:26+00:00"
+      "last_seen": "2026-11-27T22:03:36+00:00"
     },
     {
       "id": "mohaa-ponyhof-2",
@@ -1088,7 +1098,7 @@
           "no limit"
         ]
       ],
-      "last_seen": "2026-11-27T22:01:26+00:00"
+      "last_seen": "2026-11-27T22:03:36+00:00"
     }
   ]
 }
