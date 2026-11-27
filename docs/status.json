@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-27T16:44:47+00:00",
+  "generated_at": "2026-11-27T16:46:57+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
@@ -109,11 +109,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "1716"
+          "score": "1698"
         },
         {
           "name": "blue",
-          "score": "1636"
+          "score": "1614"
         }
       ],
       "settings": [
@@ -142,7 +142,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-27T16:44:47+00:00"
+      "last_seen": "2026-11-27T16:46:57+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
