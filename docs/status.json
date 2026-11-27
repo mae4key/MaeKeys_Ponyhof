@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-27T21:50:41+00:00",
+  "generated_at": "2026-11-27T21:52:49+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
@@ -17,11 +17,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "684"
+          "score": "657"
         },
         {
           "name": "allied",
-          "score": "1094"
+          "score": "1088"
         }
       ],
       "settings": [
@@ -50,7 +50,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-27T21:50:41+00:00"
+      "last_seen": "2026-11-27T21:52:49+00:00"
     },
     {
       "id": "bf1942-ponyhof-2",
@@ -114,7 +114,7 @@
           "rank": "",
           "score": "8",
           "kills": "7",
-          "deaths": "0",
+          "deaths": "1",
           "ping": "31",
           "is_bot": false
         },
@@ -122,21 +122,21 @@
           "name": "Joueur",
           "team": "2",
           "rank": "",
-          "score": "2",
-          "kills": "4",
-          "deaths": "3",
-          "ping": "33",
+          "score": "5",
+          "kills": "7",
+          "deaths": "5",
+          "ping": "27",
           "is_bot": false
         }
       ],
       "tickets": [
         {
           "name": "red",
-          "score": "1896"
+          "score": "1839"
         },
         {
           "name": "blue",
-          "score": "1910"
+          "score": "1866"
         }
       ],
       "settings": [
@@ -165,7 +165,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-27T21:50:41+00:00"
+      "last_seen": "2026-11-27T21:52:49+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
@@ -549,7 +549,7 @@
           "16"
         ]
       ],
-      "last_seen": "2026-11-27T21:50:41+00:00"
+      "last_seen": "2026-11-27T21:52:49+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -968,7 +968,7 @@
           "16"
         ]
       ],
-      "last_seen": "2026-11-27T21:50:41+00:00"
+      "last_seen": "2026-11-27T21:52:49+00:00"
     },
     {
       "id": "bf2142-ponyhof-2",
@@ -1027,9 +1027,20 @@
       "map": "mp_gewitter_dm",
       "mode": "Free-For-All",
       "mod": "Breakthrough",
-      "players": 0,
+      "players": 1,
       "max_players": 10,
-      "scoreboard": [],
+      "scoreboard": [
+        {
+          "name": "yousef",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "0",
+          "deaths": "0",
+          "ping": "100",
+          "is_bot": false
+        }
+      ],
       "tickets": [],
       "settings": [
         [
@@ -1041,7 +1052,7 @@
           "no limit"
         ]
       ],
-      "last_seen": "2026-11-27T21:50:41+00:00"
+      "last_seen": "2026-11-27T21:52:49+00:00"
     },
     {
       "id": "mohaa-ponyhof-2",
@@ -1098,7 +1109,7 @@
           "no limit"
         ]
       ],
-      "last_seen": "2026-11-27T21:50:41+00:00"
+      "last_seen": "2026-11-27T21:52:49+00:00"
     }
   ]
 }
