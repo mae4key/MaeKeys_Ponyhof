@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-27T15:10:27+00:00",
+  "generated_at": "2026-11-27T15:19:01+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
@@ -146,45 +146,14 @@
       "id": "bfv-ponyhof-2",
       "game": "Battlefield Vietnam",
       "name": "MaeKeys Ponyhof",
-      "server_name": "MaeKeys Ponyhof",
-      "status": "offline",
+      "status": "not_available",
       "map": "",
       "mode": "",
       "mod": "",
       "players": 0,
       "max_players": 0,
       "scoreboard": [],
-      "tickets": [],
-      "last": {
-        "map": "OPERATION FLAMING DART",
-        "mode": "coop",
-        "mod": "Vanilla",
-        "server_name": "MaeKeys Ponyhof BFVietnam",
-        "max_players": 32,
-        "settings": [
-          [
-            "Ticket ratio",
-            "500"
-          ],
-          [
-            "Rounds per map",
-            "1"
-          ],
-          [
-            "Team ratio",
-            "2 : 3"
-          ],
-          [
-            "Friendly fire",
-            "on"
-          ],
-          [
-            "PunkBuster",
-            "off"
-          ]
-        ]
-      },
-      "last_seen": "2026-11-25T21:30:11+00:00"
+      "tickets": []
     },
     {
       "id": "bf2-ponyhof-1",
