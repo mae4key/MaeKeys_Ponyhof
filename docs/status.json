@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-28T15:26:37+00:00",
+  "generated_at": "2026-11-28T15:28:45+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
@@ -17,11 +17,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "1250"
+          "score": "1246"
         },
         {
           "name": "allied",
-          "score": "1250"
+          "score": "1248"
         }
       ],
       "settings": [
@@ -50,7 +50,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-28T15:26:37+00:00"
+      "last_seen": "2026-11-28T15:28:45+00:00"
     },
     {
       "id": "bf1942-ponyhof-2",
@@ -111,11 +111,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "1968"
+          "score": "1957"
         },
         {
           "name": "blue",
-          "score": "1968"
+          "score": "1961"
         }
       ],
       "settings": [
@@ -144,7 +144,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-28T15:26:37+00:00"
+      "last_seen": "2026-11-28T15:28:45+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
@@ -528,7 +528,7 @@
           "16"
         ]
       ],
-      "last_seen": "2026-11-28T15:26:37+00:00"
+      "last_seen": "2026-11-28T15:28:45+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -582,49 +582,372 @@
       "id": "bf2142-ponyhof-1",
       "game": "Battlefield 2142",
       "name": "MaeKeys Ponyhof",
-      "server_name": "MaeKeys Ponyhof",
-      "status": "offline",
-      "map": "",
-      "mode": "",
-      "mod": "",
+      "server_name": "MaeKeys Ponyhof BF2142",
+      "status": "online",
+      "map": "The_Hell",
+      "mode": "gpm_coop",
+      "mod": "Vanilla",
       "players": 0,
-      "max_players": 0,
-      "scoreboard": [],
-      "tickets": [],
-      "last": {
-        "map": "2142_Shipment",
-        "mode": "gpm_coop",
-        "mod": "Vanilla",
-        "server_name": "MaeKeys Ponyhof BF2142",
-        "max_players": 32,
-        "settings": [
-          [
-            "Time limit",
-            "45 min"
-          ],
-          [
-            "Ticket ratio",
-            "500"
-          ],
-          [
-            "Rounds per map",
-            "1"
-          ],
-          [
-            "Friendly fire",
-            "on"
-          ],
-          [
-            "PunkBuster",
-            "off"
-          ],
-          [
-            "Map size",
-            "16"
-          ]
+      "max_players": 32,
+      "scoreboard": [
+        {
+          "name": "J. Levin",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "\u0001ping_",
+          "is_bot": true
+        },
+        {
+          "name": "A. Zoghob",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1",
+          "is_bot": true
+        },
+        {
+          "name": "R. Eden",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1",
+          "is_bot": true
+        },
+        {
+          "name": "M. Bagge",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1",
+          "is_bot": true
+        },
+        {
+          "name": "J. Dawsari",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1",
+          "is_bot": true
+        },
+        {
+          "name": "D. Barron",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1",
+          "is_bot": true
+        },
+        {
+          "name": "T. Holmsten",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1",
+          "is_bot": true
+        },
+        {
+          "name": "D. Mollerstedt",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1",
+          "is_bot": true
+        },
+        {
+          "name": "D. Mod",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1",
+          "is_bot": true
+        },
+        {
+          "name": "B. Humbe",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1",
+          "is_bot": true
+        },
+        {
+          "name": "L. Josephson",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1",
+          "is_bot": true
+        },
+        {
+          "name": "A. Gyllenberg",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1",
+          "is_bot": true
+        },
+        {
+          "name": "D. Holliday",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1",
+          "is_bot": true
+        },
+        {
+          "name": "P. Sandberg",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1",
+          "is_bot": true
+        },
+        {
+          "name": "P. Soderlund",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1",
+          "is_bot": true
+        },
+        {
+          "name": "H. Andersson",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1",
+          "is_bot": true
+        },
+        {
+          "name": "D. Sundberg",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1",
+          "is_bot": true
+        },
+        {
+          "name": "A. Carlsson",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1",
+          "is_bot": true
+        },
+        {
+          "name": "F. Lindblom",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1",
+          "is_bot": true
+        },
+        {
+          "name": "N. Nolby",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1",
+          "is_bot": true
+        },
+        {
+          "name": "M. Kylmamaa",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1",
+          "is_bot": true
+        },
+        {
+          "name": "G. Tilleby",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1",
+          "is_bot": true
+        },
+        {
+          "name": "T. Kingston",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1",
+          "is_bot": true
+        },
+        {
+          "name": "J. Stenkvist",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1",
+          "is_bot": true
+        },
+        {
+          "name": "K. Bergqvist",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1",
+          "is_bot": true
+        },
+        {
+          "name": "D. Gothberg",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1",
+          "is_bot": true
+        },
+        {
+          "name": "F. Karlsson",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1",
+          "is_bot": true
+        },
+        {
+          "name": "J. Hargelid",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1",
+          "is_bot": true
+        },
+        {
+          "name": "B. Wallis",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1",
+          "is_bot": true
+        },
+        {
+          "name": "T. Karlsson",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1",
+          "is_bot": true
+        },
+        {
+          "name": "P. Skude",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1",
+          "is_bot": true
+        },
+        {
+          "name": "S. Wallberg",
+          "team": "",
+          "rank": "",
+          "score": "0",
+          "kills": "",
+          "deaths": "",
+          "ping": "1",
+          "is_bot": true
+        }
+      ],
+      "tickets": [
+        {
+          "name": "Pac",
+          "score": "0"
+        },
+        {
+          "name": "EU",
+          "score": "0"
+        }
+      ],
+      "settings": [
+        [
+          "Time limit",
+          "45 min"
+        ],
+        [
+          "Ticket ratio",
+          "500"
+        ],
+        [
+          "Rounds per map",
+          "1"
+        ],
+        [
+          "Friendly fire",
+          "on"
+        ],
+        [
+          "PunkBuster",
+          "off"
+        ],
+        [
+          "Map size",
+          "16"
         ]
-      },
-      "last_seen": "2026-11-27T22:59:49+00:00"
+      ],
+      "last_seen": "2026-11-28T15:28:45+00:00"
     },
     {
       "id": "bf2142-ponyhof-2",
@@ -678,33 +1001,26 @@
       "id": "mohaa-ponyhof-1",
       "game": "Medal of Honor: Allied Assault",
       "name": "MaeKeys Ponyhof",
-      "server_name": "MaeKeys Ponyhof",
-      "status": "offline",
-      "map": "",
-      "mode": "",
-      "mod": "",
+      "server_name": "MaeKeys Ponyhof MOHAA BT",
+      "status": "online",
+      "map": "mohdm6",
+      "mode": "Free-For-All",
+      "mod": "Breakthrough",
       "players": 0,
-      "max_players": 0,
+      "max_players": 10,
       "scoreboard": [],
       "tickets": [],
-      "last": {
-        "map": "mp_malta_dm",
-        "mode": "Free-For-All",
-        "mod": "Breakthrough",
-        "server_name": "MaeKeys Ponyhof MOHAA BT",
-        "max_players": 10,
-        "settings": [
-          [
-            "Time limit",
-            "45 min"
-          ],
-          [
-            "Frag limit",
-            "no limit"
-          ]
+      "settings": [
+        [
+          "Time limit",
+          "45 min"
+        ],
+        [
+          "Frag limit",
+          "no limit"
         ]
-      },
-      "last_seen": "2026-11-27T22:59:49+00:00"
+      ],
+      "last_seen": "2026-11-28T15:28:45+00:00"
     },
     {
       "id": "mohaa-ponyhof-2",
@@ -742,33 +1058,26 @@
       "id": "mohpa-ponyhof-1",
       "game": "Medal of Honor: Pacific Assault",
       "name": "MaeKeys Ponyhof",
-      "server_name": "MaeKeys Ponyhof",
-      "status": "offline",
-      "map": "",
-      "mode": "",
+      "server_name": "MaeKeys Ponyhof MOHPA",
+      "status": "online",
+      "map": "mp_airfield_inv",
+      "mode": "Free-For-All",
       "mod": "",
       "players": 0,
-      "max_players": 0,
+      "max_players": 10,
       "scoreboard": [],
       "tickets": [],
-      "last": {
-        "map": "mp_airfield_inv",
-        "mode": "Free-For-All",
-        "mod": "",
-        "server_name": "MaeKeys Ponyhof MOHPA",
-        "max_players": 10,
-        "settings": [
-          [
-            "Time limit",
-            "45 min"
-          ],
-          [
-            "Frag limit",
-            "no limit"
-          ]
+      "settings": [
+        [
+          "Time limit",
+          "45 min"
+        ],
+        [
+          "Frag limit",
+          "no limit"
         ]
-      },
-      "last_seen": "2026-11-27T22:59:49+00:00"
+      ],
+      "last_seen": "2026-11-28T15:28:45+00:00"
     }
   ]
 }
