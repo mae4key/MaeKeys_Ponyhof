@@ -1080,8 +1080,9 @@ const CFG_LOCKS = { // WEBLOCK22: Sperrfenster der Konfiguration (nicht des Serv
   in_use: ["in use", "players are on the server"],
   reserved: ["being configured", "someone is configuring it right now"],
 };
+let GS_OFF = false; // WEBOFF30: Gameserver-Rechner aus (final oder veraltete Daten)
 function cfgLabel(s) {
-  if (s.status === "unknown") return "";
+  if (s.status === "unknown" || GS_OFF) return "";
   let lock = s.config_lock;
   if (!CFG_LOCKS[lock] && s.status === "online" && Number(s.players) > 0) lock = "in_use";
   const L = CFG_LOCKS[lock];
@@ -1340,6 +1341,7 @@ async function load(force) {
     // damit alle Server erst bei 0 gleichzeitig gruen werden
     if (freezeActive()) frozenData = JSON.parse(JSON.stringify(data)); // WEB31
     if (freezeActive() && data.servers) data.servers = data.servers.map(sv => Object.assign({}, sv, { status: "offline" }));
+    GS_OFF = !!data.final || isStale(data); // WEBOFF30
     renderServers(data.servers || []);
     loadedOnce = true;
     anyOnline = (data.servers || []).some(sv => sv.status === "online");
