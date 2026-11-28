@@ -757,6 +757,27 @@
     .site-header .mascot { right: 1.25rem; width: 100px; }
   }
   /* WEBPONY31 Ende */
+  /* WEBPH32: goldene Pfeile, Ponyhof-Ueberschriften als Aufklapper, Discord-Knopf, Ranking-Seiten */
+  details > summary::marker { color: var(--brass); }
+  details > summary::-webkit-details-marker { color: var(--brass); }
+  .ph details.guide { margin: 0 0 0.5rem; }
+  .ph details.guide > summary { font-family: "Staatliches", sans-serif; letter-spacing: 0.04em; color: var(--brass); font-size: 1.05rem; padding: 0.45rem 0; }
+  .ph details.guide[open] > summary { margin-bottom: 0.4rem; }
+  .ph a.ph-btn {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--online); color: #1b1d15; border: 1px solid var(--online); border-radius: 0;
+    text-decoration: none; padding: 0.55rem 1rem; margin: 0.2rem 0 0.4rem;
+    font-family: "Staatliches", sans-serif; letter-spacing: 0.05em; font-size: 1.05rem;
+  }
+  .ph a.ph-btn:hover { background: #a3c673; border-color: #a3c673; color: #1b1d15; }
+  .ph a.ph-btn svg { width: 1.2rem; height: 1.2rem; fill: currentColor; }
+  .rk-info { margin: 0 0 0.8rem; }
+  .rk-pager { display: flex; align-items: center; justify-content: center; gap: 0.8rem; margin: 0.6rem 0; font-size: 0.8rem; color: var(--text-dim); }
+  .rk-pager[hidden] { display: none; }
+  .rk-pager .chip:disabled { opacity: 0.4; cursor: default; }
+  #rk-periods { scroll-margin-top: 5rem; }
+  @media (min-width: 900px) { #rk-periods { scroll-margin-top: 8.5rem; } }
+  /* WEBPH32 Ende */
   /* GUIDE1: Anleitung im Menue */
   .menu-panel details.guide { margin: 0 0 0.4rem; }
   .menu-panel details.guide summary {
@@ -900,16 +921,19 @@
   <div class="pager" id="pager">
   <section id="view-ponyhof" class="pg-other">
   <div class="ph">
-  <h3>About</h3>
+  <details class="guide">
+    <summary>About</summary>
   <p>MaeKeys Ponyhof is a small, free, self-hosted community project keeping classic early-2000s multiplayer games like Battlefield alive — because the official matchmaking services for these games have long been shut down. Everything here runs on a home server, queried directly and shown live, with no third-party listing service in between.</p>
   <p>Currently hosting Battlefield 1942, Battlefield Vietnam, Battlefield 2, Battlefield 2142, Medal of Honor: Allied Assault (via the open-source OpenMoHAA project) and Medal of Honor: Pacific Assault, including a couple of classic mods alongside vanilla. On the roadmap, as longer-term, more ambitious goals: Battlefield: Bad Company 2 and Medal of Honor: Airborne.</p>
   <p>Available now: start or configure a server yourself from our Discord &ndash; see &ldquo;Start your own server&rdquo; below. Servers stop automatically when they are empty.</p>
-  <h3>Community</h3>
-  <a href="https://discord.gg/UuEK6Z568" target="_blank" rel="noopener">Join our Discord</a>
+  </details>
+  <details class="guide">
+    <summary>Community</summary>
+  <a class="ph-btn" href="https://discord.gg/UuEK6Z568" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.2.5a18 18 0 0 0-6.4 0L8.6 3a19.7 19.7 0 0 0-4.9 1.4C.6 9.1-.3 13.6.1 18.1A19.9 19.9 0 0 0 6.1 21l1.3-2.1a13 13 0 0 1-2-1l.5-.4a14.2 14.2 0 0 0 12.2 0l.5.4a13 13 0 0 1-2 1l1.3 2.1a19.8 19.8 0 0 0 6-2.9c.5-5.2-.8-9.7-3.6-13.7ZM8.5 15.4c-1.2 0-2.1-1.1-2.1-2.4s.9-2.4 2.1-2.4 2.1 1.1 2.1 2.4-.9 2.4-2.1 2.4Zm7 0c-1.2 0-2.1-1.1-2.1-2.4s.9-2.4 2.1-2.4 2.1 1.1 2.1 2.4-.9 2.4-2.1 2.4Z"/></svg><span>Join our Discord</span></a>
+  </details>
   <!-- GUIDE1 / WEBPONY31 -->
-  <h3>Start your own server</h3>
-  <details class="guide" open>
-    <summary>How it works (Discord)</summary>
+  <details class="guide">
+    <summary>Start your own server</summary>
     <ol>
       <li>Join our <a href="https://discord.gg/UuEK6Z568" target="_blank" rel="noopener">Discord</a> and get the <b>Member</b> role.</li>
       <li>Open the channel with the pinned message &ldquo;Game servers&rdquo; and press <b>Start server</b> (default settings) or <b>Configure server</b> (your own settings). Typing <code>/start</code> or <code>/config</code> works too.</li>
@@ -925,13 +949,15 @@
       <li>Empty servers shut down automatically; your settings are used for that run only.</li>
     </ul>
   </details>
-  <h3>Server lists</h3>
+  <details class="guide">
+    <summary>Server lists</summary>
   <a href="http://master.bf1942.org/" target="_blank" rel="noopener">master.bf1942.org (BF1942)</a>
   <a href="https://openspy.net/server-list/bfvietnam" target="_blank" rel="noopener">OpenSpy (BF Vietnam)</a>
   <a href="https://www.bf2hub.com/servers/unranked/" target="_blank" rel="noopener">BF2Hub (BF2)</a>
   <a href="https://openspy.net/server-list/stella" target="_blank" rel="noopener">OpenSpy (BF2142)</a>
   <a href="https://master.333networks.com/g/all?q=medal+of+honor" target="_blank" rel="noopener">333networks (Medal of Honor)</a>
   <a href="https://portal.mohpa.net/servers" target="_blank" rel="noopener">mohPA portal (MOHPA)</a>
+  </details>
   </div>
   </section>
 
@@ -954,13 +980,6 @@
 
   <section id="view-ranking" class="pg-other">
     <div class="rk">
-      <div class="rk-chips" id="rk-periods"></div>
-      <select id="rk-select" aria-label="Time period"></select>
-      <div class="rk-chips" id="rk-games"></div>
-      <input type="search" id="rk-search" placeholder="Find a player (nickname)" maxlength="32" autocomplete="off">
-      <div class="rk-found" id="rk-found"></div>
-      <ol class="rk-list" id="rk-list"></ol>
-      <p class="rk-meta" id="rk-meta"></p>
       <details class="rk-info">
         <summary>How the ranking works</summary>
         <ul>
@@ -971,6 +990,14 @@
           <li>The current period is an interim standing and is updated about every 15 minutes.</li>
         </ul>
       </details>
+      <div class="rk-chips" id="rk-periods"></div>
+      <select id="rk-select" aria-label="Time period"></select>
+      <div class="rk-chips" id="rk-games"></div>
+      <input type="search" id="rk-search" placeholder="Find a player (nickname)" maxlength="32" autocomplete="off">
+      <div class="rk-found" id="rk-found"></div>
+      <ol class="rk-list" id="rk-list"></ol>
+      <div class="rk-pager" id="rk-pager" hidden><button type="button" class="chip" id="rk-prev">&lsaquo; Previous</button><span id="rk-page"></span><button type="button" class="chip" id="rk-next">Next &rsaquo;</button></div>
+      <p class="rk-meta" id="rk-meta"></p>
     </div>
   </section>
 
@@ -1575,6 +1602,7 @@ function showScoreboard(id) {
 // ---------- Ranking ----------
 const RANKING_BASE = "https://raw.githubusercontent.com/mae4key/MaeKeys_Ponyhof_Ranking/main/data/";
 const RK = { data: null, players: null, period: "week", game: "all", key: null, arch: {}, rows: [], started: false };
+const RK_PAGE = 50; // WEBPH32: Eintraege pro Seite (Blaettern nur bei mehr)
 const RK_PERIODS = [["day", "Day"], ["week", "Week"], ["month", "Month"], ["year", "Year"], ["all", "All time"]];
 const RK_SHORT = { bf1942: "BF1942", bfv: "BFV", bf2: "BF2", bf2142: "BF2142", mohaa: "MOHAA", mohpa: "MOHPA" };
 
@@ -1639,9 +1667,18 @@ function rkRender() {
       `<button type="button" class="chip${g.id === RK.game ? " active" : ""}" data-g="${esc(g.id)}">${esc(g.id === "all" ? "Overall" : (RK_SHORT[g.id] || g.name))}</button>`).join("");
   const v = rkView();
   RK.rows = v ? (v.scopes[RK.game] || []) : [];
+  const sig = RK.period + "|" + RK.key + "|" + RK.game;
+  if (sig !== RK.sig) { RK.sig = sig; RK.page = 0; }
+  const pages = Math.max(1, Math.ceil(RK.rows.length / RK_PAGE));
+  RK.page = Math.min(RK.page || 0, pages - 1);
+  RK.off = RK.page * RK_PAGE;
+  document.getElementById("rk-pager").hidden = pages < 2;
+  document.getElementById("rk-prev").disabled = RK.page === 0;
+  document.getElementById("rk-next").disabled = RK.page >= pages - 1;
+  document.getElementById("rk-page").textContent = "Page " + (RK.page + 1) + " / " + pages;
   const ul = document.getElementById("rk-list");
   ul.innerHTML = RK.rows.length
-    ? RK.rows.map((r, i) => `<li class="rk-row${i < 3 ? " rk-r" + (i + 1) : ""}" data-i="${i}"><span class="rk-rank">${i + 1}</span><span class="rk-name">${esc(r.n)}</span><span class="rk-pts">${esc(r.p)}</span></li>`).join("")
+    ? RK.rows.map((r, i) => (i < RK.off || i >= RK.off + RK_PAGE) ? "" : `<li class="rk-row${i < 3 ? " rk-r" + (i + 1) : ""}" data-i="${i}"><span class="rk-rank">${i + 1}</span><span class="rk-name">${esc(r.n)}</span><span class="rk-pts">${esc(r.p)}</span></li>`).join("")
     : `<li class="rk-empty">No points recorded in this period yet.</li>`;
   const last = RK.data.last_points_ts ? new Date(RK.data.last_points_ts * 1000).toLocaleString("en-GB", { dateStyle: "medium", timeStyle: "short" }) : "\u2013";
   document.getElementById("rk-meta").textContent = "Last points recorded: " + last + " \u00b7 gaming day ends 04:00 (CET/CEST)";
@@ -1807,6 +1844,13 @@ document.getElementById("rk-games").addEventListener("click", e => {
   RK.game = b.dataset.g; rkRender();
 });
 document.getElementById("rk-select").addEventListener("change", e => rkSelectKey(e.target.value));
+function rkGo(d) {
+  RK.page = Math.max(0, (RK.page || 0) + d);
+  rkRender();
+  document.getElementById("rk-periods").scrollIntoView({ block: "start" });
+}
+document.getElementById("rk-prev").addEventListener("click", () => rkGo(-1));
+document.getElementById("rk-next").addEventListener("click", () => rkGo(1));
 document.getElementById("rk-list").addEventListener("click", e => {
   const li = e.target.closest("[data-i]"); if (!li) return;
   const r = RK.rows[parseInt(li.dataset.i, 10)];
@@ -2077,3 +2121,4 @@ initBackgroundFx();
 </html>
 
 <!-- WEBPONY31 -->
+<!-- WEBPH32 -->
