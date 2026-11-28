@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-28T16:11:37+00:00",
+  "generated_at": "2026-11-28T16:13:47+00:00",
   "public_ip": "185.203.133.2",
   "servers": [
     {
@@ -17,11 +17,11 @@
       "tickets": [
         {
           "name": "axis",
-          "score": "634"
+          "score": "586"
         },
         {
           "name": "allied",
-          "score": "1166"
+          "score": "1160"
         }
       ],
       "settings": [
@@ -50,7 +50,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-28T16:11:37+00:00"
+      "last_seen": "2026-11-28T16:13:47+00:00"
     },
     {
       "id": "bf1942-ponyhof-2",
@@ -111,11 +111,11 @@
       "tickets": [
         {
           "name": "red",
-          "score": "1807"
+          "score": "1797"
         },
         {
           "name": "blue",
-          "score": "1719"
+          "score": "1712"
         }
       ],
       "settings": [
@@ -144,7 +144,7 @@
           "off"
         ]
       ],
-      "last_seen": "2026-11-28T16:11:37+00:00"
+      "last_seen": "2026-11-28T16:13:47+00:00"
     },
     {
       "id": "bfv-ponyhof-2",
@@ -528,7 +528,7 @@
           "16"
         ]
       ],
-      "last_seen": "2026-11-28T16:11:37+00:00"
+      "last_seen": "2026-11-28T16:13:47+00:00"
     },
     {
       "id": "bf2-ponyhof-2",
@@ -947,7 +947,7 @@
           "16"
         ]
       ],
-      "last_seen": "2026-11-28T16:11:37+00:00"
+      "last_seen": "2026-11-28T16:13:47+00:00"
     },
     {
       "id": "bf2142-ponyhof-2",
@@ -1003,7 +1003,7 @@
       "name": "MaeKeys Ponyhof",
       "server_name": "MaeKeys Ponyhof MOHAA BT",
       "status": "online",
-      "map": "mohdm6",
+      "map": "mohdm7",
       "mode": "Free-For-All",
       "mod": "Breakthrough",
       "players": 0,
@@ -1020,7 +1020,7 @@
           "no limit"
         ]
       ],
-      "last_seen": "2026-11-28T16:11:37+00:00"
+      "last_seen": "2026-11-28T16:13:47+00:00"
     },
     {
       "id": "mohaa-ponyhof-2",
@@ -1077,7 +1077,7 @@
           "no limit"
         ]
       ],
-      "last_seen": "2026-11-28T16:11:37+00:00"
+      "last_seen": "2026-11-28T16:13:47+00:00"
     }
   ]
 }
